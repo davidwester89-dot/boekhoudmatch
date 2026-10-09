@@ -124,7 +124,7 @@ table.compare th[scope=row]{white-space:nowrap}table.compare td.n{white-space:no
 /* footer */
 footer.site{border-top:1px solid var(--line);background:var(--sand);font-size:.94rem;color:#4b443c;padding:30px 0 34px}
 footer.site .cols{display:grid;gap:22px}
-@media(min-width:700px){footer.site .cols{grid-template-columns:1.4fr 1fr 1fr}}
+@media(min-width:700px){footer.site .cols{grid-template-columns:1.4fr 1fr 1fr 1fr}}
 footer.site h2{font-size:1rem;margin:0 0 8px}
 footer.site ul{list-style:none;padding:0;margin:0}footer.site li a{display:inline-block;padding:6px 0;color:#4b443c}
 footer.site .fine{margin-top:20px;font-size:.85rem;color:var(--muted)}
@@ -183,3 +183,5 @@ h2.h3{font-size:1.12rem;margin-top:0}
 .pick{background:var(--green-soft);border-radius:12px;padding:10px 12px;margin:6px 0 10px}.pick p{margin:0}.pick .lbl{font-weight:700;color:var(--green)}
 .rank.picked{border:2px solid var(--green)}
 .photo{margin:14px 0 18px;max-width:560px}.photo img{display:block;width:100%;height:auto;aspect-ratio:3/2;border-radius:16px;object-fit:cover}
+
+.gidslijst{list-style:none;padding:0}.gidslijst li{padding:10px 0;border-bottom:1px solid var(--line)}

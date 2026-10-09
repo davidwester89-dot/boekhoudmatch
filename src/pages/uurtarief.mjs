@@ -1,4 +1,4 @@
-import { SITE, field, check, slot, sourceList, webApp, faqSchema, faqHtml, fmtDate, more } from '../layout.mjs';
+import { SITE, field, check, slot, sourceList, webApp, faqSchema, faqHtml, fmtDate, more, volgendeStap } from '../layout.mjs';
 import { SOURCES } from '../lib/constants.js';
 
 const path = '/zzp-uurtarief/';
@@ -43,7 +43,6 @@ ${check({ name: 'starter', label: 'Ik heb recht op startersaftrek', checked: fal
 <p id="out-sub" class="note"></p>
 <div id="out-alert"></div>
 <table class="kv"><tbody id="out-table"></tbody></table>
-<p class="note">Op zoek naar een boekhoudprogramma? <a href="/boekhoudprogramma-kiezen/">Doe de boekhoudmatch</a>.</p>
 ${slot('boekhoudsoftware', 'partnerlink boekhoudprogramma.')}
 <p class="note">Offerte of factuur maken met dit tarief? Gebruik de gratis <a href="/offerte-factuur-maken/">offerte- en factuurtool</a>. Tarief inclusief btw nodig? <a href="/btw-berekenen/">Btw berekenen</a>.</p>
 </section>
@@ -60,6 +59,7 @@ ${more('Berekening stap voor stap', `
 ${faqHtml(faq)}
 
 ${more('Bronnen', sourceList(['box1_2026', 'kortingen_2026', 'arbeidsinkomen', 'zelfstandigenaftrek_2026', 'mkb_2026', 'tariefaanpassing_2026', 'zvw_2026', 'urencriterium'], SOURCES))}
+${volgendeStap([['Urenregistratie voor zzp\'ers', '/urenregistratie-zzp/'], ['Beste boekhoudprogramma voor zzp\'ers', '/beste-boekhoudprogramma-zzp/']])}
 {{related}}
 `;
 
