@@ -151,3 +151,6 @@ body.has-consent{padding-bottom:190px}
 @media print{.consent{display:none}}
 @media print{header.site,footer.site,.slot,nav.main,.presets,.mobilebar{display:none}.result{position:static}body{background:#fff}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+/* methode */
+.methodbox{margin:18px 0}.methodbox h2{margin:0 0 .5em;font-size:1.2rem}
+ul.method{margin:0 0 10px;padding-left:1.2em}ul.method li{margin-bottom:6px}

@@ -1,4 +1,4 @@
-import { SITE, GA_ID, esc, field, slot, sourceList, webApp, fmtDate, more, ORG, ICONS } from '../layout.mjs';
+import { SITE, GA_ID, esc, field, slot, sourceList, webApp, fmtDate, more, ORG, ICONS, FOUNDER, METHODE_LIJST } from '../layout.mjs';
 import { SOURCES, IB2026, ENERGY, BTW, CHECKED } from '../lib/constants.js';
 import { PAKKETTEN, CHECKED as PCHECKED } from '../lib/pakketten.js';
 
@@ -48,7 +48,7 @@ ${tool('/blog/', 'blog', 'Blog', 'Wat verandert er voor zzp\'ers? Kort uitgelegd
 <div class="card"><h3>Officiële cijfers</h3><p class="note">Belastingbedragen van de Belastingdienst en Rijksoverheid. Alle bronnen staan op <a href="/bronnen/">één pagina</a>.</p></div>
 </div>
 
-<p class="note" style="margin-top:28px">Ook handig voor thuis: <a href="/salderen-2027/">wat kost het einde van salderen?</a> · <a href="/thuisbatterij-terugverdientijd/">verdient een thuisbatterij zich terug?</a></p>`,
+`,
   schema: [
     { '@context': 'https://schema.org', ...ORG, sameAs: [] },
     { '@context': 'https://schema.org', '@type': 'WebSite', name: SITE.name, url: SITE.domain + '/', inLanguage: 'nl-NL', publisher: { '@type': 'Organization', name: SITE.name } },
@@ -158,14 +158,17 @@ export const over = {
 <h1>Over ${SITE.name}</h1>
 <div class="prose">
 <p class="lead">We helpen zzp'ers met boekhouding, geld en belasting. Elk getal heeft een bron en alles werkt zonder account. Statistieken houden we alleen bij met jouw toestemming.</p>
-<h2>Hoe de match de volgorde bepaalt</h2>
-<p>Eerst wat bij je past en binnen je budget valt, daarna de prijs per maand, met plus- en minpunten voor btw-aangifte, bankkoppeling, offertes, uren en hulp bij je aangifte. De volledige methode staat <a href="/boekhoudprogramma-kiezen/#methode">bij de match</a>. Of wij ergens aan verdienen, telt niet mee.</p>
+<h2>Wie controleert de prijzen</h2>
+<p>${FOUNDER.zin}</p>
+<h2>Zo werken we</h2>
+${METHODE_LIJST}
+<p>De volledige rekenregels van de match staan <a href="/boekhoudprogramma-kiezen/#methode">bij de match</a>. Alle bronnen en controledatums staan op de <a href="/bronnen/">bronnenpagina</a>.</p>
 <h2>Hoe we geld verdienen</h2>
 <p>Op dit moment verdienen we niets aan deze site. Later plaatsen we mogelijk partnerlinks: sluit je via zo'n link iets af, dan krijgen wij een vergoeding. Voor jou verandert de prijs niet. Zulke links zijn altijd gemarkeerd en hebben geen invloed op uitkomsten of volgorde.</p>
 <h2>Fout gezien?</h2>
 <p>Een verouderde prijs of een fout in een berekening? Mail ons via <a href="mailto:${SITE.email}">${SITE.email}</a>. We passen het snel aan en vermelden het op de <a href="/bronnen/">bronnenpagina</a>.</p>
 </div>`,
-  schema: [{ '@context': 'https://schema.org', '@type': 'AboutPage', name: 'Over BoekhoudMatch', url: SITE.domain + '/over/', publisher: ORG }],
+  schema: [{ '@context': 'https://schema.org', '@type': 'AboutPage', name: 'Over BoekhoudMatch', url: SITE.domain + '/over/', publisher: ORG, mainEntity: { ...FOUNDER.schema, worksFor: { '@type': 'Organization', name: SITE.name } } }],
 };
 
 const GA_COOKIE = GA_ID ? `_ga_${GA_ID.slice(2)}` : '_ga_<ID>';

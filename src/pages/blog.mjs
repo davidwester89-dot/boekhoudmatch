@@ -10,7 +10,7 @@ const TOOLNAMES = {
 };
 export { TOOLNAMES };
 
-const AUTHOR = { '@type': 'Organization', name: 'Redactie BoekhoudMatch', url: SITE.domain + '/over/' };
+const AUTHOR = { '@type': 'Person', name: 'Dave West', url: SITE.domain + '/over/' };
 const readMin = (w) => Math.max(1, Math.round(w / 200));
 
 export function postPage(post, all, ogKey) {
@@ -18,7 +18,7 @@ export function postPage(post, all, ogKey) {
   const body = `
 <article class="article">
 <h1>${esc(post.title)}</h1>
-<p class="post-meta">Door Redactie BoekhoudMatch · <time datetime="${post.date}">${fmtDate(post.date)}</time>${post.updated !== post.date ? ` · bijgewerkt <time datetime="${post.updated}">${fmtDate(post.updated)}</time>` : ''} · ${readMin(post.words)} min lezen</p>
+<p class="post-meta">Door <a href="/over/">Dave West</a> · <time datetime="${post.date}">${fmtDate(post.date)}</time>${post.updated !== post.date ? ` · bijgewerkt <time datetime="${post.updated}">${fmtDate(post.updated)}</time>` : ''} · ${readMin(post.words)} min lezen</p>
 ${post.html}
 ${post.tools.length ? `<aside class="cta"><h2>Reken het zelf uit</h2><ul>${post.tools.map((t) => `<li><a href="${t}">${esc(TOOLNAMES[t] || t)} →</a></li>`).join('')}</ul></aside>` : ''}
 <h2>Bronnen</h2>
