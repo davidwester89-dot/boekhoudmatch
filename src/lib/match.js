@@ -47,6 +47,8 @@ export function beoordeel(aanbieder, plan, a) {
   if (plan.boekingenMaand !== undefined && v.boekingenMaand > plan.boekingenMaand) nee.push(`Max. ${plan.boekingenMaand} boekingen per maand (jij: ca. ${v.boekingenMaand}).`);
   if (plan.boekingenJaar !== undefined && v.boekingenJaar > plan.boekingenJaar) nee.push(`Max. ${plan.boekingenJaar} boekingen per jaar (jij: ca. ${v.boekingenJaar}).`);
 
+  if (plan.omzetMax) let_op.push(`Pakket is voor een omzet tot € ${plan.omzetMax.toLocaleString('nl-NL')} per jaar.`);
+
   if (plan.viaBoekhouder && a.ib === 'zelf') nee.push('Bedoeld voor samenwerking met een boekhouder; niet om zelf te boekhouden.');
 
   if (a.btw === 'plichtig') {
@@ -77,6 +79,7 @@ export function beoordeel(aanbieder, plan, a) {
   if (a.ib === 'hulp') {
     if (plan.ib === 'controle' || plan.ib === 'inclusief') { score += PUNTEN.ibMatch; plus.push(plan.ib === 'inclusief' ? 'Boekhouder doet je aangifte inkomstenbelasting.' : 'Aangifte inkomstenbelasting wordt gecontroleerd/voorbereid in het pakket.'); }
     else if (plan.ib === 'eigen-boekhouder') { score += PUNTEN.ibEigenBoekhouder; let_op.push('Werkt samen met jouw eigen boekhouder; diens kosten komen erbij.'); }
+    else if (plan.ib === 'rapportage') let_op.push('Pakket maakt een overzicht voor je IB-aangifte; invullen doe je zelf.');
     else if (plan.ib === null) let_op.push('Hulp bij de IB-aangifte: niet per pakket te verifiëren.');
     else let_op.push('Geen hulp bij de aangifte inkomstenbelasting.');
   } else if (a.ib === 'uitbesteden') {

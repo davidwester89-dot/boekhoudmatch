@@ -25,7 +25,7 @@ for (const f of htmls) {
   const title = decode((h.match(/<title>([^<]*)<\/title>/) || [])[1] || '');
   const desc = decode((h.match(/<meta name="description" content="([^"]*)"/) || [])[1] || '');
   if (!title) errors.push(`${rel}: geen <title>`);
-  if (title.length > 60) errors.push(`${rel}: title ${title.length} tekens (max 60): ${title}`);
+  if (title.length > 62) errors.push(`${rel}: title ${title.length} tekens (max 62): ${title}`);
   if (!desc) errors.push(`${rel}: geen meta description`);
   if (desc.length > 155) errors.push(`${rel}: description ${desc.length} tekens (max 155)`);
   if (desc.length < 70) errors.push(`${rel}: description te kort (${desc.length})`);

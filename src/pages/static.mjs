@@ -1,41 +1,77 @@
 import { SITE, GA_ID, esc, field, slot, sourceList, webApp, fmtDate, more, ORG, ICONS, FOUNDER, METHODE_LIJST } from '../layout.mjs';
 import { SOURCES, IB2026, ENERGY, BTW, CHECKED } from '../lib/constants.js';
 import { PAKKETTEN, CHECKED as PCHECKED } from '../lib/pakketten.js';
+import { REDACTIE, vendorHref } from '../lib/aanbieders.js';
+import { match } from '../lib/match.js';
 
 const nl = (x, d = 2) => new Intl.NumberFormat('nl-NL', { minimumFractionDigits: d, maximumFractionDigits: d }).format(x);
 const pc = (x) => nl(x * 100, 2).replace(/,00$/, '') + '%';
 const tool = (href, icon, title, text) => `<a class="card" href="${href}"><span class="ico">${ICONS[icon]}</span><h3>${title}</h3><p>${text}</p></a>`;
 
+const N_AANB = PAKKETTEN.length;
+const N_PAK = PAKKETTEN.reduce((n, a) => n + a.plannen.length, 0);
+const LAATSTE_CONTROLE = PAKKETTEN.map((a) => a.gecontroleerd || PCHECKED).sort()[0]; // oudste controledatum = eerlijkste claim
+export const STATS = { N_AANB, N_PAK, LAATSTE_CONTROLE };
+const e2 = (x) => '€ ' + x.toFixed(2).replace('.', ',');
+
+// Drie voorbeeldprofielen: de uitkomst komt uit dezelfde match-functie als de tool (bij elke build opnieuw berekend).
+export const VOORBEELDEN = [
+  { id: 'starter', titel: 'Starter', wie: 'Eenmanszaak, 0–2 facturen en tot 5 bonnen per maand, btw-aangifte, bank handmatig importeren mag, budget tot € 10.', a: { rechtsvorm: 'eenmanszaak', facturen: 2, uitgaven: 5, btw: 'plichtig', bank: 'maakt-niet-uit', ib: 'zelf', extra: [], budget: 10 } },
+  { id: 'uren', titel: 'Dienstverlener met uren', wie: 'Eenmanszaak, 3–5 facturen en 6–10 bonnen per maand, btw-aangifte, automatische bankkoppeling, uren en offertes, budget tot € 20.', a: { rechtsvorm: 'eenmanszaak', facturen: 5, uitgaven: 10, btw: 'plichtig', bank: 'auto', ib: 'zelf', extra: ['uren', 'offertes'], budget: 20 } },
+  { id: 'groei', titel: 'Groeiende eenmanszaak', wie: 'Eenmanszaak, 11–25 facturen en 21–50 bonnen per maand, btw-aangifte, automatische bankkoppeling, offertes, hulp bij de IB-aangifte, budget tot € 50.', a: { rechtsvorm: 'eenmanszaak', facturen: 25, uitgaven: 50, btw: 'plichtig', bank: 'auto', ib: 'hulp', extra: ['offertes'], budget: 50 } },
+];
+export const matchUrl = (a) => '/boekhoudprogramma-kiezen/?' + new URLSearchParams({ rechtsvorm: a.rechtsvorm, facturen: a.facturen, uitgaven: a.uitgaven, btw: a.btw, bank: a.bank, offertes: a.extra.includes('offertes') ? '1' : '0', uren: a.extra.includes('uren') ? '1' : '0', ib: a.ib, budget: String(a.budget) }).toString();
+function voorbeeld(v) {
+  const top = match(PAKKETTEN, v.a).filter((r) => r.past).slice(0, 3);
+  return `<article class="card example"><h3>${esc(v.titel)}</h3><p class="note">${esc(v.wie)}</p><ol class="top">${top.map((r) => `<li><strong>${esc(r.naam)} ${esc(r.planNaam)}</strong> <span class="price">${e2(r.prijs)} p/m</span>${r.plus[0] ? `<div class="note">${esc(r.plus[0])}</div>` : ''}${r.let_op[0] ? `<div class="note warn">Let op: ${esc(r.let_op[0])}</div>` : ''}</li>`).join('')}</ol><a href="${esc(matchUrl(v.a))}" rel="nofollow">Open deze match en pas aan →</a></article>`;
+}
+export function logoTile(a, href) {
+  const r = REDACTIE[a.id];
+  const inner = r.logo ? `<img src="/logos/${r.logo}.webp" width="160" height="48" alt="${esc(a.naam)}" loading="lazy" decoding="async">` : `<span class="wordmark">${esc(r.kort)}</span>`;
+  return `<a class="logo-tile" href="${href}" title="${esc(a.naam)}">${inner}</a>`;
+}
+
 export const home = {
   path: '/',
-  title: 'BoekhoudMatch: boekhoudprogramma en rekentools voor zzp',
-  ogTitle: 'Vind het boekhoudprogramma dat bij je past',
-  description: `Vind in 8 vragen het boekhoudprogramma dat bij je past (${PAKKETTEN.length} aanbieders, echte prijzen) en reken netto inkomen, uurtarief en btw uit. Gratis, zonder account.`,
+  title: 'Boekhoudprogramma vergelijken voor zzp (2026) | BoekhoudMatch',
+  ogTitle: 'Welk boekhoudprogramma past bij jouw zzp-bedrijf?',
+  description: `Welk boekhoudprogramma past bij jouw zzp-bedrijf? 8 vragen, ${N_PAK} pakketten van ${N_AANB} aanbieders, met prijs, limiet en bron. Gratis, zonder account.`,
   og: 'home',
   body: `
 <section class="hero">
 <div>
-<h1 class="h1-brand">Boekhoud<b>Match</b>.nl</h1>
-<p class="lead">Beantwoord 8 vragen en zie welk boekhoudprogramma bij jouw zzp-bedrijf past. Met echte prijzen en eerlijk uitgelegd.</p>
-<div class="actions"><a class="btn" href="/boekhoudprogramma-kiezen/">Start de match</a><a class="btn ghost" href="/boekhoudprogramma-vergelijken/">Vergelijk prijzen</a></div>
-<ul class="trust"><li>${PAKKETTEN.length} aanbieders vergeleken</li><li>Actuele prijzen</li><li>Gratis, zonder account</li></ul>
+<h1>Welk boekhoudprogramma past bij jouw zzp-bedrijf?</h1>
+<p class="lead">Beantwoord 8 vragen en zie welke pakketten passen, wat ze per maand kosten en waar de limiet zit.</p>
+<div class="actions"><a class="btn" href="/boekhoudprogramma-kiezen/">Start de match</a><a class="btn ghost" href="/boekhoudprogramma-vergelijken/">Vergelijk alle ${N_PAK} pakketten</a></div>
+<ul class="trust"><li>${N_AANB} aanbieders</li><li>Prijzen gecontroleerd op ${fmtDate(LAATSTE_CONTROLE)}</li><li>Gratis en zonder account</li></ul>
 </div>
-<div class="hero-card" aria-label="Zo werkt het">
-<ol>
-<li><span>1</span><div><strong>Vertel kort over je bedrijf</strong><br><span class="note">Facturen, bonnen, btw, bank.</span></div></li>
-<li><span>2</span><div><strong>Zie wat past en wat het kost</strong><br><span class="note">Per maand, met de limieten erbij.</span></div></li>
-<li><span>3</span><div><strong>Kies met een gerust hart</strong><br><span class="note">We leggen uit waarom iets bovenaan staat.</span></div></li>
-</ol>
-</div>
+<figure class="shot"><img src="/img/match-voorbeeld.webp" width="560" height="400" alt="Voorbeeld van de boekhoudmatch: vragen links, beste match en top 3 met maandprijs rechts" decoding="async" fetchpriority="low"><figcaption class="note">Zo ziet de match eruit.</figcaption></figure>
 </section>
 
-<h2>Handige tools voor zzp'ers</h2>
+<h2>Drie voorbeeldmatches</h2>
+<p class="note">Echte uitkomsten van de match voor drie situaties, met de prijzen van ${fmtDate(LAATSTE_CONTROLE)}. Jouw situatie is anders? Doe de match zelf.</p>
 <div class="grid cards">
-${tool('/boekhoudprogramma-vergelijken/', 'compare', 'Boekhoudprogramma\'s vergelijken', 'Alle pakketten naast elkaar: prijs, limieten, btw-aangifte en bankkoppeling.')}
+${VOORBEELDEN.map(voorbeeld).join('\n')}
+</div>
+
+<h2>Deze ${N_AANB} aanbieders vergelijken we</h2>
+<div class="logos">${[...PAKKETTEN].sort((x, y) => x.naam.localeCompare(y.naam, 'nl')).map((a) => logoTile(a, vendorHref(a.id))).join('')}</div>
+<p class="note">Op alfabet. Logo's van de sites van de aanbieders zelf; waar dat niet netjes lukte, staat de naam.</p>
+
+<h2>Zo werkt het</h2>
+<div class="grid cards">
+<div class="card"><h3>1. Vertel kort over je bedrijf</h3><p class="note">Rechtsvorm, facturen, bonnen, btw, bank en budget.</p></div>
+<div class="card"><h3>2. Zie wat past en wat het kost</h3><p class="note">Per maand, met de limiet die bij jou knelt.</p></div>
+<div class="card"><h3>3. Lees waarom</h3><p class="note">Bij elk pakket staat waarom het past of afvalt, met bronlink.</p></div>
+</div>
+
+<h2>Rekentools voor zzp'ers</h2>
+<div class="grid cards">
 ${tool('/zzp-netto-inkomen/', 'netto', 'Netto inkomen berekenen', 'Wat houd je over van je winst, en hoeveel moet je opzijzetten?')}
 ${tool('/zzp-uurtarief/', 'uur', 'Uurtarief berekenen', 'Welk tarief heb je nodig? Ook vanuit je huidige salaris.')}
 ${tool('/btw-berekenen/', 'btw', 'Btw berekenen', 'Van exclusief naar inclusief en terug, 21% of 9%.')}
 ${tool('/offerte-factuur-maken/', 'factuur', 'Offerte en factuur maken', 'Gratis, zonder account. Alles blijft in je eigen browser.')}
+${tool('/boekhoudprogramma-vergelijken/', 'compare', 'Boekhoudprogramma\'s vergelijken', 'Alle pakketten naast elkaar: prijs, limieten, btw-aangifte en bankkoppeling.')}
 ${tool('/blog/', 'blog', 'Blog', 'Wat verandert er voor zzp\'ers? Kort uitgelegd, met bronnen.')}
 </div>
 
@@ -43,12 +79,10 @@ ${tool('/blog/', 'blog', 'Blog', 'Wat verandert er voor zzp\'ers? Kort uitgelegd
 
 <h2>Waarom BoekhoudMatch</h2>
 <div class="grid cards">
-<div class="card"><h3>Echte prijzen</h3><p class="note">Elke prijs komt van de site van de aanbieder, met de datum erbij. Wat we niet kunnen controleren, noemen we “niet vermeld”.</p></div>
-<div class="card"><h3>Eerlijke volgorde</h3><p class="note">Je ziet waarom een pakket bovenaan staat. Of wij ergens aan verdienen, telt niet mee.</p></div>
-<div class="card"><h3>Officiële cijfers</h3><p class="note">Belastingbedragen van de Belastingdienst en Rijksoverheid. Alle bronnen staan op <a href="/bronnen/">één pagina</a>.</p></div>
-</div>
-
-`,
+<div class="card"><h3>Echte prijzen</h3><p class="note">Elke prijs komt van de prijspagina van de aanbieder, met de datum erbij. Wat er niet staat, noemen we “niet vermeld”.</p></div>
+<div class="card"><h3>Eerlijke volgorde</h3><p class="note">Passend, dan budget, dan prijs. Of wij ergens aan verdienen, telt niet mee.</p></div>
+<div class="card"><h3>Wie controleert</h3><p class="note">${FOUNDER.zin} <a href="/over/">Over ons</a>.</p></div>
+</div>`,
   schema: [
     { '@context': 'https://schema.org', ...ORG, sameAs: [] },
     { '@context': 'https://schema.org', '@type': 'WebSite', name: SITE.name, url: SITE.domain + '/', inLanguage: 'nl-NL', publisher: { '@type': 'Organization', name: SITE.name } },
@@ -146,7 +180,7 @@ ${sourceList(['btw', 'kor'], SOURCES)}
 <p class="note">* Voorstel uit het Belastingplan 2027. Definitief na goedkeuring door het parlement.</p>
 ${more('Energiebronnen en data', sourceList(['eb_2026', 'eb_2027', 'saldering', 'terugleverkosten_per_kwh', 'cbs_tarieven', 'nedu', 'pvgis', 'epex', 'milieucentraal_zelfverbruik', 'homewizard_battery'], SOURCES))}
 <h2>Wijzigingen</h2>
-<ul><li>10 oktober 2026: Silvasoft toegevoegd als 9e aanbieder (prijzen en functies van silvasoft.nl).</li><li>9 oktober 2026: nieuw design en blog.</li><li>8 oktober 2026: eerste versie. Rompslomp: tarieven per 1 november 2026.</li></ul>`,
+<ul><li>10 oktober 2026: MoneyMonk toegevoegd (prijzen van moneymonk.nl). Alle prijzen opnieuw gecontroleerd; geen wijzigingen.</li><li>10 oktober 2026: Silvasoft toegevoegd als 9e aanbieder (prijzen en functies van silvasoft.nl).</li><li>9 oktober 2026: nieuw design en blog.</li><li>8 oktober 2026: eerste versie. Rompslomp: tarieven per 1 november 2026.</li></ul>`,
 };
 
 export const over = {

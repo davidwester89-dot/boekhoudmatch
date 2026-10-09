@@ -7,14 +7,14 @@ const basis = { rechtsvorm: 'eenmanszaak', facturen: 5, uitgaven: 10, btw: 'plic
 const ids = (r) => r.map((x) => `${x.aanbieder}:${x.plan}`);
 
 test('data: elke aanbieder heeft bron-URL van eigen domein, plannen met prijs, en controledatum', () => {
-  assert.equal(CHECKED, '2026-10-08');
+  assert.equal(CHECKED, '2026-10-10');
   for (const a of PAKKETTEN) {
     const host = new URL(a.site).hostname.replace(/^www\./, '');
     assert.ok(a.bronnen.length > 0, a.id);
     for (const b of a.bronnen) assert.ok(new URL(b.url).hostname.endsWith(host), `${a.id} bron ${b.url} niet van eigen site`);
     for (const p of a.plannen) assert.ok(typeof p.prijs === 'number' && p.prijs >= 0, `${a.id}/${p.id}`);
   }
-  assert.equal(PAKKETTEN.length, 9);
+  assert.equal(PAKKETTEN.length, 10);
 });
 
 test('affiliate-status beïnvloedt de rangorde niet', () => {

@@ -146,7 +146,7 @@ footer.site .fine{margin-top:20px;font-size:.85rem;color:var(--muted)}
 .consent .consent-btn:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
 @media(min-width:700px){.consent{padding-bottom:16px}.consent-in{grid-template-columns:1fr auto;align-items:center;padding:16px 20px}.consent-btns{grid-template-columns:auto auto}.consent .consent-btn{min-width:140px}}
 main[tabindex="-1"]:focus{outline:none}
-body.has-consent{padding-bottom:190px}
+body.has-consent{padding-bottom:140px}
 @media(min-width:700px){body.has-consent{padding-bottom:110px}}
 @media print{.consent{display:none}}
 @media print{header.site,footer.site,.slot,nav.main,.presets,.mobilebar{display:none}.result{position:static}body{background:#fff}}
@@ -154,3 +154,16 @@ body.has-consent{padding-bottom:190px}
 /* methode */
 .methodbox{margin:18px 0}.methodbox h2{margin:0 0 .5em;font-size:1.2rem}
 ul.method{margin:0 0 10px;padding-left:1.2em}ul.method li{margin-bottom:6px}
+/* home */
+.shot{margin:0}.shot img{display:block;width:100%;height:auto;aspect-ratio:560/400;border-radius:18px;border:1px solid var(--line);box-shadow:var(--shadow);background:#fff}
+.shot figcaption{margin-top:6px;text-align:center}
+@media(max-width:899px){.shot{max-width:560px}}
+.example ol.top{margin:10px 0 12px}.example .warn{color:var(--warn)}.example>a{font-weight:700}
+.logos{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media(min-width:600px){.logos{grid-template-columns:repeat(5,1fr)}}
+.logo-tile{display:flex;align-items:center;justify-content:center;height:72px;background:#fff;border:1px solid var(--line);border-radius:14px;text-decoration:none;padding:8px}
+.logo-tile img{width:160px;height:48px;max-width:100%;object-fit:contain}
+.logo-tile:hover{border-color:#d9c3a6}
+.wordmark{font:800 1.15rem/1 var(--head);color:#3c3a36;letter-spacing:-.01em}
+/* compacte cookiemelding op mobiel */
+@media(max-width:699px){.consent-in{padding:12px 14px;gap:10px;border-radius:16px 16px 12px 12px}.consent p{font-size:.86rem;line-height:1.4}.consent .consent-btn{min-height:44px;padding:8px 12px}}
