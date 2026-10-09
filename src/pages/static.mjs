@@ -117,9 +117,9 @@ export const bronnen = {
 <h1>Bronnen en cijfers</h1>
 <p class="lead">Alle cijfers en prijzen die onze tools gebruiken, met de bron. Laatst gecontroleerd op ${fmtDate(CHECKED)}.</p>
 <h2>Boekhoudprogramma's</h2>
-<p>Prijzen en functies komen alleen van de site van de aanbieder, gecontroleerd op ${fmtDate(PCHECKED)}. De prijs bij de aanbieder is leidend.</p>
-<div class="table-wrap"><table class="data"><thead><tr><th>Aanbieder</th><th>Bron</th><th>Btw</th></tr></thead><tbody>
-${PAKKETTEN.map((a) => `<tr><td>${esc(a.naam)}</td><td>${a.bronnen.map((b) => `<a href="${b.url}" rel="noopener">${esc(b.titel)}</a>`).join('<br>')}</td><td>${a.btwPrijzen === 'excl' ? 'excl. btw' : '<span class="unk">niet vermeld</span>'}</td></tr>`).join('')}
+<p>Prijzen en functies komen alleen van de site van de aanbieder, met de controledatum per aanbieder. De prijs bij de aanbieder is leidend.</p>
+<div class="table-wrap"><table class="data"><thead><tr><th>Aanbieder</th><th>Bron</th><th>Btw</th><th>Gecontroleerd</th></tr></thead><tbody>
+${PAKKETTEN.map((a) => `<tr><td>${esc(a.naam)}</td><td>${a.bronnen.map((b) => `<a href="${b.url}" rel="noopener">${esc(b.titel)}</a>`).join('<br>')}</td><td>${a.btwPrijzen === 'excl' ? 'excl. btw' : '<span class="unk">niet vermeld</span>'}</td><td>${fmtDate(a.gecontroleerd || PCHECKED)}</td></tr>`).join('')}
 </tbody></table></div>
 <h2>Inkomstenbelasting 2026</h2>
 <p class="note">Voor wie jonger is dan de AOW-leeftijd.</p>
@@ -146,7 +146,7 @@ ${sourceList(['btw', 'kor'], SOURCES)}
 <p class="note">* Voorstel uit het Belastingplan 2027. Definitief na goedkeuring door het parlement.</p>
 ${more('Energiebronnen en data', sourceList(['eb_2026', 'eb_2027', 'saldering', 'terugleverkosten_per_kwh', 'cbs_tarieven', 'nedu', 'pvgis', 'epex', 'milieucentraal_zelfverbruik', 'homewizard_battery'], SOURCES))}
 <h2>Wijzigingen</h2>
-<ul><li>9 oktober 2026: nieuw design en blog.</li><li>8 oktober 2026: eerste versie. Rompslomp: tarieven per 1 november 2026.</li></ul>`,
+<ul><li>10 oktober 2026: Silvasoft toegevoegd als 9e aanbieder (prijzen en functies van silvasoft.nl).</li><li>9 oktober 2026: nieuw design en blog.</li><li>8 oktober 2026: eerste versie. Rompslomp: tarieven per 1 november 2026.</li></ul>`,
 };
 
 export const over = {

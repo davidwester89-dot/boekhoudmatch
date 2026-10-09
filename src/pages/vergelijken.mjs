@@ -32,7 +32,7 @@ const goedkoopst = PAKKETTEN.flatMap((a) => a.plannen.filter((p) => p.boekhoudin
 const faq = [
   ['Wat is het goedkoopste boekhoudprogramma voor zzp\'ers?', `Gratis of heel goedkope instappakketten bestaan (bijvoorbeeld Tellow Gratis, Rompslomp Starter, Moneybird Compact), maar met strenge limieten op facturen, bonnen of transacties. Voor wie ten minste 10 facturen per maand stuurt en btw-aangifte doet, zijn de goedkoopste passende pakketten op ${fmtDate(CHECKED)}: ${goedkoopst.map(({ a, p }) => `${a.naam} ${p.naam} (${e2(p.prijs)} p/m)`).join(', ')}. Let op limieten en of je zelf de btw-aangifte moet indienen. Stuur je alleen af en toe een factuur? Dan is onze gratis <a href="/offerte-factuur-maken/">factuurtool</a> misschien al genoeg.`],
   ['Waarom staat er soms “niet vermeld”?', 'De prijspagina van de aanbieder noemt het niet per pakket. We vullen niets zelf in. Vraag het na of probeer het in de proefperiode.'],
-  ['Hoe vaak worden de prijzen gecontroleerd?', `Deze tabel is gecontroleerd op ${fmtDate(CHECKED)}. Bij bekende prijswijzigingen (zoals Rompslomp per 1 november 2026) rekenen we met de nieuwe prijs en vermelden we dat.`],
+  ['Hoe vaak worden de prijzen gecontroleerd?', `Deze tabel is gecontroleerd op ${fmtDate(CHECKED)}; Silvasoft op ${fmtDate(PAKKETTEN.find((a) => a.id === 'silvasoft').gecontroleerd)}. Bij bekende prijswijzigingen (zoals Rompslomp per 1 november 2026) rekenen we met de nieuwe prijs en vermelden we dat.`],
 ];
 
 const body = `
@@ -50,7 +50,7 @@ ${rows}
 
 <h2>Per aanbieder</h2>
 <div class="grid cards">
-${ALFA.map((a) => `<div class="card"><h3>${esc(a.naam)}</h3><p class="note">${esc(a.noot)}</p>${a.actie ? `<p class="note"><strong>Actie:</strong> ${esc(a.actie)}</p>` : ''}<p class="note">Bron: ${a.bronnen.map((b) => `<a href="${b.url}" rel="noopener" data-vendor="${esc(a.naam)}">${esc(b.titel)}</a>`).join(' · ')}</p></div>`).join('\n')}
+${ALFA.map((a) => `<div class="card"><h3>${esc(a.naam)}</h3><p class="note">${esc(a.noot)}</p>${a.actie ? `<p class="note"><strong>Actie:</strong> ${esc(a.actie)}</p>` : ''}<p class="note">Bron: ${a.bronnen.map((b) => `<a href="${b.url}" rel="noopener" data-vendor="${esc(a.naam)}">${esc(b.titel)}</a>`).join(' · ')} (gecontroleerd ${fmtDate(a.gecontroleerd || CHECKED)})</p></div>`).join('\n')}
 </div>
 ${slot('vergelijken-partner', 'partnerlinks naar proefperiodes.')}
 <p class="note">We zijn bij geen enkele aanbieder partner. De tabel staat op alfabet. Zie <a href="/over/">hoe we werken</a>.</p>
