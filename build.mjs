@@ -43,7 +43,7 @@ cpSync('src/assets/icons', OUT, { recursive: true });
 // Offerte- en factuurtool hergebruiken, zonder externe Google Fonts (privacy, geen derde partijen)
 let ok = readFileSync('src/vendor/offerteklav.html', 'utf8');
 ok = ok.replace(/<link[^>]+fonts\.(googleapis|gstatic)\.com[^>]*>\s*/g, '');
-ok = ok.replace('<title>', '<meta name="robots" content="noindex"><link rel="canonical" href="' + SITE.domain + '/offerte-factuur-maken/">\n<title>');
+ok = ok.replace('<title>', '<meta name="robots" content="noindex">\n<title>');
 write(join(OUT, 'tools/offerteklaar.html'), ok);
 
 write(join(OUT, '.nojekyll'), '');

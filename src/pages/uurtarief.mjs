@@ -45,7 +45,7 @@ ${check({ name: 'starter', label: 'Ik heb recht op startersaftrek', checked: fal
 <table class="kv"><tbody id="out-table"></tbody></table>
 <p class="note">Op zoek naar een boekhoudprogramma? <a href="/boekhoudprogramma-kiezen/">Doe de boekhoudmatch</a>.</p>
 ${slot('boekhoudsoftware', 'partnerlink boekhoudprogramma.')}
-<p class="note">Offerte of factuur maken met dit tarief? Gebruik de gratis <a href="/offerte-factuur-maken/">offerte- en factuurtool</a>.</p>
+<p class="note">Offerte of factuur maken met dit tarief? Gebruik de gratis <a href="/offerte-factuur-maken/">offerte- en factuurtool</a>. Tarief inclusief btw nodig? <a href="/btw-berekenen/">Btw berekenen</a>.</p>
 </section>
 </div>
 <a class="mobilebar" href="#uitkomst"><span>Uurtarief</span><strong data-mirror></strong></a>

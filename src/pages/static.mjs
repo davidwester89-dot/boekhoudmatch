@@ -8,14 +8,14 @@ const tool = (href, icon, title, text) => `<a class="card" href="${href}"><span 
 
 export const home = {
   path: '/',
-  title: 'BoekhoudMatch: boekhoudprogramma kiezen voor zzp\'ers',
+  title: 'BoekhoudMatch: boekhoudprogramma en rekentools voor zzp',
   ogTitle: 'Vind het boekhoudprogramma dat bij je past',
   description: `Vind in 8 vragen het boekhoudprogramma dat bij je past (${PAKKETTEN.length} aanbieders, echte prijzen) en reken netto inkomen, uurtarief en btw uit. Gratis, geen cookies.`,
   og: 'home',
   body: `
 <section class="hero">
 <div>
-<h1>Boekhouden zonder gedoe begint met het juiste programma</h1>
+<h1>Boekhouden zonder gedoe begint met het juiste boekhoudprogramma</h1>
 <p class="lead">Beantwoord 8 vragen en zie welk boekhoudprogramma bij jouw zzp-bedrijf past. Met echte prijzen en eerlijk uitgelegd.</p>
 <div class="actions"><a class="btn" href="/boekhoudprogramma-kiezen/">Start de match</a><a class="btn ghost" href="/boekhoudprogramma-vergelijken/">Vergelijk prijzen</a></div>
 <ul class="trust"><li>${PAKKETTEN.length} aanbieders vergeleken</li><li>Prijzen van ${fmtDate(PCHECKED)}</li><li>Geen cookies</li></ul>
@@ -59,7 +59,7 @@ export const btw = {
   path: '/btw-berekenen/',
   title: 'Btw berekenen: 21% of 9%, in- en exclusief | BoekhoudMatch',
   ogTitle: 'Btw berekenen',
-  description: 'Reken snel btw uit: van exclusief naar inclusief en terug, met 21% of 9%. Gratis btw-calculator voor zzp\'ers, zonder cookies.',
+  description: 'Reken snel btw uit: van exclusief naar inclusief en terug, met 21% of 9%. Gratis btw-calculator voor zzp\'ers, met uitleg over KOR en btw verlegd.',
   crumb: 'Btw berekenen', og: 'btw',
   body: `
 <h1>Btw berekenen</h1>
@@ -80,6 +80,7 @@ ${field({ name: 'bedrag', label: 'Bedrag', value: '100', unit: '€' })}
 ${more('Hoe reken je btw uit?', '<p>Btw = bedrag exclusief × tarief. Exclusief = inclusief ÷ (1 + tarief). We ronden af op centen.</p>')}
 ${more('Wanneer reken je geen btw?', `<p>Met de kleineondernemersregeling (KOR, omzet tot € ${nl(BTW.korGrens, 0)} per jaar) reken je geen btw. Bij verlegde btw (bijvoorbeeld bij zakelijke klanten in een ander EU-land) zet je “btw verlegd” en het btw-nummer van je klant op de factuur.</p>`)}
 ${more('Bronnen', sourceList(['btw', 'kor'], SOURCES))}
+<p>Btw op je factuur zetten? Gebruik de gratis <a href="/offerte-factuur-maken/">factuurtool</a>. Wil je je btw-aangifte rechtstreeks vanuit je boekhouding doen? <a href="/boekhoudprogramma-vergelijken/">Vergelijk welke boekhoudprogramma's dat kunnen</a>.</p>
 {{related}}`,
   scripts: ['/js/btw.js'],
   schema: [webApp({ name: 'Btw berekenen', url: SITE.domain + '/btw-berekenen/', description: 'Btw uitrekenen van exclusief naar inclusief en terug, 21% of 9%.' })],
