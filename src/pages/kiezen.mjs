@@ -15,10 +15,11 @@ const faq = [
 const body = `
 <h1>Welk boekhoudprogramma past bij jou?</h1>
 <p class="lead">Beantwoord 8 korte vragen. Je ziet meteen wat past, wat het per maand kost en waarom.</p>
-<p class="note">${PAKKETTEN.length} aanbieders · actuele prijzen</p>
+<p class="note">${PAKKETTEN.length} aanbieders · ${PAKKETTEN.reduce((n, a) => n + a.plannen.length, 0)} pakketten · prijzen gecontroleerd op ${fmtDate(CHECKED)}</p>
 <noscript><div class="alert">De match heeft JavaScript nodig. Bekijk anders de <a href="/boekhoudprogramma-vergelijken/">vergelijkingstabel</a>.</div></noscript>
 <div class="grid calc">
 <form class="calc-form card" id="form" novalidate>
+<input type="hidden" name="aanbieder" value="">
 ${radios('rechtsvorm', '1. Wat is je rechtsvorm?', VRAGEN.rechtsvorm, 'eenmanszaak')}
 ${radios('facturen', '2. Hoeveel facturen stuur je per maand?', VRAGEN.facturen, 5)}
 ${radios('uitgaven', '3. Hoeveel bonnen en inkoopfacturen heb je per maand?', VRAGEN.uitgaven, 10, 'Denk aan abonnementen, tanken, materiaal en telefoon.')}
@@ -34,6 +35,7 @@ ${radios('budget', '8. Wat mag het per maand kosten (excl. btw)?', VRAGEN.budget
 <section class="card result" id="uitkomst" aria-live="polite">
 <h2>Jouw beste match</h2>
 <p class="big best" id="big-mirror">–</p>
+<div id="out-pick" class="pick" hidden></div>
 <p class="note" style="margin-bottom:4px">Top 3</p>
 <ol class="top" id="out-top"></ol>
 <p class="note" id="out-vol"></p>
