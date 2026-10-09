@@ -1,4 +1,4 @@
-import { SITE, field, check, slot, sourceList, webApp, faqSchema, faqHtml, fmtDate, more } from '../layout.mjs';
+import { SITE, field, check, slot, sourceList, webApp, faqSchema, faqHtml, fmtDate, more, volgendeStap } from '../layout.mjs';
 import { SOURCES } from '../lib/constants.js';
 
 const path = '/zzp-netto-inkomen/';
@@ -30,7 +30,6 @@ ${field({ name: 'voorz', label: 'AOV-premie en lijfrente-inleg', value: '0', uni
 <p class="big neg" id="out-netto">–</p>
 <p id="out-reserve" class="note"></p>
 <table class="kv"><tbody id="out-table"></tbody></table>
-<p class="note">Welk boekhoudprogramma past bij jou? <a href="/boekhoudprogramma-kiezen/">Doe de boekhoudmatch</a>.</p>
 ${slot('boekhoudsoftware', 'partnerlink boekhoudprogramma.')}
 <p class="note">Wil je weten welk uurtarief je nodig hebt? <a href="/zzp-uurtarief/">Uurtarief berekenen</a>.</p>
 </section>
@@ -55,6 +54,7 @@ ${more('Berekening stap voor stap (2026)', `
 ${faqHtml(faq)}
 
 ${more('Bronnen', sourceList(['box1_2026', 'kortingen_2026', 'arbeidsinkomen', 'zelfstandigenaftrek_2026', 'mkb_2026', 'tariefaanpassing_2026', 'zvw_2026', 'urencriterium'], SOURCES))}
+${volgendeStap([['Urenregistratie voor zzp\'ers', '/urenregistratie-zzp/'], ['Boekhoudprogramma voor een eenmanszaak', '/boekhoudprogramma-eenmanszaak/']])}
 {{related}}
 `;
 

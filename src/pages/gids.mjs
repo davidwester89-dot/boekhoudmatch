@@ -40,6 +40,13 @@ function sitBlokken(ids) {
 function voorbeelden(ids) {
   return `<div class="grid cards">${VOORBEELDEN.filter((v) => !ids || ids.includes(v.id)).map((v) => { const top = match(PAKKETTEN, v.a).filter((r) => r.past).slice(0, 3); return `<article class="card example"><h3>${esc(v.titel)}</h3><p class="note">${esc(v.wie)}</p><ol class="top">${top.map((r) => `<li><strong>${esc(r.naam)} ${esc(r.planNaam)}</strong> <span class="price">${e2(r.prijs)} p/m</span>${r.let_op[0] ? `<div class="note warn">Let op: ${esc(r.let_op[0])}</div>` : ''}</li>`).join('')}</ol><a href="${esc(matchUrl(v.a))}" rel="nofollow">Open deze match →</a></article>`; }).join('')}</div>`;
 }
+// Rechtsvormen per aanbieder: op aanbiederniveau, of per pakket als de aanbieder het per pakket noemt.
+function rvAll(a) {
+  if (a.rechtsvormen) return esc(a.rechtsvormen.join(', '));
+  const per = a.plannen.filter((p) => p.boekhouding !== false && p.rechtsvormen);
+  if (!per.length) return UNK;
+  return per.map((p) => `${esc(p.naam)}: ${esc(p.rechtsvormen.join(', '))}`).join('<br>');
+}
 function vs(x, y) {
   const A = byId[x], B = byId[y];
   const rij = (label, fa, fb) => `<tr><th scope="row">${label}</th><td>${fa}</td><td>${fb}</td></tr>`;
@@ -51,7 +58,7 @@ ${rij('Prijzen', btwNoot(A), btwNoot(B))}
 ${rij('Limiet die vaak knelt', esc(r(A).knelt), esc(r(B).knelt))}
 ${rij('Sterk', esc(r(A).sterk), esc(r(B).sterk))}
 ${rij('Zwak', esc(r(A).zwak), esc(r(B).zwak))}
-${rij('Rechtsvorm', rvL(A.plannen[0], A), rvL(B.plannen[0], B))}
+${rij('Rechtsvorm', rvAll(A), rvAll(B))}
 ${rij('Gratis proberen', r(A).proef ? `${r(A).proef} dagen` : UNK, r(B).proef ? `${r(B).proef} dagen` : UNK)}
 ${rij('Actie', esc(A.actie || '–'), esc(B.actie || '–'))}
 ${rij('Gecontroleerd', fmtDate(checked(A)), fmtDate(checked(B)))}
@@ -115,4 +122,20 @@ ${html}
         author: { ...FOUNDER.schema }, publisher: ORG, mainEntityOfPage: { '@type': 'WebPage', '@id': SITE.domain + path }, citation: sources.map((s) => s.url) }],
     };
   });
+}
+
+// Overzichtspagina /gidsen/ met alle gidsen, in drie groepen.
+const GROEP = (slug) => (/-vs-/.test(slug) ? 'Twee aanbieders naast elkaar' : /^(beste-|gratis-|boekhoudprogramma-(eenmanszaak|vof|bv|starters))/.test(slug) ? 'Kiezen voor jouw situatie' : 'Uitleg bij het kiezen');
+export function gidsHub(gidsen) {
+  const groepen = ['Kiezen voor jouw situatie', 'Twee aanbieders naast elkaar', 'Uitleg bij het kiezen'];
+  const lijst = (g) => gidsen.filter((p) => GROEP(p.path.slice(1, -1)) === g).map((p) => `<li><a href="${p.path}"><strong>${esc(p.ogTitle)}</strong></a><br><span class="note">${esc(p.description)}</span></li>`).join('');
+  return {
+    path: '/gidsen/', title: 'Gidsen: boekhoudprogramma kiezen (2026) | BoekhoudMatch', description: `Gidsen bij het kiezen van een boekhoudprogramma: per rechtsvorm, gratis, starters, btw, bank, KOR en uren. Prijzen gecontroleerd op ${fmtDate(CHECKED)}.`, crumb: 'Gidsen', og: 'vergelijken', updated: CHECKED,
+    body: `<section class="article"><h1>Gidsen: boekhoudprogramma kiezen</h1>
+<p class="lead">Korte gidsen bij de match en de vergelijking. Elke prijs komt uit dezelfde data, gecontroleerd op ${fmtDate(CHECKED)} op de prijspagina's van de aanbieders. Geschreven door <a href="/over/">Dave West</a>.</p>
+${groepen.map((g) => `<h2>${g}</h2><ul class="gidslijst">${lijst(g)}</ul>`).join('\n')}
+<aside class="cta"><h2>Liever meteen kiezen?</h2><ul><li><a href="/boekhoudprogramma-kiezen/">Doe de match →</a></li><li><a href="/boekhoudprogramma-vergelijken/">Vergelijk alle ${N_PAK} pakketten →</a></li></ul></aside>
+</section>`,
+    schema: [{ '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Gidsen: boekhoudprogramma kiezen', url: SITE.domain + '/gidsen/', inLanguage: 'nl-NL', hasPart: gidsen.map((p) => ({ '@type': 'Article', headline: p.ogTitle, url: SITE.domain + p.path })) }],
+  };
 }

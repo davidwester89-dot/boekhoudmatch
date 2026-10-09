@@ -1,4 +1,4 @@
-import { SITE, GA_ID, esc, field, slot, sourceList, webApp, fmtDate, more, ORG, ICONS, FOUNDER, METHODE_LIJST } from '../layout.mjs';
+import { SITE, GA_ID, esc, field, slot, sourceList, webApp, fmtDate, more, ORG, ICONS, FOUNDER, METHODE_LIJST, volgendeStap } from '../layout.mjs';
 import { SOURCES, IB2026, ENERGY, BTW, CHECKED } from '../lib/constants.js';
 import { PAKKETTEN, CHECKED as PCHECKED } from '../lib/pakketten.js';
 import { REDACTIE, vendorHref } from '../lib/aanbieders.js';
@@ -72,6 +72,7 @@ ${tool('/zzp-uurtarief/', 'uur', 'Uurtarief berekenen', 'Welk tarief heb je nodi
 ${tool('/btw-berekenen/', 'btw', 'Btw berekenen', 'Van exclusief naar inclusief en terug, 21% of 9%.')}
 ${tool('/offerte-factuur-maken/', 'factuur', 'Offerte en factuur maken', 'Gratis, zonder account. Alles blijft in je eigen browser.')}
 ${tool('/boekhoudprogramma-vergelijken/', 'compare', 'Boekhoudprogramma\'s vergelijken', 'Alle pakketten naast elkaar: prijs, limieten, btw-aangifte en bankkoppeling.')}
+${tool('/beste-boekhoudprogramma-zzp/', 'compare', 'Beste boekhoudprogramma voor zzp', 'Vaste regels per situatie, met prijs en bron.')}
 ${tool('/blog/', 'blog', 'Blog', 'Wat verandert er voor zzp\'ers? Kort uitgelegd, met bronnen.')}
 </div>
 
@@ -115,6 +116,7 @@ ${more('Hoe reken je btw uit?', '<p>Btw = bedrag exclusief × tarief. Exclusief 
 ${more('Wanneer reken je geen btw?', `<p>Met de kleineondernemersregeling (KOR, omzet tot € ${nl(BTW.korGrens, 0)} per jaar) reken je geen btw. Bij verlegde btw (bijvoorbeeld bij zakelijke klanten in een ander EU-land) zet je “btw verlegd” en het btw-nummer van je klant op de factuur.</p>`)}
 ${more('Bronnen', sourceList(['btw', 'kor'], SOURCES))}
 <p>Btw op je factuur zetten? Gebruik de gratis <a href="/offerte-factuur-maken/">factuurtool</a>. Wil je je btw-aangifte rechtstreeks vanuit je boekhouding doen? <a href="/boekhoudprogramma-vergelijken/">Vergelijk welke boekhoudprogramma's dat kunnen</a>.</p>
+${volgendeStap([['Btw-aangifte vanuit je boekhoudprogramma', '/btw-aangifte-boekhoudprogramma/'], ['KOR en boekhoudsoftware', '/kor-boekhoudprogramma/']])}
 {{related}}`,
   scripts: ['/js/btw.js'],
   schema: [webApp({ name: 'Btw berekenen', url: SITE.domain + '/btw-berekenen/', description: 'Btw uitrekenen van exclusief naar inclusief en terug, 21% of 9%.' })],
@@ -137,6 +139,7 @@ export const offerte = {
 </div>
 ${more('Waar worden mijn gegevens bewaard?', '<p>Alleen in je eigen browser (localStorage), zodat je ze niet steeds opnieuw hoeft in te vullen. Wij ontvangen niets. Bewaar je facturen zelf minimaal 7 jaar.</p>')}
 <p>Wil je factureren en boekhouden in één? <a href="/boekhoudprogramma-kiezen/">Doe de boekhoudmatch</a> of <a href="/boekhoudprogramma-vergelijken/">vergelijk alle pakketten</a>.</p>
+${volgendeStap([['Gratis boekhoudprogramma: wat krijg je wel en niet?', '/gratis-boekhoudprogramma/'], ['Boekhoudprogramma voor starters', '/boekhoudprogramma-starters/']])}
 ${slot('boekhoudsoftware', 'partnerlink boekhoudprogramma.')}
 {{related}}`,
   schema: [webApp({ name: 'Offerte en factuur maken', url: SITE.domain + '/offerte-factuur-maken/', description: 'Gratis offertes en facturen maken in je browser, zonder account.' })],

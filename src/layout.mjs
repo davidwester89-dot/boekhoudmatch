@@ -40,6 +40,7 @@ export const ICONS = {
 const NAV = [
   ['/boekhoudprogramma-kiezen/', 'Boekhoudmatch'],
   ['/boekhoudprogramma-vergelijken/', 'Vergelijken'],
+  ['/gidsen/', 'Gidsen'],
   ['/zzp-netto-inkomen/', 'Netto inkomen'],
   ['/zzp-uurtarief/', 'Uurtarief'],
   ['/btw-berekenen/', 'Btw'],
@@ -105,6 +106,7 @@ ${p.body.replace('{{related}}', relatedPosts(p.path))}
 <div class="cols">
 <div><a class="logo" href="/">${LOGO}<span>Boekhoud<b>Match</b></span></a><p>Eerlijke hulp bij boekhouding, geld en belasting voor zzp'ers. Echte prijzen, officiële cijfers. Alleen statistieken met jouw toestemming.</p></div>
 <div><h2>Tools</h2><ul><li><a href="/boekhoudprogramma-kiezen/">Boekhoudprogramma kiezen</a></li><li><a href="/boekhoudprogramma-vergelijken/">Boekhoudprogramma's vergelijken</a></li><li><a href="/zzp-netto-inkomen/">Netto inkomen zzp</a></li><li><a href="/zzp-uurtarief/">Uurtarief berekenen</a></li><li><a href="/btw-berekenen/">Btw berekenen</a></li><li><a href="/offerte-factuur-maken/">Offerte en factuur maken</a></li></ul></div>
+<div><h2>Gidsen</h2><ul><li><a href="/beste-boekhoudprogramma-zzp/">Beste boekhoudprogramma zzp</a></li><li><a href="/gratis-boekhoudprogramma/">Gratis boekhoudprogramma</a></li><li><a href="/boekhoudprogramma-starters/">Voor starters</a></li><li><a href="/boekhoudprogramma-eenmanszaak/">Voor een eenmanszaak</a></li><li><a href="/boekhoudprogramma-bv/">Voor een bv</a></li><li><a href="/btw-aangifte-boekhoudprogramma/">Btw-aangifte</a></li><li><a href="/gidsen/">Alle gidsen</a></li></ul></div>
 <div><h2>Over ons</h2><ul><li><a href="/blog/">Blog</a></li><li><a href="/over/">Over BoekhoudMatch</a></li><li><a href="/bronnen/">Bronnen en cijfers</a></li><li><a href="/privacy/">Privacy</a></li>${GA_ID ? '<li><a href="/privacy/#cookies" data-consent-open>Cookie-instellingen</a></li>' : ''}<li><a href="/disclaimer/">Disclaimer</a></li><li><a href="mailto:${SITE.email}">Contact</a></li></ul></div>
 </div>
 <p class="fine">© 2026 ${SITE.name}. Uitkomsten zijn indicaties, geen persoonlijk financieel of fiscaal advies. Cijfers gecontroleerd op ${fmtDate(SITE.updated)}.</p>
@@ -172,4 +174,10 @@ export function relatedPosts(path, n = 2) {
   const list = RELATED.posts.filter((x) => x.tools.includes(path)).slice(0, n);
   if (!list.length) return '';
   return `<h2>Lees ook</h2><div class="grid cards two">${list.map((x) => `<a class="card" href="${x.path}"><span class="tag">Blog</span><h3>${esc(x.title)}</h3><p>${esc(x.description)}</p></a>`).join('')}</div>`;
+}
+
+// "Volgende stap" onder tools: altijd de match en de vergelijking, plus relevante gidsen ([tekst, url]).
+export function volgendeStap(extra = []) {
+  const items = [['Doe de match: 8 vragen, daarna de pakketten op volgorde', '/boekhoudprogramma-kiezen/'], ['Vergelijk alle boekhoudpakketten met prijs, limiet en bron', '/boekhoudprogramma-vergelijken/'], ...extra];
+  return `<aside class="cta"><h2>Volgende stap</h2><ul>${items.map(([t, u]) => `<li><a href="${u}">${esc(t)} →</a></li>`).join('')}</ul></aside>`;
 }
