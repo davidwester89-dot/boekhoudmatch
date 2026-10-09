@@ -1,4 +1,4 @@
-import { SITE, field, check, slot, sourceList, webApp, faqSchema, faqHtml, fmtDate } from '../layout.mjs';
+import { SITE, field, check, slot, sourceList, webApp, faqSchema, faqHtml, fmtDate, more } from '../layout.mjs';
 import { SOURCES } from '../lib/constants.js';
 
 const path = '/zzp-netto-inkomen/';
@@ -11,10 +11,9 @@ const faq = [
 ];
 
 const body = `
-<span class="tag">Zzp · belastingjaar 2026 · bijgewerkt ${fmtDate(SITE.updated)}</span>
 <h1>Netto inkomen zzp berekenen (2026)</h1>
-<p class="lead">Van winst naar netto: met zelfstandigenaftrek, mkb-winstvrijstelling, heffingskortingen, tariefaanpassing en Zvw-bijdrage volgens de officiële bedragen van 2026. Je ziet ook hoeveel je moet reserveren.</p>
-<noscript><div class="alert">Deze rekentool heeft JavaScript nodig. Er worden geen cookies of trackers geladen.</div></noscript>
+<p class="lead">Vul je omzet en kosten in. Je ziet wat je netto overhoudt en hoeveel je opzij moet zetten voor de belasting.</p>
+<noscript><div class="alert">Deze rekentool heeft JavaScript nodig.</div></noscript>
 <div class="grid calc">
 <form class="calc-form card" id="form" novalidate>
 <fieldset><legend>Je onderneming in 2026</legend>
@@ -27,20 +26,19 @@ ${field({ name: 'voorz', label: 'AOV-premie en lijfrente-inleg', value: '0', uni
 <p class="note">Uitgangspunten: jonger dan de AOW-leeftijd, geen fiscale partner, geen ander inkomen, geen eigen woning of box 3. Heb je die wel, dan wijkt je uitkomst af.</p>
 </form>
 <section class="card result" id="uitkomst" aria-live="polite">
-<h2 style="margin-top:0">Uitkomst</h2>
-<p>Netto per maand:</p>
+<h2>Netto per maand</h2>
 <p class="big neg" id="out-netto">–</p>
 <p id="out-reserve" class="note"></p>
 <table class="kv"><tbody id="out-table"></tbody></table>
-<p class="note">Welk boekhoudprogramma past bij jou? <a href="/boekhoudprogramma-kiezen/">Doe de boekhoudmatch</a> (8 vragen, onafhankelijke rangorde).</p>
-${slot('boekhoudsoftware', 'Hier komt straks mogelijk een partnerlink naar een boekhoudprogramma met gratis proefperiode. De rangorde in onze boekhoudmatch verandert daar niet door.')}
+<p class="note">Welk boekhoudprogramma past bij jou? <a href="/boekhoudprogramma-kiezen/">Doe de boekhoudmatch</a>.</p>
+${slot('boekhoudsoftware', 'partnerlink boekhoudprogramma.')}
 <p class="note">Wil je weten welk uurtarief je nodig hebt? <a href="/zzp-uurtarief/">Uurtarief berekenen</a>.</p>
 </section>
 </div>
-<a class="mobilebar" href="#uitkomst">Uitkomst: <strong data-mirror></strong> ↓</a>
+<a class="mobilebar" href="#uitkomst"><span>Netto per maand</span><strong data-mirror></strong></a>
 
-<h2>Zo rekenen we (2026)</h2>
-<div class="prose">
+<h2>Zo rekenen we</h2>
+${more('Berekening stap voor stap (2026)', `
 <ol>
 <li><strong>Winst</strong> = omzet − kosten.</li>
 <li><strong>Ondernemersaftrek</strong>: zelfstandigenaftrek € 1.200 (alleen met urencriterium, niet hoger dan je winst tenzij je starter bent) plus eventueel startersaftrek € 2.123.</li>
@@ -50,20 +48,20 @@ ${slot('boekhoudsoftware', 'Hier komt straks mogelijk een partnerlink naar een b
 <li><strong>Heffingskortingen</strong>: algemene heffingskorting (max. € 3.115, afbouw 6,398% boven € 29.736) en arbeidskorting (max. € 5.685) over je winst vóór aftrekposten. Samen nooit meer dan de belasting.</li>
 <li><strong>Zvw-bijdrage</strong>: 4,85% over je belastbare winst, tot maximaal € 79.409.</li>
 </ol>
-<p>Alle bedragen staan met bron op <a href="/bronnen/">bronnen &amp; cijfers</a>. De tool is getest met handberekeningen (zie broncode).</p>
-</div>
+<p>Alle bedragen staan met bron op <a href="/bronnen/">bronnen &amp; cijfers</a>.</p>
+`)}
 
 <h2>Veelgestelde vragen</h2>
 ${faqHtml(faq)}
 
-<h2>Bronnen</h2>
-${sourceList(['box1_2026', 'kortingen_2026', 'arbeidsinkomen', 'zelfstandigenaftrek_2026', 'mkb_2026', 'tariefaanpassing_2026', 'zvw_2026', 'urencriterium'], SOURCES)}
+${more('Bronnen', sourceList(['box1_2026', 'kortingen_2026', 'arbeidsinkomen', 'zelfstandigenaftrek_2026', 'mkb_2026', 'tariefaanpassing_2026', 'zvw_2026', 'urencriterium'], SOURCES))}
+{{related}}
 `;
 
 export default {
   path,
-  title: 'Netto inkomen zzp berekenen 2026 (met reserveren) | BoekhoudMatch',
-  description: 'Bereken je netto inkomen als zzp\'er in 2026: zelfstandigenaftrek € 1.200, mkb-winstvrijstelling 12,7%, heffingskortingen en Zvw 4,85%. Met bronnen, zonder cookies.',
+  title: 'Netto inkomen zzp berekenen 2026 | BoekhoudMatch', og: 'netto', ogTitle: 'Netto inkomen zzp berekenen (2026)',
+  description: 'Bereken je netto inkomen als zzp\'er in 2026, met zelfstandigenaftrek, mkb-winstvrijstelling en Zvw. Zie ook hoeveel je moet reserveren.',
   crumb: 'Zzp netto inkomen',
   body,
   scripts: ['/js/zzpnetto.js'],

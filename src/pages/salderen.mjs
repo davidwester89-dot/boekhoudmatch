@@ -1,4 +1,4 @@
-import { SITE, layout, field, slot, sourceList, webApp, faqSchema, faqHtml, fmtDate } from '../layout.mjs';
+import { SITE, more, field, slot, sourceList, webApp, faqSchema, faqHtml, fmtDate } from '../layout.mjs';
 import { SOURCES, ENERGY } from '../lib/constants.js';
 
 const path = '/salderen-2027/';
@@ -11,10 +11,9 @@ const faq = [
 ];
 
 const body = `
-<span class="tag">Energie · bijgewerkt ${fmtDate(SITE.updated)}</span>
 <h1>Einde salderen 2027: wat kost het jou?</h1>
-<p class="lead">Vul de cijfers van je jaarafrekening in en zie direct wat je in 2027 meer betaalt dan in 2026, zonder salderen. Met de officiële energiebelasting, de wettelijke minimumvergoeding en terugleverkosten per kWh.</p>
-<noscript><div class="alert">Deze rekentool heeft JavaScript nodig. Er worden geen cookies of trackers geladen.</div></noscript>
+<p class="lead">Vul de cijfers van je jaarafrekening in en zie wat je in 2027 meer betaalt nu salderen stopt.</p>
+<noscript><div class="alert">Deze rekentool heeft JavaScript nodig.</div></noscript>
 <div class="grid calc">
 <form class="calc-form card" id="form" novalidate>
 <fieldset><legend>1. Je jaarafrekening</legend>
@@ -41,7 +40,7 @@ ${field({ name: 'tlk2027', label: 'Terugleverkosten 2027', value: '0,0489', unit
 </fieldset>
 </form>
 <section class="card result" id="uitkomst" aria-live="polite">
-<h2 style="margin-top:0">Uitkomst</h2>
+<h2>Uitkomst</h2>
 <p>Verschil 2027 t.o.v. 2026 (kWh-kosten):</p>
 <p class="big" id="out-verschil">–</p>
 <p class="note" id="out-permaand"></p>
@@ -49,32 +48,30 @@ ${field({ name: 'tlk2027', label: 'Terugleverkosten 2027', value: '0,0489', unit
 <table class="kv"><tbody id="out-table"></tbody></table>
 <h3>Wat levert zelf verbruiken op?</h3>
 <p id="out-eigen" class="note"></p>
-${slot('daisycon-energievergelijker', 'Hier komt straks een energievergelijker (Daisycon Energievergelijker, of een overzicht van contracten met de hoogste netto terugleververgoeding).')}
+${slot('energievergelijker', 'energievergelijker.')}
 </section>
 </div>
-<a class="mobilebar" href="#uitkomst">Uitkomst: <strong data-mirror></strong> ↓</a>
+<a class="mobilebar" href="#uitkomst"><span>Verschil 2027</span><strong data-mirror></strong></a>
 
 <h2>Zo rekenen we</h2>
-<div class="prose">
+${more('Berekening en aannames', `
 <p><strong>2026, met saldering.</strong> De kWh die je teruglevert worden weggestreept tegen je afname, tegen de volle prijs inclusief energiebelasting en btw. Lever je meer terug dan je afneemt, dan krijg je voor dat overschot alleen de terugleververgoeding. Daarbovenop komen eventuele terugleverkosten.</p>
 <p><strong>2027, zonder saldering.</strong> Je betaalt voor álle afgenomen kWh de volle prijs. Voor álle teruggeleverde kWh krijg je de terugleververgoeding, min de terugleverkosten per kWh.</p>
 <p><strong>Prijsopbouw.</strong> Uit je all-in prijs halen we de kale leveringsprijs: all-in ÷ 1,21 − energiebelasting 2026 (€ ${String(ENERGY.eb[2026].perKwh).replace('.', ',')} per kWh excl. btw). Die kale prijs houden we in 2027 gelijk. In 2027 rekenen we met de voorgestelde energiebelasting van € ${String(ENERGY.eb[2027].perKwh).replace('.', ',')} per kWh excl. btw (Belastingplan 2027, nog niet definitief).</p>
 <p><strong>Wettelijk minimum.</strong> Tot 2030 moet de vergoeding minimaal 50% van de kale leveringsprijs zijn. Ligt jouw ingevulde vergoeding lager, dan zie je een waarschuwing.</p>
-<p><strong>Niet meegerekend:</strong> vaste kosten (die blijven gelijk), prijsveranderingen van je leverancier na 2026, en het verschil tussen normaal- en daltarief. Wil je weten wat een thuisbatterij doet? Gebruik de <a href="/thuisbatterij-terugverdientijd/">thuisbatterij-rekentool</a>, die rekent per uur.</p>
-</div>
+<p><strong>Niet meegerekend:</strong> vaste kosten (die blijven gelijk), prijsveranderingen van je leverancier na 2026, en het verschil tussen normaal- en daltarief. Wil je weten wat een thuisbatterij doet? Gebruik de <a href="/thuisbatterij-terugverdientijd/">thuisbatterij-rekentool</a>, die rekent per uur.</p>`)}
 
 <h2>Veelgestelde vragen</h2>
 ${faqHtml(faq)}
 
-<h2>Bronnen</h2>
-${sourceList(['saldering', 'terugleverkosten_per_kwh', 'eb_2026', 'eb_2027', 'cbs_tarieven', 'tlk_overzicht'], SOURCES)}
-<p class="note">Alle cijfers en bronnen op één plek: <a href="/bronnen/">bronnen &amp; cijfers</a>. Fout gezien? Laat het ons weten, dan passen we het aan en noteren we de wijziging.</p>
+${more('Bronnen', sourceList(['saldering', 'terugleverkosten_per_kwh', 'eb_2026', 'eb_2027', 'cbs_tarieven', 'tlk_overzicht'], SOURCES))}
+<p class="note">Alle cijfers staan op <a href="/bronnen/">bronnen en cijfers</a>.</p>
 `;
 
 export default {
   path,
-  title: 'Einde salderen 2027 berekenen: wat kost het jou? | BoekhoudMatch',
-  description: 'Bereken wat het einde van de salderingsregeling op 1 januari 2027 jou kost. Met energiebelasting 2027, wettelijke minimumvergoeding en terugleverkosten per kWh. Gratis, zonder cookies.',
+  title: 'Einde salderen 2027: wat kost het jou? | BoekhoudMatch', og: 'salderen', ogTitle: 'Einde salderen 2027: wat kost het jou?',
+  description: 'Bereken wat het einde van salderen op 1 januari 2027 jou kost, met energiebelasting 2027, minimumvergoeding en terugleverkosten. Gratis, zonder cookies.',
   h1: 'Einde salderen 2027', crumb: 'Salderen 2027',
   body,
   scripts: ['/js/salderen.js'],
