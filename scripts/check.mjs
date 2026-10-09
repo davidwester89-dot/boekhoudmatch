@@ -47,6 +47,12 @@ for (const f of htmls) {
   for (const m of h.matchAll(/<img\b[^>]*>/g)) if (!/\balt="/.test(m[0])) errors.push(`${rel}: <img> zonder alt`);
   for (const m of h.matchAll(/href="(\/[^"]*)"/g)) if (!exists(m[1])) errors.push(`${rel}: dode interne link ${m[1]}`);
   for (const m of h.matchAll(/src="(\/[^"]*)"/g)) if (!exists(m[1])) errors.push(`${rel}: ontbrekend bestand ${m[1]}`);
+  // Analytics: gtag.js nooit vast in de HTML (laadt pas na toestemming); consent-script alleen als er een GA_ID is.
+  if (/<script[^>]+src="https?:\/\//.test(h)) errors.push(`${rel}: extern script in de HTML (mag alleen na toestemming)`);
+  const ga = /<body[^>]* data-ga="G-[A-Z0-9]+"/.test(h);
+  if (ga !== h.includes('src="/js/consent.js"')) errors.push(`${rel}: consent.js en GA_ID horen samen`);
+  if (!ga && /googletagmanager|google-analytics/.test(h)) errors.push(`${rel}: Google-domein zonder GA_ID`);
+  if (ga && !h.includes('data-consent-open>Cookie-instellingen<')) errors.push(`${rel}: link Cookie-instellingen ontbreekt`);
   const text = h.replace(/<script[\s\S]*?<\/script>/g, '').replace(/<style[\s\S]*?<\/style>/g, '').replace(/<[^>]+>/g, ' ');
   for (const bad of [/partnerplek/i, /\bTODO\b/, /lorem ipsum/i, /\bplaceholder\b/i, /\bunit ?test/i, /\bdeveloper\b/i, /\{\{\w+\}\}/]) {
     if (bad.test(text)) errors.push(`${rel}: verboden tekst ${bad}`);

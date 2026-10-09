@@ -83,7 +83,7 @@ ${more('Bronnen', sourceList(['nedu', 'pvgis', 'epex', 'eb_2027', 'saldering', '
 export default {
   path,
   title: 'Thuisbatterij terugverdientijd berekenen | BoekhoudMatch', og: 'batterij', ogTitle: 'Verdient een thuisbatterij zich terug?',
-  description: 'Bereken uur voor uur wat een thuisbatterij of stekkerbatterij bespaart na het einde van salderen, inclusief terugverdientijd. Gratis, zonder cookies.',
+  description: 'Bereken uur voor uur wat een thuisbatterij of stekkerbatterij bespaart na het einde van salderen, inclusief terugverdientijd. Gratis, zonder account.',
   crumb: 'Thuisbatterij terugverdientijd',
   body,
   scripts: ['/js/thuisbatterij.js'],

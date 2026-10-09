@@ -1,4 +1,4 @@
-import { SITE, esc, field, slot, sourceList, webApp, fmtDate, more, ORG, ICONS } from '../layout.mjs';
+import { SITE, GA_ID, esc, field, slot, sourceList, webApp, fmtDate, more, ORG, ICONS } from '../layout.mjs';
 import { SOURCES, IB2026, ENERGY, BTW, CHECKED } from '../lib/constants.js';
 import { PAKKETTEN, CHECKED as PCHECKED } from '../lib/pakketten.js';
 
@@ -10,7 +10,7 @@ export const home = {
   path: '/',
   title: 'BoekhoudMatch: boekhoudprogramma en rekentools voor zzp',
   ogTitle: 'Vind het boekhoudprogramma dat bij je past',
-  description: `Vind in 8 vragen het boekhoudprogramma dat bij je past (${PAKKETTEN.length} aanbieders, echte prijzen) en reken netto inkomen, uurtarief en btw uit. Gratis, geen cookies.`,
+  description: `Vind in 8 vragen het boekhoudprogramma dat bij je past (${PAKKETTEN.length} aanbieders, echte prijzen) en reken netto inkomen, uurtarief en btw uit. Gratis, zonder account.`,
   og: 'home',
   body: `
 <section class="hero">
@@ -18,7 +18,7 @@ export const home = {
 <h1 class="h1-brand">Boekhoud<b>Match</b>.nl</h1>
 <p class="lead">Beantwoord 8 vragen en zie welk boekhoudprogramma bij jouw zzp-bedrijf past. Met echte prijzen en eerlijk uitgelegd.</p>
 <div class="actions"><a class="btn" href="/boekhoudprogramma-kiezen/">Start de match</a><a class="btn ghost" href="/boekhoudprogramma-vergelijken/">Vergelijk prijzen</a></div>
-<ul class="trust"><li>${PAKKETTEN.length} aanbieders vergeleken</li><li>Actuele prijzen</li><li>Geen cookies</li></ul>
+<ul class="trust"><li>${PAKKETTEN.length} aanbieders vergeleken</li><li>Actuele prijzen</li><li>Gratis, zonder account</li></ul>
 </div>
 <div class="hero-card" aria-label="Zo werkt het">
 <ol>
@@ -95,7 +95,7 @@ export const offerte = {
   body: `
 <h1>Gratis offerte en factuur maken</h1>
 <p class="lead">Maak een nette offerte of factuur met alle verplichte gegevens. Zonder account, en je gegevens blijven op je eigen apparaat.</p>
-<div class="actions"><a class="btn" href="/tools/offerteklaar.html">Open de factuurtool</a></div>
+<div class="actions"><a class="btn" href="/tools/offerteklaar.html" data-tool="factuur">Open de factuurtool</a></div>
 <div class="grid cards">
 <div class="card"><h3>Alles wat erop moet</h3><p class="note">KvK- en btw-nummer, factuurnummer, datum, omschrijving en bedragen in- en exclusief btw.</p></div>
 <div class="card"><h3>21%, 9%, 0%, KOR en verlegd</h3><p class="note">De juiste vermelding staat er automatisch op.</p></div>
@@ -157,7 +157,7 @@ export const over = {
   body: `
 <h1>Over ${SITE.name}</h1>
 <div class="prose">
-<p class="lead">We helpen zzp'ers met boekhouding, geld en belasting. Elk getal heeft een bron en alles werkt zonder account of cookies.</p>
+<p class="lead">We helpen zzp'ers met boekhouding, geld en belasting. Elk getal heeft een bron en alles werkt zonder account. Statistieken houden we alleen bij met jouw toestemming.</p>
 <h2>Hoe de match de volgorde bepaalt</h2>
 <p>Eerst wat bij je past en binnen je budget valt, daarna de prijs per maand, met plus- en minpunten voor btw-aangifte, bankkoppeling, offertes, uren en hulp bij je aangifte. De volledige methode staat <a href="/boekhoudprogramma-kiezen/#methode">bij de match</a>. Of wij ergens aan verdienen, telt niet mee.</p>
 <h2>Hoe we geld verdienen</h2>
@@ -168,21 +168,56 @@ export const over = {
   schema: [{ '@context': 'https://schema.org', '@type': 'AboutPage', name: 'Over BoekhoudMatch', url: SITE.domain + '/over/', publisher: ORG }],
 };
 
+const GA_COOKIE = GA_ID ? `_ga_${GA_ID.slice(2)}` : '_ga_<ID>';
+const gaHtml = `
+<h2 id="cookies">Cookies en statistieken</h2>
+<p>We gebruiken Google Analytics 4 om te zien hoeveel mensen de site bezoeken, hoe ze ons vinden (bijvoorbeeld via Google) en welke pagina's en tools ze gebruiken. Zo weten we wat helpt en wat beter kan.</p>
+<p><strong>Alleen met jouw toestemming.</strong> Pas als je op “Accepteren” klikt, laden we Google Analytics en plaatst Google cookies. Klik je op “Weigeren” of kies je niets, dan wordt er niets geladen en geen cookie geplaatst. De site werkt in alle gevallen volledig.</p>
+<div class="table-wrap"><table class="data">
+<thead><tr><th scope="col">Cookie</th><th scope="col">Doel</th><th scope="col">Bewaartermijn</th></tr></thead>
+<tbody>
+<tr><td><code>_ga</code></td><td>Onderscheidt bezoekers met een willekeurig nummer, zodat we unieke bezoekers kunnen tellen.</td><td>1 jaar</td></tr>
+<tr><td><code>${GA_COOKIE}</code></td><td>Houdt bij welke pagina's in één bezoek worden bekeken.</td><td>1 jaar</td></tr>
+</tbody></table></div>
+<p>Je keuze zelf bewaren we in de lokale opslag van je browser (<code>bm-consent</code>, geen cookie). Na 12 maanden vragen we het opnieuw.</p>
+<h3>Wat we meten, en wat niet</h3>
+<ul>
+<li>Bekeken pagina's (zonder wat je invult: invoer in de adresbalk sturen we niet mee), herkomst van het bezoek, apparaat, browser en land of regio.</li>
+<li>Of de boekhoudmatch wordt gestart en afgerond, met de naam van het best passende pakket, welke rekentool wordt gebruikt en op welke aanbieder wordt geklikt.</li>
+<li>Nooit wat je in de tools invult, zoals omzet, inkomen of je antwoorden. We koppelen de gegevens niet aan je naam of andere gegevens.</li>
+</ul>
+<h3>Privacyvriendelijk ingesteld</h3>
+<ul>
+<li>Google Analytics 4 slaat geen IP-adressen op.</li>
+<li>Google Signals en advertentiepersonalisatie staan uit; gegevens worden niet gebruikt voor advertenties.</li>
+<li>Gegevens in Google Analytics worden na 14 maanden automatisch verwijderd.</li>
+</ul>
+<h3>Google als verwerker en doorgifte naar de VS</h3>
+<p>Google Ireland Limited verwerkt de statistieken in onze opdracht, op basis van de verwerkersvoorwaarden van Google. Gegevens kunnen ook worden verwerkt door Google LLC in de Verenigde Staten. Google LLC is gecertificeerd onder het EU-VS Data Privacy Framework, waarvoor de Europese Commissie een adequaatheidsbesluit heeft genomen. Meer informatie: <a href="https://policies.google.com/privacy?hl=nl" rel="noopener">privacybeleid van Google</a> en <a href="https://business.safety.google/adsprocessorterms/" rel="noopener">verwerkersvoorwaarden van Google</a>.</p>
+<p>De grondslag is jouw toestemming (artikel 11.7a Telecommunicatiewet en artikel 6 lid 1 onder a AVG).</p>
+<h3>Toestemming wijzigen of intrekken</h3>
+<p>Dat kan altijd, net zo makkelijk als geven: klik op <a href="#cookies" data-consent-open>Cookie-instellingen</a> (ook onderaan elke pagina) en kies “Weigeren”. We stoppen dan direct met meten en wissen de Google Analytics-cookies. Je kunt cookies ook wissen via de instellingen van je browser.</p>
+<h2>Jouw rechten</h2>
+<p>Je mag ons vragen welke gegevens we over je hebben, of die laten aanpassen of verwijderen. Mail ons daarvoor. Ben je het niet eens met hoe we met je gegevens omgaan, dan kun je een klacht indienen bij de <a href="https://www.autoriteitpersoonsgegevens.nl/" rel="noopener">Autoriteit Persoonsgegevens</a>.</p>`;
+
 export const privacy = {
   path: '/privacy/',
-  title: 'Privacy: geen cookies, geen tracking | BoekhoudMatch',
-  description: 'BoekhoudMatch plaatst geen cookies en gebruikt geen tracking. Wat je invult in onze tools, blijft in je eigen browser.',
+  title: 'Privacy en cookies | BoekhoudMatch',
+  description: GA_ID
+    ? 'Hoe BoekhoudMatch met je gegevens omgaat: tools werken in je browser en Google Analytics gebruiken we alleen met jouw toestemming.'
+    : 'Hoe BoekhoudMatch met je gegevens omgaat: wat je invult in onze tools blijft in je eigen browser en we gebruiken geen statistieken.',
   crumb: 'Privacy',
   body: `
-<h1>Privacyverklaring</h1>
+<h1>Privacy en cookies</h1>
 <div class="prose">
-<p class="lead">Kort: we plaatsen geen cookies, gebruiken geen trackers en verzamelen geen persoonsgegevens via de tools.</p>
+<p class="lead">Kort: wat je in onze tools invult, blijft in je eigen browser. ${GA_ID ? 'Alleen als je daar toestemming voor geeft, houden we statistieken bij met Google Analytics.' : 'We houden geen statistieken bij en plaatsen geen cookies.'}</p>
 <h2>Tools en match</h2>
 <p>Alles wordt in je eigen browser berekend. Wat je invult, komt in de adresbalk te staan zodat je een berekening kunt bewaren of delen. Het wordt niet naar ons verstuurd.</p>
 <h2>Factuurtool</h2>
 <p>De factuurtool onthoudt je bedrijfsgegevens in de lokale opslag van je browser. Wij kunnen daar niet bij. Je wist het via de instellingen van je browser.</p>
+${GA_ID ? gaHtml : '<h2 id="cookies">Cookies</h2>\n<p>We plaatsen op dit moment geen cookies en gebruiken geen statistieken. Gaan we dat wel doen, dan vragen we eerst je toestemming en staat hier precies wat we meten.</p>'}
 <h2>Hosting</h2>
-<p>De site draait op GitHub Pages (GitHub, Inc.). GitHub verwerkt technische gegevens zoals je IP-adres om de site te tonen en te beveiligen; zie de <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">privacyverklaring van GitHub</a>. Wij ontvangen zelf geen bezoekersgegevens en houden geen statistieken bij.</p>
+<p>De site draait op GitHub Pages (GitHub, Inc.). GitHub verwerkt technische gegevens zoals je IP-adres om de site te tonen en te beveiligen; zie de <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">privacyverklaring van GitHub</a>. Wij ontvangen via GitHub geen bezoekersgegevens.</p>
 <h2>Partnerlinks</h2>
 <p>Klik je later op een gemarkeerde partnerlink, dan kan die partij cookies plaatsen volgens haar eigen beleid.</p>
 <h2>Contact</h2>

@@ -33,7 +33,7 @@ p{font-size:30px;color:#6b5e52;margin-top:20px}
 </style></head><body><div class="blob"></div><div class="blob2"></div><div class="in"><div class="brand">${LOGO}<span>Boekhoud<b>Match</b></span></div><span class="k">${esc(kicker)}</span><h1>${esc(title)}</h1><p>${esc(sub)}</p></div></body></html>`;
 
 const OG = {
-  home: ['Voor zzp\'ers', 'Vind het boekhoudprogramma dat bij je past', 'Echte prijzen · eerlijk uitgelegd · geen cookies'],
+  home: ['Voor zzp\'ers', 'Vind het boekhoudprogramma dat bij je past', 'Echte prijzen · eerlijk uitgelegd · gratis'],
   match: ['Gratis · 8 vragen', 'Welk boekhoudprogramma past bij jou?', 'Echte prijzen van de aanbieders zelf'],
   vergelijken: ['Prijzen 2026', 'Boekhoudprogramma\'s vergelijken', 'Prijs, limieten, btw-aangifte en bankkoppeling'],
   netto: ['Rekentool 2026', 'Netto inkomen zzp berekenen', 'Met zelfstandigenaftrek, mkb-vrijstelling en Zvw'],

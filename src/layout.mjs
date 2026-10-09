@@ -1,4 +1,12 @@
 import { readFileSync } from 'node:fs';
+import { GA_ID as GA_CONFIG } from './analytics.config.mjs';
+import { GA_ID_RE } from './lib/consent.js';
+
+// Google Analytics: Metings-ID uit src/analytics.config.mjs (GA_ID=... als omgevingsvariabele overschrijft, voor lokaal testen).
+export const GA_ID = (process.env.GA_ID ?? GA_CONFIG).trim();
+if (GA_ID && !GA_ID_RE.test(GA_ID)) throw new Error(`Ongeldige GA_ID "${GA_ID}" (verwacht G-XXXXXXXXXX)`);
+// Content-Security-Policy: Google-domeinen alleen als Analytics aanstaat (gtag.js laadt pas na toestemming).
+const G = GA_ID ? { script: ' https://www.googletagmanager.com', connect: ' https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com', img: ' https://*.google-analytics.com https://www.googletagmanager.com' } : { script: '', connect: '', img: '' };
 
 export const SITE = {
   name: 'BoekhoudMatch',
@@ -66,7 +74,7 @@ export function layout(p) {
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'${G.script}; style-src 'self' 'unsafe-inline'; img-src 'self' data:${G.img}; connect-src 'self'${G.connect}; base-uri 'self'; form-action 'self'; object-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>${esc(p.title)}</title>
 <meta name="description" content="${esc(p.description)}">
@@ -82,7 +90,7 @@ ${p.article ? `<meta property="article:published_time" content="${p.article.date
 <style>${CSS}</style>
 ${ld.map((x) => `<script type="application/ld+json">${JSON.stringify(x).replace(/</g, '\\u003c')}</script>`).join('\n')}
 </head>
-<body${hasBar ? ' class="has-bar"' : ''}>
+<body${hasBar ? ' class="has-bar"' : ''}${GA_ID ? ` data-ga="${GA_ID}"` : ''}>
 <a class="skip" href="#inhoud">Naar de inhoud</a>
 <header class="site"><div class="wrap">
 <a class="logo" href="/" aria-label="${SITE.name}, naar de homepage">${LOGO}<span>Boekhoud<b>Match</b></span></a>
@@ -94,13 +102,13 @@ ${p.body.replace('{{related}}', relatedPosts(p.path))}
 </div></main>
 <footer class="site"><div class="wrap">
 <div class="cols">
-<div><a class="logo" href="/">${LOGO}<span>Boekhoud<b>Match</b></span></a><p>Eerlijke hulp bij boekhouding, geld en belasting voor zzp'ers. Echte prijzen, officiële cijfers, geen cookies.</p></div>
+<div><a class="logo" href="/">${LOGO}<span>Boekhoud<b>Match</b></span></a><p>Eerlijke hulp bij boekhouding, geld en belasting voor zzp'ers. Echte prijzen, officiële cijfers. Alleen statistieken met jouw toestemming.</p></div>
 <div><h2>Tools</h2><ul><li><a href="/boekhoudprogramma-kiezen/">Boekhoudprogramma kiezen</a></li><li><a href="/boekhoudprogramma-vergelijken/">Boekhoudprogramma's vergelijken</a></li><li><a href="/zzp-netto-inkomen/">Netto inkomen zzp</a></li><li><a href="/zzp-uurtarief/">Uurtarief berekenen</a></li><li><a href="/btw-berekenen/">Btw berekenen</a></li><li><a href="/offerte-factuur-maken/">Offerte en factuur maken</a></li></ul></div>
-<div><h2>Over ons</h2><ul><li><a href="/blog/">Blog</a></li><li><a href="/over/">Over BoekhoudMatch</a></li><li><a href="/bronnen/">Bronnen en cijfers</a></li><li><a href="/privacy/">Privacy</a></li><li><a href="/disclaimer/">Disclaimer</a></li><li><a href="mailto:${SITE.email}">Contact</a></li></ul></div>
+<div><h2>Over ons</h2><ul><li><a href="/blog/">Blog</a></li><li><a href="/over/">Over BoekhoudMatch</a></li><li><a href="/bronnen/">Bronnen en cijfers</a></li><li><a href="/privacy/">Privacy</a></li>${GA_ID ? '<li><a href="/privacy/#cookies" data-consent-open>Cookie-instellingen</a></li>' : ''}<li><a href="/disclaimer/">Disclaimer</a></li><li><a href="mailto:${SITE.email}">Contact</a></li></ul></div>
 </div>
 <p class="fine">© 2026 ${SITE.name}. Uitkomsten zijn indicaties, geen persoonlijk financieel of fiscaal advies. Cijfers gecontroleerd op ${fmtDate(SITE.updated)}.</p>
 </div></footer>
-${(p.scripts || []).map((s) => `<script type="module" src="${s}"></script>`).join('\n')}
+${[...(GA_ID ? ['/js/consent.js'] : []), ...(p.scripts || [])].map((s) => `<script type="module" src="${s}"></script>`).join('\n')}
 </body>
 </html>`;
 }
