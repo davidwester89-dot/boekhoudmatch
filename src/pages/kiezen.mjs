@@ -64,7 +64,7 @@ ${radios('budget', '8. Wat mag het per maand kosten (excl. btw)?', VRAGEN.budget
 <p class="note" id="out-vol">We rekenen met ${passend0[0].volumes.facturen} facturen, ${passend0[0].volumes.uitgaven} bonnen en ongeveer ${passend0[0].volumes.transacties} banktransacties per maand.</p>
 <div class="match-next">
 <a class="btn ghost" id="out-cmp" href="${esc(PRE_CMP)}" rel="nofollow" data-cta="compare">Vergelijk deze 3 naast elkaar</a>
-<p class="match-links"><a href="/boekhoudprogramma-kiezen/" data-cta="restart">Opnieuw beginnen</a> · <button type="button" class="linkbtn" id="out-copy" data-cta="copy_link">Kopieer link naar je uitslag</button> <span id="out-copy-ok" class="note" role="status"></span></p>
+<p class="match-links"><a href="/boekhoudprogramma-kiezen/" data-cta="restart">Opnieuw beginnen</a><button type="button" class="linkbtn" id="out-copy" data-cta="copy_link">Kopieer link naar je uitslag</button> <span id="out-copy-ok" class="note" role="status"></span></p>
 </div>
 <p><a href="#rangorde">Bekijk alle ${PAKKETTEN.length} aanbieders ↓</a></p>
 </section>
