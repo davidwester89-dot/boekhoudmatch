@@ -134,5 +134,20 @@ footer.site .fine{margin-top:20px;font-size:.85rem;color:var(--muted)}
 .presets button:hover{background:var(--sand);color:var(--brand-d)}
 .slot{border:2px dashed #c9a96b;background:#fffbea;border-radius:var(--r);padding:12px 14px;margin:16px 0;font-size:.92rem}
 .notfound{text-align:center;padding:30px 0}.notfound .actions{justify-content:center}
+/* cookiemelding: vaste onderbalk (geen layoutverschuiving), twee gelijke knoppen */
+.consent{position:fixed;left:0;right:0;bottom:0;z-index:50;padding:0 10px max(10px,env(safe-area-inset-bottom))}
+.consent[hidden]{display:none}
+.consent-in{max-width:760px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:20px 20px 16px 16px;box-shadow:0 -4px 28px rgba(60,40,20,.16);padding:16px 18px;display:grid;gap:12px}
+.consent p{margin:0;font-size:.95rem;line-height:1.5;color:var(--ink)}
+.consent a{color:var(--brand-d);font-weight:600}
+.consent-btns{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.consent .consent-btn{width:100%;min-height:48px;padding:10px 16px;background:var(--brand);border-color:var(--brand);color:#fff}
+.consent .consent-btn:hover{background:var(--brand-d);border-color:var(--brand-d)}
+.consent .consent-btn:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+@media(min-width:700px){.consent{padding-bottom:16px}.consent-in{grid-template-columns:1fr auto;align-items:center;padding:16px 20px}.consent-btns{grid-template-columns:auto auto}.consent .consent-btn{min-width:140px}}
+main[tabindex="-1"]:focus{outline:none}
+body.has-consent{padding-bottom:190px}
+@media(min-width:700px){body.has-consent{padding-bottom:110px}}
+@media print{.consent{display:none}}
 @media print{header.site,footer.site,.slot,nav.main,.presets,.mobilebar{display:none}.result{position:static}body{background:#fff}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}

@@ -14,7 +14,7 @@ const limieten = (p) => [p.facturen !== undefined ? lim(p.facturen, 'facturen/mn
 
 const ALFA = [...PAKKETTEN].sort((x, y) => x.naam.localeCompare(y.naam, 'nl'));
 const rows = ALFA.flatMap((a) => a.plannen.map((p, i) => `<tr${i === 0 ? ' class="first"' : ''}>
-<th scope="row">${i === 0 ? `<a href="${a.bronnen[0].url}" rel="noopener">${esc(a.naam)}</a>` : `<span class="sr">${esc(a.naam)}</span>`}</th>
+<th scope="row">${i === 0 ? `<a href="${a.bronnen[0].url}" rel="noopener" data-vendor="${esc(a.naam)}">${esc(a.naam)}</a>` : `<span class="sr">${esc(a.naam)}</span>`}</th>
 <td>${esc(p.naam)}${p.noot ? `<br><span class="note">${esc(p.noot)}</span>` : ''}</td>
 <td class="n">${e2(p.prijs)}${a.btwPrijzen === 'excl' ? '' : '<sup>*</sup>'}</td>
 <td class="n">${p.prijsJaar != null ? e2(p.prijsJaar) : '–'}</td>
@@ -50,7 +50,7 @@ ${rows}
 
 <h2>Per aanbieder</h2>
 <div class="grid cards">
-${ALFA.map((a) => `<div class="card"><h3>${esc(a.naam)}</h3><p class="note">${esc(a.noot)}</p>${a.actie ? `<p class="note"><strong>Actie:</strong> ${esc(a.actie)}</p>` : ''}<p class="note">Bron: ${a.bronnen.map((b) => `<a href="${b.url}" rel="noopener">${esc(b.titel)}</a>`).join(' · ')}</p></div>`).join('\n')}
+${ALFA.map((a) => `<div class="card"><h3>${esc(a.naam)}</h3><p class="note">${esc(a.noot)}</p>${a.actie ? `<p class="note"><strong>Actie:</strong> ${esc(a.actie)}</p>` : ''}<p class="note">Bron: ${a.bronnen.map((b) => `<a href="${b.url}" rel="noopener" data-vendor="${esc(a.naam)}">${esc(b.titel)}</a>`).join(' · ')}</p></div>`).join('\n')}
 </div>
 ${slot('vergelijken-partner', 'partnerlinks naar proefperiodes.')}
 <p class="note">We zijn bij geen enkele aanbieder partner. De tabel staat op alfabet. Zie <a href="/over/">hoe we werken</a>.</p>

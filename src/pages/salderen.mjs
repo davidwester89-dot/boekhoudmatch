@@ -71,7 +71,7 @@ ${more('Bronnen', sourceList(['saldering', 'terugleverkosten_per_kwh', 'eb_2026'
 export default {
   path,
   title: 'Einde salderen 2027: wat kost het jou? | BoekhoudMatch', og: 'salderen', ogTitle: 'Einde salderen 2027: wat kost het jou?',
-  description: 'Bereken wat het einde van salderen op 1 januari 2027 jou kost, met energiebelasting 2027, minimumvergoeding en terugleverkosten. Gratis, zonder cookies.',
+  description: 'Bereken wat het einde van salderen op 1 januari 2027 jou kost, met energiebelasting 2027, minimumvergoeding en terugleverkosten. Gratis, zonder account.',
   h1: 'Einde salderen 2027', crumb: 'Salderen 2027',
   body,
   scripts: ['/js/salderen.js'],
