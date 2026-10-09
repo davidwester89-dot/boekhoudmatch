@@ -11,6 +11,7 @@ header.site{background:var(--bg);border-bottom:1px solid var(--line)}
 header.site .wrap{display:flex;align-items:center;justify-content:space-between;gap:8px 18px;flex-wrap:wrap;padding-top:10px;padding-bottom:6px}
 .logo{display:inline-flex;align-items:center;gap:10px;font:800 1.2rem/1 var(--head);color:var(--ink);text-decoration:none;letter-spacing:-.01em;min-height:44px}
 .logo b{color:var(--brand)}.logo svg{width:34px;height:34px;flex:none}
+.h1-brand b{color:var(--brand)}
 nav.main{display:flex;gap:4px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin:0 -8px;max-width:calc(100% + 16px)}
 nav.main::-webkit-scrollbar{display:none}
 nav.main a{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;border-radius:99px;text-decoration:none;color:var(--ink);font-weight:600;font-size:.95rem;white-space:nowrap}
