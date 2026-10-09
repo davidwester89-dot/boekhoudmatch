@@ -7,7 +7,7 @@ Bron van [boekhoudmatch.nl](https://boekhoudmatch.nl): gratis tools en artikelen
 - **Rekentools**: netto inkomen zzp, uurtarief, btw, offerte en factuur, plus salderen en thuisbatterij.
 - **Blog**: actuele artikelen met officiële bronnen (`content/blog/*.md`).
 
-Statische site zonder frameworks. Externe verzoeken en cookies alleen voor Google Analytics, en pas na toestemming (zie hieronder). Contact: davidwester89@gmail.com.
+Statische site zonder frameworks. Externe verzoeken en cookies alleen voor Google Analytics, en pas na toestemming (zie hieronder). Contact: info@boekhoudmatch.nl.
 
 ## Ontwikkelen
 

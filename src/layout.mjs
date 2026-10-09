@@ -11,7 +11,7 @@ const G = GA_ID ? { script: ' https://www.googletagmanager.com', connect: ' http
 export const SITE = {
   name: 'BoekhoudMatch',
   domain: 'https://boekhoudmatch.nl',
-  email: 'davidwester89@gmail.com',
+  email: 'info@boekhoudmatch.nl',
   lang: 'nl',
   showSlots: process.env.SHOW_SLOTS !== '0', // partnerplekken alleen zichtbaar in een lokale preview
   updated: '2026-10-09',
@@ -133,6 +133,21 @@ export function sourceList(keys, SOURCES) {
 export function more(summary, html) {
   return `<details><summary>${esc(summary)}</summary>${html}</details>`;
 }
+// Wie erachter zit: letterlijk zoals Dave het opgaf. Niets toevoegen.
+export const FOUNDER = {
+  naam: 'Dave West',
+  zin: 'Dave West, oprichter. Controleert elke maand de prijzen op de prijspagina\'s van de aanbieders.',
+  schema: { '@type': 'Person', name: 'Dave West', jobTitle: 'Oprichter', url: 'https://boekhoudmatch.nl/over/' },
+};
+// De methode, kort. Staat boven de vergelijking, op /over/ en bij de match.
+export const METHODE_LIJST = `<ul class="method">
+<li><strong>Prijs van de aanbieder zelf.</strong> Elke prijs komt van de prijspagina van de aanbieder, met de bronlink erbij.</li>
+<li><strong>Met controledatum.</strong> Bij elke aanbieder staat wanneer we de prijs hebben gecontroleerd.</li>
+<li><strong>“Niet vermeld” is niet vermeld.</strong> Staat iets niet op de pagina van de aanbieder, dan schrijven we “niet vermeld”. We vullen niets zelf in.</li>
+<li><strong>Volgorde = passend + budget + prijs.</strong> Eerst wat bij je situatie past, dan wat binnen je budget valt, dan de laagste prijs.</li>
+<li><strong>Commissie telt niet mee.</strong> Of wij ergens aan verdienen, heeft geen invloed op de volgorde.</li>
+</ul>`;
+
 export const ORG = {
   '@type': 'Organization', name: SITE.name, url: SITE.domain + '/',
   logo: { '@type': 'ImageObject', url: SITE.domain + '/icon-512.png', width: 512, height: 512 },

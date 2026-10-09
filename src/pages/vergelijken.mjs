@@ -1,4 +1,4 @@
-import { SITE, esc, slot, fmtDate, faqHtml, faqSchema } from '../layout.mjs';
+import { SITE, esc, slot, fmtDate, faqHtml, faqSchema, METHODE_LIJST } from '../layout.mjs';
 import { PAKKETTEN, CHECKED } from '../lib/pakketten.js';
 
 const path = '/boekhoudprogramma-vergelijken/';
@@ -40,6 +40,9 @@ const body = `
 <p class="lead">Alle ${PAKKETTEN.reduce((n, a) => n + a.plannen.length, 0)} pakketten van ${PAKKETTEN.length} aanbieders naast elkaar: prijs, limieten, btw-aangifte en bankkoppeling.</p>
 <p class="note">Actuele prijzen, rechtstreeks van de aanbieders zelf.</p>
 <div class="actions"><a class="btn" href="/boekhoudprogramma-kiezen/">Liever advies op maat? Doe de match</a></div>
+<section class="band methodbox" aria-labelledby="methode"><h2 id="methode">Zo vergelijken we</h2>
+${METHODE_LIJST}
+<p class="note">Prijzen gecontroleerd door Dave West, oprichter. Meer over <a href="/over/">wie we zijn</a> en alle <a href="/bronnen/">bronnen</a>.</p></section>
 <div class="table-wrap" tabindex="0" role="region" aria-label="Vergelijkingstabel boekhoudprogramma's (scroll horizontaal)">
 <table class="data compare">
 <thead><tr><th>Aanbieder</th><th>Pakket</th><th>Prijs p/m</th><th>Bij jaar&shy;betaling</th><th>Limieten</th><th>Btw-aangifte</th><th>Bank&shy;koppeling</th><th>Offertes</th><th>Uren</th><th>Aangifte IB</th><th>Rechtsvorm</th></tr></thead>
@@ -53,7 +56,7 @@ ${rows}
 ${ALFA.map((a) => `<div class="card"><h3>${esc(a.naam)}</h3><p class="note">${esc(a.noot)}</p>${a.actie ? `<p class="note"><strong>Actie:</strong> ${esc(a.actie)}</p>` : ''}<p class="note">Bron: ${a.bronnen.map((b) => `<a href="${b.url}" rel="noopener" data-vendor="${esc(a.naam)}">${esc(b.titel)}</a>`).join(' · ')} (gecontroleerd ${fmtDate(a.gecontroleerd || CHECKED)})</p></div>`).join('\n')}
 </div>
 ${slot('vergelijken-partner', 'partnerlinks naar proefperiodes.')}
-<p class="note">We zijn bij geen enkele aanbieder partner. De tabel staat op alfabet. Zie <a href="/over/">hoe we werken</a>.</p>
+<p class="note">Er staan op deze site op dit moment geen partnerlinks. De tabel staat op alfabet. Zie <a href="/over/">hoe we werken</a>.</p>
 
 <h2>Veelgestelde vragen</h2>
 ${faqHtml(faq)}
