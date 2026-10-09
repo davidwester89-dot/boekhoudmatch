@@ -1,5 +1,5 @@
 // Boekhoudpakketten: prijzen en functies UITSLUITEND van de eigen website van de aanbieder.
-// Gecontroleerd op CHECKED. null = niet (per pakket) te verifiëren op de prijspagina -> zo tonen, niet raden.
+// Gecontroleerd op CHECKED (of per aanbieder op `gecontroleerd`). null = niet (per pakket) te verifiëren op de prijspagina -> zo tonen, niet raden.
 // Prijzen: reguliere prijs per maand bij maandbetaling (geen tijdelijke acties). Acties staan apart in `actie`.
 // LET OP: het veld `partner` wordt alleen gebruikt voor de openbaarmaking. De matching leest het NIET (zie match.js + tests).
 export const CHECKED = '2026-10-08';
@@ -114,6 +114,25 @@ export const PAKKETTEN = [
       { id: 'slim-start', naam: 'Reeleezee Slim Boekhouden Start', prijs: 18, facturen: 10, uitgaven: 10, btwAangifte: 'ja', bank: 'auto', offertes: null, uren: null, ib: false, noot: '10 facturen en 10 boekingen per maand.' },
       { id: 'slim', naam: 'Reeleezee Slim Boekhouden', prijs: 43, facturen: INF, uitgaven: INF, btwAangifte: 'direct', bank: 'auto', offertes: null, uren: null, ib: false },
       { id: 'eol-essentials', naam: 'Exact Online Boekhouden Essentials', prijs: 49, facturen: 25, btwAangifte: 'ja', bank: 'auto', offertes: null, uren: null, ib: false, noot: '1 gebruiker, 1 bankkoppeling.' },
+    ],
+  },
+  {
+    id: 'silvasoft', naam: 'Silvasoft', site: 'https://www.silvasoft.nl', gecontroleerd: '2026-10-10',
+    bronnen: [
+      { url: 'https://www.silvasoft.nl/prijzen/', titel: 'Silvasoft – Prijzen' },
+      { url: 'https://www.silvasoft.nl/boekhoudprogramma/', titel: 'Silvasoft – Boekhouden' },
+      { url: 'https://www.silvasoft.nl/offerte-software/', titel: 'Silvasoft – Offertes & orders' },
+      { url: 'https://www.silvasoft.nl/urenregistratie/', titel: 'Silvasoft – Urenregistratie' },
+    ],
+    btwPrijzen: 'excl', rechtsvormen: null, eigenRekening: false, partner: 'eigen affiliateprogramma',
+    actie: '30 dagen gratis proberen, geen automatische verlenging.',
+    noot: 'Je stelt je pakket samen uit modules (prijs per administratie, excl. btw): Boekhouden € 13,95, Facturatie € 8,95, Offertes & orders € 6,95, Urenregistratie € 3,95. Onbeperkt boeken, btw-aangifte met 1 klik naar de Belastingdienst. Automatische bankkoppeling (alle Nederlandse banken) € 3 per bankrekening per maand; MT940-import zit erin. Hulp bij de aangifte inkomstenbelasting en ondersteunde rechtsvormen staan niet vermeld.',
+    plannen: [
+      { id: 'boekhouden', naam: 'Boekhouden', prijs: 13.95, facturen: 0, btwAangifte: 'direct', bank: 'auto-extra', bankExtra: 3, offertes: false, uren: false, ib: null, noot: 'Zonder factureren.' },
+      { id: 'boekhouden-facturatie', naam: 'Boekhouden + Facturatie', prijs: 22.90, facturen: INF, btwAangifte: 'direct', bank: 'auto-extra', bankExtra: 3, offertes: false, uren: false, ib: null },
+      { id: 'bf-uren', naam: 'Boekhouden + Facturatie + Urenregistratie', prijs: 26.85, facturen: INF, btwAangifte: 'direct', bank: 'auto-extra', bankExtra: 3, offertes: false, uren: true, ib: null },
+      { id: 'bf-offertes', naam: 'Boekhouden + Facturatie + Offertes & orders', prijs: 29.85, facturen: INF, btwAangifte: 'direct', bank: 'auto-extra', bankExtra: 3, offertes: true, uren: false, ib: null },
+      { id: 'bf-offertes-uren', naam: 'Boekhouden + Facturatie + Offertes & orders + Urenregistratie', prijs: 33.80, facturen: INF, btwAangifte: 'direct', bank: 'auto-extra', bankExtra: 3, offertes: true, uren: true, ib: null },
     ],
   },
 ];

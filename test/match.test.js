@@ -14,7 +14,7 @@ test('data: elke aanbieder heeft bron-URL van eigen domein, plannen met prijs, e
     for (const b of a.bronnen) assert.ok(new URL(b.url).hostname.endsWith(host), `${a.id} bron ${b.url} niet van eigen site`);
     for (const p of a.plannen) assert.ok(typeof p.prijs === 'number' && p.prijs >= 0, `${a.id}/${p.id}`);
   }
-  assert.equal(PAKKETTEN.length, 8);
+  assert.equal(PAKKETTEN.length, 9);
 });
 
 test('affiliate-status beïnvloedt de rangorde niet', () => {
@@ -112,4 +112,17 @@ test('onbekende functies worden als onbekend gemeld, niet als "ja"', () => {
 test('normaliseer leest URL-waarden (strings) correct', () => {
   const n = normaliseer({ facturen: '10', uitgaven: '20', extra: 'offertes,uren', budget: 'Infinity' });
   assert.equal(n.facturen, 10); assert.deepEqual(n.extra, ['offertes', 'uren']); assert.equal(n.budget, Infinity);
+});
+
+test('Silvasoft: modules als pakketten, juiste combinatie en bankkosten', () => {
+  const silva = (v) => match(PAKKETTEN, v).find((r) => r.aanbieder === 'silvasoft');
+  const zonder = silva({ ...basis, bank: 'maakt-niet-uit', offertes: false, uren: false, extra: [] });
+  assert.equal(zonder.planNaam, 'Boekhouden + Facturatie');
+  assert.equal(zonder.prijs, 22.9);
+  const metBank = silva({ ...basis, bank: 'auto', extra: [] });
+  assert.ok(Math.abs(metBank.prijs - 25.9) < 1e-9, 'bankkoppeling € 3 telt mee');
+  const alles = silva({ ...basis, bank: 'maakt-niet-uit', extra: ['offertes', 'uren'] });
+  assert.equal(alles.planNaam, 'Boekhouden + Facturatie + Offertes & orders + Urenregistratie');
+  const kaal = silva({ ...basis, facturen: 0, bank: 'maakt-niet-uit', extra: [] });
+  assert.equal(kaal.planNaam, 'Boekhouden');
 });
