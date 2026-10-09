@@ -28,10 +28,19 @@ bindForm(form, (v) => {
   const vol = res[0].volumes;
   document.getElementById('out-vol').textContent = `We rekenen met ${vol.facturen} facturen, ${vol.uitgaven} bonnen en ongeveer ${vol.transacties} banktransacties per maand.`;
 
+  // Vooringestelde aanbieder (?aanbieder=id, vanaf een aanbiederpagina): laat zien waar die staat. Verandert de volgorde niet.
+  const pick = document.getElementById('out-pick');
+  const pi = v.aanbieder ? res.findIndex((r) => r.aanbieder === v.aanbieder) : -1;
+  if (pi >= 0) {
+    const r = res[pi];
+    pick.hidden = false;
+    pick.replaceChildren(el('p', 'lbl', `Jouw keuze: ${r.naam}`), el('p', '', r.past ? `Plek ${pi + 1} van ${res.length}: ${r.planNaam}, ${euro(r.prijs)} p/m${r.binnenBudget ? '' : ' (boven budget)'}.` : `Past niet bij je antwoorden: ${r.nee[0] || ''}`));
+  } else pick.hidden = true;
+
   const list = document.getElementById('out-list');
   list.replaceChildren(...res.map((r, i) => {
     const a = byId[r.aanbieder];
-    const card = el('article', 'card rank ' + (r.past ? (r.binnenBudget ? 'fit' : 'over') : 'nofit'));
+    const card = el('article', 'card rank ' + (r.past ? (r.binnenBudget ? 'fit' : 'over') : 'nofit') + (r.aanbieder === v.aanbieder ? ' picked' : ''));
     const h = el('h3');
     h.append(el('span', 'pos', r.past ? `${i + 1}.` : '–'), document.createTextNode(` ${r.naam} `), el('span', 'plan', r.planNaam));
     card.append(h);

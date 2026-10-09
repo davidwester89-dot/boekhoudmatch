@@ -167,3 +167,18 @@ ul.method{margin:0 0 10px;padding-left:1.2em}ul.method li{margin-bottom:6px}
 .wordmark{font:800 1.15rem/1 var(--head);color:#3c3a36;letter-spacing:-.01em}
 /* compacte cookiemelding op mobiel */
 @media(max-width:699px){.consent-in{padding:12px 14px;gap:10px;border-radius:16px 16px 12px 12px}.consent p{font-size:.86rem;line-height:1.4}.consent .consent-btn{min-height:44px;padding:8px 12px}}
+/* vergelijking */
+.sits .sit h3{margin:.3em 0 .1em}.vprice{margin:0 0 8px}
+.filters .fgrid{display:grid;gap:0 16px}@media(min-width:600px){.filters .fgrid{grid-template-columns:1fr 1fr}}
+.filters .fchecks{display:flex;flex-wrap:wrap;gap:0 18px}
+.vcard[hidden],tr[hidden]{display:none}
+.vhead{display:flex;gap:14px;align-items:center;margin-bottom:8px}.vhead h3{margin:0}
+.vhead img,.vhead .wordmark{flex:none;width:120px;height:36px;object-fit:contain;object-position:left center;display:flex;align-items:center}
+.vhead .wordmark{font-size:1rem}
+.vfacts{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;margin:8px 0 10px;font-size:.94rem}.vfacts dt{font-weight:700;color:var(--muted)}.vfacts dd{margin:0}
+.vlinks{display:flex;flex-wrap:wrap;gap:6px 18px;margin:0;font-weight:700}
+.vhead.big img,.vhead.big .wordmark{width:200px;height:60px;font-size:1.5rem}
+.vfacts.wide{max-width:68ch}
+h2.h3{font-size:1.12rem;margin-top:0}
+.pick{background:var(--green-soft);border-radius:12px;padding:10px 12px;margin:6px 0 10px}.pick p{margin:0}.pick .lbl{font-weight:700;color:var(--green)}
+.rank.picked{border:2px solid var(--green)}

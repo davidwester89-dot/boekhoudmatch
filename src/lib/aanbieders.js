@@ -86,5 +86,5 @@ export const REDACTIE = {
 };
 
 // Link naar de pagina van een aanbieder. VENDOR_PAGES=false: anker in de vergelijking (tot de aanbiederpagina's live zijn).
-export const VENDOR_PAGES = false;
+export const VENDOR_PAGES = true;
 export const vendorHref = (id) => (VENDOR_PAGES ? `/${REDACTIE[id].slug}/` : `/boekhoudprogramma-vergelijken/#${REDACTIE[id].slug}`);

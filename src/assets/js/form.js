@@ -26,6 +26,7 @@ export function writeForm(form, values) {
 
 /** Koppel formulier: herbereken bij elke wijziging, bewaar invoer in de URL (deelbaar, geen cookies). */
 export function bindForm(form, run) {
+  noindexMetParams();
   const params = new URLSearchParams(location.search);
   if ([...params.keys()].length) {
     const vals = {};
@@ -42,6 +43,7 @@ export function bindForm(form, run) {
       if (!el.name || el.dataset.nourl !== undefined) continue;
       if (el.type === 'checkbox') q.set(el.name, el.checked ? '1' : '0');
       else if (el.type === 'radio') { if (el.checked) q.set(el.name, el.value); }
+      else if (el.type === 'hidden' && !el.value) continue;
       else q.set(el.name, el.value);
     }
     history.replaceState(null, '', `${location.pathname}?${q}`);
@@ -62,4 +64,15 @@ export function rows(tbody, list) {
     const b = document.createElement('td'); b.textContent = value;
     tr.append(a, b); return tr;
   }));
+}
+
+/** URL met invoer (querystring) niet laten indexeren: meta robots noindex en canonical naar de schone URL. */
+export function noindexMetParams() {
+  if (!location.search) return;
+  let m = document.querySelector('meta[name="robots"]');
+  if (!m) { m = document.createElement('meta'); m.name = 'robots'; document.head.append(m); }
+  m.content = 'noindex, follow';
+  let c = document.querySelector('link[rel="canonical"]');
+  if (!c) { c = document.createElement('link'); c.rel = 'canonical'; document.head.append(c); }
+  c.href = location.origin + location.pathname;
 }
