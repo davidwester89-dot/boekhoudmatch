@@ -1,4 +1,4 @@
-import { SITE, field, check, slot, sourceList, webApp, faqSchema, faqHtml, fmtDate } from '../layout.mjs';
+import { SITE, more, field, check, slot, sourceList, webApp, faqSchema, faqHtml, fmtDate } from '../layout.mjs';
 import { SOURCES } from '../lib/constants.js';
 
 const path = '/thuisbatterij-terugverdientijd/';
@@ -10,10 +10,9 @@ const faq = [
 ];
 
 const body = `
-<span class="tag">Energie · bijgewerkt ${fmtDate(SITE.updated)}</span>
 <h1>Thuisbatterij terugverdientijd berekenen (2027)</h1>
-<p class="lead">Wat bespaart een thuisbatterij of stekkerbatterij als salderen stopt? We rekenen 8.760 uur door met echte zon- en verbruiksprofielen, inclusief laadverliezen, vermogensgrens en slijtage.</p>
-<noscript><div class="alert">Deze rekentool heeft JavaScript nodig. Er worden geen cookies of trackers geladen.</div></noscript>
+<p class="lead">Wat bespaart een thuis- of stekkerbatterij als salderen stopt? We rekenen elk uur van het jaar door met echte zon- en verbruiksprofielen.</p>
+<noscript><div class="alert">Deze rekentool heeft JavaScript nodig.</div></noscript>
 <div class="grid calc">
 <form class="calc-form card" id="form" novalidate>
 <fieldset><legend>1. Je huis</legend>
@@ -51,7 +50,7 @@ ${check({ name: 'terugBtw', label: 'Ik krijg de beursprijs inclusief btw voor te
 </fieldset>
 </form>
 <section class="card result" id="uitkomst" aria-live="polite">
-<h2 style="margin-top:0">Uitkomst</h2>
+<h2>Uitkomst</h2>
 <p>Besparing in het eerste jaar:</p>
 <p class="big neg" id="out-besparing">–</p>
 <p id="out-tvt" class="note"></p>
@@ -59,14 +58,13 @@ ${check({ name: 'terugBtw', label: 'Ik krijg de beursprijs inclusief btw voor te
 <table class="kv"><tbody id="out-table"></tbody></table>
 <svg id="chart" class="chart" viewBox="0 0 400 160" role="img" aria-label="Cumulatieve besparing tegenover aanschafprijs"></svg>
 <p class="note">Groene lijn: opgetelde besparing per jaar. Stippellijn: aanschafprijs.</p>
-${slot('batterij-partner', 'Hier komt straks een link naar thuisbatterijen (bijvoorbeeld HomeWizard of Zendure via Daisycon) of naar offertes van installateurs.')}
-${slot('dynamisch-contract', 'Hier komt straks een vergelijking van dynamische energiecontracten (bijvoorbeeld via Daisycon: Frank Energie, EnergyZero, ANWB Energie).')}
+${slot('batterij', 'thuisbatterijen of offertes.')}
 </section>
 </div>
-<a class="mobilebar" href="#uitkomst">Uitkomst: <strong data-mirror></strong> ↓</a>
+<a class="mobilebar" href="#uitkomst"><span>Besparing jaar 1</span><strong data-mirror></strong></a>
 
 <h2>Zo rekenen we</h2>
-<div class="prose">
+${more('Berekening en aannames', `
 <ol>
 <li><strong>Elk uur van het jaar.</strong> Je jaarverbruik verdelen we over 8.760 uur volgens het officiële standaardprofiel voor huishoudens (MFFBAS/NEDU E1A, 2025). Je opwek verdelen we volgens PVGIS-zonnegegevens voor De Bilt (gemiddelde 2018–2023, panelen op het zuiden).</li>
 <li><strong>Correctie eigen verbruik.</strong> Omdat een standaardprofiel gladder is dan een echt huishouden, schuiven we per dag een deel van het verbruik in zonuren naar de avond en nacht, tot je direct eigen verbruik (zonder batterij) gelijk is aan het percentage dat je invult.</li>
@@ -74,20 +72,18 @@ ${slot('dynamisch-contract', 'Hier komt straks een vergelijking van dynamische e
 <li><strong>Kosten.</strong> Per uur: afname × stroomprijs − teruglevering × (vergoeding − terugleverkosten). Bij een dynamisch contract gebruiken we per uur de beursprijs plus opslag, energiebelasting 2027 (voorstel) en btw.</li>
 <li><strong>Terugverdientijd.</strong> We tellen de besparing per jaar op, met jaarlijks capaciteitsverlies, tot de aanschafprijs bereikt is. Prijsstijgingen rekenen we niet mee.</li>
 </ol>
-<p><strong>Niet meegerekend:</strong> handelen op prijsverschillen, subsidies, onderhoud en vervanging van de omvormer, en extra opbrengst door slim sturen van grote apparaten. De uitkomst is een indicatie; je werkelijke besparing hangt af van je eigen verbruikspatroon.</p>
-</div>
+<p><strong>Niet meegerekend:</strong> handelen op prijsverschillen, subsidies, onderhoud en vervanging van de omvormer, en extra opbrengst door slim sturen van grote apparaten. De uitkomst is een indicatie; je werkelijke besparing hangt af van je eigen verbruikspatroon.</p>`)}
 
 <h2>Veelgestelde vragen</h2>
 ${faqHtml(faq)}
 
-<h2>Bronnen</h2>
-${sourceList(['nedu', 'pvgis', 'epex', 'eb_2027', 'saldering', 'cbs_tarieven', 'milieucentraal_zelfverbruik', 'homewizard_battery', 'tlk_overzicht'], SOURCES)}
+${more('Bronnen', sourceList(['nedu', 'pvgis', 'epex', 'eb_2027', 'saldering', 'cbs_tarieven', 'milieucentraal_zelfverbruik', 'homewizard_battery', 'tlk_overzicht'], SOURCES))}
 `;
 
 export default {
   path,
-  title: 'Thuisbatterij terugverdientijd berekenen 2027 (ook stekkerbatterij) | BoekhoudMatch',
-  description: 'Bereken uur voor uur wat een thuisbatterij of stekkerbatterij bespaart na het einde van salderen, met echte zon- en verbruiksprofielen en terugverdientijd. Gratis, zonder cookies.',
+  title: 'Thuisbatterij terugverdientijd berekenen | BoekhoudMatch', og: 'batterij', ogTitle: 'Verdient een thuisbatterij zich terug?',
+  description: 'Bereken uur voor uur wat een thuisbatterij of stekkerbatterij bespaart na het einde van salderen, inclusief terugverdientijd. Gratis, zonder cookies.',
   crumb: 'Thuisbatterij terugverdientijd',
   body,
   scripts: ['/js/thuisbatterij.js'],

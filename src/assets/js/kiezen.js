@@ -19,10 +19,10 @@ bindForm(document.getElementById('form'), (v) => {
     if (r.plus[0]) li.append(el('div', 'note', r.plus.slice(0, 2).join(' ')));
     return li;
   }));
-  if (!passend.length) top.replaceChildren(el('li', '', 'Geen pakket voldoet aan al je eisen. Bekijk hieronder waarom, en wat het dichtst in de buurt komt.'));
+  if (!passend.length) top.replaceChildren(el('li', '', 'Geen pakket past bij al je wensen. Hieronder zie je waarom, en wat het dichtst in de buurt komt.'));
   document.getElementById('big-mirror').textContent = passend[0] ? `${passend[0].naam} ${passend[0].planNaam}` : '–';
   const vol = res[0].volumes;
-  document.getElementById('out-vol').textContent = `Geschat volume: ${vol.facturen} facturen, ${vol.uitgaven} bonnen, ca. ${vol.transacties} banktransacties en ${vol.boekingenMaand} boekingen per maand.`;
+  document.getElementById('out-vol').textContent = `We rekenen met ${vol.facturen} facturen, ${vol.uitgaven} bonnen en ongeveer ${vol.transacties} banktransacties per maand.`;
 
   const list = document.getElementById('out-list');
   list.replaceChildren(...res.map((r, i) => {
@@ -38,10 +38,9 @@ bindForm(document.getElementById('form'), (v) => {
     if (r.plus.length) { card.append(el('p', 'lbl ok', 'Waarom het past:'), lijst('plus', r.plus)); }
     if (r.let_op.length) { card.append(el('p', 'lbl warn', 'Let op:'), lijst('letop', r.let_op)); }
     if (r.alternatieven?.length) card.append(el('p', 'note', 'Ook passend bij deze aanbieder: ' + r.alternatieven.join(', ') + '.'));
-    if (a.actie) card.append(el('p', 'note', 'Actie (telt niet mee in de rangorde): ' + a.actie));
+    if (a.actie) card.append(el('p', 'note', 'Actie: ' + a.actie));
     const src = el('p', 'note'); src.append('Bron: ');
     a.bronnen.forEach((b, j) => { if (j) src.append(' · '); const l = el('a', '', b.titel); l.href = b.url; l.rel = 'noopener'; src.append(l); });
-    src.append(` · score ${r.score.toString().replace('.', ',')}`);
     card.append(src);
     return card;
   }));

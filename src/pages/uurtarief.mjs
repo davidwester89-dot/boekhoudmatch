@@ -1,19 +1,18 @@
-import { SITE, field, check, slot, sourceList, webApp, faqSchema, faqHtml, fmtDate } from '../layout.mjs';
+import { SITE, field, check, slot, sourceList, webApp, faqSchema, faqHtml, fmtDate, more } from '../layout.mjs';
 import { SOURCES } from '../lib/constants.js';
 
 const path = '/zzp-uurtarief/';
 const faq = [
-  ['Hoe bereken ik mijn uurtarief als zzp\'er?', 'Begin bij wat je netto per maand wilt overhouden. Tel daar belasting, Zvw-bijdrage, je AOV en pensioen en je zakelijke kosten bij, en deel door het aantal uren dat je echt kunt factureren. Deze tool rekent de belasting van 2026 exact terug.'],
+  ['Hoe bereken ik mijn uurtarief als zzp\'er?', 'Begin bij wat je netto per maand wilt overhouden. Tel daar belasting, Zvw-bijdrage, AOV, pensioen en zakelijke kosten bij, en deel door de uren die je echt kunt factureren. Deze tool rekent dat voor je uit.'],
   ['Hoeveel uur per jaar kan ik factureren?', 'Minder dan je denkt: vakantie, feestdagen, ziekte, acquisitie en administratie gaan eraf. Veel zzp\'ers factureren 60 tot 75% van hun gewerkte uren. Vul je eigen inschatting in.'],
   ['Welk uurtarief hoort bij mijn salaris in loondienst?', 'Kies “Vanuit mijn salaris”. We berekenen je netto loon in 2026 (vereenvoudigd) en zoeken het zzp-tarief dat na belasting, AOV, pensioen en kosten hetzelfde netto oplevert.'],
   ['Is het uurtarief inclusief of exclusief btw?', 'We tonen beide. Je offerte noemt meestal het tarief exclusief 21% btw; de btw draag je af aan de Belastingdienst (tenzij je de KOR gebruikt).'],
 ];
 
 const body = `
-<span class="tag">Zzp · belastingjaar 2026 · bijgewerkt ${fmtDate(SITE.updated)}</span>
 <h1>Uurtarief zzp berekenen (2026)</h1>
-<p class="lead">Welk uurtarief heb je nodig voor het netto inkomen dat je wilt? Of: welk tarief staat gelijk aan je salaris in loondienst? Met de echte belastingregels van 2026, AOV, pensioen en niet-declarabele uren.</p>
-<noscript><div class="alert">Deze rekentool heeft JavaScript nodig. Er worden geen cookies of trackers geladen.</div></noscript>
+<p class="lead">Welk uurtarief heb je nodig voor het inkomen dat je wilt? Of: welk tarief past bij je huidige salaris?</p>
+<noscript><div class="alert">Deze rekentool heeft JavaScript nodig.</div></noscript>
 <div class="grid calc">
 <form class="calc-form card" id="form" novalidate>
 <fieldset><legend>1. Wat wil je verdienen?</legend>
@@ -39,36 +38,35 @@ ${check({ name: 'starter', label: 'Ik heb recht op startersaftrek', checked: fal
 </fieldset>
 </form>
 <section class="card result" id="uitkomst" aria-live="polite">
-<h2 style="margin-top:0">Uitkomst</h2>
-<p>Minimaal uurtarief (excl. btw):</p>
+<h2>Minimaal uurtarief (excl. btw)</h2>
 <p class="big neg" id="out-tarief">–</p>
 <p id="out-sub" class="note"></p>
 <div id="out-alert"></div>
 <table class="kv"><tbody id="out-table"></tbody></table>
 <p class="note">Op zoek naar een boekhoudprogramma? <a href="/boekhoudprogramma-kiezen/">Doe de boekhoudmatch</a>.</p>
-${slot('boekhoudsoftware', 'Hier komt straks mogelijk een partnerlink naar een boekhoudprogramma met gratis proefperiode. De rangorde in onze boekhoudmatch verandert daar niet door.')}
+${slot('boekhoudsoftware', 'partnerlink boekhoudprogramma.')}
 <p class="note">Offerte of factuur maken met dit tarief? Gebruik de gratis <a href="/offerte-factuur-maken/">offerte- en factuurtool</a>.</p>
 </section>
 </div>
-<a class="mobilebar" href="#uitkomst">Uitkomst: <strong data-mirror></strong> ↓</a>
+<a class="mobilebar" href="#uitkomst"><span>Uurtarief</span><strong data-mirror></strong></a>
 
 <h2>Zo rekenen we</h2>
-<div class="prose">
+${more('Berekening stap voor stap', `
 <p>We zoeken de winst waarbij je, na inkomstenbelasting 2026, heffingskortingen, tariefaanpassing en Zvw-bijdrage, en na betaling van je AOV en pensioeninleg, precies je gewenste netto overhoudt. Daar tellen we je kosten bij (= benodigde omzet) en delen we door je declarabele uren.</p>
 <p>Het urencriterium (1.225 uur) bepalen we uit je gewerkte uren: werkweken × uren per week. In de stand “Vanuit mijn salaris” berekenen we eerst je netto jaarloon: bruto incl. vakantiegeld, min je pensioenpremie en loonheffing met algemene heffingskorting en arbeidskorting (zonder bijtelling, reiskosten of andere vergoedingen). De WW, WIA en het werkgeversdeel van je pensioen krijg je als zzp'er niet; daarom vragen we naar AOV en pensioen.</p>
-</div>
+`)}
 
 <h2>Veelgestelde vragen</h2>
 ${faqHtml(faq)}
 
-<h2>Bronnen</h2>
-${sourceList(['box1_2026', 'kortingen_2026', 'arbeidsinkomen', 'zelfstandigenaftrek_2026', 'mkb_2026', 'tariefaanpassing_2026', 'zvw_2026', 'urencriterium'], SOURCES)}
+${more('Bronnen', sourceList(['box1_2026', 'kortingen_2026', 'arbeidsinkomen', 'zelfstandigenaftrek_2026', 'mkb_2026', 'tariefaanpassing_2026', 'zvw_2026', 'urencriterium'], SOURCES))}
+{{related}}
 `;
 
 export default {
   path,
-  title: 'Uurtarief zzp berekenen 2026 (ook vanuit je salaris) | BoekhoudMatch',
-  description: 'Bereken welk uurtarief je als zzp\'er nodig hebt voor je gewenste netto inkomen, of welk tarief gelijk staat aan je salaris. Belastingregels 2026, AOV en pensioen. Zonder cookies.',
+  title: 'Uurtarief zzp berekenen 2026 | BoekhoudMatch', og: 'uurtarief', ogTitle: 'Uurtarief zzp berekenen (2026)',
+  description: 'Bereken welk uurtarief je als zzp\'er nodig hebt voor je gewenste netto inkomen, of welk tarief past bij je salaris. Met de belastingregels van 2026.',
   crumb: 'Uurtarief zzp',
   body,
   scripts: ['/js/uurtarief.js'],

@@ -1,12 +1,15 @@
 {
-  "name": "rekentools-site",
-  "version": "0.1.0",
+  "name": "boekhoudmatch",
+  "version": "1.1.0",
   "private": true,
   "type": "module",
-  "description": "Statische Nederlandse rekentools (energie na saldering + zzp). Geen tracking.",
+  "description": "BoekhoudMatch: boekhoudprogramma kiezen en rekentools voor zzp'ers. Statische site, geen tracking.",
   "scripts": {
     "test": "node --test test/",
     "build": "node build.mjs",
+    "check": "node scripts/check.mjs",
+    "og": "node scripts/og.mjs",
+    "new-post": "node scripts/new-post.mjs",
     "serve": "python3 -m http.server 8080 --directory dist"
   }
 }

@@ -1,45 +1,66 @@
+import { readFileSync } from 'node:fs';
+
 export const SITE = {
   name: 'BoekhoudMatch',
-  nameHtml: 'Boekhoud<span>Match</span>',
   domain: 'https://boekhoudmatch.nl',
   email: 'davidwester89@gmail.com',
   lang: 'nl',
-  showSlots: process.env.SHOW_SLOTS !== '0', // partnerplekken zichtbaar in preview
-  updated: '2026-10-08',
+  showSlots: process.env.SHOW_SLOTS !== '0', // partnerplekken alleen zichtbaar in een lokale preview
+  updated: '2026-10-09',
+  theme: '#b44d22',
 };
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 export { esc };
 
+// Logo: warm terracotta vlak met een vinkje (match) en een amber stip.
+export const LOGO = '<svg viewBox="0 0 40 40" aria-hidden="true" focusable="false"><rect width="40" height="40" rx="11" fill="#b44d22"/><path d="M11 21.5l6 6 12-13" fill="none" stroke="#fff" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="31" cy="9" r="4" fill="#e7a33e"/></svg>';
+
+// Kleine lijn-iconen (inline SVG, geen extra verzoeken).
+const ic = (d) => `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="#9c3f1b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${d}</svg>`;
+export const ICONS = {
+  match: ic('<path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/>'),
+  compare: ic('<path d="M4 6h16M4 12h16M4 18h10"/>'),
+  netto: ic('<circle cx="12" cy="12" r="8"/><path d="M14.5 9.5a3 3 0 1 0 0 5M8.5 11h5M8.5 13h5"/>'),
+  uur: ic('<circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/>'),
+  btw: ic('<path d="M19 5L5 19"/><circle cx="7" cy="7" r="2.5"/><circle cx="17" cy="17" r="2.5"/>'),
+  factuur: ic('<path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/>'),
+  blog: ic('<path d="M5 4h14v16H5z"/><path d="M9 8h6M9 12h6M9 16h4"/>'),
+  zon: ic('<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M5 19l1.5-1.5M17.5 6.5L19 5"/>'),
+};
+
 const NAV = [
   ['/boekhoudprogramma-kiezen/', 'Boekhoudmatch'],
   ['/boekhoudprogramma-vergelijken/', 'Vergelijken'],
-  ['/zzp-netto-inkomen/', 'Zzp netto'],
+  ['/zzp-netto-inkomen/', 'Netto inkomen'],
   ['/zzp-uurtarief/', 'Uurtarief'],
   ['/btw-berekenen/', 'Btw'],
-  ['/offerte-factuur-maken/', 'Offerte & factuur'],
+  ['/offerte-factuur-maken/', 'Factuur'],
+  ['/blog/', 'Blog'],
 ];
+
+const CSS = readFileSync(new URL('./assets/css/style.css', import.meta.url), 'utf8')
+  .replace(/\/\*[\s\S]*?\*\//g, '').replace(/\s*\n\s*/g, '').replace(/\s*([{};:,>])\s*/g, '$1').replace(/;}/g, '}');
 
 export function slot(id, what) {
   if (!SITE.showSlots) return '';
-  return `<aside class="slot" data-slot="${esc(id)}" aria-label="Partnerplek, nog niet actief"><strong>Partnerplek · nog niet actief</strong>${what} <em>Er staat hier bewust geen link tot het partnerprogramma is goedgekeurd.</em></aside>`;
+  return `<aside class="slot" data-slot="${esc(id)}">Preview: ${what}</aside>`;
 }
 
 export function layout(p) {
-  const url = SITE.domain + p.path;
-  const crumbs = p.path === '/' ? '' :
-    `<div class="crumbs"><a href="/">Home</a> › ${esc(p.crumb || p.h1 || p.title)}</div>`;
+  const url = SITE.domain + (p.path === '/404.html' ? '/' : p.path);
+  const trail = p.path === '/' || p.path === '/404.html' ? [] : [['/', 'Home'], ...(p.parents || []), [p.path, p.crumb || p.h1 || p.title]];
+  const crumbs = trail.length ? `<nav class="crumbs" aria-label="Kruimelpad">${trail.map(([h, t], i) => (i === trail.length - 1 ? `<span aria-current="page">${esc(t)}</span>` : `<a href="${h}">${esc(t)}</a>`)).join(' › ')}</nav>` : '';
   const ld = [
-    { '@context': 'https://schema.org', '@type': 'WebSite', name: SITE.name, url: SITE.domain + '/', inLanguage: 'nl-NL' },
-    ...(p.path === '/' ? [] : [{
+    ...(trail.length ? [{
       '@context': 'https://schema.org', '@type': 'BreadcrumbList',
-      itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE.domain + '/' },
-        { '@type': 'ListItem', position: 2, name: p.crumb || p.h1 || p.title, item: url },
-      ],
-    }]),
+      itemListElement: trail.map(([h, t], i) => ({ '@type': 'ListItem', position: i + 1, name: t, item: SITE.domain + h })),
+    }] : []),
     ...(p.schema || []),
   ];
+  const og = `${SITE.domain}/og/${p.og || 'home'}.png`;
+  const navPath = p.navPath || p.path;
+  const hasBar = p.body.includes('class="mobilebar"');
   return `<!doctype html>
 <html lang="nl">
 <head>
@@ -49,27 +70,35 @@ export function layout(p) {
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>${esc(p.title)}</title>
 <meta name="description" content="${esc(p.description)}">
-<link rel="canonical" href="${url}">
-<meta property="og:type" content="website"><meta property="og:title" content="${esc(p.title)}"><meta property="og:description" content="${esc(p.description)}"><meta property="og:url" content="${url}"><meta property="og:locale" content="nl_NL">
-<meta name="theme-color" content="#0f6b5c">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="/css/style.css">
-${ld.map((x) => `<script type="application/ld+json">${JSON.stringify(x)}</script>`).join('\n')}
-${p.noindex ? '<meta name="robots" content="noindex">' : ''}
+${p.noindex ? '<meta name="robots" content="noindex">' : `<link rel="canonical" href="${url}">`}
+<meta property="og:site_name" content="${SITE.name}"><meta property="og:locale" content="nl_NL"><meta property="og:type" content="${p.ogType || 'website'}">
+<meta property="og:title" content="${esc(p.ogTitle || p.title)}"><meta property="og:description" content="${esc(p.description)}"><meta property="og:url" content="${url}">
+<meta property="og:image" content="${og}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="${esc(p.ogTitle || p.h1 || p.title)}">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(p.ogTitle || p.title)}"><meta name="twitter:description" content="${esc(p.description)}"><meta name="twitter:image" content="${og}">
+${p.article ? `<meta property="article:published_time" content="${p.article.date}"><meta property="article:modified_time" content="${p.article.updated}">` : ''}
+<meta name="theme-color" content="${SITE.theme}">
+<link rel="icon" href="/favicon.ico" sizes="32x32"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest">
+<link rel="alternate" type="application/rss+xml" title="BoekhoudMatch blog" href="/blog/feed.xml">
+<style>${CSS}</style>
+${ld.map((x) => `<script type="application/ld+json">${JSON.stringify(x).replace(/</g, '\\u003c')}</script>`).join('\n')}
 </head>
-<body>
-<a class="skip" href="#inhoud">Naar inhoud</a>
+<body${hasBar ? ' class="has-bar"' : ''}>
+<a class="skip" href="#inhoud">Naar de inhoud</a>
 <header class="site"><div class="wrap">
-<a class="logo" href="/">${SITE.nameHtml}</a>
-<nav class="main" aria-label="Hoofdmenu">${NAV.map(([h, t]) => `<a href="${h}"${h === p.path ? ' aria-current="page"' : ''}>${esc(t)}</a>`).join('')}</nav>
+<a class="logo" href="/" aria-label="${SITE.name}, naar de homepage">${LOGO}<span>Boekhoud<b>Match</b></span></a>
+<nav class="main" aria-label="Hoofdmenu">${NAV.map(([h, t]) => `<a href="${h}"${navPath.startsWith(h) ? ' aria-current="page"' : ''}>${esc(t)}</a>`).join('')}</nav>
 </div></header>
 <main id="inhoud"><div class="wrap">
 ${crumbs}
-${p.body}
+${p.body.replace('{{related}}', relatedPosts(p.path))}
 </div></main>
 <footer class="site"><div class="wrap">
-<nav aria-label="Voettekst"><a href="mailto:${SITE.email}">Contact</a><a href="/over/">Over &amp; verdienmodel</a><a href="/bronnen/">Bronnen &amp; cijfers</a><a href="/disclaimer/">Disclaimer</a><a href="/privacy/">Privacy (geen cookies)</a></nav>
-<p>© 2026 ${SITE.name}. Boekhouding, geld en belasting voor zzp'ers, met bronvermelding. Geen tracking, geen cookies. Uitkomsten zijn indicaties, geen financieel of fiscaal advies. Cijfers en prijzen gecontroleerd op ${fmtDate(SITE.updated)}.</p>
+<div class="cols">
+<div><a class="logo" href="/">${LOGO}<span>Boekhoud<b>Match</b></span></a><p>Eerlijke hulp bij boekhouding, geld en belasting voor zzp'ers. Echte prijzen, officiële cijfers, geen cookies.</p></div>
+<div><h2>Tools</h2><ul><li><a href="/boekhoudprogramma-kiezen/">Boekhoudprogramma kiezen</a></li><li><a href="/boekhoudprogramma-vergelijken/">Boekhoudprogramma's vergelijken</a></li><li><a href="/zzp-netto-inkomen/">Netto inkomen zzp</a></li><li><a href="/zzp-uurtarief/">Uurtarief berekenen</a></li><li><a href="/btw-berekenen/">Btw berekenen</a></li><li><a href="/offerte-factuur-maken/">Offerte en factuur maken</a></li></ul></div>
+<div><h2>Over ons</h2><ul><li><a href="/blog/">Blog</a></li><li><a href="/over/">Over BoekhoudMatch</a></li><li><a href="/bronnen/">Bronnen en cijfers</a></li><li><a href="/privacy/">Privacy</a></li><li><a href="/disclaimer/">Disclaimer</a></li><li><a href="mailto:${SITE.email}">Contact</a></li></ul></div>
+</div>
+<p class="fine">© 2026 ${SITE.name}. Uitkomsten zijn indicaties, geen persoonlijk financieel of fiscaal advies. Cijfers gecontroleerd op ${fmtDate(SITE.updated)}.</p>
 </div></footer>
 ${(p.scripts || []).map((s) => `<script type="module" src="${s}"></script>`).join('\n')}
 </body>
@@ -91,11 +120,20 @@ export function check({ name, label, checked }) {
 export function sourceList(keys, SOURCES) {
   return `<ul class="sources">${keys.map((k) => `<li><a href="${SOURCES[k].url}" rel="noopener">${esc(SOURCES[k].title)}</a></li>`).join('')}</ul>`;
 }
+/** Uitleg en bronnen inklappen, zodat de pagina kort en scanbaar blijft. */
+export function more(summary, html) {
+  return `<details><summary>${esc(summary)}</summary>${html}</details>`;
+}
+export const ORG = {
+  '@type': 'Organization', name: SITE.name, url: SITE.domain + '/',
+  logo: { '@type': 'ImageObject', url: SITE.domain + '/icon-512.png', width: 512, height: 512 },
+  email: SITE.email,
+};
 export function webApp({ name, url, description }) {
   return {
     '@context': 'https://schema.org', '@type': 'WebApplication', name, url, description,
-    applicationCategory: 'FinanceApplication', operatingSystem: 'Any', inLanguage: 'nl-NL',
-    isAccessibleForFree: true, offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+    applicationCategory: 'FinanceApplication', operatingSystem: 'Any', inLanguage: 'nl-NL', browserRequirements: 'Requires JavaScript',
+    isAccessibleForFree: true, offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' }, publisher: ORG,
   };
 }
 export function faqSchema(items) {
@@ -103,4 +141,11 @@ export function faqSchema(items) {
 }
 export function faqHtml(items) {
   return items.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${a}</p></details>`).join('\n');
+}
+/** "Lees ook" blok met blogartikelen die bij een tool horen (wordt in build.mjs gevuld). */
+export const RELATED = { posts: [] };
+export function relatedPosts(path, n = 2) {
+  const list = RELATED.posts.filter((x) => x.tools.includes(path)).slice(0, n);
+  if (!list.length) return '';
+  return `<h2>Lees ook</h2><div class="grid cards two">${list.map((x) => `<a class="card" href="${x.path}"><span class="tag">Blog</span><h3>${esc(x.title)}</h3><p>${esc(x.description)}</p></a>`).join('')}</div>`;
 }
