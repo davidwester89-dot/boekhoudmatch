@@ -193,6 +193,7 @@ export const over = {
 <div class="prose">
 <p class="lead">We helpen zzp'ers met boekhouding, geld en belasting. Elk getal heeft een bron en alles werkt zonder account. Statistieken houden we alleen bij met jouw toestemming.</p>
 <h2>Wie controleert de prijzen</h2>
+<figure class="photo"><img src="/img/dave-west-bus-800.webp" srcset="/img/dave-west-bus-480.webp 480w, /img/dave-west-bus-800.webp 800w" sizes="(min-width: 760px) 560px, 100vw" width="800" height="533" alt="Dave West in zijn werkbus" decoding="async"></figure>
 <p>${FOUNDER.zin}</p>
 <h2>Zo werken we</h2>
 ${METHODE_LIJST}
