@@ -4,7 +4,7 @@ seo_title: Verplichte e-factuur 2030: wat zzp'ers moeten weten
 description: Het kabinet wil e-facturatie voor zakelijke klanten verplichten vanaf 1 juli 2030. Wat is een e-factuur, voor wie geldt het en wat kun je nu al doen?
 date: 2026-10-09
 updated: 2026-10-09
-tools: /boekhoudprogramma-kiezen/, /boekhoudprogramma-vergelijken/, /offerte-factuur-maken/
+tools: /boekhoudprogramma-kiezen/, /boekhoudprogramma-vergelijken/, /offerte-factuur-maken/, /btw-berekenen/
 sources:
 - Rijksoverheid: Kabinet kiest voor invoering e-facturatie en rapportage voor bedrijven (11 september 2026) | https://www.rijksoverheid.nl/actueel/nieuws/2026/09/11/kabinet-kiest-voor-invoering-e-facturatie-en-rapportage-voor-bedrijven
 - Contourenbrief elektronisch factureren en rapporteren (11 september 2026) | https://open.overheid.nl/overheid/openbaarmakingen/api/v0/attachment/71c66f1c-c2a4-4efb-a4c3-80956ddb04f0
