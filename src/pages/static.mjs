@@ -15,7 +15,7 @@ export const home = {
   body: `
 <section class="hero">
 <div>
-<h1>Vind jouw boekhoudprogramma</h1>
+<h1 class="h1-brand">Boekhoud<b>Match</b>.nl</h1>
 <p class="lead">Beantwoord 8 vragen en zie welk boekhoudprogramma bij jouw zzp-bedrijf past. Met echte prijzen en eerlijk uitgelegd.</p>
 <div class="actions"><a class="btn" href="/boekhoudprogramma-kiezen/">Start de match</a><a class="btn ghost" href="/boekhoudprogramma-vergelijken/">Vergelijk prijzen</a></div>
 <ul class="trust"><li>${PAKKETTEN.length} aanbieders vergeleken</li><li>Actuele prijzen</li><li>Geen cookies</li></ul>
