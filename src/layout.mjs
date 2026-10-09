@@ -14,7 +14,7 @@ export const SITE = {
   email: 'info@boekhoudmatch.nl',
   lang: 'nl',
   showSlots: process.env.SHOW_SLOTS !== '0', // partnerplekken alleen zichtbaar in een lokale preview
-  updated: '2026-10-09',
+  updated: '2026-10-10',
   theme: '#b44d22',
 };
 

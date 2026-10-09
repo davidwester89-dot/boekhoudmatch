@@ -39,6 +39,8 @@ cpSync('src/assets/js', join(OUT, 'js'), { recursive: true });
 cpSync('src/lib', join(OUT, 'js/lib'), { recursive: true, filter: (f) => !f.endsWith('.mjs') });
 cpSync('src/assets/data', join(OUT, 'data'), { recursive: true });
 cpSync('src/assets/og', join(OUT, 'og'), { recursive: true });
+cpSync('src/assets/logos', join(OUT, 'logos'), { recursive: true });
+if (existsSync('src/assets/img')) cpSync('src/assets/img', join(OUT, 'img'), { recursive: true });
 cpSync('src/assets/icons', OUT, { recursive: true });
 
 // Offerte- en factuurtool hergebruiken, zonder externe Google Fonts (privacy, geen derde partijen)

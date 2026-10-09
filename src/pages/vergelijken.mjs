@@ -1,16 +1,17 @@
 import { SITE, esc, slot, fmtDate, faqHtml, faqSchema, METHODE_LIJST } from '../layout.mjs';
 import { PAKKETTEN, CHECKED } from '../lib/pakketten.js';
+import { REDACTIE } from '../lib/aanbieders.js';
 
 const path = '/boekhoudprogramma-vergelijken/';
 const e2 = (x) => '€ ' + x.toFixed(2).replace('.', ',');
 const unk = '<span class="unk">niet vermeld</span>';
 const lim = (x, unit) => (x === undefined ? '' : x === Infinity ? `onbeperkt ${unit}` : x === 0 ? `geen ${unit}` : `${x} ${unit}`);
 const btwL = { direct: 'Ja, direct indienen', ja: 'Ja', handmatig: 'Berekenen, zelf indienen', overzicht: 'Alleen overzicht', boekhouder: 'Via boekhouder', false: 'Nee' };
-const ibL = { inclusief: 'Boekhouder doet IB', controle: 'Gecontroleerde IB-aangifte', 'eigen-boekhouder': 'Via eigen boekhouder', false: 'Nee' };
+const ibL = { inclusief: 'Boekhouder doet IB', controle: 'Gecontroleerde IB-aangifte', rapportage: 'Overzicht voor IB, zelf invullen', 'eigen-boekhouder': 'Via eigen boekhouder', false: 'Nee' };
 const yn = (v) => (v === true ? 'Ja' : v === false ? 'Nee' : v === 'beperkt' ? 'Beperkt' : unk);
 const bankL = (p, a) => (p.bank === 'auto' ? 'Automatisch' : p.bank === 'auto-extra' ? `Automatisch (+ ${e2(p.bankExtra)} p/m)` : `Handmatig importeren${a.eigenRekening ? '; automatisch met eigen rekening aanbieder' : ''}`);
 const rvL = (p, a) => { const rv = p.rechtsvormen ?? a.rechtsvormen; return rv ? rv.map((r) => ({ eenmanszaak: 'eenmanszaak', vof: 'vof', bv: 'bv' }[r])).join(', ') : unk; };
-const limieten = (p) => [p.facturen !== undefined ? lim(p.facturen, 'facturen/mnd') : '', p.perFactuur ? `${e2(p.perFactuur)} per factuur` : '', lim(p.uitgaven, 'uitgaven/mnd'), lim(p.transacties, 'banktransacties/mnd'), lim(p.boekingenMaand, 'boekingen/mnd'), lim(p.boekingenJaar, 'boekingen/jaar'), p.boekhouding === false ? '<strong>geen boekhouding</strong>' : '', p.viaBoekhouder ? 'voor samenwerking met boekhouder' : ''].filter(Boolean).filter((s) => !s.startsWith('onbeperkt') || s.includes('facturen')).join('<br>');
+const limieten = (p) => [p.facturen !== undefined ? lim(p.facturen, 'facturen/mnd') : '', p.perFactuur ? `${e2(p.perFactuur)} per factuur` : '', lim(p.uitgaven, 'uitgaven/mnd'), lim(p.transacties, 'banktransacties/mnd'), lim(p.boekingenMaand, 'boekingen/mnd'), lim(p.boekingenJaar, 'boekingen/jaar'), p.omzetMax ? `omzet tot € ${p.omzetMax.toLocaleString('nl-NL')}/jaar` : '', p.boekhouding === false ? '<strong>geen boekhouding</strong>' : '', p.viaBoekhouder ? 'voor samenwerking met boekhouder' : ''].filter(Boolean).filter((s) => !s.startsWith('onbeperkt') || s.includes('facturen')).join('<br>');
 
 const ALFA = [...PAKKETTEN].sort((x, y) => x.naam.localeCompare(y.naam, 'nl'));
 const rows = ALFA.flatMap((a) => a.plannen.map((p, i) => `<tr${i === 0 ? ' class="first"' : ''}>
@@ -32,7 +33,7 @@ const goedkoopst = PAKKETTEN.flatMap((a) => a.plannen.filter((p) => p.boekhoudin
 const faq = [
   ['Wat is het goedkoopste boekhoudprogramma voor zzp\'ers?', `Gratis of heel goedkope instappakketten bestaan (bijvoorbeeld Tellow Gratis, Rompslomp Starter, Moneybird Compact), maar met strenge limieten op facturen, bonnen of transacties. Voor wie ten minste 10 facturen per maand stuurt en btw-aangifte doet, zijn de goedkoopste passende pakketten op ${fmtDate(CHECKED)}: ${goedkoopst.map(({ a, p }) => `${a.naam} ${p.naam} (${e2(p.prijs)} p/m)`).join(', ')}. Let op limieten en of je zelf de btw-aangifte moet indienen. Stuur je alleen af en toe een factuur? Dan is onze gratis <a href="/offerte-factuur-maken/">factuurtool</a> misschien al genoeg.`],
   ['Waarom staat er soms “niet vermeld”?', 'De prijspagina van de aanbieder noemt het niet per pakket. We vullen niets zelf in. Vraag het na of probeer het in de proefperiode.'],
-  ['Hoe vaak worden de prijzen gecontroleerd?', `Deze tabel is gecontroleerd op ${fmtDate(CHECKED)}; Silvasoft op ${fmtDate(PAKKETTEN.find((a) => a.id === 'silvasoft').gecontroleerd)}. Bij bekende prijswijzigingen (zoals Rompslomp per 1 november 2026) rekenen we met de nieuwe prijs en vermelden we dat.`],
+  ['Hoe vaak worden de prijzen gecontroleerd?', `Alle prijzen zijn gecontroleerd op ${fmtDate(CHECKED)}, door Dave West. Dat doen we elke maand. Bij bekende prijswijzigingen (zoals Rompslomp per 1 november 2026) rekenen we met de nieuwe prijs en vermelden we dat.`],
 ];
 
 const body = `
@@ -53,7 +54,7 @@ ${rows}
 
 <h2>Per aanbieder</h2>
 <div class="grid cards">
-${ALFA.map((a) => `<div class="card"><h3>${esc(a.naam)}</h3><p class="note">${esc(a.noot)}</p>${a.actie ? `<p class="note"><strong>Actie:</strong> ${esc(a.actie)}</p>` : ''}<p class="note">Bron: ${a.bronnen.map((b) => `<a href="${b.url}" rel="noopener" data-vendor="${esc(a.naam)}">${esc(b.titel)}</a>`).join(' · ')} (gecontroleerd ${fmtDate(a.gecontroleerd || CHECKED)})</p></div>`).join('\n')}
+${ALFA.map((a) => `<div class="card" id="${REDACTIE[a.id].slug}"><h3>${esc(a.naam)}</h3><p class="note">${esc(a.noot)}</p>${a.actie ? `<p class="note"><strong>Actie:</strong> ${esc(a.actie)}</p>` : ''}<p class="note">Bron: ${a.bronnen.map((b) => `<a href="${b.url}" rel="noopener" data-vendor="${esc(a.naam)}">${esc(b.titel)}</a>`).join(' · ')} (gecontroleerd ${fmtDate(a.gecontroleerd || CHECKED)})</p></div>`).join('\n')}
 </div>
 ${slot('vergelijken-partner', 'partnerlinks naar proefperiodes.')}
 <p class="note">Er staan op deze site op dit moment geen partnerlinks. De tabel staat op alfabet. Zie <a href="/over/">hoe we werken</a>.</p>
@@ -64,7 +65,7 @@ ${faqHtml(faq)}
 `;
 
 export default {
-  path, title: 'Boekhoudprogramma vergelijken 2026 (zzp) | BoekhoudMatch', og: 'vergelijken', ogTitle: 'Boekhoudprogramma\'s vergelijken 2026',
+  path, title: 'Vergelijkingstabel boekhoudprogramma\'s 2026 | BoekhoudMatch', og: 'vergelijken', ogTitle: 'Boekhoudprogramma\'s vergelijken 2026',
   description: `Vergelijk ${PAKKETTEN.length} boekhoudprogramma's voor zzp'ers op prijs, limieten, btw-aangifte en bankkoppeling. Actuele prijzen van de aanbieders zelf.`,
   crumb: 'Boekhoudprogramma vergelijken', body,
   schema: [faqSchema(faq), {

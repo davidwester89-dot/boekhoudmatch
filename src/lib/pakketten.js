@@ -2,13 +2,15 @@
 // Gecontroleerd op CHECKED (of per aanbieder op `gecontroleerd`). null = niet (per pakket) te verifiëren op de prijspagina -> zo tonen, niet raden.
 // Prijzen: reguliere prijs per maand bij maandbetaling (geen tijdelijke acties). Acties staan apart in `actie`.
 // LET OP: het veld `partner` wordt alleen gebruikt voor de openbaarmaking. De matching leest het NIET (zie match.js + tests).
-export const CHECKED = '2026-10-08';
+export const CHECKED = '2026-10-10'; // alle prijzen opnieuw gecontroleerd op 10-10-2026 (eerste controle 8-10-2026)
 const INF = Infinity;
 
 // btwAangifte: 'direct' (indienen vanuit pakket staat expliciet vermeld) | 'ja' (functie vermeld, manier van indienen niet)
 //              | 'handmatig' (pakket rekent uit, jij dient zelf in) | 'overzicht' (alleen btw-overzicht) | 'boekhouder' | false
 // bank: 'auto' (automatische koppeling externe bank) | 'auto-extra' (tegen meerprijs `bankExtra`) | 'import' (handmatig importeren)
 // ib: 'inclusief' (boekhouder doet aangifte IB) | 'controle' (aangifte IB wordt gecontroleerd/voorbereid in pakket)
+//     | 'rapportage' (pakket maakt balans en W&V voor de IB-aangifte; invullen doe je zelf)
+// omzetMax: omzetgrens per jaar die de aanbieder bij het pakket noemt (de match vraagt geen omzet: we tonen het als 'let op').
 //     | 'eigen-boekhouder' (pakket bedoeld voor samenwerking met jouw boekhouder, kosten apart) | false | null
 export const PAKKETTEN = [
   {
@@ -133,6 +135,26 @@ export const PAKKETTEN = [
       { id: 'bf-uren', naam: 'Boekhouden + Facturatie + Urenregistratie', prijs: 26.85, facturen: INF, btwAangifte: 'direct', bank: 'auto-extra', bankExtra: 3, offertes: false, uren: true, ib: null },
       { id: 'bf-offertes', naam: 'Boekhouden + Facturatie + Offertes & orders', prijs: 29.85, facturen: INF, btwAangifte: 'direct', bank: 'auto-extra', bankExtra: 3, offertes: true, uren: false, ib: null },
       { id: 'bf-offertes-uren', naam: 'Boekhouden + Facturatie + Offertes & orders + Urenregistratie', prijs: 33.80, facturen: INF, btwAangifte: 'direct', bank: 'auto-extra', bankExtra: 3, offertes: true, uren: true, ib: null },
+    ],
+  },
+  {
+    id: 'moneymonk', naam: 'MoneyMonk', site: 'https://moneymonk.nl', gecontroleerd: '2026-10-10',
+    bronnen: [
+      { url: 'https://moneymonk.nl/prijzen', titel: 'MoneyMonk – Prijzen' },
+      { url: 'https://moneymonk.nl/starterskorting', titel: 'MoneyMonk – Starterskorting' },
+      { url: 'https://moneymonk.nl/boekhouden/btw-aangifte', titel: 'MoneyMonk – Btw-aangifte' },
+      { url: 'https://moneymonk.nl/boekhouden/inkomstenbelasting-zzp', titel: 'MoneyMonk – Inkomstenbelasting zzp' },
+      { url: 'https://moneymonk.nl/boekhouden/urenregistratie', titel: 'MoneyMonk – Urenregistratie' },
+      { url: 'https://moneymonk.nl/boekhouden/offerte-maken', titel: 'MoneyMonk – Offerte maken' },
+    ],
+    btwPrijzen: null, // prijspagina vermeldt niet of prijzen excl. of incl. btw zijn
+    rechtsvormen: null, eigenRekening: false, partner: null,
+    actie: 'Starters (onlangs ingeschreven bij de KvK): 15 maanden gratis. Pro: eerste 3 maanden € 15 p/m. 30 dagen gratis proberen.',
+    noot: 'Limieten gaan over verwerkte banktransacties per maand en omzet per jaar. Gratis PSD2-bankkoppeling voor al je bankrekeningen in elk pakket. Btw-aangifte doe je vanuit de software; voor de IB-aangifte maakt het pakket een balans en winst- en verliesrekening die je overneemt. Functies staan op de functiepagina’s, niet per pakket.',
+    plannen: [
+      { id: 'basis', naam: 'Basis', prijs: 9.00, transacties: 20, omzetMax: 20000, btwAangifte: 'direct', bank: 'auto', offertes: true, uren: true, ib: 'rapportage' },
+      { id: 'pro', naam: 'Pro', prijs: 32.50, transacties: 50, omzetMax: 100000, btwAangifte: 'direct', bank: 'auto', offertes: true, uren: true, ib: 'rapportage', noot: 'Eerste 3 maanden € 15 p/m.' },
+      { id: 'ultra', naam: 'Ultra', prijs: 37.50, transacties: Infinity, btwAangifte: 'direct', bank: 'auto', offertes: true, uren: true, ib: 'rapportage' },
     ],
   },
 ];
