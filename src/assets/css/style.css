@@ -182,3 +182,4 @@ ul.method{margin:0 0 10px;padding-left:1.2em}ul.method li{margin-bottom:6px}
 h2.h3{font-size:1.12rem;margin-top:0}
 .pick{background:var(--green-soft);border-radius:12px;padding:10px 12px;margin:6px 0 10px}.pick p{margin:0}.pick .lbl{font-weight:700;color:var(--green)}
 .rank.picked{border:2px solid var(--green)}
+.photo{margin:14px 0 18px;max-width:560px}.photo img{display:block;width:100%;height:auto;aspect-ratio:3/2;border-radius:16px;object-fit:cover}

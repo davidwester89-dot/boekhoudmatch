@@ -9,6 +9,7 @@ import * as S from './src/pages/static.mjs';
 import kiezen from './src/pages/kiezen.mjs';
 import vergelijken from './src/pages/vergelijken.mjs';
 import { aanbiederPages } from './src/pages/aanbieder.mjs';
+import { gidsPages } from './src/pages/gids.mjs';
 import { parsePost } from './src/lib/markdown.mjs';
 import { postPage, blogIndex, latestHtml, feed } from './src/pages/blog.mjs';
 import { REDIRECTS, redirectPage } from './src/redirects.mjs';
@@ -27,7 +28,8 @@ RELATED.posts = posts;
 const ogKey = (p) => (existsSync(`src/assets/og/blog-${p.slug}.png`) ? `blog-${p.slug}` : 'blog');
 
 const home = { ...S.home, body: S.home.body.replace('{{latest}}', latestHtml(posts)) };
-const pages = [home, kiezen, vergelijken, ...aanbiederPages, zzpnetto, uurtarief, S.btw, S.offerte, blogIndex(posts), ...posts.map((p) => postPage(p, posts, ogKey(p))),
+const gidsen = gidsPages();
+const pages = [home, kiezen, vergelijken, ...aanbiederPages, ...gidsen, zzpnetto, uurtarief, S.btw, S.offerte, blogIndex(posts), ...posts.map((p) => postPage(p, posts, ogKey(p))),
   salderen, thuisbatterij, S.bronnen, S.over, S.privacy, S.disclaimer, S.notfound];
 
 for (const p of pages) {
