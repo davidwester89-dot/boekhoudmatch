@@ -1,6 +1,28 @@
 import { SITE, esc, slot, webApp, faqSchema, faqHtml, fmtDate, more } from '../layout.mjs';
 import { PAKKETTEN, CHECKED } from '../lib/pakketten.js';
-import { VRAGEN, PUNTEN } from '../lib/match.js';
+import { VRAGEN, PUNTEN, match } from '../lib/match.js';
+import { REDACTIE, vendorHref } from '../lib/aanbieders.js';
+import { uitgaand, ctaTekst } from '../lib/partnerlinks.js';
+
+// Uitslag bij de standaardantwoorden alvast in de HTML (zelfde opbouw als kiezen.js), zodat er bij laden niets verspringt.
+const euro = (x) => '€ ' + x.toFixed(2).replace('.', ',');
+const host = (url) => url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/.*$/, '');
+const DEF = { aanbieder: '', rechtsvorm: 'eenmanszaak', facturen: '5', uitgaven: '10', btw: 'plichtig', bank: 'auto', offertes: false, uren: false, ib: 'zelf', budget: 'Infinity', extra: [] };
+const byId = Object.fromEntries(PAKKETTEN.map((a) => [a.id, a]));
+const passend0 = match(PAKKETTEN, DEF).filter((r) => r.past);
+function knopHtml(r, pos, cls) {
+  const a = byId[r.aanbieder], red = REDACTIE[a.id], u = uitgaand(a), c = ctaTekst(red.kort, { proef: red.proef, prijs: r.prijs });
+  return { html: `<a class="${cls}" href="${esc(u.href)}" target="_blank" rel="${u.rel}" data-vendor="${esc(a.naam)}" data-pos="${pos}" data-cta="${c.gratis ? 'trial' : 'visit'}">${esc(pos === 1 ? c.tekst : `Bekijk ${red.kort}`)}<span aria-hidden="true"> ↗</span><span class="sr-only"> (opent in een nieuw tabblad)</span></a>`, a, red, u, c };
+}
+const pagina = (a, pos, t) => `<a class="vlink" href="${vendorHref(a.id)}" data-vendor="${esc(a.naam)}" data-pos="${pos}" data-cta="vendor_page">${esc(t)}</a>`;
+const PRE_TOP = passend0.slice(0, 3).map((r, i) => {
+  let mini = '';
+  if (i > 0) { const k = knopHtml(r, i + 1, 'btn ghost sm'); mini = `<div class="mini-cta">${k.html}${pagina(k.a, i + 1, `Alles over ${k.red.kort}`)}${k.u.partner ? '<span class="plabel">partnerlink</span>' : ''}</div>`; }
+  return `<li><strong>${esc(`${r.naam} ${r.planNaam}`)}</strong><span class="price">${esc(` ${euro(r.prijs)} p/m${r.binnenBudget ? '' : ' (boven budget)'}`)}</span>${r.plus[0] ? `<div class="note">${esc(r.plus.slice(0, 2).join(' '))}</div>` : ''}${mini}</li>`;
+}).join('');
+const PRE_CTA = (() => { const r = passend0[0]; if (!r) return ''; const k = knopHtml(r, 1, 'btn'); return `${k.html}<p class="note cta-sub">${esc([k.c.uitleg, `naar ${host(k.a.site)}`].filter(Boolean).join(' · '))}${k.u.partner ? ' · <span class="plabel">partnerlink</span>' : ''}</p>${pagina(k.a, 1, `Lees alles over ${k.red.kort} →`)}`; })();
+const PRE_BEST = passend0[0] ? `${passend0[0].naam} ${passend0[0].planNaam}` : '–';
+const PRE_CMP = '/boekhoudprogramma-vergelijken/?aanbieders=' + passend0.slice(0, 3).map((r) => r.aanbieder).join(',') + '#per-aanbieder';
 
 const path = '/boekhoudprogramma-kiezen/';
 const radios = (name, legend, opts, def, hint = '') => `<fieldset class="q"><legend>${legend}</legend>${hint ? `<p class="hint">${hint}</p>` : ''}<div class="opts">${opts.map(([v, l]) => `<label><input type="radio" name="${name}" value="${v}"${String(v) === String(def) ? ' checked' : ''}><span>${esc(l)}</span></label>`).join('')}</div></fieldset>`;
@@ -34,11 +56,16 @@ ${radios('budget', '8. Wat mag het per maand kosten (excl. btw)?', VRAGEN.budget
 </form>
 <section class="card result" id="uitkomst" aria-live="polite">
 <h2>Jouw beste match</h2>
-<p class="big best" id="big-mirror">–</p>
+<p class="big best" id="big-mirror">${esc(PRE_BEST)}</p>
+<div id="out-cta" class="match-cta">${PRE_CTA}</div>
 <div id="out-pick" class="pick" hidden></div>
 <p class="note" style="margin-bottom:4px">Top 3</p>
-<ol class="top" id="out-top"></ol>
-<p class="note" id="out-vol"></p>
+<ol class="top" id="out-top">${PRE_TOP}</ol>
+<p class="note" id="out-vol">We rekenen met ${passend0[0].volumes.facturen} facturen, ${passend0[0].volumes.uitgaven} bonnen en ongeveer ${passend0[0].volumes.transacties} banktransacties per maand.</p>
+<div class="match-next">
+<a class="btn ghost" id="out-cmp" href="${esc(PRE_CMP)}" rel="nofollow" data-cta="compare">Vergelijk deze 3 naast elkaar</a>
+<p class="match-links"><a href="/boekhoudprogramma-kiezen/" data-cta="restart">Opnieuw beginnen</a> · <button type="button" class="linkbtn" id="out-copy" data-cta="copy_link">Kopieer link naar je uitslag</button> <span id="out-copy-ok" class="note" role="status"></span></p>
+</div>
 <p><a href="#rangorde">Bekijk alle ${PAKKETTEN.length} aanbieders ↓</a></p>
 </section>
 </div>

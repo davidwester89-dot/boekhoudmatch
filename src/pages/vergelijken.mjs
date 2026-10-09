@@ -86,7 +86,8 @@ ${chk('bank', 'Automatische bankkoppeling')}${chk('btw', 'Btw-aangifte direct in
 <p class="note">Een pakket telt mee als het aan alle gekozen filters voldoet. “Vanaf” toont dan de goedkoopste passende prijs; met het filter bankkoppeling inclusief een betaalde koppeling. Staat de rechtsvorm niet vermeld, dan rekenen we die alleen mee bij eenmanszaak.</p>
 </form>
 
-<h2>Per aanbieder</h2>
+<h2 id="per-aanbieder">Per aanbieder</h2>
+<p class="alert ok" id="f-sel" hidden></p>
 <div class="grid cards two vcards" id="vcards">
 ${ALFA.map(kaart).join('\n')}
 </div>
