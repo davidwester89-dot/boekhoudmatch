@@ -38,7 +38,7 @@ const faq = [
 const body = `
 <h1>Boekhoudprogramma vergelijken (2026)</h1>
 <p class="lead">Alle ${PAKKETTEN.reduce((n, a) => n + a.plannen.length, 0)} pakketten van ${PAKKETTEN.length} aanbieders naast elkaar: prijs, limieten, btw-aangifte en bankkoppeling.</p>
-<p class="note">Prijzen gecontroleerd op ${fmtDate(CHECKED)} bij de aanbieders zelf.</p>
+<p class="note">Actuele prijzen, rechtstreeks van de aanbieders zelf.</p>
 <div class="actions"><a class="btn" href="/boekhoudprogramma-kiezen/">Liever advies op maat? Doe de match</a></div>
 <div class="table-wrap" tabindex="0" role="region" aria-label="Vergelijkingstabel boekhoudprogramma's (scroll horizontaal)">
 <table class="data compare">
@@ -62,7 +62,7 @@ ${faqHtml(faq)}
 
 export default {
   path, title: 'Boekhoudprogramma vergelijken 2026 (zzp) | BoekhoudMatch', og: 'vergelijken', ogTitle: 'Boekhoudprogramma\'s vergelijken 2026',
-  description: `Vergelijk ${PAKKETTEN.length} boekhoudprogramma's voor zzp'ers op prijs, limieten, btw-aangifte en bankkoppeling. Prijzen van de aanbieders zelf, ${fmtDate(CHECKED)}.`,
+  description: `Vergelijk ${PAKKETTEN.length} boekhoudprogramma's voor zzp'ers op prijs, limieten, btw-aangifte en bankkoppeling. Actuele prijzen van de aanbieders zelf.`,
   crumb: 'Boekhoudprogramma vergelijken', body,
   schema: [faqSchema(faq), {
     '@context': 'https://schema.org', '@type': 'ItemList', name: 'Boekhoudprogramma\'s voor zzp\'ers',

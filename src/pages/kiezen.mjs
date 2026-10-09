@@ -15,7 +15,7 @@ const faq = [
 const body = `
 <h1>Welk boekhoudprogramma past bij jou?</h1>
 <p class="lead">Beantwoord 8 korte vragen. Je ziet meteen wat past, wat het per maand kost en waarom.</p>
-<p class="note">${PAKKETTEN.length} aanbieders · prijzen gecontroleerd op ${fmtDate(CHECKED)}</p>
+<p class="note">${PAKKETTEN.length} aanbieders · actuele prijzen</p>
 <noscript><div class="alert">De match heeft JavaScript nodig. Bekijk anders de <a href="/boekhoudprogramma-vergelijken/">vergelijkingstabel</a>.</div></noscript>
 <div class="grid calc">
 <form class="calc-form card" id="form" novalidate>

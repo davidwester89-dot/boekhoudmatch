@@ -18,7 +18,7 @@ export const home = {
 <h1>Boekhouden zonder gedoe begint met het juiste boekhoudprogramma</h1>
 <p class="lead">Beantwoord 8 vragen en zie welk boekhoudprogramma bij jouw zzp-bedrijf past. Met echte prijzen en eerlijk uitgelegd.</p>
 <div class="actions"><a class="btn" href="/boekhoudprogramma-kiezen/">Start de match</a><a class="btn ghost" href="/boekhoudprogramma-vergelijken/">Vergelijk prijzen</a></div>
-<ul class="trust"><li>${PAKKETTEN.length} aanbieders vergeleken</li><li>Prijzen van ${fmtDate(PCHECKED)}</li><li>Geen cookies</li></ul>
+<ul class="trust"><li>${PAKKETTEN.length} aanbieders vergeleken</li><li>Actuele prijzen</li><li>Geen cookies</li></ul>
 </div>
 <div class="hero-card" aria-label="Zo werkt het">
 <ol>
