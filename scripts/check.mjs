@@ -54,6 +54,17 @@ for (const f of htmls) {
 }
 const sitemap = readFileSync(join(OUT, 'sitemap.xml'), 'utf8');
 for (const m of sitemap.matchAll(/<loc>https:\/\/boekhoudmatch\.nl([^<]*)<\/loc>/g)) if (!exists(m[1])) errors.push(`sitemap: ${m[1]} bestaat niet`);
+// Redirectpagina's (meta refresh): noindex, canonical naar bestaand doel, niet in de sitemap
+for (const f of htmls) {
+  const h = readFileSync(f, 'utf8');
+  const m = h.match(/<meta http-equiv="refresh" content="0; url=https:\/\/boekhoudmatch\.nl([^"]*)">/);
+  if (!m) continue;
+  const rel = f.slice(OUT.length).replace(/index\.html$/, '');
+  if (!h.includes('name="robots" content="noindex"')) errors.push(`${rel}: redirect zonder noindex`);
+  if (!h.includes(`<link rel="canonical" href="https://boekhoudmatch.nl${m[1]}">`)) errors.push(`${rel}: redirect-canonical wijkt af van doel`);
+  if (!exists(m[1])) errors.push(`${rel}: redirectdoel ${m[1]} bestaat niet`);
+  if (sitemap.includes(`<loc>https://boekhoudmatch.nl${rel}</loc>`)) errors.push(`${rel}: redirect staat in sitemap`);
+}
 for (const f of ['robots.txt', 'favicon.ico', 'favicon.svg', 'apple-touch-icon.png', 'site.webmanifest', 'blog/feed.xml', '404.html', '.nojekyll']) if (!existsSync(join(OUT, f))) errors.push(`ontbreekt: ${f}`);
 
 if (errors.length) { console.error(errors.map((e) => '✗ ' + e).join('\n')); console.error(`\n${errors.length} fout(en)`); process.exit(1); }

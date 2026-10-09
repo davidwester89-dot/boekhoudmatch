@@ -10,6 +10,7 @@ import kiezen from './src/pages/kiezen.mjs';
 import vergelijken from './src/pages/vergelijken.mjs';
 import { parsePost } from './src/lib/markdown.mjs';
 import { postPage, blogIndex, latestHtml, feed } from './src/pages/blog.mjs';
+import { REDIRECTS, redirectPage } from './src/redirects.mjs';
 
 const OUT = 'dist';
 rmSync(OUT, { recursive: true, force: true });
@@ -45,6 +46,9 @@ let ok = readFileSync('src/vendor/offerteklav.html', 'utf8');
 ok = ok.replace(/<link[^>]+fonts\.(googleapis|gstatic)\.com[^>]*>\s*/g, '');
 ok = ok.replace('<title>', '<meta name="robots" content="noindex">\n<title>');
 write(join(OUT, 'tools/offerteklaar.html'), ok);
+
+// Redirects voor oude URL's (niet in pages, dus ook niet in de sitemap)
+for (const r of REDIRECTS) write(join(OUT, r.from, 'index.html'), redirectPage(r));
 
 write(join(OUT, '.nojekyll'), '');
 write(join(OUT, 'site.webmanifest'), JSON.stringify({
