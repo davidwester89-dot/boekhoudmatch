@@ -1,0 +1,4 @@
+node_modules/
+dist/
+# wordt in CI opgebouwd uit openbare bronnen (data-build/build_hourly.py)
+src/assets/data/hourly-2025.json

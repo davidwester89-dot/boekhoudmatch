@@ -1,0 +1,12 @@
+{
+  "name": "rekentools-site",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Statische Nederlandse rekentools (energie na saldering + zzp). Geen tracking.",
+  "scripts": {
+    "test": "node --test test/",
+    "build": "node build.mjs",
+    "serve": "python3 -m http.server 8080 --directory dist"
+  }
+}
