@@ -216,3 +216,4 @@ table.data td.n{white-space:nowrap}
 .scrollhint{display:none}
 @media(max-width:899px){.scrollhint{display:block;font-size:.85rem;margin:0 0 6px}}
 @media(max-width:899px){nav.main{-webkit-mask-image:linear-gradient(90deg,#000 85%,transparent);mask-image:linear-gradient(90deg,#000 85%,transparent)}}
+.post-img{margin:6px 0 22px}.post-img img{display:block;width:100%;height:auto;aspect-ratio:1200/630;border-radius:14px;border:1px solid var(--line);background:#fff}.post-img figcaption{margin-top:6px}

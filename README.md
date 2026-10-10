@@ -32,6 +32,8 @@ Deploy: elke push naar `main` draait `.github/workflows/pages.yml` (tests, build
    - Minstens 2 bronnen onder `sources:` (`Naam | https://url`), 1-3 tools onder `tools:`.
    - `seo_title` maximaal 60 tekens, `description` 70-155 tekens. Gebruik `##` en `###` voor koppen (de titel is de h1).
    - Een artikel later bijwerken? Pas de tekst aan en zet `updated:` op de nieuwe datum.
+   - Afbeelding (verplicht): zet `src/assets/img/blog/<naam>-1200.webp` (1200×630) en `<naam>-600.webp` (600×315) neer, met het zoekwoord in `<naam>`. In de frontmatter: `image: <naam>`, `image_alt:` (beschrijvende Nederlandse alt-tekst) en eventueel `image_caption:` (met bronvermelding bij een foto). Geen AI-beelden van echte personen, merken of producten en geen gekopieerde foto's: liefst een eigen screenshot of zelfgemaakte illustratie. De afbeelding wordt ook og:image en Article-image.
+   - `checked:` is de datum waarop je de bronnen hebt gecontroleerd (zichtbaar onder de titel).
 4. `npm run og` maakt de deelafbeelding `src/assets/og/blog-<slug>.png`. Zonder Chrome valt de post terug op `og/blog.png`.
 5. `npm test && SHOW_SLOTS=0 npm run build && npm run check`. Alles moet slagen.
 6. `git add content/blog src/assets/og && git commit -m "Blog: <titel>" && git push`

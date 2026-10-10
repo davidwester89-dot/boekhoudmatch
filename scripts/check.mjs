@@ -38,7 +38,7 @@ for (const f of htmls) {
   const h1 = (h.match(/<h1[\s>]/g) || []).length;
   if (h1 !== 1) errors.push(`${rel}: ${h1} keer <h1> (moet 1 zijn)`);
   if (!h.includes('<html lang="nl">')) errors.push(`${rel}: lang=nl ontbreekt`);
-  const og = (h.match(/<meta property="og:image" content="https:\/\/boekhoudmatch\.nl(\/og\/[^"]+)"/) || [])[1];
+  const og = (h.match(/<meta property="og:image" content="https:\/\/boekhoudmatch\.nl(\/(?:og|img)\/[^"]+)"/) || [])[1];
   if (!og || !existsSync(join(OUT, og))) errors.push(`${rel}: og:image ontbreekt of bestaat niet (${og})`);
   for (const m of h.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
     try { JSON.parse(m[1]); } catch { errors.push(`${rel}: ongeldige JSON-LD`); }
