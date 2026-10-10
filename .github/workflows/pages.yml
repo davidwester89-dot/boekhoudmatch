@@ -11,8 +11,6 @@ permissions:
 concurrency:
   group: pages
   cancel-in-progress: true
-env:
-  DATA_SHA256: ef7a123ecae6d88b374e54b2c0a057cbb79934ce560118d7119183a5aaa36201
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -21,17 +19,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: Uurdata (NEDU, PVGIS, EPEX) uit cache
-        id: data
-        uses: actions/cache@v4
-        with:
-          path: src/assets/data/hourly-2025.json
-          key: hourly-2025-${{ env.DATA_SHA256 }}-${{ hashFiles('data-build/build_hourly.py') }}
-      - name: Uurdata opbouwen uit openbare bronnen
-        if: steps.data.outputs.cache-hit != 'true'
-        run: python3 data-build/build_hourly.py
-      - name: Uurdata controleren (zelfde bestand als lokaal getest)
-        run: echo "$DATA_SHA256  src/assets/data/hourly-2025.json" | sha256sum -c -
       - run: npm test
       - run: npm run build
         env:

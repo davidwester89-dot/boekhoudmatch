@@ -36,38 +36,6 @@ export const SOURCES = {
     title: 'Belastingdienst – Percentages inkomensafhankelijke bijdrage Zvw (4,85%, max € 79.409)',
     url: 'https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/werk_en_inkomen/zorgverzekeringswet/veranderingen-bijdrage-zvw/percentages-zvw',
   },
-  eb_2026: {
-    title: 'Belastingdienst – Energiebelasting: tarieven elektriciteit en belastingvermindering',
-    url: 'https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/overige_belastingen/belastingen_op_milieugrondslag/energiebelasting/',
-  },
-  eb_2027: {
-    title: 'Rijksoverheid – Fiscale sleuteltabel 2027 (Belastingplan 2027, voorstel, sept. 2026)',
-    url: 'https://www.rijksoverheid.nl/site/binaries/site-content/collections/documents/2026/09/15/fiscale-sleuteltabel-2027/fiscale-sleuteltabel-2027.pdf',
-  },
-  saldering: {
-    title: 'Rijksoverheid – Salderingsregeling stopt in 2027 (vergoeding minimaal 50% van kale leveringstarief tot 2030)',
-    url: 'https://www.rijksoverheid.nl/themas/klimaat-milieu-en-natuur/energie-thuis/salderingsregeling',
-  },
-  terugleverkosten_per_kwh: {
-    title: 'Staatscourant 2026, 28208 – terugleverkosten vanaf 2027 uitgedrukt in € per teruggeleverde kWh',
-    url: 'https://zoek.officielebekendmakingen.nl/stcrt-2026-28208.pdf',
-  },
-  cbs_tarieven: {
-    title: 'CBS StatLine 85592NED – Gemiddelde energietarieven voor consumenten (augustus 2026)',
-    url: 'https://www.cbs.nl/nl-nl/cijfers/detail/85592NED',
-  },
-  tlk_overzicht: {
-    title: 'Zonnesaldo.nl – overzicht aangekondigde terugleververgoeding en -kosten 2027 per leverancier (geraadpleegd 8-10-2026; voorbeeldtarieven)',
-    url: 'https://zonnesaldo.nl/terugleverkosten-2027',
-  },
-  homewizard_battery: {
-    title: 'HomeWizard – Plug-In Battery 2,7 kWh, 800 W, € 1.195 (webshop, geraadpleegd 8-10-2026)',
-    url: 'https://www.homewizard.com/shop/plug-in-battery/',
-  },
-  milieucentraal_zelfverbruik: {
-    title: 'Milieu Centraal – Meer zonnestroom zelf verbruiken (gemiddeld ca. 30% direct eigen verbruik)',
-    url: 'https://www.milieucentraal.nl/energie-besparen/zonnepanelen/verbruik-zelf-meer-zonnestroom/',
-  },
   btw: {
     title: 'Belastingdienst – Btw-tarieven (21%, 9%, 0%)',
     url: 'https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/btw/tarieven_en_vrijstellingen/',
@@ -75,18 +43,6 @@ export const SOURCES = {
   kor: {
     title: 'Belastingdienst – Kleineondernemersregeling (KOR), omzetgrens € 20.000',
     url: 'https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/btw/hoe_werkt_de_btw/kleineondernemersregeling/',
-  },
-  nedu: {
-    title: 'MFFBAS/Energiedatawijzer – Standaardprofielen elektriciteit 2025 (E1A)',
-    url: 'https://energiedatawijzer.nl/documenten/profielen-elektriciteit-2025/',
-  },
-  pvgis: {
-    title: 'EU JRC – PVGIS 5.3 uurreeksen zonnestroom (De Bilt, 2018–2023)',
-    url: 'https://re.jrc.ec.europa.eu/pvg_tools/en/',
-  },
-  epex: {
-    title: 'EPEX day-ahead prijzen NL 2025 (per uur, excl. btw), opgehaald via api.energyzero.nl',
-    url: 'https://www.energyzero.nl/',
   },
 };
 
@@ -117,18 +73,6 @@ export const IB2026 = {
   tariefAanpassingGrens: 78426,
   zvwRate: 0.0485,
   zvwMax: 79409,
-};
-
-// ---------- Energie ----------
-export const ENERGY = {
-  btw: 0.21,
-  eb: {
-    2026: { perKwh: 0.09161, vermindering: 519.80, status: 'definitief', source: 'eb_2026' },
-    2027: { perKwh: 0.0880, vermindering: 519.58, status: 'voorstel Belastingplan 2027 (nog niet definitief)', source: 'eb_2027' },
-  },
-  minVergoedingFactor: 0.5, // t/m 2029: minimaal 50% van kale leveringsprijs
-  // CBS 85592NED, augustus 2026, gemiddeld variabel leveringstarief (vast+variabel contract)
-  cbsAug2026: { kaalExBtw: 0.1214, kaalInclBtw: 0.1469, ebInclBtw: 0.11085 },
 };
 
 // ---------- Btw ----------

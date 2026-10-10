@@ -40,7 +40,6 @@ const OG = {
   uurtarief: ['Rekentool 2026', 'Uurtarief zzp berekenen', 'Ook vanuit je huidige salaris'],
   btw: ['Rekentool', 'Btw berekenen', '21% of 9%, inclusief en exclusief'],
   factuur: ['Gratis tool', 'Offerte en factuur maken', 'Zonder account, alles in je eigen browser'],
-  batterij: ['Ook handig', 'Verdient een thuisbatterij zich terug?', 'Uur voor uur doorgerekend'],
   blog: ['Blog', 'Boekhouding en belasting voor zzp\'ers', 'Kort uitgelegd, met officiële bronnen'],
 };
 for (const f of readdirSync('content/blog').filter((x) => x.endsWith('.md'))) {
