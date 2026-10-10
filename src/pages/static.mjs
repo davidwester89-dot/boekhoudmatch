@@ -132,6 +132,7 @@ export const offerte = {
 <h1>Gratis offerte en factuur maken</h1>
 <p class="lead">Maak een nette offerte of factuur met alle verplichte gegevens. Zonder account, en je gegevens blijven op je eigen apparaat.</p>
 <div class="actions"><a class="btn" href="/tools/offerteklaar.html" data-tool="factuur">Open de factuurtool</a></div>
+<h2>Wat de factuurtool doet</h2>
 <div class="grid cards">
 <div class="card"><h3>Alles wat erop moet</h3><p class="note">KvK- en btw-nummer, factuurnummer, datum, omschrijving en bedragen in- en exclusief btw.</p></div>
 <div class="card"><h3>21%, 9%, 0%, KOR en verlegd</h3><p class="note">De juiste vermelding staat er automatisch op.</p></div>
@@ -269,7 +270,7 @@ ${GA_ID ? gaHtml : '<h2 id="cookies">Cookies</h2>\n<p>We plaatsen op dit moment 
 
 export const disclaimer = {
   path: '/disclaimer/',
-  title: 'Disclaimer | BoekhoudMatch',
+  title: 'Disclaimer: uitkomsten, prijzen en links | BoekhoudMatch',
   description: 'De uitkomsten van onze tools en artikelen zijn indicaties, geen persoonlijk financieel, fiscaal of juridisch advies.',
   crumb: 'Disclaimer',
   body: `
@@ -290,5 +291,5 @@ export const notfound = {
   path: '/404.html', noindex: true,
   title: 'Pagina niet gevonden | BoekhoudMatch',
   description: 'Deze pagina bestaat niet (meer). Ga verder naar de boekhoudmatch, de rekentools of de blog van BoekhoudMatch.',
-  body: `<section class="notfound"><h1>Oeps, deze pagina bestaat niet</h1><p class="lead" style="margin:0 auto 10px">Misschien is hij verhuisd. Hier kun je verder:</p><div class="actions"><a class="btn" href="/boekhoudprogramma-kiezen/">Doe de boekhoudmatch</a><a class="btn ghost" href="/">Naar de homepage</a><a class="btn ghost" href="/blog/">Naar de blog</a></div></section>`,
+  body: `<section class="notfound"><h1>Oeps, deze pagina bestaat niet</h1><p class="lead" style="margin:0 auto 10px">Misschien is hij verhuisd. Hier kun je verder:</p><div class="actions"><a class="btn" href="/boekhoudprogramma-kiezen/">Doe de boekhoudmatch</a><a class="btn ghost" href="/boekhoudprogramma-vergelijken/">Vergelijk alle pakketten</a><a class="btn ghost" href="/gidsen/">Naar de gidsen</a><a class="btn ghost" href="/">Naar de homepage</a></div><p class="note" style="text-align:center">Klopt er een link niet? Mail naar <a href="mailto:info@boekhoudmatch.nl">info@boekhoudmatch.nl</a>.</p></section>`,
 };

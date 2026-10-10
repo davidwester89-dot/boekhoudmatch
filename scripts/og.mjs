@@ -49,6 +49,15 @@ for (const f of readdirSync('content/blog').filter((x) => x.endsWith('.md'))) {
   OG['blog-' + p.slug] = ['Blog', p.title, 'BoekhoudMatch · ' + p.date.split('-').reverse().join('-')];
 }
 
+// Gidsen en aanbiederpagina's: titel van de pagina, geen prijzen of datums (die veranderen).
+for (const f of existsSync('content/gids') ? readdirSync('content/gids').filter((x) => x.endsWith('.md')) : []) {
+  const t = (readFileSync(join('content/gids', f), 'utf8').match(/^title:\s*(.+)$/m) || [])[1];
+  if (t) OG['gids-' + f.replace(/\.md$/, '')] = [/ vs /.test(t) ? 'Vergelijking' : 'Gids', t.replace(/\s*\(20\d\d\)$/, ''), 'Prijs, limieten en bron van de aanbieder zelf'];
+}
+const { PAKKETTEN } = await import('../src/lib/pakketten.js');
+const { REDACTIE } = await import('../src/lib/aanbieders.js');
+for (const a of PAKKETTEN) OG['vendor-' + REDACTIE[a.id].slug] = ['Prijzen 2026', `${REDACTIE[a.id].kort}: prijzen en pakketten`, 'Per pakket: prijs, limieten, btw-aangifte en bank'];
+
 mkdirSync('src/assets/og', { recursive: true });
 let n = 0;
 for (const [k, [kicker, title, sub]] of Object.entries(OG)) {

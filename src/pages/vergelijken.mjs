@@ -94,6 +94,7 @@ ${ALFA.map(kaart).join('\n')}
 <p class="note" id="f-none" hidden>Geen aanbieder voldoet aan alle filters. Zet een filter uit.</p>
 
 <h2 id="tabel">Alle pakketten in detail</h2>
+<p class="scrollhint note">Schuif de tabel opzij voor alle kolommen →</p>
 <div class="table-wrap" tabindex="0" role="region" aria-label="Vergelijkingstabel boekhoudprogramma's (scroll horizontaal)">
 <table class="data compare">
 <thead><tr><th>Aanbieder</th><th>Pakket</th><th>Prijs p/m</th><th>Bij jaar&shy;betaling</th><th>Limieten</th><th>Btw-aangifte</th><th>Bank&shy;koppeling</th><th>Offertes</th><th>Uren</th><th>Aangifte IB</th><th>Rechtsvorm</th></tr></thead>

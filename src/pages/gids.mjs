@@ -69,7 +69,7 @@ ${rij('Gecontroleerd', fmtDate(checked(A)), fmtDate(checked(B)))}
     const eerste = res[0].past ? res[0].naam : 'geen van beide';
     return `<tr><th scope="row">${esc(v.titel)}</th><td>${cel(A)}</td><td>${cel(B)}</td><td>${esc(eerste)}</td></tr>`;
   }).join('');
-  return `${tabelHtml}<h3>Wat de match kiest in drie situaties</h3><div class="table-wrap"><table class="data"><thead><tr><th>Situatie</th><th>${esc(A.naam)}</th><th>${esc(B.naam)}</th><th>Hoger in de match</th></tr></thead><tbody>${uit}</tbody></table></div><p class="note">Uitkomst van de match met alleen deze twee aanbieders, voor de drie voorbeeldprofielen van de <a href="/">homepage</a>. Jouw situatie kan anders uitvallen.</p>`;
+  return `${tabelHtml}<h2>Wat de match kiest in drie situaties</h2><div class="table-wrap"><table class="data"><thead><tr><th>Situatie</th><th>${esc(A.naam)}</th><th>${esc(B.naam)}</th><th>Hoger in de match</th></tr></thead><tbody>${uit}</tbody></table></div><p class="note">Uitkomst van de match met alleen deze twee aanbieders, voor de drie voorbeeldprofielen van de <a href="/">homepage</a>. Jouw situatie kan anders uitvallen.</p>`;
 }
 const cta = (q) => `<div class="actions"><a class="btn" href="/boekhoudprogramma-kiezen/${q ? `?${q}` : ''}"${q ? ' rel="nofollow"' : ''}>Doe de match</a><a class="btn ghost" href="/boekhoudprogramma-vergelijken/">Vergelijk alle ${N_PAK} pakketten</a></div>`;
 
@@ -103,6 +103,7 @@ export function gidsPages() {
     const vendors = String(meta.vendors || '').split(',').map((s) => s.trim()).filter(Boolean).map((v) => byId[v]);
     const words = wordCount(body.replace(/^\{\{blok:.*\}\}$/gm, ''));
     const html = render(body);
+    const ogKey = existsSync(`src/assets/og/gids-${slug}.png`) ? `gids-${slug}` : 'vergelijken';
     const pageBody = `
 <article class="article gids">
 <h1>${esc(meta.title)}</h1>
@@ -116,9 +117,9 @@ ${html}
 </article>
 {{related}}`;
     return {
-      path, title: meta.seo_title, ogTitle: meta.title, description: meta.description, crumb: meta.crumb, og: 'vergelijken', updated: meta.updated, words, kind: meta.kind || 'gids',
+      path, title: meta.seo_title, ogTitle: meta.title, description: meta.description, crumb: meta.crumb, og: ogKey, updated: meta.updated, words, kind: meta.kind || 'gids',
       body: pageBody,
-      schema: [{ '@context': 'https://schema.org', '@type': 'Article', headline: meta.title, description: meta.description, datePublished: meta.published || meta.updated, dateModified: meta.updated, inLanguage: 'nl-NL', wordCount: words,
+      schema: [{ '@context': 'https://schema.org', '@type': 'Article', headline: meta.title, description: meta.description, datePublished: meta.published || meta.updated, dateModified: meta.updated, inLanguage: 'nl-NL', wordCount: words, image: `${SITE.domain}/og/${ogKey}.png`,
         author: { ...FOUNDER.schema }, publisher: ORG, mainEntityOfPage: { '@type': 'WebPage', '@id': SITE.domain + path }, citation: sources.map((s) => s.url) }],
     };
   });

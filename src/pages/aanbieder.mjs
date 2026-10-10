@@ -1,9 +1,17 @@
 // Aanbiederpagina's: /<slug>/ per aanbieder. Alleen feiten uit pakketten.js en aanbieders.js (bron: site van de aanbieder).
+import { existsSync } from 'node:fs';
 import { SITE, esc, fmtDate } from '../layout.mjs';
 import { PAKKETTEN } from '../lib/pakketten.js';
 import { REDACTIE } from '../lib/aanbieders.js';
+import { uitgaand, ctaTekst } from '../lib/partnerlinks.js';
 import { e2, checked, vanaf, bronLinks, pakketTabel, logo, softwareSchema, btwNoot, N_AANB, UNK } from '../lib/weergave.mjs';
 
+// Uitgaande knop naar de aanbieder: partnerlink alleen als die is goedgekeurd (dan met label), anders gewone link.
+function uitCta(a, r) {
+  const u = uitgaand(a), c = ctaTekst(r.kort, { proef: r.proef, prijs: Math.min(...a.plannen.map((p) => p.prijs)) });
+  const host = a.site.replace(/^https?:\/\/(www\.)?/, '').replace(/\/.*$/, '');
+  return `<div class="card vendor-out"><a class="btn" href="${esc(u.href)}" target="_blank" rel="${u.rel}" data-vendor="${esc(a.naam)}" data-pos="aanbiederpagina" data-cta="${c.gratis ? 'trial' : 'visit'}">${esc(c.tekst)}<span aria-hidden="true"> ↗</span><span class="sr-only"> (opent in een nieuw tabblad)</span></a><p class="note">${esc([c.uitleg, `naar ${host}`].filter(Boolean).join(' · '))} · ${u.partner ? '<span class="plabel">partnerlink</span>' : 'gewone link, we verdienen er niets aan'}.</p></div>`;
+}
 const ul = (l) => `<ul>${l.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>`;
 
 export const aanbiederPages = PAKKETTEN.map((a) => {
@@ -27,6 +35,7 @@ ${pakketTabel(a)}
 <div class="card"><h2 class="h3">Voor wie wel</h2>${ul(r.wel)}</div>
 <div class="card"><h2 class="h3">Voor wie niet</h2>${ul(r.niet)}</div>
 </div>
+${uitCta(a, r)}
 
 <h2 id="bronnen">Bronnen</h2>
 <ul class="sources">${a.bronnen.map((b) => `<li><a href="${b.url}" rel="noopener" data-vendor="${esc(a.naam)}">${esc(b.titel)}</a></li>`).join('')}</ul>
@@ -35,7 +44,7 @@ ${pakketTabel(a)}
 {{related}}`;
   const titel = `${r.kort} prijzen 2026: pakketten en limieten | BoekhoudMatch`;
   return {
-    path, title: titel.length <= 62 ? titel : `${r.kort} prijzen 2026 | BoekhoudMatch`, ogTitle: `${a.naam}: prijzen en pakketten`, og: 'vergelijken',
+    path, title: titel.length <= 62 ? titel : `${r.kort} prijzen 2026: pakketten, limieten | BoekhoudMatch`, ogTitle: `${a.naam}: prijzen en pakketten`, og: existsSync(`src/assets/og/vendor-${r.slug}.png`) ? `vendor-${r.slug}` : 'vergelijken',
     description: `${r.kort}: ${a.plannen.length} pakketten, ${v.prijs === 0 ? 'ook een gratis pakket' : `vanaf ${e2(v.prijs)} p/m`}. Prijs, limieten, btw-aangifte en bankkoppeling per pakket, gecontroleerd op ${fmtDate(c)}.`,
     crumb: r.kort, parents: [['/boekhoudprogramma-vergelijken/', 'Vergelijken']], navPath: '/boekhoudprogramma-vergelijken/', updated: c,
     body, schema: [softwareSchema(a, SITE.domain + path)],
