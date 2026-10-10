@@ -3,6 +3,7 @@
 // Ruwe metingen: research/praktijktest/<aanbieder>/METINGEN.md (buiten de site).
 
 const BIJSCHRIFT_MB = 'Screenshot BoekhoudMatch, 10 oktober 2026, proefperiode Moneybird';
+const BIJSCHRIFT_EB = 'Screenshot BoekhoudMatch, 10 oktober 2026, proefperiode e-Boekhouden.nl';
 
 export const PRAKTIJKTESTS = {
   moneybird: {
@@ -48,6 +49,51 @@ export const PRAKTIJKTESTS = {
       'Btw-aangifte gevolgd tot de stap vóór indienen; niets ingediend.',
       'Bankimport niet getest met een echt bankbestand: onze testbestanden werden geweigerd, dus de 3 regels zijn handmatig ingevoerd. Geen echte rekening gekoppeld.',
       'Mobiele app niet op een telefoon getest; alleen de vermelding in de app-stores gecontroleerd.',
+      'Support niet getest.',
+    ],
+  },
+  eboekhouden: {
+    datum: '2026-10-10',
+    pakket: 'Proefaccount (14 dagen)',
+    door: 'Dave West',
+    omgeving: 'Desktop, Chrome',
+    aanmelden: {
+      velden: ['e-mailadres', 'gebruikersnaam', 'wachtwoord'],
+      kvk: 'Nee',
+      telefoon: 'Nee (veld wel zichtbaar, niet verplicht)',
+      betaalgegevens: 'Nee',
+      id: 'Nee',
+      bevestigingsmail: 'Nee (direct klaar voor gebruik)',
+      minutenTotDashboard: 'ca. 1,5 minuut',
+    },
+    metingen: {
+      eersteFactuur: 'ca. 15 klikken, inclusief het aanmaken van de testrelatie (Code en Bedrijf verplicht). Een nieuwe factuurregel staat standaard op 9% btw en rekening 0130 Inventarissen; voor de test gezet op 21% btw en 8000 Omzet. Bij e-mailen is het veld Bericht verplicht. Optie "UBL-bestand meesturen" (vinkje); geen Peppol-optie gezien. Factuur F00001 € 1.210 verzonden.',
+      bon: 'Ja, via Autopilot (gratis, eerst aanzetten; waarschuwing over externe AI; 10 credits zichtbaar). Na uploaden las Autopilot de bon in ca. 30 seconden en boekte: nieuwe leverancier, kenmerk T-0001, datum, € 100 excl. btw, 21% btw, rekening 4700 Kantoorbenodigdheden. Ca. 7 klikken, 0 velden getypt. Gewone handmatige invoer was ook mogelijk.',
+      bank: 'Koppelingen zichtbaar voor ABN Amro, ASN, bunq, ING, Knab, Rabobank, RegioBank, Revolut, SNS, Triodos, Van Lanschot en overige Europese banken; geen prijs getoond op dat scherm. Een zelfgemaakt CAMT.053-testbestand werd geaccepteerd (3 regels): € 121 automatisch gekoppeld aan de bon, € 1.210 niet aan de factuur (ander factuurnummer in de omschrijving), € 7,50 onverwerkt. MT940 daarna ook geaccepteerd, zonder dubbele regels te herkennen.',
+      btw: 'Rubriek 1a (€ 1.000 / € 210) en 5b (€ 21) klopten met het testscenario, totaal € 189. Verzenden was geblokkeerd: de periode is nog niet voorbij en "Je OB-nummer is niet correct of niet ingevuld". Niets ingediend.',
+      app: 'Niet getest',
+      support: 'Niet getest',
+      proef: '14 dagen, in deze test tot ca. 24 oktober 2026. Op het scherm: "u gaat pas betalen na uw proefperiode". Of de proef vanzelf stopt en wat er daarna met de gegevens gebeurt, stond niet in de app.',
+    },
+    screenshots: [
+      { stap: 2, src: '/img/praktijktest/eboekhouden-2-factuur-2026-10-10.webp', width: 1200, height: 668, datum: '2026-10-10',
+        alt: 'e-Boekhouden-factuurscherm met factuurregel Advieswerk (test): € 1.000 plus 21% btw, totaal € 1.210; knop Proefaccount omzetten (nog 14 dagen)', bijschrift: BIJSCHRIFT_EB },
+      { stap: 3, src: '/img/praktijktest/eboekhouden-3-bon-2026-10-10.webp', width: 1200, height: 668, datum: '2026-10-10',
+        alt: 'e-Boekhouden Autopilot na boeken van inkoopbon.pdf: Testleverancier Kantoorartikelen B.V., T-0001, € 100 bij 21% btw, rekening 4700 Kantoorbenodigdheden', bijschrift: BIJSCHRIFT_EB },
+      { stap: 5, src: '/img/praktijktest/eboekhouden-5-btw-2026-10-10.webp', width: 1200, height: 668, datum: '2026-10-10',
+        alt: 'e-Boekhouden-btw-aangifte 4e kwartaal 2026: rubriek 1a € 1000 en € 210, voorgestelde aangifte gelijk aan de gegevens', bijschrift: BIJSCHRIFT_EB },
+    ],
+    waarnemingen: [
+      'Bij het aanmelden waren e-mailadres, gebruikersnaam en wachtwoord verplicht; telefoonnummer, KvK-nummer, betaalgegevens en identiteitsbewijs niet. Er kwam geen bevestigingsmail; het account was direct klaar.',
+      'Een nieuwe factuurregel staat standaard op 9% btw en rekening 0130 Inventarissen; voor de testfactuur gezet op 21% btw en 8000 Omzet. Bij e-mailen is het veld Bericht verplicht.',
+      'Autopilot (gratis, eerst aanzetten) las de bon in ongeveer 30 seconden en boekte leverancier, T-0001, datum, € 100 plus 21% btw en rekening 4700 Kantoorbenodigdheden; 0 velden getypt.',
+      'Een zelfgemaakt CAMT.053-testbestand werd geaccepteerd: 3 regels, de betaling van € 121 gekoppeld aan de bon, de € 1.210 niet aan de factuur (ander factuurnummer in de omschrijving), € 7,50 onverwerkt.',
+    ],
+    grenzen: [
+      'Getest zonder KvK-inschrijving.',
+      'Btw-aangifte gevolgd tot verzenden; verzenden was geblokkeerd omdat de periode nog niet voorbij is en het OB-nummer ontbreekt. Niets ingediend.',
+      'Bankkoppeling niet met een echte bank getest; wel import van een zelfgemaakt CAMT.053-testbestand.',
+      'Mobiele app niet getest.',
       'Support niet getest.',
     ],
   },
