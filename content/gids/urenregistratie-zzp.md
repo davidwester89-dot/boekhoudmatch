@@ -51,15 +51,15 @@ Wat opvalt:
 - **Moneybird** noemt uren, bij Compact beperkt.
 - **Silvasoft** verkoopt urenregistratie als losse module van € 3,95 per maand bovenop Boekhouden + Facturatie.
 
-Bij SnelStart, Tellow en Exact staat urenregistratie niet op de pagina die wij controleren; bij ons "niet vermeld". Dat betekent niet dat het er niet is, alleen dat het niet op de prijspagina staat.
+Bij SnelStart, Tellow en Exact staat urenregistratie niet op de pagina die wij controleren; bij ons “niet vermeld”. Dat betekent niet dat het er niet is, alleen dat het niet op de prijspagina staat.
 
 ## Wat de match kiest voor iemand met uren
 
-Het voorbeeldprofiel "Dienstverlener met uren" op onze homepage: eenmanszaak, 3–5 facturen en 6–10 bonnen per maand, btw-aangifte, automatische bankkoppeling, uren en offertes, budget tot € 20. Dit is de echte uitkomst:
+Het voorbeeldprofiel “Dienstverlener met uren” op onze homepage: eenmanszaak, 3–5 facturen en 6–10 bonnen per maand, btw-aangifte, automatische bankkoppeling, uren en offertes, budget tot € 20. Dit is de echte uitkomst:
 
 {{blok:voorbeelden uren}}
 
-En de vaste regel "beste voor uren" uit de vergelijking:
+En de vaste regel “beste voor uren” uit de vergelijking:
 
 {{blok:situaties uren}}
 

@@ -10,7 +10,7 @@ related:
 - MoneyMonk: prijzen en pakketten | /moneymonk/
 - Urenregistratie voor zzp'ers | /urenregistratie-zzp/
 ---
-Jortt en MoneyMonk richten zich allebei op zzp'ers met een eenmanszaak, en allebei helpen ze bij je aangifte inkomstenbelasting. Hoe ze dat doen en wat ze kosten, verschilt. Hieronder de feiten naast elkaar, gecontroleerd op {{datum}} op de sites van Jortt en MoneyMonk.
+Jortt en MoneyMonk richten zich allebei op zzp'ers met een eenmanszaak, en allebei helpen ze bij je aangifte inkomstenbelasting. Hoe ze dat doen en wat ze kosten, verschilt. Hieronder de feiten naast elkaar.
 
 {{blok:vs jortt moneymonk}}
 
@@ -20,11 +20,11 @@ Jortt en MoneyMonk richten zich allebei op zzp'ers met een eenmanszaak, en alleb
 
 **MoneyMonk** heeft drie pakketten met een grens op banktransacties per maand en omzet per jaar. Basis ({{p:moneymonk/basis}}) gaat tot 20 banktransacties per maand en een omzet tot € 20.000 per jaar. Pro ({{p:moneymonk/pro}}) tot 50 transacties en € 100.000 omzet. Ultra ({{p:moneymonk/ultra}}) heeft geen transactiegrens.
 
-Let op die omzetgrens bij MoneyMonk Basis. Onze match vraagt niet naar je omzet. Komt Basis in je uitslag, dan staat de omzetgrens erbij als "let op".
+Let op die omzetgrens bij MoneyMonk Basis. Onze match vraagt niet naar je omzet. Komt Basis in je uitslag, dan staat de omzetgrens erbij als “let op”.
 
 ## Btw-aangifte
 
-MoneyMonk zegt op de functiepagina dat je de btw-aangifte vanuit de software doet. MoneyMonk beschrijft zijn functies op aparte functiepagina's, niet per pakket. Bij Jortt zit de btw-aangifte in ZZP, MKB en Plus, maar de pagina zegt niet of je rechtstreeks indient. Wij schrijven dan "manier van indienen niet vermeld".
+MoneyMonk zegt op de functiepagina dat je de btw-aangifte vanuit de software doet. MoneyMonk beschrijft zijn functies op aparte functiepagina's, niet per pakket. Bij Jortt zit de btw-aangifte in ZZP, MKB en Plus, maar de pagina zegt niet of je rechtstreeks indient. Wij schrijven dan “manier van indienen niet vermeld”.
 
 ## Inkomstenbelasting
 
@@ -33,7 +33,7 @@ Dit is het verschil waar veel zzp'ers op letten.
 - **Jortt** noemt bij ZZP, MKB en Plus een gecontroleerde aangifte inkomstenbelasting.
 - **MoneyMonk** maakt volgens de site een balans en winst- en verliesrekening die je overneemt in je IB-aangifte. Het invullen doe je zelf.
 
-In de match heet de eerste "hulp of controle bij je IB-aangifte" en de tweede "overzicht voor je IB-aangifte". Wil je je IB-aangifte zelf doen, dan maakt het verschil weinig uit. Wil je een controle, dan scoort Jortt op dit punt hoger.
+In de match heet de eerste “hulp of controle bij je IB-aangifte” en de tweede “overzicht voor je IB-aangifte”. Wil je je IB-aangifte zelf doen, dan maakt het verschil weinig uit. Wil je een controle, dan scoort Jortt op dit punt hoger.
 
 ## Bankkoppeling
 
@@ -45,12 +45,12 @@ Allebei noemen ze urenregistratie en offertes. Bij Jortt zitten die ook in het g
 
 ## Rechtsvorm en btw op de prijs
 
-Jortt ZZP is alleen voor een eenmanszaak; MKB en Plus noemen ook vof en bv. MoneyMonk noemt geen rechtsvormen; bij ons staat dat als "niet vermeld". Jortt noemt prijzen exclusief btw. Bij MoneyMonk staat niet op de prijspagina of de prijzen in- of exclusief btw zijn.
+Jortt ZZP is alleen voor een eenmanszaak; MKB en Plus noemen ook vof en bv. MoneyMonk noemt geen rechtsvormen; bij ons staat dat als “niet vermeld”. Jortt noemt prijzen exclusief btw. Bij MoneyMonk staat niet op de prijspagina of de prijzen in- of exclusief btw zijn.
 
 ## Acties
 
 - Jortt: 30 dagen gratis, daarna 3 maanden € 9,95 per maand.
-- MoneyMonk: 30 dagen gratis proberen; starters die onlangs bij de KVK zijn ingeschreven krijgen volgens de site 15 maanden gratis; Pro de eerste 3 maanden € 15 per maand.
+- MoneyMonk: 30 dagen gratis proberen; starters die onlangs bij de KVK zijn ingeschreven, krijgen volgens de site 15 maanden gratis; Pro de eerste 3 maanden € 15 per maand.
 
 Acties tellen in de match niet mee. Na de actie betaal je het gewone tarief, en daar rekenen wij mee.
 
@@ -58,7 +58,7 @@ Acties tellen in de match niet mee. Na de actie betaal je het gewone tarief, en 
 
 **MoneyMonk Basis** is goedkoop als je omzet onder de € 20.000 per jaar blijft en je weinig banktransacties hebt. Groei je daarboven, dan is de stap naar Pro groot.
 
-**Jortt ZZP** heeft een ruimere boekingsgrens en een gecontroleerde IB-aangifte, voor een hoger bedrag per maand. Heb je een vof of bv, dan is Jortt MKB de optie van deze twee die die rechtsvormen noemt.
+**Jortt ZZP** heeft een ruimere boekingsgrens en een gecontroleerde IB-aangifte, voor een hoger bedrag per maand. Heb je een vof of bv, dan noemt van deze twee alleen Jortt (MKB en Plus) die rechtsvormen.
 
 De tabel hierboven laat zien wat de match kiest in drie voorbeeldsituaties. Met je eigen aantallen doe je de match hieronder.
 

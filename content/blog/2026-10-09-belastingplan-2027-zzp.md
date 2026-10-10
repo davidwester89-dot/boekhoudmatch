@@ -22,7 +22,7 @@ De zelfstandigenaftrek wordt al een paar jaar stap voor stap verlaagd. In 2025 w
 
 De voorwaarden blijven hetzelfde. Je moet ondernemer zijn voor de inkomstenbelasting en minstens 1.225 uur per jaar aan je onderneming werken (het urencriterium).
 
-**Wat betekent het in euro's?** Je winst wordt € 300 minder verlaagd. Na de mkb-winstvrijstelling (blijft 12,7%) is je belastbare winst ongeveer € 262 hoger. Valt je winst in de tweede schijf, dan betaal je daardoor ongeveer € 100 meer inkomstenbelasting, plus een klein beetje meer Zvw-bijdrage.
+**Wat betekent het in euro's?** Je mag € 300 minder van je winst aftrekken. Na de mkb-winstvrijstelling (blijft 12,7%) is je belastbare winst ongeveer € 262 hoger. Valt je winst in de tweede schijf, dan betaal je daardoor ongeveer € 100 meer inkomstenbelasting, plus een klein beetje meer Zvw-bijdrage.
 
 ## Startersaftrek: van € 2.123 naar € 10, daarna weg
 
@@ -55,7 +55,7 @@ Het kabinet wil dat burgers een zogenoemde *vrijheidsbijdrage* leveren. Daarvoor
 | Zelfstandigenaftrek | € 1.200 | € 900 |
 | Mkb-winstvrijstelling | 12,70% | 12,70% |
 
-De heffingskortingen stijgen dus ook iets. Of je er per saldo op vooruit of achteruit gaat, hangt af van je winst. Het percentage van de Zvw-bijdrage voor 2027 staat niet in het Belastingplan; dat wordt later apart vastgesteld.
+De heffingskortingen stijgen dus ook iets. Of je er per saldo op vooruitgaat of achteruitgaat, hangt af van je winst. Het percentage van de Zvw-bijdrage voor 2027 staat niet in het Belastingplan; dat wordt later apart vastgesteld.
 
 ## Kilometervergoeding: € 0,25 in plaats van € 0,23
 

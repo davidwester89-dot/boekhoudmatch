@@ -15,15 +15,15 @@ sources:
 - Belastingdienst: uiterste aangifte- en betaaldatums btw | https://www.belastingdienst.nl/wps/wcm/connect/nl/btw/content/uiterste-aangifte-en-betaaldatums
 - Belastingdienst: hoelang moet u gegevens bewaren? | https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/ondernemen/administratie/hoelang-moet-u-gegevens-bewaren
 ---
-Er bestaat geen boekhoudprogramma dat voor elke zzp'er het beste is. Het beste pakket is het goedkoopste pakket dat past bij hoeveel facturen en bonnen je hebt, of je btw-aangifte doet en of je hulp wilt bij je aangifte inkomstenbelasting. Daarom zie je hieronder geen ranglijst met sterren, maar per situatie het pakket dat volgens een vaste regel bovenaan komt. De regel staat erbij, zodat je kunt nagaan waarom.
+Er bestaat geen boekhoudprogramma dat voor elke zzp'er het beste is. Het beste pakket is het goedkoopste pakket dat past bij hoeveel facturen en bonnen je hebt, of je btw-aangifte doet en of je hulp wilt bij je aangifte inkomstenbelasting. Daarom zie je hieronder geen ranglijst met sterren, maar per situatie het pakket dat volgens een vaste regel bovenaan komt.
 
-We vergelijken {{n:pakketten}} pakketten van {{n:aanbieders}} aanbieders. Elke prijs komt van de prijspagina van de aanbieder en is gecontroleerd op {{datum}}. Of wij ergens aan verdienen, telt niet mee. Op dit moment staan er geen partnerlinks op de site.
+We vergelijken {{n:pakketten}} pakketten van {{n:aanbieders}} aanbieders, met de prijzen van de aanbieders zelf.
 
 ## Per situatie
 
 {{blok:situaties}}
 
-Deze blokken zijn geen oordeel over de kwaliteit van een pakket. Ze laten zien welk pakket het goedkoopst is als je een bepaalde set functies nodig hebt. Gebruiksgemak, support en hoe prettig de app werkt, kunnen we niet eerlijk meten. Die probeer je het best zelf in een proefperiode.
+Dit zegt niets over gebruiksgemak of support. Dat probeer je het best zelf uit in een proefperiode.
 
 ## Drie voorbeelden uit de match
 
@@ -54,7 +54,7 @@ Bij Tellow Gratis en Basis dien je zelf in; vanaf Plus ({{p:tellow/plus}}) kan h
 
 ### 3. Bankkoppeling
 
-Met een automatische bankkoppeling komen je transacties vanzelf in je boekhouding. Zonder koppeling download je een bestand bij je bank en lees je dat in. Let op drie varianten: gratis voor elke bank, alleen met de eigen betaalrekening van de aanbieder, of tegen meerprijs. Informer rekent € 1 per maand per rekening, Silvasoft € 3. Bij Moneybird kun je een externe bank pas vanaf Groei ({{p:moneybird/groei}}) koppelen. Zie ook [bankkoppeling: wel of niet](/bankkoppeling-boekhoudprogramma/).
+Met een automatische bankkoppeling komen je transacties vanzelf in je boekhouding. Zonder koppeling download je een bestand bij je bank en lees je dat in. Er zijn drie varianten: gratis voor elke bank, alleen met de eigen betaalrekening van de aanbieder, of tegen meerprijs. Informer rekent € 1 per maand per rekening, Silvasoft € 3. Bij Moneybird kun je een externe bank pas vanaf Groei ({{p:moneybird/groei}}) koppelen. Zie ook [bankkoppeling: wel of niet](/bankkoppeling-boekhoudprogramma/).
 
 ### 4. Hulp bij je aangifte inkomstenbelasting
 
@@ -62,11 +62,11 @@ Wil je hulp bij je IB-aangifte, dan wordt het verschil groot. Jortt noemt een ge
 
 ### 5. Rechtsvorm
 
-Heb je een vof of bv, controleer dan of de aanbieder die rechtsvorm noemt. Moneybird noemt eenmanszaak, vof en bv. Jortt ZZP is alleen voor een eenmanszaak; MKB en Plus ook voor vof en bv. Bij de meeste andere aanbieders staat het niet op de prijspagina. Dan schrijven wij "niet vermeld" en vraag je het na. Zie [boekhoudprogramma voor een vof](/boekhoudprogramma-vof/) en [voor een bv](/boekhoudprogramma-bv/).
+Heb je een vof of bv, controleer dan of de aanbieder die rechtsvorm noemt. Moneybird noemt eenmanszaak, vof en bv. Jortt ZZP is alleen voor een eenmanszaak; MKB en Plus ook voor vof en bv. Bij de meeste andere aanbieders staat het niet op de prijspagina. Dan schrijven wij “niet vermeld” en vraag je het na. Zie [boekhoudprogramma voor een vof](/boekhoudprogramma-vof/) en [voor een bv](/boekhoudprogramma-bv/).
 
-## Waarom geen sterren of "meest gekozen"?
+## Waarom geen sterren of “meest gekozen”?
 
-Omdat we die niet kunnen onderbouwen. We hebben geen eigen gebruikersonderzoek en tellen geen reviews. Wat we wel kunnen controleren, is wat er op de prijspagina staat. Daar houden we ons aan. Bij elke aanbieder staat de bronlink en de datum waarop we keken. Dave West controleert de prijzen elke maand.
+Omdat we die niet kunnen onderbouwen. We hebben geen eigen gebruikersonderzoek en tellen geen reviews. Wat we wel kunnen controleren, is wat er op de prijspagina staat. Daar houden we ons aan. Bij elke aanbieder staan de bronlink en de datum waarop we keken. Dave West controleert de prijzen elke maand.
 
 ## Zo kies je in drie stappen
 

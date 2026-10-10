@@ -46,7 +46,7 @@ Het gaat om facturen **tussen bedrijven** (business-to-business). Werk je alleen
 
 **Gebruik je de kleineondernemersregeling (KOR)?** Ondernemers in de KOR, met een omzet van maximaal € 20.000 per jaar, zijn volgens het plan vrijgesteld van de binnenlandse e-factuurplicht en de binnenlandse rapportage. Het kabinet zegt dat die uitzondering ook na juli 2030 blijft. Een aparte, extra drempel voor andere kleine ondernemers komt er volgens het plan niet.
 
-**Werk je voor zakelijke klanten en doe je btw-aangifte?** Dan moet je, als het plan doorgaat, vanaf 1 juli 2030 je zakelijke facturen als e-factuur versturen. Bestaande uitzonderingen op de factuurregels blijven zoveel mogelijk gelden.
+**Werk je voor zakelijke klanten en doe je btw-aangifte?** Dan moet je, als het plan doorgaat, vanaf 1 juli 2030 je zakelijke facturen als e-factuur versturen. Bestaande uitzonderingen op de factuurregels blijven zo veel mogelijk gelden.
 
 **Lever je nu al aan de Rijksoverheid?** Dan moet je daar nu al e-facturen voor gebruiken. Andere overheden, zoals gemeenten, vragen er soms ook om.
 
@@ -64,7 +64,7 @@ Je hoeft vandaag nog niets te veranderen. Maar een paar dingen nu regelen, schee
 
 1. **Check je boekhoudprogramma.** Kan het e-facturen maken en ontvangen, en is het aangesloten op Peppol (of staat dat op de planning)? Vaak heb je geen nieuw pakket nodig. In onze [vergelijking](/boekhoudprogramma-vergelijken/) zie je wat de pakketten kosten.
 2. **Factureer vanuit één systeem.** Maak je facturen nu nog in Word of Excel? Overstappen naar een boekhoudprogramma maakt de stap naar e-facturen later klein.
-3. **Houd je klantgegevens op orde.** Juiste bedrijfsnamen, adressen, KvK- en btw-nummers maken automatische verwerking makkelijker.
+3. **Houd je klantgegevens op orde.** Juiste bedrijfsnamen, adressen, KVK- en btw-nummers maken automatische verwerking makkelijker.
 4. **Zit je rond de KOR-grens?** Houd je omzet in de gaten. Ga je over de € 20.000, dan ga je btw rekenen en val je ook onder de e-factuurplicht.
 5. **Volg de internetconsultatie.** Dit najaar kun je reageren op het conceptwetsvoorstel. Wij werken dit artikel bij zodra er meer bekend is.
 

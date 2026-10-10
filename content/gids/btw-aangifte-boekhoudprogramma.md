@@ -14,7 +14,7 @@ sources:
 - Belastingdienst: uiterste aangifte- en betaaldatums btw | https://www.belastingdienst.nl/wps/wcm/connect/nl/btw/content/uiterste-aangifte-en-betaaldatums
 - Belastingdienst: kleineondernemersregeling (KOR) | https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/btw/hoe_werkt_de_btw/kleineondernemersregeling/
 ---
-De btw-aangifte is voor veel zzp'ers de belangrijkste reden om een boekhoudprogramma te gebruiken. Een pakket houdt bij welke btw je hebt berekend en welke je mag aftrekken, en rekent uit wat je moet betalen. Het verschil zit in de laatste stap: dien je de aangifte direct vanuit het pakket in, of typ je de bedragen over in Mijn Belastingdienst Zakelijk? Op deze pagina zie je hoe het zit, gecontroleerd op {{datum}}.
+De btw-aangifte is voor veel zzp'ers de belangrijkste reden om een boekhoudprogramma te gebruiken. Een pakket houdt bij welke btw je hebt berekend en welke je mag aftrekken, en rekent uit wat je moet betalen. Het verschil zit in de laatste stap: dien je de aangifte direct vanuit het pakket in, of typ je de bedragen over in Mijn Belastingdienst Zakelijk? Op deze pagina zie je hoe het zit.
 
 ## Hoe werkt de btw-aangifte?
 
@@ -37,7 +37,7 @@ Gebruik je de kleineondernemersregeling (KOR), dan doe je geen btw-aangifte. Zie
 
 Op de prijspagina's zien we vier varianten. Zo noemen we ze ook in de vergelijking en de match:
 
-1. **Direct indienen.** De aanbieder zegt dat je de aangifte vanuit het pakket indient. In de match het meeste punten.
+1. **Direct indienen.** De aanbieder zegt dat je de aangifte vanuit het pakket indient. Dit levert in de match de meeste punten op.
 2. **Btw-aangifte zit erin, manier van indienen niet vermeld.** De functie staat op de prijspagina, maar niet of je rechtstreeks indient. Vaak kan het wel; vraag het na in de proefperiode.
 3. **Zelf indienen.** Het pakket rekent de btw uit, maar je dient zelf in bij de Belastingdienst.
 4. **Alleen een btw-overzicht.** Je krijgt de bedragen; de aangifte doe je zelf.

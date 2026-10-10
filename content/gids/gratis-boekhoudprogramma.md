@@ -13,7 +13,7 @@ sources:
 - Belastingdienst: kleineondernemersregeling (KOR) | https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/btw/hoe_werkt_de_btw/kleineondernemersregeling/
 - Belastingdienst: hoelang moet u gegevens bewaren? | https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/ondernemen/administratie/hoelang-moet-u-gegevens-bewaren
 ---
-"Gratis" betekent bij boekhoudprogramma's drie verschillende dingen: een pakket dat altijd gratis is, een starterskorting van een jaar of langer, of een proefperiode van een paar weken. Op deze pagina zie je per soort wat er is, met de grenzen erbij. Alles komt van de sites van de aanbieders, gecontroleerd op {{datum}}.
+“Gratis” betekent bij boekhoudprogramma's drie verschillende dingen: een pakket dat altijd gratis is, een starterskorting van een jaar of langer, of een proefperiode van een paar weken. Op deze pagina zie je per soort wat er is, met de grenzen erbij.
 
 ## 1. Pakketten die altijd gratis zijn
 
@@ -52,11 +52,11 @@ Bijna elke aanbieder laat je eerst proberen. De duur volgens de sites:
 
 Gebruik de proef serieus: zet er je echte bankafschrift van een maand in, maak een factuur en verwerk een paar bonnen. Dan weet je of het werkt.
 
-## Waar zit de prijs van "gratis"?
+## Waar zit de prijs van “gratis”?
 
 Een gratis pakket kost meestal tijd. Je typt meer over, of je dient je btw-aangifte zelf in. Bij Tellow Gratis en Rompslomp Starter is dat zo. Ook zitten functies die je later nodig hebt, zoals een bankkoppeling met je eigen bank of offertes, vaak pas in een betaald pakket.
 
-Daarnaast wisselen is werk. Ga je na een jaar toch naar een betaald pakket bij een andere aanbieder, dan moet je je administratie verhuizen. Je oude administratie moet je zeven jaar bewaren, ook als je overstapt. Zie [overstappen naar een ander boekhoudprogramma](/overstappen-boekhoudprogramma/).
+Daarnaast is wisselen werk. Ga je na een jaar toch naar een betaald pakket bij een andere aanbieder, dan moet je je administratie verhuizen. Je oude administratie moet je zeven jaar bewaren, ook als je overstapt. Zie [overstappen naar een ander boekhoudprogramma](/overstappen-boekhoudprogramma/).
 
 ## Gratis en de KOR
 
@@ -64,7 +64,7 @@ Gebruik je de kleineondernemersregeling (omzet tot € 20.000 per kalenderjaar),
 
 ## Wanneer is een betaald pakket goedkoper?
 
-Als je tijd iets waard is. Een pakket van rond de € 9 tot € 15 per maand dient je btw-aangifte vaak direct in en koppelt je bank. Het goedkoopste pakket waarmee je 5 facturen en 5 uitgaven per maand kwijt kunt en btw-aangifte doet, is volgens onze regel op {{datum}} Rompslomp Puur Factuur ({{p:rompslomp/puur}}). Kijk in de [vergelijking](/boekhoudprogramma-vergelijken/) wat er nog meer past.
+Als je tijd iets waard is. Een pakket van zo'n € 9 tot € 15 per maand dient je btw-aangifte vaak direct in en koppelt je bank. Het goedkoopste pakket waarmee je 5 facturen en 5 uitgaven per maand kwijt kunt en btw-aangifte doet, is volgens onze regel Rompslomp Puur Factuur ({{p:rompslomp/puur}}). Kijk in de [vergelijking](/boekhoudprogramma-vergelijken/) wat er nog meer past.
 
 ## Alleen facturen maken?
 

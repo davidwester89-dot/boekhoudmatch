@@ -44,7 +44,7 @@ Let op de deadline: aangifte en betaling over een kwartaal moeten binnen zijn v√
 - **Beginbalans**: de stand van je bank, debiteuren, crediteuren en andere balansposten op de overstapdatum.
 - **Producten en tarieven**, als je die in je pakket gebruikt.
 
-Welke import- of overstapfuncties een aanbieder heeft, staat niet op de prijspagina's die wij controleren. Vraag het na bij de aanbieder, of probeer het in de proefperiode. De meeste aanbieders hebben er een, van 14 tot 60 dagen; zie de [vergelijking](/boekhoudprogramma-vergelijken/).
+Welke import- of overstapfuncties een aanbieder heeft, staat niet op de prijspagina's die wij controleren. Vraag het na bij de aanbieder, of probeer het in de proefperiode. De meeste aanbieders hebben een proefperiode van 14 tot 60 dagen; zie de [vergelijking](/boekhoudprogramma-vergelijken/).
 
 ## Wat bewaar je?
 
@@ -78,7 +78,7 @@ Word je een bv, dan begin je sowieso een nieuwe administratie, want de bv is een
 
 1. Doe de match met je huidige aantallen plus de groei die je verwacht.
 2. Start een proef bij je nieuwe keuze en verwerk een maand aan echte transacties.
-3. Kies een overstapdatum: begin boekjaar, of begin van een btw-kwartaal.
+3. Kies een overstapdatum: het begin van een boekjaar of van een btw-kwartaal.
 4. Dien de laatste btw-aangifte in vanuit het oude pakket.
 5. Exporteer je oude administratie en bewaar die zeven jaar (tien jaar voor gegevens over onroerende zaken).
 6. Zet relaties, openstaande facturen en beginbalans in het nieuwe pakket.
