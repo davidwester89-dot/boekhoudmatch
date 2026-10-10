@@ -46,6 +46,7 @@ const OG = {
 };
 for (const f of readdirSync('content/blog').filter((x) => x.endsWith('.md'))) {
   const p = parsePost(f, readFileSync(join('content/blog', f), 'utf8'));
+  if (p.image && existsSync(`src/assets/og/blog-${p.slug}.png`)) continue; // eigen afbeelding als PNG-deelafbeelding
   OG['blog-' + p.slug] = ['Blog', p.title, 'BoekhoudMatch · ' + p.date.split('-').reverse().join('-')];
 }
 

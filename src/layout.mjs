@@ -67,7 +67,7 @@ export function layout(p) {
     }] : []),
     ...(p.schema || []),
   ];
-  const og = p.ogImage ? p.ogImage.url : `${SITE.domain}/og/${p.og || 'home'}.png`;
+  const og = `${SITE.domain}/og/${p.og || 'home'}.png`;
   const navPath = p.navPath || p.path;
   const hasBar = p.body.includes('class="mobilebar"');
   return `<!doctype html>
@@ -83,7 +83,7 @@ ${p.path === '/' ? '<meta name="e08923fead07e26" content="c805cc3c2262098e1a99fc
 ${p.noindex ? '<meta name="robots" content="noindex">' : `<link rel="canonical" href="${url}">`}
 <meta property="og:site_name" content="${SITE.name}"><meta property="og:locale" content="nl_NL"><meta property="og:type" content="${p.ogType || 'website'}">
 <meta property="og:title" content="${esc(p.ogTitle || p.title)}"><meta property="og:description" content="${esc(p.description)}"><meta property="og:url" content="${url}">
-<meta property="og:image" content="${og}"><meta property="og:image:width" content="${p.ogImage ? p.ogImage.w : 1200}"><meta property="og:image:height" content="${p.ogImage ? p.ogImage.h : 630}"><meta property="og:image:alt" content="${esc(p.ogImage?.alt || p.ogTitle || p.h1 || p.title)}">
+<meta property="og:image" content="${og}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="${esc(p.ogAlt || p.ogTitle || p.h1 || p.title)}">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(p.ogTitle || p.title)}"><meta name="twitter:description" content="${esc(p.description)}"><meta name="twitter:image" content="${og}">
 ${p.article ? `<meta property="article:published_time" content="${p.article.date}"><meta property="article:modified_time" content="${p.article.updated}">` : ''}
 <meta name="theme-color" content="${SITE.theme}">

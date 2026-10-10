@@ -34,14 +34,14 @@ ${others.length ? `<h2>Meer op de blog</h2><div class="grid cards two">${others.
   return {
     path: post.path, title: post.seoTitle, ogTitle: post.title, description: post.description, crumb: post.title,
     parents: [['/blog/', 'Blog']], navPath: '/blog/', og: ogKey, ogType: 'article',
-    ogImage: post.image ? { url: SITE.domain + postImg(post.image.name), w: POST_IMG.w, h: POST_IMG.h, alt: post.image.alt } : null, updated: post.updated,
+    ogAlt: post.image ? post.image.alt : null, updated: post.updated,
     article: { date: post.date, updated: post.updated },
     body,
     schema: [{
       '@context': 'https://schema.org', '@type': 'Article', headline: post.title, description: post.description,
       datePublished: post.date, dateModified: post.updated, inLanguage: 'nl-NL', wordCount: post.words,
       author: AUTHOR, publisher: ORG,
-      image: post.image ? { '@type': 'ImageObject', url: SITE.domain + postImg(post.image.name), width: POST_IMG.w, height: POST_IMG.h, caption: post.image.alt } : `${SITE.domain}/og/${ogKey}.png`,
+      image: post.image ? [{ '@type': 'ImageObject', url: SITE.domain + postImg(post.image.name), width: POST_IMG.w, height: POST_IMG.h, caption: post.image.alt }, `${SITE.domain}/og/${ogKey}.png`] : `${SITE.domain}/og/${ogKey}.png`,
       mainEntityOfPage: { '@type': 'WebPage', '@id': SITE.domain + post.path },
       citation: post.sources.map((s) => s.url),
     }],
