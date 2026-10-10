@@ -38,7 +38,7 @@ export function beoordeel(aanbieder, plan, a) {
   if (plan.boekhouding === false) nee.push('Geen boekhouding in dit pakket (alleen factureren).');
   const rv = plan.rechtsvormen ?? aanbieder.rechtsvormen;
   if (rv && !rv.includes(a.rechtsvorm)) nee.push(`Niet voor ${a.rechtsvorm === 'bv' ? 'een bv' : a.rechtsvorm === 'vof' ? 'een vof' : 'een eenmanszaak'}.`);
-  else if (!rv && a.rechtsvorm !== 'eenmanszaak') { let_op.push('Of je rechtsvorm wordt ondersteund staat niet op de prijspagina.'); score += PUNTEN.rechtsvormOnbekend; }
+  else if (!rv && a.rechtsvorm !== 'eenmanszaak') { let_op.push('Rechtsvorm niet vermeld door de aanbieder.'); score += PUNTEN.rechtsvormOnbekend; }
 
   if (plan.perFactuur) { prijs += plan.perFactuur * v.facturen; let_op.push(`Facturen kosten ${euro(plan.perFactuur)} per stuk (bij ${v.facturen} facturen: ${euro(plan.perFactuur * v.facturen)} p/m).`); }
   if (plan.facturen !== undefined && v.facturen > plan.facturen) nee.push(plan.facturen === 0 ? 'Geen verkoopfacturen in dit pakket.' : `Max. ${plan.facturen} facturen per maand.`);

@@ -18,9 +18,9 @@ const pagina = (a, pos, t) => `<a class="vlink" href="${vendorHref(a.id)}" data-
 const PRE_TOP = passend0.slice(0, 3).map((r, i) => {
   let mini = '';
   if (i > 0) { const k = knopHtml(r, i + 1, 'btn ghost sm'); mini = `<div class="mini-cta">${k.html}${pagina(k.a, i + 1, `Alles over ${k.red.kort}`)}${k.u.partner ? '<span class="plabel">partnerlink</span>' : ''}</div>`; }
-  return `<li><strong>${esc(`${r.naam} ${r.planNaam}`)}</strong><span class="price">${esc(` ${euro(r.prijs)} p/m${r.binnenBudget ? '' : ' (boven budget)'}`)}</span>${r.plus[0] ? `<div class="note">${esc(r.plus.slice(0, 2).join(' '))}</div>` : ''}${mini}</li>`;
+  return `<li><strong>${esc(`${r.naam} ${r.planNaam}`)}</strong><span class="price">${esc(` ${euro(r.prijs)} p/m${r.binnenBudget ? '' : ' (boven budget)'}`)}</span>${mini}</li>`;
 }).join('');
-const PRE_CTA = (() => { const r = passend0[0]; if (!r) return ''; const k = knopHtml(r, 1, 'btn'); return `${k.html}<p class="note cta-sub">${esc([k.c.uitleg, `naar ${host(k.a.site)}`].filter(Boolean).join(' · '))}${k.u.partner ? ' · <span class="plabel">partnerlink</span>' : ''}</p>${pagina(k.a, 1, `Lees alles over ${k.red.kort} →`)}`; })();
+const PRE_CTA = (() => { const r = passend0[0]; if (!r) return ''; const k = knopHtml(r, 1, 'btn'); return `${k.html}<p class="sub cta-sub">${esc([k.c.uitleg, `naar ${host(k.a.site)}`].filter(Boolean).join(' · '))}${k.u.partner ? ' · <span class="plabel">partnerlink</span>' : ''}</p>${pagina(k.a, 1, `Lees alles over ${k.red.kort} →`)}`; })();
 const PRE_BEST = passend0[0] ? `${passend0[0].naam} ${passend0[0].planNaam}` : '–';
 const PRE_CMP = '/boekhoudprogramma-vergelijken/?aanbieders=' + passend0.slice(0, 3).map((r) => r.aanbieder).join(',') + '#per-aanbieder';
 
@@ -30,19 +30,18 @@ const radios = (name, legend, opts, def, hint = '') => `<fieldset class="q"><leg
 const faq = [
   ['Welk boekhoudprogramma is het beste voor een zzp\'er?', 'Dat hangt af van hoeveel facturen en bonnen je hebt, of je btw-aangifte doet of de KOR gebruikt, of je een automatische bankkoppeling wilt en of je hulp wilt bij je aangifte inkomstenbelasting. Een klein pakket met limieten is vaak het goedkoopst. Ga je over de limiet, dan moet je upgraden. De match rekent dat voor je uit.'],
   ['Heb ik een boekhoudprogramma nodig als ik de KOR gebruik?', 'Je doet dan geen btw-aangifte, maar je moet wel een administratie bijhouden en facturen bewaren (7 jaar). Een gratis of klein pakket kan dan genoeg zijn.'],
-  ['Zijn de prijzen inclusief btw?', 'De meeste aanbieders noemen prijzen exclusief btw. Waar de prijspagina dat niet zegt, staat “niet vermeld” in de vergelijking. Als ondernemer met btw-aangifte trek je de btw op je abonnement meestal weer af.'],
-  ['Verdienen jullie aan de aanbevelingen?', 'Op dit moment niet. Plaatsen we later gemarkeerde partnerlinks, dan telt dat niet mee in de volgorde.'],
+  ['Zijn de prijzen inclusief btw?', 'De meeste aanbieders noemen prijzen exclusief btw. Zegt de aanbieder het niet, dan staat er “niet vermeld”. Doe je btw-aangifte, dan trek je de btw op je abonnement meestal weer af.'],
+  ['Verdienen jullie aan de aanbevelingen?', 'Nu niet. Komen er later partnerlinks, dan zijn die gemarkeerd en tellen ze niet mee in de volgorde.'],
 ];
 
 const body = `
 <h1>Welk boekhoudprogramma past bij jou?</h1>
-<p class="lead">Beantwoord 8 korte vragen, in ongeveer een minuut. Je ziet meteen wat past, wat het per maand kost en waarom.</p>
-<p class="note">${PAKKETTEN.length} aanbieders · ${PAKKETTEN.reduce((n, a) => n + a.plannen.length, 0)} pakketten · prijzen gecontroleerd op ${fmtDate(CHECKED)}</p>
+<p class="lead">Beantwoord 8 korte vragen. Je ziet meteen wat past, wat het kost en waarom.</p>
 <noscript><div class="alert">De match heeft JavaScript nodig. Bekijk anders de <a href="/boekhoudprogramma-vergelijken/">vergelijkingstabel</a>.</div></noscript>
 <div class="grid calc">
 <form class="calc-form card" id="form" novalidate>
 <input type="hidden" name="aanbieder" value="">
-<div class="qprog"><p class="note" id="q-prog">0 van 8 vragen beantwoord</p><div class="qbar" aria-hidden="true"><span id="q-bar"></span></div><p class="note">Bij elke vraag staat al een veelgekozen antwoord. Klopt het niet? Kies een ander antwoord; de uitslag verandert meteen.</p></div>
+<div class="qprog"><p id="q-prog">0 van 8 vragen beantwoord</p><div class="qbar" aria-hidden="true"><span id="q-bar"></span></div></div>
 ${radios('rechtsvorm', '1. Wat is je rechtsvorm?', VRAGEN.rechtsvorm, 'eenmanszaak')}
 ${radios('facturen', '2. Hoeveel facturen stuur je per maand?', VRAGEN.facturen, 5)}
 ${radios('uitgaven', '3. Hoeveel bonnen en inkoopfacturen heb je per maand?', VRAGEN.uitgaven, 10, 'Denk aan abonnementen, tanken, materiaal en telefoon.')}
@@ -54,21 +53,21 @@ ${radios('bank', '5. Wil je je bank automatisch koppelen?', VRAGEN.bank, 'auto')
 </div></fieldset>
 ${radios('ib', '7. Je aangifte inkomstenbelasting', VRAGEN.ib, 'zelf')}
 ${radios('budget', '8. Wat mag het per maand kosten (excl. btw)?', VRAGEN.budget.map(([v, l]) => [String(v), l]), 'Infinity')}
-<div class="qdone"><button type="submit" class="btn" id="q-submit">Toon mijn uitslag</button><p class="note">Gratis en zonder account. We slaan je antwoorden niet op; ze staan alleen in de link van deze pagina.</p></div>
+<div class="qdone"><button type="submit" class="btn" id="q-submit">Toon mijn uitslag</button><p class="sub">Gratis en zonder account. We slaan je antwoorden niet op.</p></div>
 </form>
 <section class="card result" id="uitkomst" aria-live="polite">
 <h2 id="uitkomst-kop" tabindex="-1">Jouw beste match</h2>
-<p class="note" id="out-status">Bij de standaardantwoorden. Pas de vragen aan voor jouw uitslag.</p>
+<p class="sub" id="out-status">Bij de standaardantwoorden. Pas de vragen aan voor jouw uitslag.</p>
 <p class="big best" id="big-mirror">${esc(PRE_BEST)}</p>
 <div id="out-cta" class="match-cta">${PRE_CTA}</div>
-<p class="note trust">Volgorde: past, binnen budget, laagste prijs. Commissie telt niet mee. <a href="#methode">Zo werkt de match</a></p>
+<p class="sub">Commissie telt nooit mee. <a href="#methode">Zo werkt de match</a></p>
 <div id="out-pick" class="pick" hidden></div>
-<p class="note" style="margin-bottom:4px">Top 3</p>
+<p class="lbl" style="margin-bottom:4px">Top 3</p>
 <ol class="top" id="out-top">${PRE_TOP}</ol>
-<p class="note" id="out-vol">We rekenen met ${passend0[0].volumes.facturen} facturen, ${passend0[0].volumes.uitgaven} bonnen en ongeveer ${passend0[0].volumes.transacties} banktransacties per maand.</p>
+<p class="sub" id="out-vol">We rekenen met ${passend0[0].volumes.facturen} facturen, ${passend0[0].volumes.uitgaven} bonnen en ongeveer ${passend0[0].volumes.transacties} banktransacties per maand.</p>
 <div class="match-next">
 <a class="btn ghost" id="out-cmp" href="${esc(PRE_CMP)}" rel="nofollow" data-cta="compare">Vergelijk deze 3 naast elkaar</a>
-<p class="match-links"><a href="/boekhoudprogramma-kiezen/" data-cta="restart">Opnieuw beginnen</a><button type="button" class="linkbtn" id="out-copy" data-cta="copy_link">Kopieer link naar je uitslag</button> <span id="out-copy-ok" class="note" role="status"></span></p>
+<p class="match-links"><a href="/boekhoudprogramma-kiezen/" data-cta="restart">Opnieuw beginnen</a><button type="button" class="linkbtn" id="out-copy" data-cta="copy_link">Kopieer link naar je uitslag</button> <span id="out-copy-ok" class="sub" role="status"></span></p>
 </div>
 <p><a href="#rangorde">Bekijk alle ${PAKKETTEN.length} aanbieders ↓</a></p>
 </section>

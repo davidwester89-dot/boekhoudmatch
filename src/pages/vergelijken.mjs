@@ -16,7 +16,7 @@ const attrs = (a, p) => {
 
 const rows = ALFA.flatMap((a) => a.plannen.map((p, i) => `<tr${i === 0 ? ' class="first"' : ''} ${attrs(a, p)}>
 <th scope="row"><a href="${vendorHref(a.id)}">${esc(a.naam)}</a></th>
-<td>${esc(p.naam)}${p.noot ? `<br><span class="note">${esc(p.noot)}</span>` : ''}</td>
+<td>${esc(p.naam)}${p.noot ? `<br><span class="sub">${esc(p.noot)}</span>` : ''}</td>
 <td class="n">${e2(p.prijs)}${a.btwPrijzen === 'excl' ? '' : '<sup>*</sup>'}</td>
 <td class="n">${p.prijsJaar != null ? e2(p.prijsJaar) : UNK}</td>
 <td>${limieten(p)}</td>
@@ -31,9 +31,8 @@ const rows = ALFA.flatMap((a) => a.plannen.map((p, i) => `<tr${i === 0 ? ' class
 const kaart = (a) => {
   const r = REDACTIE[a.id], v = vanaf(a);
   return `<article class="card vcard" id="${r.slug}" data-v="${a.id}">
-<div class="vhead">${logo(a)}<div><h3><a href="${vendorHref(a.id)}">${esc(a.naam)}</a></h3><p class="vprice">vanaf <strong data-vanaf>${e2(v.prijs)}</strong> p/m <span class="note">(${esc(v.naam)}${v.perFactuur ? `, ${e2(v.perFactuur)} per factuur` : ''}, ${btwNoot(a)})</span></p></div></div>
+<div class="vhead">${logo(a)}<div><h3><a href="${vendorHref(a.id)}">${esc(a.naam)}</a></h3><p class="vprice">vanaf <strong data-vanaf>${e2(v.prijs)}</strong> p/m${a.btwPrijzen === 'excl' ? '' : '<sup>*</sup>'} <span class="sub">(${esc(v.naam)}${v.perFactuur ? `, ${e2(v.perFactuur)} per factuur` : ''})</span></p></div></div>
 <dl class="vfacts"><dt>Limiet die vaak knelt</dt><dd>${esc(r.knelt)}</dd><dt>Sterk</dt><dd>${esc(r.sterk)}</dd><dt>Zwak</dt><dd>${esc(r.zwak)}</dd><dt>Gratis proberen</dt><dd>${r.proef ? `${r.proef} dagen` : UNK}</dd></dl>
-<p class="note">Bron: ${bronLinks(a)}<br>Gecontroleerd op ${fmtDate(checked(a))}</p>
 <p class="vlinks"><a href="${vendorHref(a.id)}">Alles over ${esc(r.kort)} →</a> <a href="${matchMet(a)}" rel="nofollow">Match met ${esc(r.kort)} →</a></p>
 </article>`;
 };
@@ -44,18 +43,17 @@ const sitBlok = (s) => {
   const t = s.top;
   return `<div class="card sit"><span class="tag">${esc(s.titel)}</span><h3><a href="${vendorHref(t.a.id)}">${esc(t.a.naam)} ${esc(t.p.naam)}</a></h3>
 <p class="vprice"><strong>${e2(t.prijs)}</strong> p/m${t.prijs !== t.p.prijs ? ' (incl. bankkoppeling)' : ''}</p>
-<p class="note"><strong>Regel:</strong> ${esc(s.regel)}</p>
-${s.volgende.length ? `<p class="note">Daarna: ${s.volgende.map((x) => `${esc(x.a.naam)} ${esc(x.p.naam)} (${e2(x.prijs)})`).join(', ')}.</p>` : ''}
-${s.alt ? `<p class="note">Met je eigen boekhouder: ${esc(s.alt.a.naam)} ${esc(s.alt.p.naam)} (${e2(s.alt.prijs)} p/m, plus de kosten van je boekhouder).</p>` : ''}
-<p class="note">Limiet: ${limieten(t.p).replace(/<br>/g, ', ')}.</p></div>`;
+<p class="sub">${esc(s.regel)}</p>
+${s.volgende.length ? `<p class="sub">Daarna: ${s.volgende.map((x) => `${esc(x.a.naam)} ${esc(x.p.naam)} (${e2(x.prijs)})`).join(', ')}.</p>` : ''}
+${s.alt ? `<p class="sub">Met je eigen boekhouder: ${esc(s.alt.a.naam)} ${esc(s.alt.p.naam)} (${e2(s.alt.prijs)} p/m plus je boekhouder).</p>` : ''}</div>`;
 };
 
 const goedkoopst = sit.find((s) => s.id === 'instap');
 const faq = [
-  ['Wat is het goedkoopste boekhoudprogramma voor zzp\'ers?', `Gratis of heel goedkope pakketten bestaan (bijvoorbeeld Tellow Gratis, Rompslomp Starter, Moneybird Compact), maar met strenge limieten op facturen, bonnen of transacties. Het goedkoopste pakket waarmee je zelf boekhoudt, btw-aangifte doet en 5 facturen en 5 uitgaven per maand kwijt kunt, is op ${fmtDate(CHECKED)} ${goedkoopst.top.a.naam} ${goedkoopst.top.p.naam} (${e2(goedkoopst.top.prijs)} p/m). Let op de limieten. Stuur je alleen af en toe een factuur? Dan is onze gratis <a href="/offerte-factuur-maken/">factuurtool</a> misschien al genoeg.`],
-  ['Waarom staat er soms “niet vermeld”?', 'De pagina van de aanbieder noemt het niet (per pakket). We vullen niets zelf in. Vraag het na of probeer het in de proefperiode.'],
-  ['Hoe vaak worden de prijzen gecontroleerd?', `Elke maand, door Dave West. De laatste controle was op ${fmtDate(CHECKED)}. Bij bekende prijswijzigingen (zoals Rompslomp per 1 november 2026) rekenen we met de nieuwe prijs en vermelden we dat.`],
-  ['Telt commissie mee in de volgorde?', 'Nee. De tabel staat op alfabet en de situatieblokken volgen een vaste regel op prijs en functies. Op dit moment staan er geen partnerlinks op de site.'],
+  ['Wat is het goedkoopste boekhoudprogramma voor zzp\'ers?', `Gratis of heel goedkope pakketten bestaan (bijvoorbeeld Tellow Gratis, Rompslomp Starter, Moneybird Compact), maar met strenge limieten op facturen, bonnen of transacties. Wil je zelf boekhouden, btw-aangifte doen en 5 facturen en 5 uitgaven per maand kwijt kunnen, dan is ${goedkoopst.top.a.naam} ${goedkoopst.top.p.naam} (${e2(goedkoopst.top.prijs)} p/m) het goedkoopst. Stuur je alleen af en toe een factuur? Dan is onze gratis <a href="/offerte-factuur-maken/">factuurtool</a> misschien al genoeg.`],
+  ['Waarom staat er soms “niet vermeld”?', 'De aanbieder noemt het niet op zijn site. We vullen niets zelf in. Vraag het na of probeer het in de proefperiode.'],
+  ['Hoe vaak worden de prijzen gecontroleerd?', `Elke maand, door Dave West. De laatste controle was op ${fmtDate(CHECKED)}. Is een prijswijziging al aangekondigd (zoals bij Rompslomp per 1 november 2026), dan rekenen we met de nieuwe prijs.`],
+  ['Telt commissie mee in de volgorde?', 'Nee. De tabel staat op alfabet en de situaties volgen een vaste regel op prijs en functies. Er staan nu geen partnerlinks op de site.'],
 ];
 
 const sel = (name, label, opts) => `<div class="field"><label for="f-${name}">${label}</label><select id="f-${name}" name="${name}">${opts.map(([v, t]) => `<option value="${v}">${t}</option>`).join('')}</select></div>`;
@@ -63,14 +61,13 @@ const chk = (name, label) => `<label class="check"><input type="checkbox" name="
 
 const body = `
 <h1>Boekhoudprogramma's vergelijken (2026)</h1>
-<p class="lead">Alle ${N_PAK} pakketten van ${N_AANB} aanbieders: prijs, de limiet die knelt, sterke en zwakke punten, met bron en controledatum.</p>
+<p class="lead">Alle ${N_PAK} pakketten van ${N_AANB} aanbieders naast elkaar: prijs, limieten en functies.</p>
 <div class="actions"><a class="btn" href="/boekhoudprogramma-kiezen/">Liever advies op maat? Doe de match</a></div>
 <section class="band methodbox" aria-labelledby="methode"><h2 id="methode">Zo vergelijken we</h2>
 ${METHODE_LIJST}
-<p class="note">Prijzen gecontroleerd door Dave West, oprichter. Meer over <a href="/over/">wie we zijn</a> en alle <a href="/bronnen/">bronnen</a>.</p></section>
+<p>Gecontroleerd door Dave West. Alle <a href="/bronnen/">bronnen</a>.</p></section>
 
 <h2>Per situatie</h2>
-<p class="note">Geen sterren of scores: per situatie een vaste regel op de tabel hieronder. Gecontroleerd op ${fmtDate(CHECKED)}.</p>
 <div class="grid cards two sits">${sit.map(sitBlok).join('\n')}</div>
 
 <h2 id="filter">Filter de aanbieders</h2>
@@ -82,8 +79,7 @@ ${sel('budget', 'Budget per maand', [['', 'Maakt niet uit'], ['10', 'Tot € 10'
 <div class="fchecks">
 ${chk('bank', 'Automatische bankkoppeling')}${chk('btw', 'Btw-aangifte direct indienen')}${chk('uren', 'Urenregistratie')}${chk('ib', 'Hulp bij aangifte IB')}${chk('proef', 'Gratis proefperiode')}
 </div>
-<p class="note" id="f-count" aria-live="polite">${N_AANB} aanbieders, ${N_PAK} pakketten.</p>
-<p class="note">Een pakket telt mee als het aan alle gekozen filters voldoet. “Vanaf” toont dan de goedkoopste passende prijs; met het filter bankkoppeling inclusief een betaalde koppeling. Staat de rechtsvorm niet vermeld, dan rekenen we die alleen mee bij eenmanszaak.</p>
+<p class="count" id="f-count" aria-live="polite">${N_AANB} aanbieders, ${N_PAK} pakketten.</p>
 </form>
 
 <h2 id="per-aanbieder">Per aanbieder</h2>
@@ -91,22 +87,22 @@ ${chk('bank', 'Automatische bankkoppeling')}${chk('btw', 'Btw-aangifte direct in
 <div class="grid cards two vcards" id="vcards">
 ${ALFA.map(kaart).join('\n')}
 </div>
-<p class="note" id="f-none" hidden>Geen aanbieder voldoet aan alle filters. Zet een filter uit.</p>
+<p id="f-none" hidden>Geen aanbieder voldoet aan alle filters. Zet een filter uit.</p>
 
 <h2 id="tabel">Alle pakketten in detail</h2>
-<p class="scrollhint note">Schuif de tabel opzij voor alle kolommen →</p>
+<p class="scrollhint">Schuif opzij voor alle kolommen →</p>
 <div class="table-wrap" tabindex="0" role="region" aria-label="Vergelijkingstabel boekhoudprogramma's (scroll horizontaal)">
 <table class="data compare">
 <thead><tr><th>Aanbieder</th><th>Pakket</th><th>Prijs p/m</th><th>Bij jaar&shy;betaling</th><th>Limieten</th><th>Btw-aangifte</th><th>Bank&shy;koppeling</th><th>Offertes</th><th>Uren</th><th>Aangifte IB</th><th>Rechtsvorm</th></tr></thead>
 <tbody>
 ${rows}
 </tbody></table></div>
-<p class="note">Maandprijzen bij maandbetaling, zonder tijdelijke acties; exclusief btw tenzij <sup>*</sup>: dan vermeldt de aanbieder niet of de prijs in- of exclusief btw is. “Niet vermeld” = staat niet op de pagina van de aanbieder. De tabel staat op alfabet.</p>
+<p>Maandprijzen bij maandbetaling, exclusief btw. <sup>*</sup> Btw niet vermeld door de aanbieder.</p>
 ${slot('vergelijken-partner', 'partnerlinks naar proefperiodes.')}
 
 <h2>Veelgestelde vragen</h2>
 ${faqHtml(faq)}
-<p>Liever niet zelf vergelijken? <a href="/boekhoudprogramma-kiezen/">Doe de match</a>: 8 vragen, daarna de pakketten op volgorde met de reden erbij.</p>
+<p>Liever niet zelf vergelijken? <a href="/boekhoudprogramma-kiezen/">Doe de match</a>.</p>
 {{related}}
 `;
 

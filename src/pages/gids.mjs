@@ -31,14 +31,14 @@ function tabel(filter, { perAanbieder = false } = {}) {
   if (perAanbieder) { const seen = new Set(); l = l.sort((x, y) => x.p.prijs - y.p.prijs).filter(({ a }) => !seen.has(a.id) && seen.add(a.id)).sort((x, y) => x.a.naam.localeCompare(y.a.naam, 'nl')); }
   return `<div class="table-wrap" tabindex="0" role="region" aria-label="Pakketten"><table class="data"><thead><tr><th>Aanbieder</th><th>Pakket</th><th>Prijs p/m</th><th>Limieten</th><th>Btw-aangifte</th><th>Bankkoppeling</th><th>Uren</th><th>Rechtsvorm</th></tr></thead><tbody>
 ${l.map(({ a, p }) => `<tr><th scope="row"><a href="${vendorHref(a.id)}">${esc(a.naam)}</a></th><td>${esc(p.naam)}</td><td class="n">${p.prijs === 0 ? 'gratis' : e2(p.prijs)}${a.btwPrijzen === 'excl' ? '' : '<sup>*</sup>'}</td><td>${limieten(p)}</td><td>${BTW_L[String(p.btwAangifte)]}</td><td>${bankL(p, a)}</td><td>${yn(p.uren)}</td><td>${rvL(p, a)}</td></tr>`).join('')}
-</tbody></table></div><p class="note">${l.length} pakketten. Op alfabet, maandprijs bij maandbetaling zonder acties, gecontroleerd op ${fmtDate(CHECKED)}. <sup>*</sup> In- of exclusief btw niet vermeld.</p>`;
+</tbody></table></div><p>Maandprijzen bij maandbetaling, exclusief btw. <sup>*</sup> Btw niet vermeld door de aanbieder.</p>`;
 }
 function sitBlokken(ids) {
   const s = situaties().filter((x) => !ids || ids.includes(x.id));
-  return `<div class="grid cards two">${s.map((x) => `<div class="card sit"><span class="tag">${esc(x.titel)}</span><h3><a href="${vendorHref(x.top.a.id)}">${esc(x.top.a.naam)} ${esc(x.top.p.naam)}</a></h3><p class="vprice"><strong>${e2(x.top.prijs)}</strong> p/m</p><p class="note"><strong>Regel:</strong> ${esc(x.regel)}</p>${x.volgende.length ? `<p class="note">Daarna: ${x.volgende.map((y) => `${esc(y.a.naam)} ${esc(y.p.naam)} (${e2(y.prijs)})`).join(', ')}.</p>` : ''}${x.alt ? `<p class="note">Met je eigen boekhouder: ${esc(x.alt.a.naam)} ${esc(x.alt.p.naam)} (${e2(x.alt.prijs)} p/m plus de kosten van je boekhouder).</p>` : ''}</div>`).join('')}</div>`;
+  return `<div class="grid cards two">${s.map((x) => `<div class="card sit"><span class="tag">${esc(x.titel)}</span><h3><a href="${vendorHref(x.top.a.id)}">${esc(x.top.a.naam)} ${esc(x.top.p.naam)}</a></h3><p class="vprice"><strong>${e2(x.top.prijs)}</strong> p/m</p><p class="sub">${esc(x.regel)}</p>${x.volgende.length ? `<p class="sub">Daarna: ${x.volgende.map((y) => `${esc(y.a.naam)} ${esc(y.p.naam)} (${e2(y.prijs)})`).join(', ')}.</p>` : ''}${x.alt ? `<p class="sub">Met je eigen boekhouder: ${esc(x.alt.a.naam)} ${esc(x.alt.p.naam)} (${e2(x.alt.prijs)} p/m plus je boekhouder).</p>` : ''}</div>`).join('')}</div>`;
 }
 function voorbeelden(ids) {
-  return `<div class="grid cards">${VOORBEELDEN.filter((v) => !ids || ids.includes(v.id)).map((v) => { const top = match(PAKKETTEN, v.a).filter((r) => r.past).slice(0, 3); return `<article class="card example"><h3>${esc(v.titel)}</h3><p class="note">${esc(v.wie)}</p><ol class="top">${top.map((r) => `<li><strong>${esc(r.naam)} ${esc(r.planNaam)}</strong> <span class="price">${e2(r.prijs)} p/m</span>${r.let_op[0] ? `<div class="note warn">Let op: ${esc(r.let_op[0])}</div>` : ''}</li>`).join('')}</ol><a href="${esc(matchUrl(v.a))}" rel="nofollow">Open deze match →</a></article>`; }).join('')}</div>`;
+  return `<div class="grid cards">${VOORBEELDEN.filter((v) => !ids || ids.includes(v.id)).map((v) => { const top = match(PAKKETTEN, v.a).filter((r) => r.past).slice(0, 3); return `<article class="card example"><h3>${esc(v.titel)}</h3><p class="sub">${esc(v.wie)}</p><ol class="top">${top.map((r) => `<li><strong>${esc(r.naam)} ${esc(r.planNaam)}</strong> <span class="price">${e2(r.prijs)} p/m</span></li>`).join('')}</ol><a href="${esc(matchUrl(v.a))}" rel="nofollow">Bekijk deze match →</a></article>`; }).join('')}</div>`;
 }
 // Rechtsvormen per aanbieder: op aanbiederniveau, of per pakket als de aanbieder het per pakket noemt.
 function rvAll(a) {
@@ -61,7 +61,6 @@ ${rij('Zwak', esc(r(A).zwak), esc(r(B).zwak))}
 ${rij('Rechtsvorm', rvAll(A), rvAll(B))}
 ${rij('Gratis proberen', r(A).proef ? `${r(A).proef} dagen` : UNK, r(B).proef ? `${r(B).proef} dagen` : UNK)}
 ${rij('Actie', esc(A.actie || '–'), esc(B.actie || '–'))}
-${rij('Gecontroleerd', fmtDate(checked(A)), fmtDate(checked(B)))}
 </tbody></table></div>`;
   const uit = VOORBEELDEN.map((v) => {
     const res = match([A, B], v.a);
@@ -69,7 +68,7 @@ ${rij('Gecontroleerd', fmtDate(checked(A)), fmtDate(checked(B)))}
     const eerste = res[0].past ? res[0].naam : 'geen van beide';
     return `<tr><th scope="row">${esc(v.titel)}</th><td>${cel(A)}</td><td>${cel(B)}</td><td>${esc(eerste)}</td></tr>`;
   }).join('');
-  return `${tabelHtml}<h2>Wat de match kiest in drie situaties</h2><div class="table-wrap"><table class="data"><thead><tr><th>Situatie</th><th>${esc(A.naam)}</th><th>${esc(B.naam)}</th><th>Hoger in de match</th></tr></thead><tbody>${uit}</tbody></table></div><p class="note">Uitkomst van de match met alleen deze twee aanbieders, voor de drie voorbeeldprofielen van de <a href="/">homepage</a>. Jouw situatie kan anders uitvallen.</p>`;
+  return `${tabelHtml}<h2>Wat de match kiest in drie situaties</h2><div class="table-wrap"><table class="data"><thead><tr><th>Situatie</th><th>${esc(A.naam)}</th><th>${esc(B.naam)}</th><th>Hoger in de match</th></tr></thead><tbody>${uit}</tbody></table></div><p>Uitkomst van de match met alleen deze twee aanbieders, voor de drie <a href="/">voorbeelden</a>.</p>`;
 }
 const cta = (q) => `<div class="actions"><a class="btn" href="/boekhoudprogramma-kiezen/${q ? `?${q}` : ''}"${q ? ' rel="nofollow"' : ''}>Doe de match</a><a class="btn ghost" href="/boekhoudprogramma-vergelijken/">Vergelijk alle ${N_PAK} pakketten</a></div>`;
 
@@ -107,13 +106,12 @@ export function gidsPages() {
     const pageBody = `
 <article class="article gids">
 <h1>${esc(meta.title)}</h1>
-<p class="post-meta">Door <a href="/over/">Dave West</a> · prijzen gecontroleerd op <time datetime="${CHECKED}">${fmtDate(CHECKED)}</time> · bijgewerkt <time datetime="${meta.updated}">${fmtDate(meta.updated)}</time></p>
+<p class="post-meta">Door <a href="/over/">Dave West</a> · bijgewerkt <time datetime="${meta.updated}">${fmtDate(meta.updated)}</time></p>
 ${meta.update ? `<p class="alert ok"><strong>Update ${fmtDate(meta.updated)}:</strong> ${esc(meta.update)}</p>` : ''}
 ${html}
-<aside class="cta"><h2>Verder kiezen</h2><ul><li><a href="/boekhoudprogramma-kiezen/">Doe de match: 8 vragen, daarna de pakketten op volgorde →</a></li><li><a href="/boekhoudprogramma-vergelijken/">Vergelijk alle ${N_PAK} pakketten met filters →</a></li>${(meta.related || []).map((r) => { const [t, u] = r.split(/\s+\|\s+/); return `<li><a href="${u}">${esc(t)} →</a></li>`; }).join('')}</ul></aside>
+<aside class="cta"><h2>Verder kiezen</h2><ul><li><a href="/boekhoudprogramma-kiezen/">Doe de match (8 vragen) →</a></li><li><a href="/boekhoudprogramma-vergelijken/">Vergelijk alle ${N_PAK} pakketten →</a></li>${(meta.related || []).map((r) => { const [t, u] = r.split(/\s+\|\s+/); return `<li><a href="${u}">${esc(t)} →</a></li>`; }).join('')}</ul></aside>
 <h2>Bronnen</h2>
-<ul class="sources">${[...sources.map((s) => `<li><a href="${esc(s.url)}" rel="noopener">${esc(s.title)}</a></li>`), ...vendors.flatMap((a) => a.bronnen.slice(0, 1).map((b) => `<li><a href="${b.url}" rel="noopener" data-vendor="${esc(a.naam)}">${esc(b.titel)}</a> (gecontroleerd ${fmtDate(checked(a))})</li>`))].join('')}<li><a href="/bronnen/">Alle prijsbronnen en controledatums</a></li></ul>
-<p class="note">Algemene informatie, geen persoonlijk advies. De informatie bij de aanbieder is leidend. Fout gezien? Mail naar <a href="mailto:${SITE.email}">${SITE.email}</a>.</p>
+<ul class="sources">${[...sources.map((s) => `<li><a href="${esc(s.url)}" rel="noopener">${esc(s.title)}</a></li>`), ...vendors.flatMap((a) => a.bronnen.slice(0, 1).map((b) => `<li><a href="${b.url}" rel="noopener" data-vendor="${esc(a.naam)}">${esc(b.titel)}</a></li>`))].join('')}<li><a href="/bronnen/">Alle prijsbronnen</a></li></ul>
 </article>
 {{related}}`;
     return {
@@ -129,11 +127,11 @@ ${html}
 const GROEP = (slug) => (/-vs-/.test(slug) ? 'Twee aanbieders naast elkaar' : /^(beste-|gratis-|boekhoudprogramma-(eenmanszaak|vof|bv|starters))/.test(slug) ? 'Kiezen voor jouw situatie' : 'Uitleg bij het kiezen');
 export function gidsHub(gidsen) {
   const groepen = ['Kiezen voor jouw situatie', 'Twee aanbieders naast elkaar', 'Uitleg bij het kiezen'];
-  const lijst = (g) => gidsen.filter((p) => GROEP(p.path.slice(1, -1)) === g).map((p) => `<li><a href="${p.path}"><strong>${esc(p.ogTitle)}</strong></a><br><span class="note">${esc(p.description)}</span></li>`).join('');
+  const lijst = (g) => gidsen.filter((p) => GROEP(p.path.slice(1, -1)) === g).map((p) => `<li><a href="${p.path}"><strong>${esc(p.ogTitle)}</strong></a></li>`).join('');
   return {
     path: '/gidsen/', title: 'Gidsen: boekhoudprogramma kiezen (2026) | BoekhoudMatch', description: `Gidsen bij het kiezen van een boekhoudprogramma: per rechtsvorm, gratis, starters, btw, bank, KOR en uren. Prijzen gecontroleerd op ${fmtDate(CHECKED)}.`, crumb: 'Gidsen', og: 'vergelijken', updated: CHECKED,
     body: `<section class="article"><h1>Gidsen: boekhoudprogramma kiezen</h1>
-<p class="lead">Korte gidsen bij de match en de vergelijking. Elke prijs komt uit dezelfde data, gecontroleerd op ${fmtDate(CHECKED)} op de prijspagina's van de aanbieders. Geschreven door <a href="/over/">Dave West</a>.</p>
+<p class="lead">Korte gidsen om het juiste boekhoudprogramma te kiezen. Geschreven door <a href="/over/">Dave West</a>.</p>
 ${groepen.map((g) => `<h2>${g}</h2><ul class="gidslijst">${lijst(g)}</ul>`).join('\n')}
 <aside class="cta"><h2>Liever meteen kiezen?</h2><ul><li><a href="/boekhoudprogramma-kiezen/">Doe de match →</a></li><li><a href="/boekhoudprogramma-vergelijken/">Vergelijk alle ${N_PAK} pakketten →</a></li></ul></aside>
 </section>`,
