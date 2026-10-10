@@ -45,7 +45,7 @@ export const home = {
 <div class="actions"><a class="btn" href="/boekhoudprogramma-kiezen/">Start de match</a><a class="btn ghost" href="/boekhoudprogramma-vergelijken/">Vergelijk alle ${N_PAK} pakketten</a></div>
 <ul class="trust"><li>${N_AANB} aanbieders</li><li>Prijzen gecontroleerd op ${fmtDate(LAATSTE_CONTROLE)}</li><li>Gratis en zonder account</li></ul>
 </div>
-<figure class="shot"><img src="/img/match-voorbeeld.webp" width="560" height="400" alt="Voorbeeld van de boekhoudmatch: vragen links, beste match en top 3 met maandprijs rechts" decoding="async" fetchpriority="low"><figcaption class="note">Zo ziet de match eruit.</figcaption></figure>
+<figure class="shot"><img src="/img/match-voorbeeld-680.webp" srcset="/img/match-voorbeeld-480.webp 480w, /img/match-voorbeeld-680.webp 680w, /img/match-voorbeeld-900.webp 900w" sizes="(min-width: 900px) 410px, (min-width: 600px) 560px, calc(100vw - 40px)" width="560" height="400" alt="Voorbeeld van de boekhoudmatch: vragen links, beste match en top 3 met maandprijs rechts" decoding="async" fetchpriority="low"><figcaption class="note">Zo ziet de match eruit.</figcaption></figure>
 </section>
 
 <h2>Drie voorbeeldmatches</h2>
