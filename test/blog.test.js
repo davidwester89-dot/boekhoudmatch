@@ -47,6 +47,7 @@ for (const f of files) {
     if (p.image) {
       assert.match(p.image.name, /^[a-z0-9-]+$/, 'image: alleen a-z, 0-9 en -');
       assert.ok(p.image.alt.length >= 20, 'image_alt ontbreekt of is te kort');
+      assert.ok(existsSync(new URL(`../src/assets/og/blog-${p.slug}.png`, import.meta.url)), `og-afbeelding og/blog-${p.slug}.png (1200×630, PNG-versie van de afbeelding) ontbreekt`);
       for (const w of [600, 1200]) assert.ok(existsSync(new URL(`../src/assets/img/blog/${p.image.name}-${w}.webp`, import.meta.url)), `afbeelding ${p.image.name}-${w}.webp ontbreekt`);
     }
   });

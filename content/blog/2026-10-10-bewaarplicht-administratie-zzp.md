@@ -15,6 +15,8 @@ sources:
 - Belastingdienst: Uw facturen bewaren | https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/btw/administratie_bijhouden/facturen_maken/uw_facturen_bewaren
 - Belastingdienst: Hoe bewaart u uw administratie? | https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/btw/administratie_bijhouden/administratie_bewaren/hoe_bewaart_u_uw_administratie
 - Belastingdienst: Hoe lang moet u uw administratie bewaren voor de btw: 7 of 10 jaar? | https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/btw/administratie_bijhouden/administratie_bewaren/administratie_bewaren
+- Belastingdienst: Wat moet u regelen als u stopt met uw onderneming? | https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/ondernemen/onderneming_wijzigen_of_beeindigen/u_staakt_uw_onderneming/u_staakt_uw_onderneming
+- Belastingdienst: brochure Uw geautomatiseerde administratie en de fiscale bewaarplicht | https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/themaoverstijgend/brochures_en_publicaties/uw_geautomatiseerde_administratie_en_de_fiscale_bewaarplicht
 - Ondernemersplein: Zakelijke administratie bijhouden en bewaarplicht | https://ondernemersplein.overheid.nl/wetten-en-regels/administratie-bijhouden-en-bewaren/
 - Ondernemersplein: Stappenplan administratie bijhouden | https://ondernemersplein.overheid.nl/bedrijfsvoering/administratie/stappenplan-administratie-onderhouden/
 ---
@@ -62,7 +64,7 @@ Een urenadministratie is niet verplicht. Maar wil je de zelfstandigenaftrek of s
 | Soort gegevens | Bewaartermijn |
 |---|---|
 | Basisgegevens | 7 jaar |
-| Gegevens over onroerende zaken (zoals een bedrijfspand of grond) | 10 jaar |
+| Gegevens over onroerende zaken en rechten op onroerende zaken (zoals een bedrijfspand of grond) | 10 jaar |
 | Gegevens over verkopen via het éénloketsysteem (One Stop Shop) | 10 jaar |
 | Andere gegevens | 7 jaar, of korter als je dat met de Belastingdienst afspreekt |
 
@@ -82,11 +84,11 @@ Bewaar je digitaal, dan moet de Belastingdienst je bestanden bij een controle ku
 
 ### Mag je bonnetjes scannen?
 
-Ja. Je mag facturen en bonnetjes scannen en digitaal bewaren, als de scan een juiste en volledige weergave van het origineel is. Ook de echtheidskenmerken van het origineel moeten worden opgeslagen. Voldoe je aan de voorwaarden, dan hoef je het papieren origineel niet te bewaren. De digitale versie bewaar je wel 7 of 10 jaar, en die moet binnen een redelijke termijn te controleren zijn.
+Ja. Je mag facturen en bonnetjes scannen en digitaal bewaren, als de scan een juiste en volledige weergave van het origineel is. Ook de echtheidskenmerken van het origineel moeten worden opgeslagen. Meer uitleg geeft de Belastingdienst in de brochure [Uw geautomatiseerde administratie en de fiscale bewaarplicht](https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/themaoverstijgend/brochures_en_publicaties/uw_geautomatiseerde_administratie_en_de_fiscale_bewaarplicht). Voldoe je aan de voorwaarden, dan hoef je het papieren origineel niet te bewaren. De digitale versie bewaar je wel 7 of 10 jaar, en die moet binnen een redelijke termijn te controleren zijn.
 
 ## Let op bij overstappen of stoppen
 
-**Stop je met je bedrijf?** Dan blijft de bewaarplicht gewoon gelden. Je administratie moet dus ook nadat je gestopt bent beschikbaar blijven, tot het einde van de termijn.
+**Stop je met je bedrijf?** Dan blijft de bewaarplicht gewoon gelden. Je administratie moet dus ook nadat je gestopt bent beschikbaar blijven, tot het einde van de termijn. De Belastingdienst noemt bij [stoppen met je onderneming](https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/ondernemen/onderneming_wijzigen_of_beeindigen/u_staakt_uw_onderneming/u_staakt_uw_onderneming) ook: sluit je administratie af en houd rekening met de bewaarplicht.
 
 **Stap je over naar een ander boekhoudprogramma?** Werk je met een online pakket, dan staat je administratie bij die aanbieder. Zorg dat je je gegevens exporteert vóór je opzegt, inclusief de facturen in de vorm waarin je ze verstuurde of ontving. Een stappenplan staat in onze gids [overstappen naar een ander boekhoudprogramma](/overstappen-boekhoudprogramma/).
 
@@ -96,7 +98,7 @@ Ja. Je mag facturen en bonnetjes scannen en digitaal bewaren, als de scan een ju
 
 1. **Werk vanuit één systeem.** Facturen, bonnen en bankmutaties op één plek maken een controle een stuk makkelijker.
 2. **Zet je bonnen meteen digitaal.** Wacht niet tot de aangifte; een vervaagde kassabon is later lastig na te maken.
-3. **Koppel je bank.** In onze [vergelijking van boekhoudprogramma's](/boekhoudprogramma-vergelijken/) zie je per pakket of er een automatische bankkoppeling is, en wat het kost.
+3. **Koppel je bank.** Wat een [bankkoppeling in je boekhoudprogramma](/bankkoppeling-boekhoudprogramma/) doet, lees je in onze gids. In de [vergelijking van boekhoudprogramma's](/boekhoudprogramma-vergelijken/) zie je per pakket of er een automatische bankkoppeling is, en wat het kost.
 4. **Maak elk jaar een export.** Bewaar die apart, zodat je niet afhankelijk bent van één aanbieder.
 5. **Bewaar je eigen controleberekeningen.** De Belastingdienst vraagt je om (klad)berekeningen te maken die je administratie, aangiften en jaarrekening op elkaar laten aansluiten, en die bij je administratie te bewaren.
 
@@ -110,7 +112,7 @@ In principe 7 jaar. Gegevens over onroerende zaken en verkopen via het éénloke
 
 ### Mag ik papieren bonnetjes weggooien na het scannen?
 
-Ja, als de scan een juiste en volledige weergave van het origineel is en je de digitale versie de hele termijn controleerbaar bewaart.
+Ja, als de scan een juiste en volledige weergave van het origineel is, inclusief de echtheidskenmerken, en je de digitale versie de hele termijn controleerbaar bewaart.
 
 ### Geldt de bewaarplicht ook als ik stop met mijn bedrijf?
 
