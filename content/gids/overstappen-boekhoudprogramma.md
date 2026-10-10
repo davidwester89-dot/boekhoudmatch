@@ -48,7 +48,7 @@ Welke import- of overstapfuncties een aanbieder heeft, staat niet op de prijspag
 
 ## Wat bewaar je?
 
-Je oude administratie verhuist niet mee, maar je moet hem wel bewaren. De basisregel van de Belastingdienst is zeven jaar. Voor sommige gegevens geldt tien jaar, bijvoorbeeld over onroerende zaken.
+Je oude administratie verhuist niet mee, maar je moet hem wel bewaren. De basisregel van de Belastingdienst is zeven jaar. Voor sommige gegevens geldt tien jaar, bijvoorbeeld over onroerende zaken. Wat er precies onder de bewaarplicht valt, lees je in [bewaarplicht administratie als zzp'er](/blog/bewaarplicht-administratie-zzp/).
 
 Praktisch betekent dat:
 
@@ -80,7 +80,7 @@ Word je een bv, dan begin je sowieso een nieuwe administratie, want de bv is een
 2. Start een proef bij je nieuwe keuze en verwerk een maand aan echte transacties.
 3. Kies een overstapdatum: begin boekjaar, of begin van een btw-kwartaal.
 4. Dien de laatste btw-aangifte in vanuit het oude pakket.
-5. Exporteer je oude administratie en bewaar die zeven jaar.
+5. Exporteer je oude administratie en bewaar die zeven jaar (tien jaar voor gegevens over onroerende zaken).
 6. Zet relaties, openstaande facturen en beginbalans in het nieuwe pakket.
 7. Zeg je oude abonnement op.
 
