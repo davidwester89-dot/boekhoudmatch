@@ -40,18 +40,17 @@ ${check({ name: 'starter', label: 'Ik heb recht op startersaftrek', checked: fal
 <section class="card result" id="uitkomst" aria-live="polite">
 <h2>Minimaal uurtarief (excl. btw)</h2>
 <p class="big neg" id="out-tarief">–</p>
-<p id="out-sub" class="note"></p>
+<p id="out-sub" class="sub"></p>
 <div id="out-alert"></div>
 <table class="kv"><tbody id="out-table"></tbody></table>
 ${slot('boekhoudsoftware', 'partnerlink boekhoudprogramma.')}
-<p class="note">Offerte of factuur maken met dit tarief? Gebruik de gratis <a href="/offerte-factuur-maken/">offerte- en factuurtool</a>. Tarief inclusief btw nodig? <a href="/btw-berekenen/">Btw berekenen</a>.</p>
 </section>
 </div>
 <a class="mobilebar" href="#uitkomst"><span>Uurtarief</span><strong data-mirror></strong></a>
 
 <h2>Zo rekenen we</h2>
 ${more('Berekening stap voor stap', `
-<p>We zoeken de winst waarbij je, na inkomstenbelasting 2026, heffingskortingen, tariefaanpassing en Zvw-bijdrage, en na betaling van je AOV en pensioeninleg, precies je gewenste netto overhoudt. Daar tellen we je kosten bij (= benodigde omzet) en delen we door je declarabele uren.</p>
+<p>We zoeken de winst waarbij je na belasting, Zvw-bijdrage, AOV en pensioeninleg precies je gewenste netto overhoudt. Daar tellen we je kosten bij (= benodigde omzet) en delen we door je declarabele uren.</p>
 <p>Het urencriterium (1.225 uur) bepalen we uit je gewerkte uren: werkweken × uren per week. In de stand “Vanuit mijn salaris” berekenen we eerst je netto jaarloon: bruto incl. vakantiegeld, min je pensioenpremie en loonheffing met algemene heffingskorting en arbeidskorting (zonder bijtelling, reiskosten of andere vergoedingen). De WW, WIA en het werkgeversdeel van je pensioen krijg je als zzp'er niet; daarom vragen we naar AOV en pensioen.</p>
 `)}
 
@@ -59,7 +58,7 @@ ${more('Berekening stap voor stap', `
 ${faqHtml(faq)}
 
 ${more('Bronnen', sourceList(['box1_2026', 'kortingen_2026', 'arbeidsinkomen', 'zelfstandigenaftrek_2026', 'mkb_2026', 'tariefaanpassing_2026', 'zvw_2026', 'urencriterium'], SOURCES))}
-${volgendeStap([['Urenregistratie voor zzp\'ers', '/urenregistratie-zzp/'], ['Beste boekhoudprogramma voor zzp\'ers', '/beste-boekhoudprogramma-zzp/']])}
+${volgendeStap([['Gratis offerte en factuur maken', '/offerte-factuur-maken/'], ['Urenregistratie voor zzp\'ers', '/urenregistratie-zzp/'], ['Beste boekhoudprogramma voor zzp\'ers', '/beste-boekhoudprogramma-zzp/']])}
 {{related}}
 `;
 

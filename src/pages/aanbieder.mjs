@@ -11,7 +11,7 @@ import { e2, checked, vanaf, bronLinks, pakketTabel, logo, softwareSchema, btwNo
 function uitCta(a, r) {
   const u = uitgaand(a), c = ctaTekst(r.kort, { proef: r.proef, prijs: Math.min(...a.plannen.map((p) => p.prijs)) });
   const host = a.site.replace(/^https?:\/\/(www\.)?/, '').replace(/\/.*$/, '');
-  return `<div class="card vendor-out"><a class="btn" href="${esc(u.href)}" target="_blank" rel="${u.rel}" data-vendor="${esc(a.naam)}" data-pos="aanbiederpagina" data-cta="${c.gratis ? 'trial' : 'visit'}">${esc(c.tekst)}<span aria-hidden="true"> ↗</span><span class="sr-only"> (opent in een nieuw tabblad)</span></a><p class="note">${esc([c.uitleg, `naar ${host}`].filter(Boolean).join(' · '))} · ${u.partner ? '<span class="plabel">partnerlink</span>' : 'gewone link, we verdienen er niets aan'}.</p></div>`;
+  return `<div class="card vendor-out"><a class="btn" href="${esc(u.href)}" target="_blank" rel="${u.rel}" data-vendor="${esc(a.naam)}" data-pos="aanbiederpagina" data-cta="${c.gratis ? 'trial' : 'visit'}">${esc(c.tekst)}<span aria-hidden="true"> ↗</span><span class="sr-only"> (opent in een nieuw tabblad)</span></a><p class="sub">${esc([c.uitleg, `naar ${host}`].filter(Boolean).join(' · '))}${u.partner ? ' · <span class="plabel">partnerlink</span>' : ''}</p></div>`;
 }
 // Praktijktest-sectie (alleen als er een test is). Feiten uit praktijktests.js, geen scores.
 function praktijkSectie(a, r, t) {
@@ -49,8 +49,8 @@ export const aanbiederPages = PAKKETTEN.map((a) => {
   const prijzen = a.plannen.map((p) => p.prijs).filter((x) => x > 0);
   const body = `
 <h1>${esc(a.naam)}: prijzen en pakketten (2026)</h1>
-<p class="lead">${esc(r.kort)} heeft ${a.plannen.length} pakketten${prijzen.length ? `, van ${e2(Math.min(...prijzen))} tot ${e2(Math.max(...prijzen))} per maand` : ''} (${btwNoot(a)}). Per pakket de prijs, limieten en functies, van de site van ${esc(r.kort)} zelf.</p>
-<p class="post-meta">Gecontroleerd op <time datetime="${c}">${fmtDate(c)}</time> door <a href="/over/">Dave West</a> · <a href="#bronnen">Bronnen</a></p>
+<p class="lead">${esc(r.kort)} heeft ${a.plannen.length} pakketten${prijzen.length ? `, van ${e2(Math.min(...prijzen))} tot ${e2(Math.max(...prijzen))} per maand` : ''}.</p>
+<p class="post-meta">Prijzen gecontroleerd op <time datetime="${c}">${fmtDate(c)}</time> door <a href="/over/">Dave West</a></p>
 <div class="actions"><a class="btn" href="/boekhoudprogramma-kiezen/?aanbieder=${a.id}" rel="nofollow">Past ${esc(r.kort)} bij jou? Doe de match</a><a class="btn ghost" href="/boekhoudprogramma-vergelijken/">Vergelijk met ${N_AANB - 1} andere aanbieders</a></div>
 
 <h2>In het kort</h2>
@@ -59,7 +59,7 @@ export const aanbiederPages = PAKKETTEN.map((a) => {
 
 <h2>Pakketten en prijzen</h2>
 ${pakketTabel(a)}
-<p class="note">${esc(a.noot)}</p>
+<details><summary>Goed om te weten</summary><p>${esc(a.noot)}</p></details>
 ${t ? praktijkSectie(a, r, t) : ''}
 
 <div class="grid cards two">
@@ -70,8 +70,7 @@ ${uitCta(a, r)}
 
 <h2 id="bronnen">Bronnen</h2>
 <ul class="sources">${a.bronnen.map((b) => `<li><a href="${b.url}" rel="noopener" data-vendor="${esc(a.naam)}">${esc(b.titel)}</a></li>`).join('')}</ul>
-<p class="note">De informatie bij ${esc(r.kort)} is leidend. Fout gezien? Mail naar <a href="mailto:${SITE.email}">${SITE.email}</a>. Hoe we werken: <a href="/over/">over ons</a>.</p>
-<p>Twijfel je tussen ${esc(r.kort)} en een ander pakket? <a href="/boekhoudprogramma-kiezen/">Doe de match</a> of bekijk de <a href="/boekhoudprogramma-vergelijken/">vergelijking</a>.</p>
+<p>Twijfel je tussen ${esc(r.kort)} en een ander pakket? <a href="/boekhoudprogramma-kiezen/">Doe de match</a> of bekijk de <a href="/boekhoudprogramma-vergelijken/">vergelijking</a>. Fout gezien? Mail <a href="mailto:${SITE.email}">${SITE.email}</a>.</p>
 {{related}}`;
   const titel = `${r.kort} prijzen 2026: pakketten en limieten | BoekhoudMatch`;
   return {

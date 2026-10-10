@@ -14,13 +14,13 @@ const geenGrens = (p) => [p.facturen, p.uitgaven, p.transacties, p.boekingenMaan
 const noemt = (a, p, rv) => (p.rechtsvormen ?? a.rechtsvormen ?? []).includes(rv);
 
 export const SITUATIES = [
-  { id: 'instap', titel: 'Beste instap', regel: 'Goedkoopste pakket waarmee je zelf boekhoudt, btw-aangifte doet en 5 facturen en 5 uitgaven per maand kwijt kunt (met de banktransacties en boekingen die daarbij horen, zoals in de match).',
+  { id: 'instap', titel: 'Beste instap', regel: 'Goedkoopste pakket om zelf te boekhouden, met btw-aangifte, voor 5 facturen en 5 uitgaven per maand.',
     filter: ({ p }) => zelf(p) && btwOk(p) && ruim(p, 5) },
-  { id: 'uren', titel: 'Beste voor uren', regel: 'Goedkoopste pakket met urenregistratie, btw-aangifte en automatische bankkoppeling (eventuele meerprijs voor de koppeling meegeteld), voor 10 facturen en 10 uitgaven per maand (met de bijbehorende transacties en boekingen).',
+  { id: 'uren', titel: 'Beste voor uren', regel: 'Goedkoopste pakket met urenregistratie, btw-aangifte en bankkoppeling, voor 10 facturen en 10 uitgaven per maand.',
     filter: ({ p }) => zelf(p) && p.uren === true && btwOk(p) && bankOk(p) && ruim(p, 10) },
-  { id: 'boekhouder', titel: 'Beste met een boekhouder', regel: 'Pakket waarin een boekhouder je btw- en IB-aangifte doet. Daarnaast: het goedkoopste pakket dat gemaakt is voor samenwerking met je eigen boekhouder (diens kosten komen erbij).',
+  { id: 'boekhouder', titel: 'Beste met een boekhouder', regel: 'Pakket waarin een boekhouder je btw- en IB-aangifte doet.',
     filter: ({ p }) => p.ib === 'inclusief', extra: ({ p }) => p.ib === 'eigen-boekhouder' },
-  { id: 'bv', titel: 'Beste als je naar een bv groeit', regel: 'Goedkoopste pakket waarbij de aanbieder de bv als rechtsvorm noemt, zonder volumegrens en met btw-aangifte.',
+  { id: 'bv', titel: 'Beste als je naar een bv groeit', regel: 'Goedkoopste pakket dat de bv noemt, zonder volumegrens en met btw-aangifte.',
     filter: ({ a, p }) => noemt(a, p, 'bv') && geenGrens(p) && btwOk(p) && zelf(p) },
 ];
 

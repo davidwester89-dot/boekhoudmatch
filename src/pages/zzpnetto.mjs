@@ -20,18 +20,17 @@ const body = `
 ${field({ name: 'omzet', label: 'Omzet (exclusief btw)', value: '72000', unit: '€/jaar' })}
 ${field({ name: 'kosten', label: 'Zakelijke kosten en afschrijvingen', value: '7000', unit: '€/jaar', hint: 'Exclusief btw die je terugvraagt.' })}
 ${check({ name: 'uren', label: 'Ik werk minstens 1.225 uur per jaar aan mijn onderneming (urencriterium)', checked: true })}
-${check({ name: 'starter', label: 'Ik heb recht op startersaftrek (in een van de vorige 5 jaar geen ondernemer, max. 2× zelfstandigenaftrek gehad)', checked: false })}
+${check({ name: 'starter', label: 'Ik heb recht op startersaftrek', checked: false })}
 ${field({ name: 'voorz', label: 'AOV-premie en lijfrente-inleg', value: '0', unit: '€/jaar', hint: 'Aftrekbaar als inkomensvoorziening (lijfrente binnen je jaarruimte).' })}
 </fieldset>
-<p class="note">Uitgangspunten: jonger dan de AOW-leeftijd, geen fiscale partner, geen ander inkomen, geen eigen woning of box 3. Heb je die wel, dan wijkt je uitkomst af.</p>
+<p class="sub">We gaan uit van: jonger dan de AOW-leeftijd, geen fiscale partner, geen ander inkomen en geen eigen woning.</p>
 </form>
 <section class="card result" id="uitkomst" aria-live="polite">
 <h2>Netto per maand</h2>
 <p class="big neg" id="out-netto">–</p>
-<p id="out-reserve" class="note"></p>
+<p id="out-reserve" class="sub"></p>
 <table class="kv"><tbody id="out-table"></tbody></table>
 ${slot('boekhoudsoftware', 'partnerlink boekhoudprogramma.')}
-<p class="note">Wil je weten welk uurtarief je nodig hebt? <a href="/zzp-uurtarief/">Uurtarief berekenen</a>.</p>
 </section>
 </div>
 <a class="mobilebar" href="#uitkomst"><span>Netto per maand</span><strong data-mirror></strong></a>
@@ -40,21 +39,21 @@ ${slot('boekhoudsoftware', 'partnerlink boekhoudprogramma.')}
 ${more('Berekening stap voor stap (2026)', `
 <ol>
 <li><strong>Winst</strong> = omzet − kosten.</li>
-<li><strong>Ondernemersaftrek</strong>: zelfstandigenaftrek € 1.200 (alleen met urencriterium, niet hoger dan je winst tenzij je starter bent) plus eventueel startersaftrek € 2.123.</li>
+<li><strong>Ondernemersaftrek</strong>: zelfstandigenaftrek € 1.200 (alleen met urencriterium, niet hoger dan je winst tenzij je starter bent) plus eventueel startersaftrek € 2.123 (als je in een van de vorige 5 jaar geen ondernemer was en hooguit 2× zelfstandigenaftrek had).</li>
 <li><strong>Mkb-winstvrijstelling</strong>: 12,7% van de winst na ondernemersaftrek. Wat overblijft is je <em>belastbare winst</em>.</li>
 <li><strong>Inkomstenbelasting box 1</strong>: 35,75% tot € 38.883, 37,56% tot € 78.426, daarboven 49,50%. AOV en lijfrente gaan eerst van je inkomen af.</li>
 <li><strong>Tariefaanpassing</strong>: ligt je inkomen vóór aftrekposten boven € 78.426, dan tellen we 11,94% bij over het deel van ondernemersaftrek en mkb-vrijstelling dat in die schijf valt.</li>
 <li><strong>Heffingskortingen</strong>: algemene heffingskorting (max. € 3.115, afbouw 6,398% boven € 29.736) en arbeidskorting (max. € 5.685) over je winst vóór aftrekposten. Samen nooit meer dan de belasting.</li>
 <li><strong>Zvw-bijdrage</strong>: 4,85% over je belastbare winst, tot maximaal € 79.409.</li>
 </ol>
-<p>Alle bedragen staan met bron op <a href="/bronnen/">bronnen &amp; cijfers</a>.</p>
+<p>Alle bedragen met bron staan op <a href="/bronnen/">Bronnen en cijfers</a>.</p>
 `)}
 
 <h2>Veelgestelde vragen</h2>
 ${faqHtml(faq)}
 
 ${more('Bronnen', sourceList(['box1_2026', 'kortingen_2026', 'arbeidsinkomen', 'zelfstandigenaftrek_2026', 'mkb_2026', 'tariefaanpassing_2026', 'zvw_2026', 'urencriterium'], SOURCES))}
-${volgendeStap([['Urenregistratie voor zzp\'ers', '/urenregistratie-zzp/'], ['Boekhoudprogramma voor een eenmanszaak', '/boekhoudprogramma-eenmanszaak/']])}
+${volgendeStap([['Uurtarief berekenen', '/zzp-uurtarief/'], ['Urenregistratie voor zzp\'ers', '/urenregistratie-zzp/'], ['Boekhoudprogramma voor een eenmanszaak', '/boekhoudprogramma-eenmanszaak/']])}
 {{related}}
 `;
 

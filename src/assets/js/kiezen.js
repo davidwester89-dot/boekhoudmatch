@@ -42,7 +42,6 @@ bindForm(form, (v) => {
   top.replaceChildren(...(passend.length ? passend.slice(0, 3) : []).map((r) => {
     const li = el('li');
     li.append(el('strong', '', `${r.naam} ${r.planNaam}`), el('span', 'price', ` ${euro(r.prijs)} p/m${r.binnenBudget ? '' : ' (boven budget)'}`));
-    if (r.plus[0]) li.append(el('div', 'note', r.plus.slice(0, 2).join(' ')));
     const pos = passend.indexOf(r) + 1;
     if (pos > 1) {
       const a = byId[r.aanbieder], { l, u, red } = knop(a, r, pos, 'btn ghost sm');
@@ -57,7 +56,7 @@ bindForm(form, (v) => {
   const cta = document.getElementById('out-cta');
   if (passend[0]) {
     const r = passend[0], a = byId[r.aanbieder], { l, u, c, red } = knop(a, r, 1, 'btn');
-    const sub = el('p', 'note cta-sub', [c.uitleg, `naar ${host(a.site)}`].filter(Boolean).join(' · '));
+    const sub = el('p', 'sub cta-sub', [c.uitleg, `naar ${host(a.site)}`].filter(Boolean).join(' · '));
     if (u.partner) sub.append(' · ', plabel());
     cta.replaceChildren(l, sub, paginaLink(a, 1, `Lees alles over ${red.kort} →`));
     cta.hidden = false;
@@ -96,12 +95,9 @@ bindForm(form, (v) => {
     if (r.nee.length) { card.append(el('p', 'lbl bad', 'Past niet omdat:'), lijst('nee', r.nee)); }
     if (r.plus.length) { card.append(el('p', 'lbl ok', 'Waarom het past:'), lijst('plus', r.plus)); }
     if (r.let_op.length) { card.append(el('p', 'lbl warn', 'Let op:'), lijst('letop', r.let_op)); }
-    if (r.alternatieven?.length) card.append(el('p', 'note', 'Ook passend bij deze aanbieder: ' + r.alternatieven.join(', ') + '.'));
-    if (a.actie) card.append(el('p', 'note', 'Actie: ' + a.actie));
+    if (r.alternatieven?.length) card.append(el('p', 'sub', 'Ook passend bij deze aanbieder: ' + r.alternatieven.join(', ') + '.'));
+    if (a.actie) card.append(el('p', 'sub', 'Actie: ' + a.actie));
     const more = el('p', 'vmore'); const ml = paginaLink(a, r.past ? i + 1 : 0, `Alles over ${REDACTIE[a.id].kort} →`); more.append(ml); card.append(more);
-    const src = el('p', 'note'); src.append('Bron: ');
-    a.bronnen.forEach((b, j) => { if (j) src.append(' · '); const l = el('a', '', b.titel); l.href = b.url; l.rel = 'noopener'; l.dataset.vendor = a.naam; src.append(l); });
-    card.append(src);
     return card;
   }));
 });
