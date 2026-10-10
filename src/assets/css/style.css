@@ -219,7 +219,7 @@ table.data td.n{white-space:nowrap}
 .post-img{margin:6px 0 22px}.post-img img{display:block;width:100%;height:auto;aspect-ratio:1200/630;border-radius:14px;border:1px solid var(--line);background:#fff}.post-img figcaption{margin-top:6px}
 /* Praktijktest-sectie op aanbiederpagina's */
 .ptest{scroll-margin-top:80px}
-table.ptest-facts th[scope=row]{width:30%;min-width:130px;background:var(--sand);vertical-align:top}
+table.ptest-facts{font-size:1em}table.ptest-facts th[scope=row]{width:30%;min-width:130px;background:var(--sand);vertical-align:top}
 table.ptest-facts td{vertical-align:top}
 .ptest-shots{display:grid;gap:18px;margin:18px 0}
 @media(min-width:900px){.ptest-shots{grid-template-columns:repeat(3,1fr);align-items:start}}

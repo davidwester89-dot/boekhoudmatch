@@ -2,9 +2,6 @@
 // Alleen waarneembare feiten, geen scores of oordelen. Wordt NIET gelezen door match.js (rangorde blijft gelijk).
 // Ruwe metingen: research/praktijktest/<aanbieder>/METINGEN.md (buiten de site).
 
-const BIJSCHRIFT_MB = 'Screenshot BoekhoudMatch, 10 oktober 2026, proefperiode Moneybird';
-const BIJSCHRIFT_EB = 'Screenshot BoekhoudMatch, 10 oktober 2026, proefperiode e-Boekhouden.nl';
-
 export const PRAKTIJKTESTS = {
   moneybird: {
     datum: '2026-10-10',
@@ -31,12 +28,12 @@ export const PRAKTIJKTESTS = {
       proef: '60 dagen, in deze test tot 9 december 2026. Het abonnementsscherm toont niet wat er na de proef gebeurt.',
     },
     screenshots: [
-      { stap: 2, src: '/img/praktijktest/moneybird-2-factuur-2026-10-10.webp', width: 1200, height: 973, datum: '2026-10-10',
-        alt: 'Moneybird-factuurscherm met conceptfactuur aan Testklant B.V.: € 1.000 plus € 210 btw, totaal € 1.210; regels KVK, Btw en Bank zijn leeg', bijschrift: BIJSCHRIFT_MB },
-      { stap: 5, src: '/img/praktijktest/moneybird-5-btw-2026-10-10.webp', width: 1200, height: 1362, datum: '2026-10-10',
-        alt: 'Moneybird-btw-aangifte kwartaal 4 2026: rubriek 1a € 1000 en € 210, rubriek 5b € 21, totaal € 189, met de knop Volgende', bijschrift: BIJSCHRIFT_MB },
-      { stap: 3, src: '/img/praktijktest/moneybird-3-bon-2026-10-10.webp', width: 1200, height: 844, datum: '2026-10-10',
-        alt: 'Moneybird na uploaden van een inkoopbon: kenmerk T-0001, datum, € 100 excl. btw, 21% btw en categorie automatisch ingevuld', bijschrift: BIJSCHRIFT_MB },
+      { stap: 2, src: '/img/praktijktest/moneybird-2-factuur-2026-10-10.webp', width: 1200, height: 973,
+        alt: 'Moneybird-factuurscherm met conceptfactuur aan Testklant B.V.: € 1.000 plus € 210 btw, totaal € 1.210; regels KVK, Btw en Bank zijn leeg', bijschrift: 'Factuur' },
+      { stap: 5, src: '/img/praktijktest/moneybird-5-btw-2026-10-10.webp', width: 1200, height: 1362,
+        alt: 'Moneybird-btw-aangifte kwartaal 4 2026: rubriek 1a € 1000 en € 210, rubriek 5b € 21, totaal € 189, met de knop Volgende', bijschrift: 'Btw-overzicht' },
+      { stap: 3, src: '/img/praktijktest/moneybird-3-bon-2026-10-10.webp', width: 1200, height: 844,
+        alt: 'Moneybird na uploaden van een inkoopbon: kenmerk T-0001, datum, € 100 excl. btw, 21% btw en categorie automatisch ingevuld', bijschrift: 'Bon' },
     ],
     waarnemingen: [
       'Bij het aanmelden vroeg Moneybird alleen naam, e-mailadres en wachtwoord; geen KvK-nummer, telefoonnummer, betaalgegevens of identiteitsbewijs.',
@@ -44,13 +41,7 @@ export const PRAKTIJKTESTS = {
       'Na het uploaden van de bon waren bedrag, btw, datum, kenmerk en categorie ingevuld zonder dat we iets typten.',
       'Zelfgemaakte CAMT.053- en MT940-testbestanden werden geweigerd ("Moneybird kan alleen officiële bestanden van je bank inlezen"). Een handmatig ingevoerde betaling van € 1.210 werd via het betalingskenmerk aan de factuur gekoppeld, de betaling van € 121 niet aan de bon.',
     ],
-    grenzen: [
-      'Getest zonder KvK-inschrijving.',
-      'Btw-aangifte gevolgd tot de stap vóór indienen; niets ingediend.',
-      'Bankimport niet getest met een echt bankbestand: onze testbestanden werden geweigerd, dus de 3 regels zijn handmatig ingevoerd. Geen echte rekening gekoppeld.',
-      'Mobiele app niet op een telefoon getest; alleen de vermelding in de app-stores gecontroleerd.',
-      'Support niet getest.',
-    ],
+    grenzen: 'Getest zonder KvK-inschrijving; btw-aangifte niet ingediend, app en support niet getest.',
   },
   eboekhouden: {
     datum: '2026-10-10',
@@ -76,12 +67,12 @@ export const PRAKTIJKTESTS = {
       proef: '14 dagen, in deze test tot ca. 24 oktober 2026. Op het scherm: "u gaat pas betalen na uw proefperiode". Of de proef vanzelf stopt en wat er daarna met de gegevens gebeurt, stond niet in de app.',
     },
     screenshots: [
-      { stap: 2, src: '/img/praktijktest/eboekhouden-2-factuur-2026-10-10.webp', width: 1200, height: 668, datum: '2026-10-10',
-        alt: 'e-Boekhouden-factuurscherm met factuurregel Advieswerk (test): € 1.000 plus 21% btw, totaal € 1.210; knop Proefaccount omzetten (nog 14 dagen)', bijschrift: BIJSCHRIFT_EB },
-      { stap: 3, src: '/img/praktijktest/eboekhouden-3-bon-2026-10-10.webp', width: 1200, height: 668, datum: '2026-10-10',
-        alt: 'e-Boekhouden Autopilot na boeken van inkoopbon.pdf: Testleverancier Kantoorartikelen B.V., T-0001, € 100 bij 21% btw, rekening 4700 Kantoorbenodigdheden', bijschrift: BIJSCHRIFT_EB },
-      { stap: 5, src: '/img/praktijktest/eboekhouden-5-btw-2026-10-10.webp', width: 1200, height: 668, datum: '2026-10-10',
-        alt: 'e-Boekhouden-btw-aangifte 4e kwartaal 2026: rubriek 1a € 1000 en € 210, voorgestelde aangifte gelijk aan de gegevens', bijschrift: BIJSCHRIFT_EB },
+      { stap: 2, src: '/img/praktijktest/eboekhouden-2-factuur-2026-10-10.webp', width: 1200, height: 668,
+        alt: 'e-Boekhouden-factuurscherm met factuurregel Advieswerk (test): € 1.000 plus 21% btw, totaal € 1.210; knop Proefaccount omzetten (nog 14 dagen)', bijschrift: 'Factuur' },
+      { stap: 3, src: '/img/praktijktest/eboekhouden-3-bon-2026-10-10.webp', width: 1200, height: 668,
+        alt: 'e-Boekhouden Autopilot na boeken van inkoopbon.pdf: Testleverancier Kantoorartikelen B.V., T-0001, € 100 bij 21% btw, rekening 4700 Kantoorbenodigdheden', bijschrift: 'Bon' },
+      { stap: 5, src: '/img/praktijktest/eboekhouden-5-btw-2026-10-10.webp', width: 1200, height: 668,
+        alt: 'e-Boekhouden-btw-aangifte 4e kwartaal 2026: rubriek 1a € 1000 en € 210, voorgestelde aangifte gelijk aan de gegevens', bijschrift: 'Btw-overzicht' },
     ],
     waarnemingen: [
       'Bij het aanmelden waren e-mailadres, gebruikersnaam en wachtwoord verplicht; telefoonnummer, KvK-nummer, betaalgegevens en identiteitsbewijs niet. Er kwam geen bevestigingsmail; het account was direct klaar.',
@@ -89,13 +80,7 @@ export const PRAKTIJKTESTS = {
       'Autopilot (gratis, eerst aanzetten) las de bon in ongeveer 30 seconden en boekte leverancier, T-0001, datum, € 100 plus 21% btw en rekening 4700 Kantoorbenodigdheden; 0 velden getypt.',
       'Een zelfgemaakt CAMT.053-testbestand werd geaccepteerd: 3 regels, de betaling van € 121 gekoppeld aan de bon, de € 1.210 niet aan de factuur (ander factuurnummer in de omschrijving), € 7,50 onverwerkt.',
     ],
-    grenzen: [
-      'Getest zonder KvK-inschrijving.',
-      'Btw-aangifte gevolgd tot verzenden; verzenden was geblokkeerd omdat de periode nog niet voorbij is en het OB-nummer ontbreekt. Niets ingediend.',
-      'Bankkoppeling niet met een echte bank getest; wel import van een zelfgemaakt CAMT.053-testbestand.',
-      'Mobiele app niet getest.',
-      'Support niet getest.',
-    ],
+    grenzen: 'Getest zonder KvK-inschrijving; btw-aangifte niet ingediend, app en support niet getest.',
   },
 };
 
