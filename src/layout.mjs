@@ -104,12 +104,12 @@ ${p.body.replace('{{related}}', relatedPosts(p.path))}
 </div></main>
 <footer class="site"><div class="wrap">
 <div class="cols">
-<div><a class="logo" href="/">${LOGO}<span>Boekhoud<b>Match</b></span></a><p>Eerlijke hulp bij boekhouding, geld en belasting voor zzp'ers. Echte prijzen, officiële cijfers. Alleen statistieken met jouw toestemming.</p></div>
+<div><a class="logo" href="/">${LOGO}<span>Boekhoud<b>Match</b></span></a><p>Eerlijke hulp bij boekhouding en belasting voor zzp'ers.</p></div>
 <div><h2>Tools</h2><ul><li><a href="/boekhoudprogramma-kiezen/">Boekhoudprogramma kiezen</a></li><li><a href="/boekhoudprogramma-vergelijken/">Boekhoudprogramma's vergelijken</a></li><li><a href="/zzp-netto-inkomen/">Netto inkomen zzp</a></li><li><a href="/zzp-uurtarief/">Uurtarief berekenen</a></li><li><a href="/btw-berekenen/">Btw berekenen</a></li><li><a href="/offerte-factuur-maken/">Offerte en factuur maken</a></li></ul></div>
 <div><h2>Gidsen</h2><ul><li><a href="/beste-boekhoudprogramma-zzp/">Beste boekhoudprogramma zzp</a></li><li><a href="/gratis-boekhoudprogramma/">Gratis boekhoudprogramma</a></li><li><a href="/boekhoudprogramma-starters/">Voor starters</a></li><li><a href="/boekhoudprogramma-eenmanszaak/">Voor een eenmanszaak</a></li><li><a href="/boekhoudprogramma-bv/">Voor een bv</a></li><li><a href="/btw-aangifte-boekhoudprogramma/">Btw-aangifte</a></li><li><a href="/gidsen/">Alle gidsen</a></li></ul></div>
 <div><h2>Over ons</h2><ul><li><a href="/blog/">Blog</a></li><li><a href="/over/">Over BoekhoudMatch</a></li><li><a href="/bronnen/">Bronnen en cijfers</a></li><li><a href="/privacy/">Privacy</a></li>${GA_ID ? '<li><a href="/privacy/#cookies" data-consent-open>Cookie-instellingen</a></li>' : ''}<li><a href="/disclaimer/">Disclaimer</a></li><li><a href="mailto:${SITE.email}">Contact</a></li></ul></div>
 </div>
-<p class="fine">© 2026 ${SITE.name}. Uitkomsten zijn indicaties, geen persoonlijk financieel of fiscaal advies. Cijfers gecontroleerd op ${fmtDate(SITE.updated)}.</p>
+<p class="fine">© 2026 ${SITE.name}. Uitkomsten zijn een indicatie, geen persoonlijk advies. Partnerlinks hebben nooit invloed op de volgorde.</p>
 </div></footer>
 ${[...(GA_ID ? ['/js/consent.js'] : []), ...(p.scripts || [])].map((s) => `<script type="module" src="${s}"></script>`).join('\n')}
 </body>
@@ -143,11 +143,10 @@ export const FOUNDER = {
 };
 // De methode, kort. Staat boven de vergelijking, op /over/ en bij de match.
 export const METHODE_LIJST = `<ul class="method">
-<li><strong>Prijs van de aanbieder zelf.</strong> Elke prijs komt van de prijspagina van de aanbieder, met de bronlink erbij.</li>
-<li><strong>Met controledatum.</strong> Bij elke aanbieder staat wanneer we de prijs hebben gecontroleerd.</li>
-<li><strong>“Niet vermeld” is niet vermeld.</strong> Staat iets niet op de pagina van de aanbieder, dan schrijven we “niet vermeld”. We vullen niets zelf in.</li>
-<li><strong>Volgorde = passend + budget + prijs.</strong> Eerst wat bij je situatie past, dan wat binnen je budget valt, dan de laagste prijs.</li>
-<li><strong>Commissie telt niet mee.</strong> Of wij ergens aan verdienen, heeft geen invloed op de volgorde.</li>
+<li><strong>Prijzen van de aanbieder zelf</strong>, met bronlink en controledatum.</li>
+<li><strong>Niets zelf ingevuld.</strong> Noemt de aanbieder iets niet, dan staat er “niet vermeld”.</li>
+<li><strong>Vaste volgorde:</strong> eerst wat past, dan je budget, dan de prijs.</li>
+<li><strong>Commissie telt nooit mee.</strong></li>
 </ul>`;
 
 export const ORG = {
@@ -178,6 +177,6 @@ export function relatedPosts(path, n = 2) {
 
 // "Volgende stap" onder tools: altijd de match en de vergelijking, plus relevante gidsen ([tekst, url]).
 export function volgendeStap(extra = []) {
-  const items = [['Doe de match: 8 vragen, daarna de pakketten op volgorde', '/boekhoudprogramma-kiezen/'], ['Vergelijk alle boekhoudpakketten met prijs, limiet en bron', '/boekhoudprogramma-vergelijken/'], ...extra];
+  const items = [['Doe de match (8 vragen)', '/boekhoudprogramma-kiezen/'], ['Vergelijk alle boekhoudpakketten', '/boekhoudprogramma-vergelijken/'], ...extra];
   return `<aside class="cta"><h2>Volgende stap</h2><ul>${items.map(([t, u]) => `<li><a href="${u}">${esc(t)} →</a></li>`).join('')}</ul></aside>`;
 }
