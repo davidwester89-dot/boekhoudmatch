@@ -10,7 +10,7 @@ related:
 - Btw-aangifte vanuit je boekhoudprogramma | /btw-aangifte-boekhoudprogramma/
 - Overstappen naar een ander boekhoudprogramma | /overstappen-boekhoudprogramma/
 ---
-Met een automatische bankkoppeling komen je zakelijke banktransacties vanzelf in je boekhoudprogramma. Zonder koppeling download je een bankbestand en importeer je het zelf. Het verschil lijkt klein, maar bij sommige aanbieders bepaalt het welk pakket je nodig hebt, en dus wat je betaalt. Op deze pagina zie je per aanbieder hoe het zit, gecontroleerd op {{datum}}.
+Met een automatische bankkoppeling komen je zakelijke banktransacties vanzelf in je boekhoudprogramma. Zonder koppeling download je een bankbestand en importeer je het zelf. Het verschil lijkt klein, maar bij sommige aanbieders bepaalt het welk pakket je nodig hebt, en dus wat je betaalt. Op deze pagina zie je per aanbieder hoe het zit.
 
 ## Wat doet een bankkoppeling?
 
@@ -45,11 +45,11 @@ Kijk niet alleen naar de prijs van het pakket. Drie voorbeelden met de prijzen v
 - Rompslomp: Puur Factuur ({{p:rompslomp/puur}}) zonder koppeling, Basic ({{p:rompslomp/basic}}) met.
 - Silvasoft: Boekhouden + Facturatie ({{p:silvasoft/boekhouden-facturatie}}) plus € 3 per rekening per maand.
 
-In de [vergelijking](/boekhoudprogramma-vergelijken/) kun je filteren op "automatische bankkoppeling". De "vanaf"-prijs telt dan de meerprijs van Informer en Silvasoft mee.
+In de [vergelijking](/boekhoudprogramma-vergelijken/) kun je filteren op “automatische bankkoppeling”. De “vanaf”-prijs telt dan de meerprijs van Informer en Silvasoft mee.
 
 ## Eigen betaalrekening van de aanbieder
 
-Moneybird, Tellow, Rompslomp, SnelStart en Informer hebben een eigen zakelijke rekening. Die werkt dan vanzelf samen met het pakket. Dat kan handig zijn, maar je stapt dan ook over naar een andere rekening, en bij een latere overstap van boekhoudprogramma neem je die rekening niet mee. Kies je in de match "automatisch inlezen", dan kijkt de match naar koppelen met je huidige bank. Werkt automatisch inlezen bij een pakket alleen met de eigen rekening van de aanbieder, dan krijgt dat pakket minder punten en staat er een "let op" bij.
+Moneybird, Tellow, Rompslomp, SnelStart en Informer hebben een eigen zakelijke rekening. Die werkt dan vanzelf samen met het pakket. Dat kan handig zijn, maar je stapt dan ook over naar een andere rekening, en bij een latere overstap van boekhoudprogramma neem je die rekening niet mee. Kies je in de match “automatisch inlezen”, dan kijkt de match naar koppelen met je huidige bank. Werkt automatisch inlezen bij een pakket alleen met de eigen rekening van de aanbieder, dan krijgt dat pakket minder punten en staat er een “let op” bij.
 
 ## Wanneer is importeren genoeg?
 

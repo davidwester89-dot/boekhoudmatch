@@ -30,7 +30,7 @@ Een boekhoudprogramma helpt bij drie dingen:
 
 ## Alle pakketten voor een eenmanszaak
 
-Hieronder alle pakketten met boekhouding die je als eenmanszaak kunt gebruiken. Waar de aanbieder geen rechtsvorm noemt, staat "niet vermeld". Die pakketten zijn wel voor zzp'ers gemaakt; de match rekent ze voor een eenmanszaak gewoon mee.
+Hieronder alle pakketten met boekhouding die je als eenmanszaak kunt gebruiken. Waar de aanbieder geen rechtsvorm noemt, staat “niet vermeld”. Die pakketten zijn wel voor zzp'ers gemaakt; de match rekent ze voor een eenmanszaak gewoon mee.
 
 {{blok:tabel eenmanszaak per-aanbieder}}
 
@@ -48,7 +48,7 @@ Dit bepaalt welk pakket je nodig hebt. Met twee facturen en een handvol bonnen p
 
 ### Wil je je btw-aangifte direct indienen?
 
-Dat scheelt overtypen. Bij Moneybird kan het vanaf Start ({{p:moneybird/start}}), bij Rompslomp vanaf Puur Factuur ({{p:rompslomp/puur}}), bij MoneyMonk vanuit de software (volgens de functiepagina; niet per pakket vermeld) en bij Silvasoft met 1 klik. Bij e-Boekhouden en Jortt zit de btw-aangifte erin, maar de prijspagina zegt niet of je rechtstreeks indient; wij schrijven dan "manier van indienen niet vermeld".
+Dat scheelt overtypen. Bij Moneybird kan het vanaf Start ({{p:moneybird/start}}), bij Rompslomp vanaf Puur Factuur ({{p:rompslomp/puur}}), bij MoneyMonk vanuit de software (volgens de functiepagina; niet per pakket vermeld) en bij Silvasoft met 1 klik. Bij e-Boekhouden en Jortt zit de btw-aangifte erin, maar de prijspagina zegt niet of je rechtstreeks indient; wij schrijven dan “manier van indienen niet vermeld”.
 
 ### Wil je hulp bij je aangifte inkomstenbelasting?
 

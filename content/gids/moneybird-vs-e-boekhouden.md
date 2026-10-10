@@ -10,7 +10,7 @@ related:
 - e-Boekhouden: prijzen en pakketten | /e-boekhouden/
 - Bankkoppeling: wel of niet? | /bankkoppeling-boekhoudprogramma/
 ---
-Moneybird en e-Boekhouden zijn allebei bekende online boekhoudprogramma's voor zzp'ers. Ze rekenen op een heel andere manier. Moneybird heeft vier pakketten met een grens op het aantal verwerkte banktransacties per maand. e-Boekhouden heeft één goedkoop pakket met een grens op boekingen per jaar, en verder pakketten zonder grens. Hieronder zie je de feiten naast elkaar, gecontroleerd op {{datum}}.
+Moneybird en e-Boekhouden zijn allebei bekende online boekhoudprogramma's voor zzp'ers. Ze rekenen op een heel andere manier. Moneybird heeft vier pakketten met een grens op het aantal verwerkte banktransacties per maand. e-Boekhouden heeft één goedkoop pakket met een grens op boekingen per jaar, en verder pakketten zonder grens. Hieronder zie je de feiten naast elkaar.
 
 {{blok:vs moneybird eboekhouden}}
 
@@ -24,7 +24,7 @@ Wat goedkoper is, hangt dus af van je volume. Met weinig boekingen is e-Boekhoud
 
 ## Btw-aangifte
 
-Bij Moneybird dien je de btw-aangifte vanaf Start direct in vanuit het pakket. Bij e-Boekhouden zit de btw-aangifte volgens de prijspagina in elk pakket, maar de pagina zegt niet of je rechtstreeks indient. Wij schrijven daarom "manier van indienen niet vermeld". Dat is geen oordeel over de functie, alleen over wat de prijspagina zegt.
+Bij Moneybird dien je de btw-aangifte vanaf Start direct in vanuit het pakket. Bij e-Boekhouden zit de btw-aangifte volgens de prijspagina in elk pakket, maar de pagina zegt niet of je rechtstreeks indient. Wij schrijven daarom “manier van indienen niet vermeld”.
 
 ## Bankkoppeling
 
@@ -34,7 +34,7 @@ Wil je je bestaande bank automatisch koppelen, dan is het verschil in prijs dus 
 
 ## Rechtsvorm
 
-Moneybird noemt eenmanszaak, vof en bv. e-Boekhouden noemt op de prijspagina geen rechtsvormen; dat staat bij ons als "niet vermeld". Heb je een vof of bv, vraag dan bij e-Boekhouden na of het pakket past. Lees ook [boekhoudprogramma voor een vof](/boekhoudprogramma-vof/) en [voor een bv](/boekhoudprogramma-bv/).
+Moneybird noemt eenmanszaak, vof en bv. e-Boekhouden noemt op de prijspagina geen rechtsvormen; dat staat bij ons als “niet vermeld”. Heb je een vof of bv, vraag dan bij e-Boekhouden na of het pakket past. Lees ook [boekhoudprogramma voor een vof](/boekhoudprogramma-vof/) en [voor een bv](/boekhoudprogramma-bv/).
 
 ## Prijs per jaar en acties
 
@@ -54,6 +54,6 @@ Allebei noemen ze offertes en urenregistratie. Bij e-Boekhouden zit volgens de p
 
 **Moneybird** past als je je btw-aangifte direct vanuit het pakket wilt indienen, als je een vof of bv hebt, of als je weinig banktransacties hebt of de Moneybird Betaalrekening gebruikt.
 
-Twijfel je, doe dan de match met je eigen aantallen. Die rekent beide pakketten door, samen met de andere {{n:pakketten}} pakketten.
+Twijfel je, doe dan de match met je eigen aantallen. Die rekent alle {{n:pakketten}} pakketten door.
 
 {{blok:cta}}

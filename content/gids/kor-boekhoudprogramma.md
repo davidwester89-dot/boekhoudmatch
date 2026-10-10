@@ -40,11 +40,11 @@ De basisregel is dat je je administratie zeven jaar bewaart. Daarnaast heb je je
 
 ## Wat heb je niet nodig in een pakket?
 
-Met de KOR heb je geen btw-aangifte. Je betaalt dus niet voor een pakket omdat het de btw-aangifte direct indient. In de match tellen btw-functies niet mee als je "Ik gebruik de KOR" kiest.
+Met de KOR heb je geen btw-aangifte. Je betaalt dus niet voor een pakket omdat het de btw-aangifte direct indient. In de match tellen btw-functies niet mee als je “Ik gebruik de KOR” kiest.
 
 Wat dan overblijft:
 
-- **Facturen maken.** Elk pakket met factureren kan dit. Of een pakket een aparte KOR-instelling heeft, staat bij de meeste aanbieders niet op de prijspagina; bij ons "niet vermeld". Controleer in de proefperiode of je een factuur zonder btw kunt maken met de juiste tekst.
+- **Facturen maken.** Elk pakket met factureren kan dit. Of een pakket een aparte KOR-instelling heeft, staat bij de meeste aanbieders niet op de prijspagina; bij ons “niet vermeld”. Controleer in de proefperiode of je een factuur zonder btw kunt maken met de juiste tekst.
 - **Bonnen en bank.** Heb je weinig transacties, dan is handmatig importeren vaak genoeg.
 - **Omzet bijhouden.** Elk boekhoudpakket laat je omzet zien. Een omzetgrens bij het pakket zelf zie je bij MoneyMonk Basis ({{p:moneymonk/basis}}): tot € 20.000 per jaar. Dat valt toevallig samen met de KOR-grens.
 - **Je IB-aangifte.** Een overzicht van je winst helpt. Zie de kolom IB in de [vergelijking](/boekhoudprogramma-vergelijken/).
@@ -61,7 +61,7 @@ Wil je een echte boekhouding voor weinig geld, kijk dan naar e-Boekhouden ZZP ({
 
 ## Uitkomst van de match met de KOR
 
-Doe je de match met "Ik gebruik de KOR", dan vallen pakketten niet af omdat ze geen btw-aangifte doen, en krijgt direct indienen geen extra punten. Wat dan telt: je aantal facturen en bonnen, de bankkoppeling, je IB-wensen en je budget. Bij een pakket met een omzetgrens, zoals MoneyMonk Basis, staat die grens erbij als "let op".
+Doe je de match met “Ik gebruik de KOR”, dan vallen pakketten niet af omdat ze geen btw-aangifte doen, en krijgt direct indienen geen extra punten. Wat dan telt: je aantal facturen en bonnen, de bankkoppeling, je IB-wensen en je budget. Bij een pakket met een omzetgrens, zoals MoneyMonk Basis, staat die grens erbij als “let op”.
 
 ## Wanneer stop je met de KOR?
 

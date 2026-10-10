@@ -14,7 +14,7 @@ sources:
 - Belastingdienst: kleineondernemersregeling (KOR) | https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/btw/hoe_werkt_de_btw/kleineondernemersregeling/
 - Belastingdienst: hoelang moet u gegevens bewaren? | https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/ondernemen/administratie/hoelang-moet-u-gegevens-bewaren
 ---
-Werk je samen met een of meer vennoten in een vof, dan heb je één administratie voor het hele bedrijf. Ieder doet daarna wel zijn eigen aangifte inkomstenbelasting over zijn deel van de winst. Dat stelt andere eisen aan je boekhoudprogramma dan een eenmanszaak: je wilt met meer mensen kunnen inloggen, en het pakket moet de vof als rechtsvorm ondersteunen.
+Werk je samen met één of meer vennoten in een vof, dan heb je één administratie voor het hele bedrijf. Ieder doet daarna wel zijn eigen aangifte inkomstenbelasting over zijn deel van de winst. Dat stelt andere eisen aan je boekhoudprogramma dan een eenmanszaak: je wilt met meer mensen kunnen inloggen, en het pakket moet de vof als rechtsvorm ondersteunen.
 
 ## Welke aanbieders noemen de vof?
 
@@ -59,7 +59,7 @@ Dat kan, maar je neemt dan een risico. Sommige pakketten zijn gebouwd rond één
 
 ## Voorbeeld uit de match
 
-Vul in de match bij vraag 1 "Vof of maatschap" in. Pakketten die de vof niet noemen, krijgen dan een minpunt en een waarschuwing. Pakketten die alleen voor een eenmanszaak zijn, vallen af. Zo zie je meteen wat overblijft.
+Vul in de match bij vraag 1 “Vof of maatschap” in. Pakketten die de vof niet noemen, krijgen dan een minpunt en een waarschuwing. Pakketten die alleen voor een eenmanszaak zijn, vallen af. Zo zie je meteen wat overblijft.
 
 ## Kort samengevat
 

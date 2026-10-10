@@ -10,7 +10,7 @@ related:
 - Tellow: prijzen en pakketten | /tellow/
 - Gratis boekhoudprogramma | /gratis-boekhoudprogramma/
 ---
-Rompslomp en Tellow hebben allebei een gratis pakket en goedkope pakketten voor zzp'ers. Daarmee houden de overeenkomsten op: de limieten en wat er per pakket in zit, verschillen flink. Hieronder de feiten naast elkaar, gecontroleerd op {{datum}}.
+Rompslomp en Tellow hebben allebei een gratis pakket en goedkope pakketten voor zzp'ers. Daarmee houden de overeenkomsten op: de limieten en wat er per pakket in zit, verschillen flink. Hieronder de feiten naast elkaar.
 
 Rompslomp verandert per 1 november 2026 de tarieven. Wij rekenen met de nieuwe tarieven, omdat je die na die datum betaalt. Tot 1 november kost Puur Factuur € 7,95, Basic € 13,50, Professional € 26,50 en Master € 39,50.
 
@@ -47,7 +47,7 @@ Rompslomp: vanaf Puur Factuur. Tellow: vanaf Plus. Wil je goedkoop en direct ind
 
 ## Uren, offertes en IB
 
-- Uren: Rompslomp noemt urenregistratie vanaf Puur Factuur. Bij Tellow is het in de functietabel niet per pakket af te lezen; bij ons "niet vermeld".
+- Uren: Rompslomp noemt urenregistratie vanaf Puur Factuur. Bij Tellow is het in de functietabel niet per pakket af te lezen; bij ons “niet vermeld”.
 - Offertes: Rompslomp in alle pakketten, Tellow vanaf Plus.
 - IB-aangifte: Tellow Compleet heeft een boekhouder die je IB-aangifte opstelt. Bij Rompslomp staat hulp bij de IB-aangifte niet vermeld, en bij Tellow Gratis, Basis en Plus ook niet.
 

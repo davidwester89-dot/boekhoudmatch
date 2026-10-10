@@ -39,7 +39,7 @@ Een korting van 15 maanden is veel waard. Maar reken ook uit wat het pakket daar
 
 ## Wat kiest de match voor een starter?
 
-Het voorbeeldprofiel "Starter" op onze homepage: eenmanszaak, 0 tot 2 facturen en tot 5 bonnen per maand, btw-aangifte, handmatig importeren mag, budget tot € 10. Dit is de echte uitkomst:
+Het voorbeeldprofiel “Starter” op onze homepage: eenmanszaak, 0 tot 2 facturen en tot 5 bonnen per maand, btw-aangifte, handmatig importeren mag, budget tot € 10. Dit is de echte uitkomst:
 
 {{blok:voorbeelden starter}}
 

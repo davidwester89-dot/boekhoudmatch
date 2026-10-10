@@ -44,7 +44,7 @@ export const PAKKETTEN = [
     bronnen: [{ url: 'https://www.jortt.nl/prijs/', titel: 'Jortt – Prijs' }, { url: 'https://www.jortt.nl/uitleg/faq/overzicht-jortt-abonnementen/', titel: 'Jortt – Overzicht abonnementen' }],
     btwPrijzen: 'excl', rechtsvormen: null, eigenRekening: false, partner: 'Daisycon',
     actie: '30 dagen gratis, daarna 3 maanden € 9,95 p/m. Prijzen per 9 september 2026 verhoogd.',
-    noot: 'jortt ZZP: alleen eenmanszaak, tot 250 boekingen per maand, 1 bankkoppeling, gecontroleerde aangifte inkomstenbelasting. jortt Starter heeft bewust géén boekhouding.',
+    noot: 'Jortt ZZP: alleen eenmanszaak, tot 250 boekingen per maand, 1 bankkoppeling, gecontroleerde aangifte inkomstenbelasting. Jortt Starter heeft bewust geen boekhouding.',
     plannen: [
       { id: 'starter', naam: 'Starter', prijs: 0, boekhouding: false, facturen: INF, btwAangifte: false, bank: 'import', offertes: true, uren: true, ib: false },
       { id: 'zzp', naam: 'ZZP', prijs: 21.95, prijsJaar: 19.95, facturen: INF, boekingenMaand: 250, rechtsvormen: ['eenmanszaak'], btwAangifte: 'ja', bank: 'auto', offertes: true, uren: true, ib: 'controle' },
@@ -97,7 +97,7 @@ export const PAKKETTEN = [
     id: 'informer', naam: 'Informer', site: 'https://www.informer.nl',
     bronnen: [{ url: 'https://www.informer.nl/prijzen', titel: 'Informer – Prijzen' }],
     btwPrijzen: 'excl', rechtsvormen: null, eigenRekening: true, partner: null,
-    actie: 'Starters (KvK-inschrijving max. 6 maanden oud): 12 maanden € 15 p/m korting. 30 dagen gratis proberen.',
+    actie: 'Starters (KVK-inschrijving max. 6 maanden oud): 12 maanden € 15 p/m korting. 30 dagen gratis proberen.',
     noot: 'Automatische koppeling met je eigen bank kost € 1 p/m per rekening (Informer Money-rekening zonder vaste kosten). MKB Basis staat op de pagina zowel als € 34 als € 35; wij rekenen met € 35.',
     plannen: [
       { id: 'zzp-basis', naam: 'ZZP Basis', prijs: 15, facturen: INF, transacties: 30, btwAangifte: 'ja', bank: 'auto-extra', bankExtra: 1, offertes: true, uren: true, ib: false, noot: 'Scan & Herken + € 5 p/m.' },
@@ -149,7 +149,7 @@ export const PAKKETTEN = [
     ],
     btwPrijzen: null, // prijspagina vermeldt niet of prijzen excl. of incl. btw zijn
     rechtsvormen: null, eigenRekening: false, partner: null,
-    actie: 'Starters (onlangs ingeschreven bij de KvK): 15 maanden gratis. Pro: eerste 3 maanden € 15 p/m. 30 dagen gratis proberen.',
+    actie: 'Starters (onlangs ingeschreven bij de KVK): 15 maanden gratis. Pro: eerste 3 maanden € 15 p/m. 30 dagen gratis proberen.',
     noot: 'Limieten gaan over verwerkte banktransacties per maand en omzet per jaar. Gratis PSD2-bankkoppeling voor al je bankrekeningen in elk pakket. Btw-aangifte doe je vanuit de software; voor de IB-aangifte maakt het pakket een balans en winst- en verliesrekening die je overneemt. Functies staan op de functiepagina’s, niet per pakket.',
     plannen: [
       { id: 'basis', naam: 'Basis', prijs: 9.00, transacties: 20, omzetMax: 20000, btwAangifte: 'direct', bank: 'auto', offertes: true, uren: true, ib: 'rapportage' },
