@@ -4,7 +4,7 @@ Bron van [boekhoudmatch.nl](https://boekhoudmatch.nl): gratis tools en artikelen
 
 - **Boekhoudmatch**: 8 vragen, daarna de pakketten op volgorde met prijs en uitleg. De volgorde gebruikt nooit informatie over partnerschappen (getest).
 - **Vergelijken**: alle pakketten naast elkaar, met de prijzen van de aanbieders zelf en de controledatum.
-- **Rekentools**: netto inkomen zzp, uurtarief, btw, offerte en factuur, plus thuisbatterij.
+- **Rekentools**: netto inkomen zzp, uurtarief, btw, offerte en factuur.
 - **Blog**: actuele artikelen met officiële bronnen (`content/blog/*.md`).
 
 Statische site zonder frameworks. Externe verzoeken en cookies alleen voor Google Analytics, en pas na toestemming (zie hieronder). Contact: info@boekhoudmatch.nl.
@@ -12,7 +12,6 @@ Statische site zonder frameworks. Externe verzoeken en cookies alleen voor Googl
 ## Ontwikkelen
 
 ```bash
-python3 data-build/build_hourly.py   # eenmalig: uurdata voor de thuisbatterij-tool (openbare bronnen)
 npm test                             # unit tests (berekeningen, match, blogregels)
 npm run build                        # bouwt dist/ (SHOW_SLOTS=0 verbergt partnerplekken, zoals in productie)
 npm run check                        # SEO- en kwaliteitscontrole op dist/
@@ -81,5 +80,4 @@ Uitzetten: `npm run set-ga -- ""`, commit en push.
 - `content/blog/`: blogartikelen in markdown
 - `scripts/`: `check.mjs` (SEO-controle), `og.mjs` (afbeeldingen), `new-post.mjs`, `set-ga.mjs` (Metings-ID)
 - `src/analytics.config.mjs`: `GA_ID` (leeg = geen Analytics)
-- `data-build/build_hourly.py`: haalt uurdata op uit openbare bronnen (NEDU/MFFBAS, PVGIS, EnergyZero)
 - `test/`: unit tests (`node --test`)

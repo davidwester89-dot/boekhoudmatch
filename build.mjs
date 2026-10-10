@@ -1,7 +1,6 @@
 import { mkdirSync, writeFileSync, readFileSync, cpSync, rmSync, readdirSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { layout, SITE, RELATED } from './src/layout.mjs';
-import thuisbatterij from './src/pages/thuisbatterij.mjs';
 import zzpnetto from './src/pages/zzpnetto.mjs';
 import uurtarief from './src/pages/uurtarief.mjs';
 import * as S from './src/pages/static.mjs';
@@ -29,7 +28,7 @@ const ogKey = (p) => (existsSync(`src/assets/og/blog-${p.slug}.png`) ? `blog-${p
 const home = { ...S.home, body: S.home.body.replace('{{latest}}', latestHtml(posts)) };
 const gidsen = gidsPages();
 const pages = [home, kiezen, vergelijken, ...aanbiederPages, ...(gidsen.length ? [gidsHub(gidsen)] : []), ...gidsen, zzpnetto, uurtarief, S.btw, S.offerte, blogIndex(posts), ...posts.map((p) => postPage(p, posts, ogKey(p))),
-  thuisbatterij, S.bronnen, S.over, S.privacy, S.disclaimer, S.notfound];
+  S.bronnen, S.over, S.privacy, S.disclaimer, S.notfound];
 
 for (const p of pages) {
   const file = p.path.endsWith('.html') ? join(OUT, p.path) : join(OUT, p.path, 'index.html');
@@ -39,7 +38,6 @@ for (const p of pages) {
 // assets
 cpSync('src/assets/js', join(OUT, 'js'), { recursive: true });
 cpSync('src/lib', join(OUT, 'js/lib'), { recursive: true, filter: (f) => !f.endsWith('.mjs') });
-cpSync('src/assets/data', join(OUT, 'data'), { recursive: true });
 cpSync('src/assets/og', join(OUT, 'og'), { recursive: true });
 cpSync('src/assets/logos', join(OUT, 'logos'), { recursive: true });
 if (existsSync('src/assets/img')) cpSync('src/assets/img', join(OUT, 'img'), { recursive: true });

@@ -1,5 +1,5 @@
 import { SITE, GA_ID, esc, field, slot, sourceList, webApp, fmtDate, more, ORG, ICONS, FOUNDER, METHODE_LIJST, volgendeStap } from '../layout.mjs';
-import { SOURCES, IB2026, ENERGY, BTW, CHECKED } from '../lib/constants.js';
+import { SOURCES, IB2026, BTW, CHECKED } from '../lib/constants.js';
 import { PAKKETTEN, CHECKED as PCHECKED } from '../lib/pakketten.js';
 import { REDACTIE, vendorHref } from '../lib/aanbieders.js';
 import { match } from '../lib/match.js';
@@ -174,17 +174,8 @@ ${IB2026.brackets.map((b, i) => `<tr><td>Schijf ${i + 1}${b.upTo === Infinity ? 
 ${sourceList(['box1_2026', 'kortingen_2026', 'arbeidsinkomen', 'zelfstandigenaftrek_2026', 'mkb_2026', 'tariefaanpassing_2026', 'zvw_2026', 'urencriterium'], SOURCES)}
 <h2>Btw</h2>
 ${sourceList(['btw', 'kor'], SOURCES)}
-<h2>Energie (salderen en thuisbatterij)</h2>
-<div class="table-wrap"><table class="data"><thead><tr><th>Onderdeel</th><th>2026</th><th>2027</th></tr></thead><tbody>
-<tr><td>Energiebelasting stroom t/m 10.000 kWh (excl. btw)</td><td class="n">€ ${nl(ENERGY.eb[2026].perKwh, 5)}</td><td class="n">€ ${nl(ENERGY.eb[2027].perKwh, 4)}*</td></tr>
-<tr><td>Vermindering energiebelasting (excl. btw)</td><td class="n">€ ${nl(ENERGY.eb[2026].vermindering)}</td><td class="n">€ ${nl(ENERGY.eb[2027].vermindering)}*</td></tr>
-<tr><td>Salderen</td><td>volledig</td><td>gestopt</td></tr>
-<tr><td>Minimale terugleververgoeding</td><td>–</td><td>50% van de kale prijs</td></tr>
-</tbody></table></div>
-<p class="note">* Voorstel uit het Belastingplan 2027. Definitief na goedkeuring door het parlement.</p>
-${more('Energiebronnen en data', sourceList(['eb_2026', 'eb_2027', 'saldering', 'terugleverkosten_per_kwh', 'cbs_tarieven', 'nedu', 'pvgis', 'epex', 'milieucentraal_zelfverbruik', 'homewizard_battery'], SOURCES))}
 <h2>Wijzigingen</h2>
-<ul><li>10 oktober 2026: MoneyMonk toegevoegd (prijzen van moneymonk.nl). Alle prijzen opnieuw gecontroleerd; geen wijzigingen.</li><li>10 oktober 2026: Silvasoft toegevoegd als 9e aanbieder (prijzen en functies van silvasoft.nl).</li><li>9 oktober 2026: nieuw design en blog.</li><li>8 oktober 2026: eerste versie. Rompslomp: tarieven per 1 november 2026.</li></ul>`,
+<ul><li>10 oktober 2026: de energietools (einde salderen en thuisbatterij) en hun bronnen verwijderd; ze vielen buiten het zzp-thema.</li><li>10 oktober 2026: MoneyMonk toegevoegd (prijzen van moneymonk.nl). Alle prijzen opnieuw gecontroleerd; geen wijzigingen.</li><li>10 oktober 2026: Silvasoft toegevoegd als 9e aanbieder (prijzen en functies van silvasoft.nl).</li><li>9 oktober 2026: nieuw design en blog.</li><li>8 oktober 2026: eerste versie. Rompslomp: tarieven per 1 november 2026.</li></ul>`,
 };
 
 export const over = {

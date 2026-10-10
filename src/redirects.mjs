@@ -11,6 +11,8 @@ export const REDIRECTS = [
   { from: '/waarom-is-een-goed-boekhoudpakket-belangrijk/', to: '/boekhoudprogramma-kiezen/', label: 'de keuzehulp voor een boekhoudprogramma' },
   // Rekentool einde salderen (okt. 2026 verwijderd: buiten het zzp-thema) → homepage met alle rekentools.
   { from: '/salderen-2027/', to: '/', label: 'de homepage met alle rekentools voor zzp\'ers' },
+  // Rekentool thuisbatterij (okt. 2026 verwijderd: buiten het zzp-thema) → homepage met alle rekentools.
+  { from: '/thuisbatterij-terugverdientijd/', to: '/', label: 'de homepage met alle rekentools voor zzp\'ers' },
 ];
 
 export function redirectPage({ to, label }) {
