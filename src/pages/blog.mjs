@@ -12,13 +12,18 @@ export { TOOLNAMES };
 
 const AUTHOR = { '@type': 'Person', name: 'Dave West', url: SITE.domain + '/over/' };
 const readMin = (w) => Math.max(1, Math.round(w / 200));
+// Blogafbeelding: vaste maten 1200×630 (ook og:image) en 600×315.
+export const POST_IMG = { w: 1200, h: 630, small: 600 };
+export const postImg = (name, w = POST_IMG.w) => `/img/blog/${name}-${w}.webp`;
+const figure = (img) => `<figure class="post-img"><img src="${postImg(img.name)}" srcset="${postImg(img.name, POST_IMG.small)} ${POST_IMG.small}w, ${postImg(img.name)} ${POST_IMG.w}w" sizes="(min-width: 760px) 720px, calc(100vw - 40px)" width="${POST_IMG.w}" height="${POST_IMG.h}" alt="${esc(img.alt)}" decoding="async">${img.caption ? `<figcaption class="note">${esc(img.caption)}</figcaption>` : ''}</figure>`;
 
 export function postPage(post, all, ogKey) {
   const others = all.filter((x) => x.slug !== post.slug).slice(0, 2);
   const body = `
 <article class="article">
 <h1>${esc(post.title)}</h1>
-<p class="post-meta">Door <a href="/over/">Dave West</a> · <time datetime="${post.date}">${fmtDate(post.date)}</time>${post.updated !== post.date ? ` · bijgewerkt <time datetime="${post.updated}">${fmtDate(post.updated)}</time>` : ''} · ${readMin(post.words)} min lezen</p>
+<p class="post-meta">Door <a href="/over/">Dave West</a> · <time datetime="${post.date}">${fmtDate(post.date)}</time>${post.updated !== post.date ? ` · bijgewerkt <time datetime="${post.updated}">${fmtDate(post.updated)}</time>` : ''}${post.checked ? ` · bronnen gecontroleerd op <time datetime="${post.checked}">${fmtDate(post.checked)}</time>` : ''} · ${readMin(post.words)} min lezen</p>
+${post.image ? figure(post.image) : ''}
 ${post.html}
 ${post.tools.length ? `<aside class="cta"><h2>Reken het zelf uit</h2><ul>${post.tools.map((t) => `<li><a href="${t}">${esc(TOOLNAMES[t] || t)} →</a></li>`).join('')}</ul></aside>` : ''}
 <h2>Bronnen</h2>
@@ -28,13 +33,15 @@ ${post.tools.length ? `<aside class="cta"><h2>Reken het zelf uit</h2><ul>${post.
 ${others.length ? `<h2>Meer op de blog</h2><div class="grid cards two">${others.map((x) => `<a class="card" href="${x.path}"><time datetime="${x.date}" class="note">${fmtDate(x.date)}</time><h3>${esc(x.title)}</h3><p>${esc(x.description)}</p></a>`).join('')}</div>` : ''}`;
   return {
     path: post.path, title: post.seoTitle, ogTitle: post.title, description: post.description, crumb: post.title,
-    parents: [['/blog/', 'Blog']], navPath: '/blog/', og: ogKey, ogType: 'article', updated: post.updated,
+    parents: [['/blog/', 'Blog']], navPath: '/blog/', og: ogKey, ogType: 'article',
+    ogImage: post.image ? { url: SITE.domain + postImg(post.image.name), w: POST_IMG.w, h: POST_IMG.h, alt: post.image.alt } : null, updated: post.updated,
     article: { date: post.date, updated: post.updated },
     body,
     schema: [{
       '@context': 'https://schema.org', '@type': 'Article', headline: post.title, description: post.description,
       datePublished: post.date, dateModified: post.updated, inLanguage: 'nl-NL', wordCount: post.words,
-      author: AUTHOR, publisher: ORG, image: `${SITE.domain}/og/${ogKey}.png`,
+      author: AUTHOR, publisher: ORG,
+      image: post.image ? { '@type': 'ImageObject', url: SITE.domain + postImg(post.image.name), width: POST_IMG.w, height: POST_IMG.h, caption: post.image.alt } : `${SITE.domain}/og/${ogKey}.png`,
       mainEntityOfPage: { '@type': 'WebPage', '@id': SITE.domain + post.path },
       citation: post.sources.map((s) => s.url),
     }],

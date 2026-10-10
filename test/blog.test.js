@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { readdirSync, readFileSync } from 'node:fs';
+import { readdirSync, readFileSync, existsSync } from 'node:fs';
 import { parsePost, markdown, parseFrontmatter } from '../src/lib/markdown.mjs';
 
 const dir = new URL('../content/blog/', import.meta.url);
@@ -43,5 +43,11 @@ for (const f of files) {
     for (const s of p.sources) assert.match(s.url, /^https:\/\//, `bron zonder https-url: ${s.title}`);
     assert.ok(p.tools.length >= 1, 'minstens 1 gerelateerde tool');
     assert.ok(!/<h1/.test(p.html), 'gebruik geen # (h1) in de tekst; de titel is de h1');
+    if (p.checked) assert.match(p.checked, /^\d{4}-\d{2}-\d{2}$/);
+    if (p.image) {
+      assert.match(p.image.name, /^[a-z0-9-]+$/, 'image: alleen a-z, 0-9 en -');
+      assert.ok(p.image.alt.length >= 20, 'image_alt ontbreekt of is te kort');
+      for (const w of [600, 1200]) assert.ok(existsSync(new URL(`../src/assets/img/blog/${p.image.name}-${w}.webp`, import.meta.url)), `afbeelding ${p.image.name}-${w}.webp ontbreekt`);
+    }
   });
 }
