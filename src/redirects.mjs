@@ -9,6 +9,8 @@ export const REDIRECTS = [
   { from: '/wat-is-boekhouden-een-simpel-overzicht-van-wat-je-moet-weten/', to: '/blog/', label: 'de blog over boekhouding en belasting voor zzp\'ers' },
   // Waarom een goed boekhoudpakket belangrijk is → keuzehulp voor een boekhoudprogramma.
   { from: '/waarom-is-een-goed-boekhoudpakket-belangrijk/', to: '/boekhoudprogramma-kiezen/', label: 'de keuzehulp voor een boekhoudprogramma' },
+  // Rekentool einde salderen (okt. 2026 verwijderd: buiten het zzp-thema) → homepage met alle rekentools.
+  { from: '/salderen-2027/', to: '/', label: 'de homepage met alle rekentools voor zzp\'ers' },
 ];
 
 export function redirectPage({ to, label }) {

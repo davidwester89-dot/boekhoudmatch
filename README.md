@@ -4,7 +4,7 @@ Bron van [boekhoudmatch.nl](https://boekhoudmatch.nl): gratis tools en artikelen
 
 - **Boekhoudmatch**: 8 vragen, daarna de pakketten op volgorde met prijs en uitleg. De volgorde gebruikt nooit informatie over partnerschappen (getest).
 - **Vergelijken**: alle pakketten naast elkaar, met de prijzen van de aanbieders zelf en de controledatum.
-- **Rekentools**: netto inkomen zzp, uurtarief, btw, offerte en factuur, plus salderen en thuisbatterij.
+- **Rekentools**: netto inkomen zzp, uurtarief, btw, offerte en factuur, plus thuisbatterij.
 - **Blog**: actuele artikelen met officiële bronnen (`content/blog/*.md`).
 
 Statische site zonder frameworks. Externe verzoeken en cookies alleen voor Google Analytics, en pas na toestemming (zie hieronder). Contact: info@boekhoudmatch.nl.

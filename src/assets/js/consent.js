@@ -17,7 +17,7 @@ export const track = (name, params) => consent.track(name, params);
 
 const TOOLS = {
   '/zzp-netto-inkomen/': 'netto_inkomen', '/zzp-uurtarief/': 'uurtarief', '/btw-berekenen/': 'btw',
-  '/salderen-2027/': 'salderen', '/thuisbatterij-terugverdientijd/': 'thuisbatterij',
+  '/thuisbatterij-terugverdientijd/': 'thuisbatterij',
 };
 
 let banner = null;
