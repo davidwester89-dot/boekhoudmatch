@@ -44,7 +44,7 @@ export function softwareSchema(a, url) {
 
 /** Pakkettabel voor één aanbieder. */
 export function pakketTabel(a) {
-  return `<div class="table-wrap" tabindex="0" role="region" aria-label="Pakketten ${esc(a.naam)}"><table class="data">
+  return `<p class="scrollhint note">Schuif de tabel opzij voor alle kolommen →</p><div class="table-wrap" tabindex="0" role="region" aria-label="Pakketten ${esc(a.naam)}"><table class="data">
 <thead><tr><th>Pakket</th><th>Prijs p/m</th><th>Bij jaarbetaling</th><th>Limieten</th><th>Btw-aangifte</th><th>Bankkoppeling</th><th>Offertes</th><th>Uren</th><th>Aangifte IB</th><th>Rechtsvorm</th></tr></thead>
 <tbody>${a.plannen.map((p) => `<tr><th scope="row">${esc(p.naam)}${p.noot ? `<br><span class="note">${esc(p.noot)}</span>` : ''}</th><td class="n">${e2(p.prijs)}</td><td class="n">${p.prijsJaar != null ? e2(p.prijsJaar) : UNK}</td><td>${limieten(p)}</td><td>${BTW_L[String(p.btwAangifte)]}</td><td>${bankL(p, a)}</td><td>${yn(p.offertes)}</td><td>${yn(p.uren)}</td><td>${ibL(p)}</td><td>${rvL(p, a)}</td></tr>`).join('')}</tbody></table></div>
 <p class="note">Maandprijs bij maandbetaling, ${btwNoot(a)}, zonder tijdelijke acties. Gecontroleerd op ${fmtDate(checked(a))}.</p>`;

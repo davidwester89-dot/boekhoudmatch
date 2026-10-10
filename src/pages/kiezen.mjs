@@ -36,12 +36,13 @@ const faq = [
 
 const body = `
 <h1>Welk boekhoudprogramma past bij jou?</h1>
-<p class="lead">Beantwoord 8 korte vragen. Je ziet meteen wat past, wat het per maand kost en waarom.</p>
+<p class="lead">Beantwoord 8 korte vragen, in ongeveer een minuut. Je ziet meteen wat past, wat het per maand kost en waarom.</p>
 <p class="note">${PAKKETTEN.length} aanbieders · ${PAKKETTEN.reduce((n, a) => n + a.plannen.length, 0)} pakketten · prijzen gecontroleerd op ${fmtDate(CHECKED)}</p>
 <noscript><div class="alert">De match heeft JavaScript nodig. Bekijk anders de <a href="/boekhoudprogramma-vergelijken/">vergelijkingstabel</a>.</div></noscript>
 <div class="grid calc">
 <form class="calc-form card" id="form" novalidate>
 <input type="hidden" name="aanbieder" value="">
+<div class="qprog"><p class="note" id="q-prog">0 van 8 vragen beantwoord</p><div class="qbar" aria-hidden="true"><span id="q-bar"></span></div><p class="note">Bij elke vraag staat al een veelgekozen antwoord. Klopt het niet? Kies een ander antwoord; de uitslag verandert meteen.</p></div>
 ${radios('rechtsvorm', '1. Wat is je rechtsvorm?', VRAGEN.rechtsvorm, 'eenmanszaak')}
 ${radios('facturen', '2. Hoeveel facturen stuur je per maand?', VRAGEN.facturen, 5)}
 ${radios('uitgaven', '3. Hoeveel bonnen en inkoopfacturen heb je per maand?', VRAGEN.uitgaven, 10, 'Denk aan abonnementen, tanken, materiaal en telefoon.')}
@@ -53,11 +54,14 @@ ${radios('bank', '5. Wil je je bank automatisch koppelen?', VRAGEN.bank, 'auto')
 </div></fieldset>
 ${radios('ib', '7. Je aangifte inkomstenbelasting', VRAGEN.ib, 'zelf')}
 ${radios('budget', '8. Wat mag het per maand kosten (excl. btw)?', VRAGEN.budget.map(([v, l]) => [String(v), l]), 'Infinity')}
+<div class="qdone"><button type="submit" class="btn" id="q-submit">Toon mijn uitslag</button><p class="note">Gratis en zonder account. We slaan je antwoorden niet op; ze staan alleen in de link van deze pagina.</p></div>
 </form>
 <section class="card result" id="uitkomst" aria-live="polite">
-<h2>Jouw beste match</h2>
+<h2 id="uitkomst-kop" tabindex="-1">Jouw beste match</h2>
+<p class="note" id="out-status">Bij de standaardantwoorden. Pas de vragen aan voor jouw uitslag.</p>
 <p class="big best" id="big-mirror">${esc(PRE_BEST)}</p>
 <div id="out-cta" class="match-cta">${PRE_CTA}</div>
+<p class="note trust">Volgorde: past, binnen budget, laagste prijs. Commissie telt niet mee. <a href="#methode">Zo werkt de match</a></p>
 <div id="out-pick" class="pick" hidden></div>
 <p class="note" style="margin-bottom:4px">Top 3</p>
 <ol class="top" id="out-top">${PRE_TOP}</ol>

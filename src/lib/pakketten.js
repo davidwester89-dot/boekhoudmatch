@@ -108,7 +108,7 @@ export const PAKKETTEN = [
   },
   {
     id: 'exact', naam: 'Exact (Reeleezee / Online)', site: 'https://www.exact.com/nl',
-    bronnen: [{ url: 'https://www.exact.com/nl/bedrijven/exact-reeleezee', titel: 'Exact Reeleezee – Plans and pricing' }, { url: 'https://www.exact.com/nl/producten/boekhouden/features-en-prijzen', titel: 'Exact Online Boekhouden – Features en prijzen' }],
+    bronnen: [{ url: 'https://www.exact.com/nl/bedrijven/exact-reeleezee', titel: 'Exact Reeleezee – Plans and pricing' }, { url: 'https://www.exact.com/nl/bedrijven/boekhouden/features-en-prijzen', titel: 'Exact Online Boekhouden – Features en prijzen' }],
     btwPrijzen: 'excl', rechtsvormen: null, eigenRekening: false, partner: null,
     actie: '30 dagen gratis proberen.',
     noot: 'Exact Reeleezee (Slim Boekhouden) is de zzp-lijn van Exact; Exact Online Boekhouden is uitgebreider. Offertes en uren staan niet bij deze boekhoudpakketten vermeld.',
@@ -138,14 +138,14 @@ export const PAKKETTEN = [
     ],
   },
   {
-    id: 'moneymonk', naam: 'MoneyMonk', site: 'https://moneymonk.nl', gecontroleerd: '2026-10-10',
+    id: 'moneymonk', naam: 'MoneyMonk', site: 'https://www.moneymonk.nl', gecontroleerd: '2026-10-10',
     bronnen: [
-      { url: 'https://moneymonk.nl/prijzen', titel: 'MoneyMonk – Prijzen' },
-      { url: 'https://moneymonk.nl/starterskorting', titel: 'MoneyMonk – Starterskorting' },
-      { url: 'https://moneymonk.nl/boekhouden/btw-aangifte', titel: 'MoneyMonk – Btw-aangifte' },
-      { url: 'https://moneymonk.nl/boekhouden/inkomstenbelasting-zzp', titel: 'MoneyMonk – Inkomstenbelasting zzp' },
-      { url: 'https://moneymonk.nl/boekhouden/urenregistratie', titel: 'MoneyMonk – Urenregistratie' },
-      { url: 'https://moneymonk.nl/boekhouden/offerte-maken', titel: 'MoneyMonk – Offerte maken' },
+      { url: 'https://www.moneymonk.nl/prijzen', titel: 'MoneyMonk – Prijzen' },
+      { url: 'https://www.moneymonk.nl/starterskorting', titel: 'MoneyMonk – Starterskorting' },
+      { url: 'https://www.moneymonk.nl/boekhouden/btw-aangifte', titel: 'MoneyMonk – Btw-aangifte' },
+      { url: 'https://www.moneymonk.nl/boekhouden/inkomstenbelasting-zzp', titel: 'MoneyMonk – Inkomstenbelasting zzp' },
+      { url: 'https://www.moneymonk.nl/boekhouden/urenregistratie', titel: 'MoneyMonk – Urenregistratie' },
+      { url: 'https://www.moneymonk.nl/boekhouden/offerte-maken', titel: 'MoneyMonk – Offerte maken' },
     ],
     btwPrijzen: null, // prijspagina vermeldt niet of prijzen excl. of incl. btw zijn
     rechtsvormen: null, eigenRekening: false, partner: null,

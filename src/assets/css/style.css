@@ -202,3 +202,17 @@ h2.h3{font-size:1.12rem;margin-top:0}
 .linkbtn:hover{background:none;color:var(--ink)}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 @media(min-width:900px){.match-cta .btn,.match-next .btn{width:100%}}
+
+/* Voortgang en afronden in de match */
+.qprog{margin:0 0 14px}.qprog #q-prog{margin:0 0 6px;font-weight:700;color:var(--ink)}
+.qbar{height:6px;border-radius:99px;background:var(--line);overflow:hidden}.qbar span{display:block;height:100%;width:0;background:var(--green);transition:width .2s}
+.qprog .note:last-child{margin:8px 0 0}
+.qdone{margin-top:16px}.qdone .btn{width:100%}.qdone .note{margin:8px 0 0;text-align:center}
+.result .trust{margin:-6px 0 12px;font-size:.85rem;color:var(--muted);font-weight:400}
+#out-status{margin:0 0 2px}
+.rank .vmore{margin:8px 0 0;font-weight:700}
+.vendor-out{margin:18px 0}.vendor-out .btn{width:100%;max-width:420px}.vendor-out .note{margin:8px 0 0}
+table.data td.n{white-space:nowrap}
+.scrollhint{display:none}
+@media(max-width:899px){.scrollhint{display:block;font-size:.85rem;margin:0 0 6px}}
+@media(max-width:899px){nav.main{-webkit-mask-image:linear-gradient(90deg,#000 85%,transparent);mask-image:linear-gradient(90deg,#000 85%,transparent)}}

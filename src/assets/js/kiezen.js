@@ -31,6 +31,8 @@ const plabel = () => el('span', 'plabel', 'partnerlink');
 function lijst(cls, items) { const ul = el('ul', cls); for (const t of items) ul.append(el('li', '', t)); return ul; }
 
 let topVendor = '';
+// Antwoorden in de binnenkomende link? (bindForm zet daarna altijd de antwoorden in de URL.)
+const uitLink = /[?&]rechtsvorm=/.test(location.search);
 const form = document.getElementById('form');
 bindForm(form, (v) => {
   const extra = [v.offertes && 'offertes', v.uren && 'uren'].filter(Boolean);
@@ -96,6 +98,7 @@ bindForm(form, (v) => {
     if (r.let_op.length) { card.append(el('p', 'lbl warn', 'Let op:'), lijst('letop', r.let_op)); }
     if (r.alternatieven?.length) card.append(el('p', 'note', 'Ook passend bij deze aanbieder: ' + r.alternatieven.join(', ') + '.'));
     if (a.actie) card.append(el('p', 'note', 'Actie: ' + a.actie));
+    const more = el('p', 'vmore'); const ml = paginaLink(a, r.past ? i + 1 : 0, `Alles over ${REDACTIE[a.id].kort} →`); more.append(ml); card.append(more);
     const src = el('p', 'note'); src.append('Bron: ');
     a.bronnen.forEach((b, j) => { if (j) src.append(' · '); const l = el('a', '', b.titel); l.href = b.url; l.rel = 'noopener'; l.dataset.vendor = a.naam; src.append(l); });
     card.append(src);
@@ -130,4 +133,34 @@ if (copyBtn) {
 document.getElementById('uitkomst').addEventListener('click', (e) => {
   const t = e.target.closest('[data-cta]');
   if (t && !t.dataset.vendor) track('match_cta', { cta_type: t.dataset.cta });
+});
+
+// Voortgang: welke vragen heeft de bezoeker zelf beantwoord (of bevestigd door erop te tikken)?
+// Komt de bezoeker binnen met antwoorden in de link, dan tellen alle vragen als beantwoord.
+const vragen = [...form.querySelectorAll('fieldset.q')];
+const gedaan = new Set();
+if (uitLink) vragen.forEach((f, i) => gedaan.add(i));
+function voortgang() {
+  const n = gedaan.size, N = vragen.length;
+  document.getElementById('q-prog').textContent = n === N ? `Alle ${N} vragen beantwoord` : `${n} van ${N} vragen beantwoord`;
+  document.getElementById('q-bar').style.width = `${Math.round((n / N) * 100)}%`;
+  document.getElementById('out-status').textContent = uitLink && n === N ? 'Op basis van de antwoorden in deze link.' : n === 0 ? 'Bij de standaardantwoorden. Pas de vragen aan voor jouw uitslag.' : n === N ? 'Op basis van jouw antwoorden.' : `Op basis van je antwoorden tot nu toe (${n} van ${N}).`;
+}
+function markeer(e) {
+  if (!e.isTrusted) return;
+  const f = e.target.closest('fieldset.q'); if (!f) return;
+  const i = vragen.indexOf(f); gedaan.add(i);
+  if (i > 5) gedaan.add(5); // vraag 6 (extra's) is optioneel: telt mee zodra je verder bent
+  voortgang();
+}
+form.addEventListener('change', markeer);
+form.addEventListener('click', (e) => { if (e.target.matches('input')) markeer(e); });
+voortgang();
+form.addEventListener('submit', () => {
+  vragen.forEach((f, i) => gedaan.add(i)); voortgang(); // bevestigd: de overige standaardantwoorden kloppen
+  if (!started) { started = true; track('quiz_start', {}); }
+  complete();
+  const kop = document.getElementById('uitkomst-kop');
+  document.getElementById('uitkomst').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+  kop.focus({ preventScroll: true });
 });
