@@ -29,19 +29,16 @@ function praktijkSectie(a, r, t) {
     rij('Support', esc(m.support)),
     rij('Proefperiode', esc(m.proef)),
   ].join('');
-  const shots = t.screenshots.map((s) => `<figure class="ptest-shot"><a href="${esc(s.src)}" title="Screenshot op ware grootte"><img src="${esc(s.src)}" width="${s.width}" height="${s.height}" alt="${esc(s.alt)}" loading="lazy" decoding="async"></a><figcaption class="note">${esc(s.bijschrift)}</figcaption></figure>`).join('');
+  const shots = t.screenshots.map((s) => `<figure class="ptest-shot"><a href="${esc(s.src)}" title="Screenshot op ware grootte"><img src="${esc(s.src)}" width="${s.width}" height="${s.height}" alt="${esc(s.alt)}" loading="lazy" decoding="async"></a><figcaption>${esc(s.bijschrift)}</figcaption></figure>`).join('');
   return `
 <section id="praktijktest" class="ptest" aria-labelledby="praktijktest-kop">
 <h2 id="praktijktest-kop">Praktijktest: zo werkt ${esc(r.kort)} in de praktijk</h2>
-<p class="post-meta">Getest op <time datetime="${t.datum}">${fmtDate(t.datum)}</time>, ${esc(t.pakket.split(' (')[0].toLowerCase())}, door <a href="/over/">${esc(t.door)}</a></p>
-<p>We maakten een proefaccount aan met een testadministratie en vaste testgegevens: één factuur van € 1.000 plus 21% btw aan een testklant, één inkoopbon van € 121 en drie bankregels. Hieronder staat wat we zagen, zonder cijfer of eindoordeel.</p>
+<p>Getest op <time datetime="${t.datum}">${fmtDate(t.datum)}</time> door <a href="/over/">${esc(t.door)}</a></p>
 <div class="table-wrap" tabindex="0" role="region" aria-label="Meetresultaten praktijktest ${esc(r.kort)}"><table class="data ptest-facts"><tbody>${rijen}</tbody></table></div>
 <div class="ptest-shots">${shots}</div>
 <h3>Wat opviel</h3>
 <ul>${t.waarnemingen.map((w) => `<li>${esc(w)}</li>`).join('')}</ul>
-<h3>Grenzen van deze test</h3>
-<ul class="ptest-grenzen">${t.grenzen.map((g) => `<li>${esc(g)}</li>`).join('')}</ul>
-<p class="note">Screenshots zijn alleen bijgesneden en geschaald, verder niet bewerkt. We gebruiken ze als citaat bij onze eigen bespreking. De test heeft geen invloed op de volgorde in de match.</p>
+<p>${esc(t.grenzen)}</p>
 </section>
 `;
 }
