@@ -6,6 +6,7 @@ import { REDACTIE } from '../lib/aanbieders.js';
 import { uitgaand, ctaTekst } from '../lib/partnerlinks.js';
 import { praktijktest } from '../lib/praktijktests.js';
 import { e2, checked, vanaf, bronLinks, pakketTabel, logo, softwareSchema, btwNoot, N_AANB, UNK } from '../lib/weergave.mjs';
+import { vsVoor } from '../lib/vsgidsen.mjs';
 
 // Uitgaande knop naar de aanbieder: partnerlink alleen als die is goedgekeurd (dan met label), anders gewone link.
 function uitCta(a, r) {
@@ -69,11 +70,12 @@ ${uitCta(a, r)}
 
 <h2 id="bronnen">Bronnen</h2>
 <ul class="sources">${a.bronnen.map((b) => `<li><a href="${b.url}" rel="noopener" data-vendor="${esc(a.naam)}">${esc(b.titel)}</a></li>`).join('')}</ul>
-<p>Twijfel je tussen ${esc(r.kort)} en een ander pakket? <a href="/boekhoudprogramma-kiezen/">Doe de match</a> of bekijk de <a href="/boekhoudprogramma-vergelijken/">vergelijking</a>. Fout gezien? Mail <a href="mailto:${SITE.email}">${SITE.email}</a>.</p>
+${vsVoor(r.slug).map((g) => `<p>Twijfel je tussen ${esc(r.kort)} en ${esc(g.ander)}? Lees <a href="${g.path}">${esc(g.kort)}</a>.</p>`).join('')}
+<p>${vsVoor(r.slug).length ? 'Nog twijfels?' : `Twijfel je tussen ${esc(r.kort)} en een ander pakket?`} <a href="/boekhoudprogramma-kiezen/">Doe de match</a> of bekijk de <a href="/boekhoudprogramma-vergelijken/">vergelijking</a>. Fout gezien? Mail <a href="mailto:${SITE.email}">${SITE.email}</a>.</p>
 {{related}}`;
-  const titel = `${r.kort} prijzen 2026: pakketten en limieten | BoekhoudMatch`;
+  const titel = `${r.kort} prijzen 2026: pakketten en limieten | BoekhoudMatch`; // max. 60 tekens, anders korter
   return {
-    path, title: titel.length <= 62 ? titel : `${r.kort} prijzen 2026: pakketten, limieten | BoekhoudMatch`, ogTitle: `${a.naam}: prijzen en pakketten`, og: existsSync(`src/assets/og/vendor-${r.slug}.png`) ? `vendor-${r.slug}` : 'vergelijken',
+    path, title: titel.length <= 60 ? titel : `${r.kort} prijzen 2026: pakketten | BoekhoudMatch`, ogTitle: `${a.naam}: prijzen en pakketten`, og: existsSync(`src/assets/og/vendor-${r.slug}.png`) ? `vendor-${r.slug}` : 'vergelijken',
     description: `${r.kort}: ${a.plannen.length} pakketten, ${v.prijs === 0 ? 'ook een gratis pakket' : `vanaf ${e2(v.prijs)} p/m`}. Prijs, limieten, btw-aangifte en bankkoppeling per pakket, gecontroleerd op ${fmtDate(c)}.`,
     crumb: r.kort, parents: [['/boekhoudprogramma-vergelijken/', 'Vergelijken']], navPath: '/boekhoudprogramma-vergelijken/', updated: mod,
     body, schema: [{ ...softwareSchema(a, SITE.domain + path), dateModified: mod }],

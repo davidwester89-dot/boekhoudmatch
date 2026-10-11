@@ -1,6 +1,6 @@
 ---
-title: Bankkoppeling in je boekhoudprogramma: wel of niet? (2026)
-seo_title: Bankkoppeling in je boekhoudprogramma (2026) | BoekhoudMatch
+title: Bankkoppeling in je boekhoudprogramma: wel of niet?
+seo_title: Bankkoppeling boekhoudprogramma: nodig? | BoekhoudMatch
 description: Heb je een automatische bankkoppeling nodig? Per aanbieder vanaf welk pakket het kan, wat het extra kost en wanneer handmatig importeren genoeg is.
 crumb: Bankkoppeling
 updated: 2026-10-10

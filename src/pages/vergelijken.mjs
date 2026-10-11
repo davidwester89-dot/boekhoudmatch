@@ -2,6 +2,7 @@ import { SITE, esc, slot, fmtDate, faqHtml, faqSchema, METHODE_LIJST } from '../
 import { PAKKETTEN, CHECKED } from '../lib/pakketten.js';
 import { REDACTIE, vendorHref } from '../lib/aanbieders.js';
 import { situaties } from '../lib/situaties.mjs';
+import { VS_GIDSEN } from '../lib/vsgidsen.mjs';
 import { e2, UNK, BTW_L, yn, ibL, bankL, rvL, limieten, checked, vanaf, bronLinks, N_AANB, N_PAK, ALFA, logo, softwareSchema, btwNoot } from '../lib/weergave.mjs';
 
 const path = '/boekhoudprogramma-vergelijken/';
@@ -48,7 +49,7 @@ const sitBlok = (s) => {
 
 const goedkoopst = sit.find((s) => s.id === 'instap');
 const faq = [
-  ['Wat is het goedkoopste boekhoudprogramma voor zzp\'ers?', `Gratis of heel goedkope pakketten bestaan (bijvoorbeeld Tellow Gratis, Rompslomp Starter, Moneybird Compact), maar met strenge limieten op facturen, bonnen of transacties. Wil je zelf boekhouden, btw-aangifte doen en 5 facturen en 5 uitgaven per maand kwijt kunnen, dan is ${goedkoopst.top.a.naam} ${goedkoopst.top.p.naam} (${e2(goedkoopst.top.prijs)} p/m) het goedkoopst. Stuur je alleen af en toe een factuur? Dan is onze gratis <a href="/offerte-factuur-maken/">factuurtool</a> misschien al genoeg.`],
+  ['Wat is het goedkoopste boekhoudprogramma voor zzp\'ers?', `Gratis en heel goedkope pakketten, zoals Tellow Gratis, Rompslomp Starter en Moneybird Compact, hebben strenge limieten. Voor btw-aangifte en 5 facturen en 5 uitgaven per maand is ${goedkoopst.top.a.naam} ${goedkoopst.top.p.naam} (${e2(goedkoopst.top.prijs)} p/m) het goedkoopst. Stuur je maar af en toe een factuur? Dan is onze gratis <a href="/offerte-factuur-maken/">factuurtool</a> misschien genoeg.`],
   ['Waarom staat er soms “niet vermeld”?', 'De aanbieder noemt het niet op zijn site. We vullen niets zelf in. Vraag het na of probeer het in de proefperiode.'],
   ['Hoe vaak worden de prijzen gecontroleerd?', `Elke maand, door Dave West. De laatste controle was op ${fmtDate(CHECKED)}. Is een prijswijziging al aangekondigd (zoals bij Rompslomp per 1 november 2026), dan rekenen we met de nieuwe prijs.`],
   ['Telt commissie mee in de volgorde?', 'Nee. De tabel staat op alfabet en de situaties volgen een vaste regel op prijs en functies. Er staan nu geen partnerlinks op de site.'],
@@ -96,6 +97,7 @@ ${ALFA.map(kaart).join('\n')}
 ${rows}
 </tbody></table></div>
 <p>Maandprijzen bij maandbetaling, exclusief btw. <sup>*</sup> Btw niet vermeld door de aanbieder.</p>
+<p>Twee aanbieders naast elkaar: ${VS_GIDSEN.map((g) => `<a href="${g.path}">${esc(g.kort)}</a>`).join(' · ')}.</p>
 ${slot('vergelijken-partner', 'partnerlinks naar proefperiodes.')}
 
 <h2>Veelgestelde vragen</h2>
@@ -105,7 +107,7 @@ ${faqHtml(faq)}
 `;
 
 export default {
-  path, title: 'Vergelijkingstabel boekhoudprogramma\'s 2026 | BoekhoudMatch', og: 'vergelijken', ogTitle: 'Boekhoudprogramma\'s vergelijken 2026',
+  path, title: 'Boekhoudprogramma\'s vergelijken 2026 | BoekhoudMatch', og: 'vergelijken', ogTitle: 'Boekhoudprogramma\'s vergelijken 2026',
   description: `Vergelijk ${N_PAK} pakketten van ${N_AANB} boekhoudprogramma's op prijs, limieten, btw-aangifte en bankkoppeling. Filter op je situatie. Met bron en datum.`,
   crumb: 'Boekhoudprogramma vergelijken', body, scripts: ['/js/vergelijken.js'], updated: CHECKED,
   schema: [faqSchema(faq), {

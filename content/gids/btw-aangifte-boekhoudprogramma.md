@@ -1,6 +1,6 @@
 ---
-title: Btw-aangifte vanuit je boekhoudprogramma (2026)
-seo_title: Btw-aangifte vanuit boekhoudprogramma 2026 | BoekhoudMatch
+title: Btw-aangifte vanuit je boekhoudprogramma
+seo_title: Btw-aangifte vanuit je boekhoudprogramma | BoekhoudMatch
 description: Welke boekhoudprogramma's dienen je btw-aangifte direct in, en bij welke typ je zelf over? De deadlines van 2026 en per aanbieder wat de prijspagina zegt.
 crumb: Btw-aangifte
 updated: 2026-10-10
