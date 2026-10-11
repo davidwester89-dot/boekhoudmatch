@@ -1,3 +1,4 @@
+import { existsSync } from 'node:fs';
 import { SITE, esc, fmtDate, ORG } from '../layout.mjs';
 
 const TOOLNAMES = {
@@ -15,7 +16,9 @@ const readMin = (w) => Math.max(1, Math.round(w / 200));
 // Blogafbeelding: vaste maten 1200×630 (ook og:image) en 600×315.
 export const POST_IMG = { w: 1200, h: 630, small: 600 };
 export const postImg = (name, w = POST_IMG.w) => `/img/blog/${name}-${w}.webp`;
-const figure = (img) => `<figure class="post-img"><img src="${postImg(img.name)}" srcset="${postImg(img.name, POST_IMG.small)} ${POST_IMG.small}w, ${postImg(img.name)} ${POST_IMG.w}w" sizes="(min-width: 760px) 720px, calc(100vw - 40px)" width="${POST_IMG.w}" height="${POST_IMG.h}" alt="${esc(img.alt)}" decoding="async">${img.caption ? `<figcaption>${esc(img.caption)}</figcaption>` : ''}</figure>`;
+// Tussenmaat 900w als die bestaat (scheelt op mobiel ~35 KB); bovenaan de pagina, dus fetchpriority high.
+const mid = (name) => (existsSync(`src/assets${postImg(name, 900)}`) ? `${postImg(name, 900)} 900w, ` : '');
+const figure = (img) => `<figure class="post-img"><img src="${postImg(img.name)}" srcset="${postImg(img.name, POST_IMG.small)} ${POST_IMG.small}w, ${mid(img.name)}${postImg(img.name)} ${POST_IMG.w}w" sizes="(min-width: 760px) 720px, calc(100vw - 40px)" width="${POST_IMG.w}" height="${POST_IMG.h}" alt="${esc(img.alt)}" fetchpriority="high" decoding="async">${img.caption ? `<figcaption>${esc(img.caption)}</figcaption>` : ''}</figure>`;
 
 export function postPage(post, all, ogKey) {
   const others = all.filter((x) => x.slug !== post.slug).slice(0, 2);

@@ -54,7 +54,7 @@ export const aanbiederPages = PAKKETTEN.map((a) => {
 <div class="actions"><a class="btn" href="/boekhoudprogramma-kiezen/?aanbieder=${a.id}" rel="nofollow">Past ${esc(r.kort)} bij jou? Doe de match</a><a class="btn ghost" href="/boekhoudprogramma-vergelijken/">Vergelijk met ${N_AANB - 1} andere aanbieders</a></div>
 
 <h2>In het kort</h2>
-<div class="vhead big">${logo(a)}</div>
+<div class="vhead big">${logo(a, false)}</div>
 <dl class="vfacts wide"><dt>Vanaf</dt><dd>${v.prijs === 0 ? 'gratis' : `${e2(v.prijs)} p/m`} (${esc(v.naam)}${v.perFactuur ? `, ${e2(v.perFactuur)} per factuur` : ''})</dd><dt>Limiet die vaak knelt</dt><dd>${esc(r.knelt)}</dd><dt>Sterk</dt><dd>${esc(r.sterk)}</dd><dt>Zwak</dt><dd>${esc(r.zwak)}</dd><dt>Gratis proberen</dt><dd>${r.proef ? `${r.proef} dagen` : UNK}</dd>${a.actie ? `<dt>Actie</dt><dd>${esc(a.actie)}</dd>` : ''}</dl>
 
 <h2>Pakketten en prijzen</h2>
