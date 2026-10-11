@@ -3,7 +3,7 @@ import { SITE, esc, fmtDate, ORG } from '../layout.mjs';
 const TOOLNAMES = {
   '/boekhoudprogramma-kiezen/': 'Welk boekhoudprogramma past bij jou? Doe de match',
   '/boekhoudprogramma-vergelijken/': 'Boekhoudprogramma\'s vergelijken',
-  '/zzp-netto-inkomen/': 'Bereken je netto inkomen als zzp\'er',
+  '/zzp-netto-inkomen/': 'Bereken je netto-inkomen als zzp\'er',
   '/zzp-uurtarief/': 'Bereken je uurtarief',
   '/btw-berekenen/': 'Btw berekenen',
   '/offerte-factuur-maken/': 'Gratis offerte en factuur maken',

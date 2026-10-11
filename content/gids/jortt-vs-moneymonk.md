@@ -31,7 +31,7 @@ MoneyMonk zegt op de functiepagina dat je de btw-aangifte vanuit de software doe
 Dit is het verschil waar veel zzp'ers op letten.
 
 - **Jortt** noemt bij ZZP, MKB en Plus een gecontroleerde aangifte inkomstenbelasting.
-- **MoneyMonk** maakt volgens de site een balans en winst- en verliesrekening die je overneemt in je IB-aangifte. Het invullen doe je zelf.
+- **MoneyMonk** maakt volgens de site een balans en winst-en-verliesrekening die je overneemt in je IB-aangifte. Het invullen doe je zelf.
 
 In de match heet de eerste “hulp of controle bij je IB-aangifte” en de tweede “overzicht voor je IB-aangifte”. Wil je je IB-aangifte zelf doen, dan maakt het verschil weinig uit. Wil je een controle, dan scoort Jortt op dit punt hoger.
 

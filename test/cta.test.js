@@ -20,9 +20,10 @@ test('uitgaand: met partnerlink sponsored + label', () => {
   const r = uitgaand(a, { [a.id]: { url: 'https://example.com/x' } });
   assert.equal(r.partner, true); assert.equal(r.rel, 'nofollow sponsored noopener'); assert.equal(r.href, 'https://example.com/x');
 });
-test('ctaTekst: proef of gratis pakket -> Probeer, anders Bekijk', () => {
-  assert.equal(ctaTekst('MoneyMonk', { proef: 30, prijs: 9 }).tekst, 'Probeer MoneyMonk gratis');
-  assert.equal(ctaTekst('Tellow', { proef: null, prijs: 0 }).tekst, 'Probeer Tellow gratis');
+test('ctaTekst: proefperiode of gratis pakket in de knop, anders Bekijk', () => {
+  assert.equal(ctaTekst('MoneyMonk', { proef: 30, prijs: 9 }).tekst, '30 dagen gratis proberen bij MoneyMonk');
+  assert.equal(ctaTekst('MoneyMonk', { proef: 30, prijs: 9 }).gratis, true);
+  assert.equal(ctaTekst('Tellow', { proef: null, prijs: 0 }).tekst, 'Gratis beginnen bij Tellow');
   assert.equal(ctaTekst('Tellow', { proef: null, prijs: 12.99 }).tekst, 'Bekijk Tellow');
   assert.equal(ctaTekst('Rompslomp', { proef: null, prijs: 8.95 }).tekst, 'Bekijk Rompslomp');
 });

@@ -52,7 +52,7 @@ Dat scheelt overtypen. Bij Moneybird kan het vanaf Start ({{p:moneybird/start}})
 
 ### Wil je hulp bij je aangifte inkomstenbelasting?
 
-Als eenmanszaak doe je zelf aangifte inkomstenbelasting. Jortt ZZP, MKB en Plus noemen een gecontroleerde IB-aangifte. Tellow Compleet ({{p:tellow/compleet}}) heeft een boekhouder die je aangiftes opstelt. MoneyMonk zet de balans en winst- en verliesrekening klaar die je overneemt. Doe je je IB-aangifte zelf zonder hulp, dan hoeft dit niet mee te wegen.
+Als eenmanszaak doe je zelf aangifte inkomstenbelasting. Jortt ZZP, MKB en Plus noemen een gecontroleerde IB-aangifte. Tellow Compleet ({{p:tellow/compleet}}) heeft een boekhouder die je aangiftes opstelt. MoneyMonk zet de balans en winst-en-verliesrekening klaar die je overneemt. Doe je je IB-aangifte zelf zonder hulp, dan hoeft dit niet mee te wegen.
 
 ## Voorbeelden uit de match
 

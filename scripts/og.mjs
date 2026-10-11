@@ -36,7 +36,7 @@ const OG = {
   home: ['Voor zzp\'ers', 'Vind het boekhoudprogramma dat bij je past', 'Echte prijzen · eerlijk uitgelegd · gratis'],
   match: ['Gratis · 8 vragen', 'Welk boekhoudprogramma past bij jou?', 'Echte prijzen van de aanbieders zelf'],
   vergelijken: ['Prijzen 2026', 'Boekhoudprogramma\'s vergelijken', 'Prijs, limieten, btw-aangifte en bankkoppeling'],
-  netto: ['Rekentool 2026', 'Netto inkomen zzp berekenen', 'Met zelfstandigenaftrek, mkb-vrijstelling en Zvw'],
+  netto: ['Rekentool 2026', 'Netto-inkomen zzp berekenen', 'Met zelfstandigenaftrek, mkb-vrijstelling en Zvw'],
   uurtarief: ['Rekentool 2026', 'Uurtarief zzp berekenen', 'Ook vanuit je huidige salaris'],
   btw: ['Rekentool', 'Btw berekenen', '21% of 9%, inclusief en exclusief'],
   factuur: ['Gratis tool', 'Offerte en factuur maken', 'Zonder account, alles in je eigen browser'],

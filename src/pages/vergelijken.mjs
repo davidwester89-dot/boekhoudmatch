@@ -43,9 +43,7 @@ const sitBlok = (s) => {
   const t = s.top;
   return `<div class="card sit"><span class="tag">${esc(s.titel)}</span><h3><a href="${vendorHref(t.a.id)}">${esc(t.a.naam)} ${esc(t.p.naam)}</a></h3>
 <p class="vprice"><strong>${e2(t.prijs)}</strong> p/m${t.prijs !== t.p.prijs ? ' (incl. bankkoppeling)' : ''}</p>
-<p class="sub">${esc(s.regel)}</p>
-${s.volgende.length ? `<p class="sub">Daarna: ${s.volgende.map((x) => `${esc(x.a.naam)} ${esc(x.p.naam)} (${e2(x.prijs)})`).join(', ')}.</p>` : ''}
-${s.alt ? `<p class="sub">Met je eigen boekhouder: ${esc(s.alt.a.naam)} ${esc(s.alt.p.naam)} (${e2(s.alt.prijs)} p/m plus je boekhouder).</p>` : ''}</div>`;
+<p>${esc(s.regel)}${s.alt ? ` Met je eigen boekhouder: ${esc(s.alt.a.naam)} ${esc(s.alt.p.naam)} (${e2(s.alt.prijs)} p/m plus je boekhouder).` : ''}</p></div>`;
 };
 
 const goedkoopst = sit.find((s) => s.id === 'instap');

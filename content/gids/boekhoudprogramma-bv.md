@@ -30,7 +30,7 @@ Een bv moet de jaarrekening elk boekjaar bij de KVK deponeren. Voor de bedrijfsk
 
 ### Geen volumegrens
 
-Een bv heeft vaak meer transacties dan een kleine eenmanszaak, en je wilt niet halverwege het jaar van pakket wisselen. Het situatieblok “beste als je naar een bv groeit” kijkt daarom naar het goedkoopste pakket waarbij de aanbieder de bv noemt en geen volumegrens noemt:
+Een bv heeft vaak meer transacties dan een kleine eenmanszaak, en je wilt niet halverwege het jaar van pakket wisselen. Hieronder zie je daarom het goedkoopste pakket dat geschikt is voor een bv en geen volumegrens heeft:
 
 {{blok:situaties bv}}
 

@@ -65,9 +65,9 @@ ${volgendeStap([['Gratis offerte en factuur maken', '/offerte-factuur-maken/'], 
 export default {
   path,
   title: 'Uurtarief zzp berekenen 2026 | BoekhoudMatch', og: 'uurtarief', ogTitle: 'Uurtarief zzp berekenen (2026)',
-  description: 'Bereken welk uurtarief je als zzp\'er nodig hebt voor je gewenste netto inkomen, of welk tarief past bij je salaris. Met de belastingregels van 2026.',
+  description: 'Bereken welk uurtarief je als zzp\'er nodig hebt voor je gewenste netto-inkomen, of welk tarief past bij je salaris. Met de belastingregels van 2026.',
   crumb: 'Uurtarief zzp',
   body,
   scripts: ['/js/uurtarief.js'],
-  schema: [webApp({ name: 'Uurtarief zzp 2026 rekentool', url: SITE.domain + path, description: 'Bereken het benodigde uurtarief voor zzp\'ers op basis van netto inkomen of salaris.' }), faqSchema(faq)],
+  schema: [webApp({ name: 'Uurtarief zzp 2026 rekentool', url: SITE.domain + path, description: 'Bereken het benodigde uurtarief voor zzp\'ers op basis van netto-inkomen of salaris.' }), faqSchema(faq)],
 };

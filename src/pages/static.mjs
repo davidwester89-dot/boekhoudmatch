@@ -58,7 +58,7 @@ ${VOORBEELDEN.map(voorbeeld).join('\n')}
 
 <h2>Rekentools voor zzp'ers</h2>
 <div class="grid cards">
-${tool('/zzp-netto-inkomen/', 'netto', 'Netto inkomen', 'Wat houd je over van je winst?')}
+${tool('/zzp-netto-inkomen/', 'netto', 'Netto-inkomen', 'Wat houd je over van je winst?')}
 ${tool('/zzp-uurtarief/', 'uur', 'Uurtarief', 'Welk tarief heb je nodig?')}
 ${tool('/btw-berekenen/', 'btw', 'Btw berekenen', 'Van exclusief naar inclusief en terug.')}
 ${tool('/offerte-factuur-maken/', 'factuur', 'Offerte en factuur', 'Gratis en zonder account.')}
@@ -165,7 +165,7 @@ ${sourceList(['box1_2026', 'kortingen_2026', 'arbeidsinkomen', 'zelfstandigenaft
 <h2>Btw</h2>
 ${sourceList(['btw', 'kor'], SOURCES)}
 <h2>Wijzigingen</h2>
-<ul><li>10 oktober 2026: de energietools (einde salderen en thuisbatterij) en hun bronnen verwijderd; ze vielen buiten het zzp-thema.</li><li>10 oktober 2026: MoneyMonk toegevoegd (prijzen van moneymonk.nl). Alle prijzen opnieuw gecontroleerd; geen wijzigingen.</li><li>10 oktober 2026: Silvasoft toegevoegd als 9e aanbieder (prijzen en functies van silvasoft.nl).</li><li>9 oktober 2026: nieuw design en blog.</li><li>8 oktober 2026: eerste versie. Rompslomp: tarieven per 1 november 2026.</li></ul>`,
+<ul><li>11 oktober 2026: Informer MKB Basis aangepast naar € 34 p/m, zoals op informer.nl/prijzen staat.</li><li>10 oktober 2026: de energietools (einde salderen en thuisbatterij) en hun bronnen verwijderd; ze vielen buiten het zzp-thema.</li><li>10 oktober 2026: MoneyMonk toegevoegd (prijzen van moneymonk.nl). Alle prijzen opnieuw gecontroleerd; geen wijzigingen.</li><li>10 oktober 2026: Silvasoft toegevoegd als 9e aanbieder (prijzen en functies van silvasoft.nl).</li><li>9 oktober 2026: nieuw design en blog.</li><li>8 oktober 2026: eerste versie. Rompslomp: tarieven per 1 november 2026.</li></ul>`,
 };
 
 export const over = {

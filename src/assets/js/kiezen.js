@@ -56,9 +56,7 @@ bindForm(form, (v) => {
   const cta = document.getElementById('out-cta');
   if (passend[0]) {
     const r = passend[0], a = byId[r.aanbieder], { l, u, c, red } = knop(a, r, 1, 'btn');
-    const sub = el('p', 'sub cta-sub', [c.uitleg, `naar ${host(a.site)}`].filter(Boolean).join(' · '));
-    if (u.partner) sub.append(' · ', plabel());
-    cta.replaceChildren(l, sub, paginaLink(a, 1, `Lees alles over ${red.kort} →`));
+    cta.replaceChildren(...[l, u.partner && plabel(), paginaLink(a, 1, `Lees alles over ${red.kort} →`)].filter(Boolean));
     cta.hidden = false;
   } else { cta.replaceChildren(); cta.hidden = true; }
 
@@ -70,8 +68,6 @@ bindForm(form, (v) => {
   if (!passend.length) top.replaceChildren(el('li', '', 'Geen pakket past bij al je wensen. Hieronder zie je waarom, en wat het dichtst in de buurt komt.'));
   topVendor = passend[0] ? passend[0].naam : '';
   document.getElementById('big-mirror').textContent = passend[0] ? `${passend[0].naam} ${passend[0].planNaam}` : '–';
-  const vol = res[0].volumes;
-  document.getElementById('out-vol').textContent = `We rekenen met ${vol.facturen} facturen, ${vol.uitgaven} bonnen en ongeveer ${vol.transacties} banktransacties per maand.`;
 
   // Vooringestelde aanbieder (?aanbieder=id, vanaf een aanbiederpagina): laat zien waar die staat. Verandert de volgorde niet.
   const pick = document.getElementById('out-pick');
@@ -140,7 +136,6 @@ function voortgang() {
   const n = gedaan.size, N = vragen.length;
   document.getElementById('q-prog').textContent = n === N ? `Alle ${N} vragen beantwoord` : `${n} van ${N} vragen beantwoord`;
   document.getElementById('q-bar').style.width = `${Math.round((n / N) * 100)}%`;
-  document.getElementById('out-status').textContent = uitLink && n === N ? 'Op basis van de antwoorden in deze link.' : n === 0 ? 'Bij de standaardantwoorden. Pas de vragen aan voor jouw uitslag.' : n === N ? 'Op basis van jouw antwoorden.' : `Op basis van je antwoorden tot nu toe (${n} van ${N}).`;
 }
 function markeer(e) {
   if (!e.isTrusted) return;

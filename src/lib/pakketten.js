@@ -94,15 +94,15 @@ export const PAKKETTEN = [
     ],
   },
   {
-    id: 'informer', naam: 'Informer', site: 'https://www.informer.nl',
+    id: 'informer', naam: 'Informer', site: 'https://www.informer.nl', gecontroleerd: '2026-10-11',
     bronnen: [{ url: 'https://www.informer.nl/prijzen', titel: 'Informer – Prijzen' }],
     btwPrijzen: 'excl', rechtsvormen: null, eigenRekening: true, partner: null,
     actie: 'Starters (KVK-inschrijving max. 6 maanden oud): 12 maanden € 15 p/m korting. 30 dagen gratis proberen.',
-    noot: 'Automatische koppeling met je eigen bank kost € 1 p/m per rekening (Informer Money-rekening zonder vaste kosten). MKB Basis staat op de pagina zowel als € 34 als € 35; wij rekenen met € 35.',
+    noot: 'Automatische koppeling met je eigen bank kost € 1 p/m per rekening (Informer Money-rekening zonder vaste kosten).',
     plannen: [
       { id: 'zzp-basis', naam: 'ZZP Basis', prijs: 15, facturen: INF, transacties: 30, btwAangifte: 'ja', bank: 'auto-extra', bankExtra: 1, offertes: true, uren: true, ib: false, noot: 'Scan & Herken + € 5 p/m.' },
       { id: 'zzp-plus', naam: 'ZZP Plus', prijs: 23, facturen: INF, transacties: INF, btwAangifte: 'ja', bank: 'auto-extra', bankExtra: 1, offertes: true, uren: true, ib: false },
-      { id: 'mkb-basis', naam: 'MKB Basis', prijs: 35, facturen: INF, transacties: INF, btwAangifte: 'ja', bank: 'auto-extra', bankExtra: 1, offertes: true, uren: true, ib: false },
+      { id: 'mkb-basis', naam: 'MKB Basis', prijs: 34, facturen: INF, transacties: INF, btwAangifte: 'ja', bank: 'auto-extra', bankExtra: 1, offertes: true, uren: true, ib: false },
       { id: 'mkb-plus', naam: 'MKB Plus', prijs: 45, facturen: INF, transacties: INF, btwAangifte: 'ja', bank: 'auto-extra', bankExtra: 1, offertes: true, uren: true, ib: false },
     ],
   },
@@ -150,7 +150,7 @@ export const PAKKETTEN = [
     btwPrijzen: null, // prijspagina vermeldt niet of prijzen excl. of incl. btw zijn
     rechtsvormen: null, eigenRekening: false, partner: null,
     actie: 'Starters (onlangs ingeschreven bij de KVK): 15 maanden gratis. Pro: eerste 3 maanden € 15 p/m. 30 dagen gratis proberen.',
-    noot: 'Limieten gaan over verwerkte banktransacties per maand en omzet per jaar. Gratis PSD2-bankkoppeling voor al je bankrekeningen in elk pakket. Btw-aangifte doe je vanuit de software; voor de IB-aangifte maakt het pakket een balans en winst- en verliesrekening die je overneemt. Functies staan op de functiepagina’s, niet per pakket.',
+    noot: 'Limieten gaan over verwerkte banktransacties per maand en omzet per jaar. Gratis PSD2-bankkoppeling voor al je bankrekeningen in elk pakket. Btw-aangifte doe je vanuit de software; voor de IB-aangifte maakt het pakket een balans en winst-en-verliesrekening die je overneemt. Functies staan op de functiepagina’s, niet per pakket.',
     plannen: [
       { id: 'basis', naam: 'Basis', prijs: 9.00, transacties: 20, omzetMax: 20000, btwAangifte: 'direct', bank: 'auto', offertes: true, uren: true, ib: 'rapportage' },
       { id: 'pro', naam: 'Pro', prijs: 32.50, transacties: 50, omzetMax: 100000, btwAangifte: 'direct', bank: 'auto', offertes: true, uren: true, ib: 'rapportage', noot: 'Eerste 3 maanden € 15 p/m.' },
