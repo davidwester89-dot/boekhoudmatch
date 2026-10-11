@@ -11,6 +11,7 @@ test('homepage: merk als H1 met tagline, zoekwoord in title en intro', () => {
   assert.match(home.body, /<p class="lead">[^<]*boekhoudprogramma[^<]*zzp/);
 });
 
-test('/over/: geen verzonnen feiten, wel de vaste zin over Dave', () => {
-  assert.match(over.body, /Dave West|FOUNDER|oprichter/);
+test('/over/: vaste zin over Dave en overzicht van wat er op de site staat', () => {
+  assert.match(over.body, /\$\{FOUNDER\.zin\}|Dave West, oprichter/);
+  assert.match(over.body, /<h2>Wat je hier vindt<\/h2>/);
 });
