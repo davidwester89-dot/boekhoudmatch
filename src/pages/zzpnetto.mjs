@@ -11,7 +11,7 @@ const faq = [
 ];
 
 const body = `
-<h1>Netto inkomen zzp berekenen (2026)</h1>
+<h1>Netto-inkomen zzp berekenen (2026)</h1>
 <p class="lead">Vul je omzet en kosten in. Je ziet wat je netto overhoudt en hoeveel je opzij moet zetten voor de belasting.</p>
 <noscript><div class="alert">Deze rekentool heeft JavaScript nodig.</div></noscript>
 <div class="grid calc">
@@ -23,7 +23,7 @@ ${check({ name: 'uren', label: 'Ik werk minstens 1.225 uur per jaar aan mijn ond
 ${check({ name: 'starter', label: 'Ik heb recht op startersaftrek', checked: false })}
 ${field({ name: 'voorz', label: 'AOV-premie en lijfrente-inleg', value: '0', unit: '€/jaar', hint: 'Aftrekbaar als inkomensvoorziening (lijfrente binnen je jaarruimte).' })}
 </fieldset>
-<p class="sub">We gaan uit van: jonger dan de AOW-leeftijd, geen fiscale partner, geen ander inkomen en geen eigen woning.</p>
+${more('Uitgangspunten', '<p>We rekenen voor iemand onder de AOW-leeftijd, zonder fiscale partner, ander inkomen of eigen woning.</p>')}
 </form>
 <section class="card result" id="uitkomst" aria-live="polite">
 <h2>Netto per maand</h2>
@@ -59,10 +59,10 @@ ${volgendeStap([['Uurtarief berekenen', '/zzp-uurtarief/'], ['Urenregistratie vo
 
 export default {
   path,
-  title: 'Netto inkomen zzp berekenen 2026 | BoekhoudMatch', og: 'netto', ogTitle: 'Netto inkomen zzp berekenen (2026)',
-  description: 'Bereken je netto inkomen als zzp\'er in 2026, met zelfstandigenaftrek, mkb-winstvrijstelling en Zvw. Zie ook hoeveel je moet reserveren.',
-  crumb: 'Zzp netto inkomen',
+  title: 'Netto-inkomen zzp berekenen 2026 | BoekhoudMatch', og: 'netto', ogTitle: 'Netto-inkomen zzp berekenen (2026)',
+  description: 'Bereken je netto-inkomen als zzp\'er in 2026, met zelfstandigenaftrek, mkb-winstvrijstelling en Zvw. Zie ook hoeveel je moet reserveren.',
+  crumb: 'Netto-inkomen zzp',
   body,
   scripts: ['/js/zzpnetto.js'],
-  schema: [webApp({ name: 'Netto inkomen zzp 2026 rekentool', url: SITE.domain + path, description: 'Bereken netto inkomen en belastingreservering voor zzp\'ers in 2026.' }), faqSchema(faq)],
+  schema: [webApp({ name: 'Netto-inkomen zzp 2026 rekentool', url: SITE.domain + path, description: 'Bereken netto-inkomen en belastingreservering voor zzp\'ers in 2026.' }), faqSchema(faq)],
 };

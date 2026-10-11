@@ -20,7 +20,7 @@ const PRE_TOP = passend0.slice(0, 3).map((r, i) => {
   if (i > 0) { const k = knopHtml(r, i + 1, 'btn ghost sm'); mini = `<div class="mini-cta">${k.html}${pagina(k.a, i + 1, `Alles over ${k.red.kort}`)}${k.u.partner ? '<span class="plabel">partnerlink</span>' : ''}</div>`; }
   return `<li><strong>${esc(`${r.naam} ${r.planNaam}`)}</strong><span class="price">${esc(` ${euro(r.prijs)} p/m${r.binnenBudget ? '' : ' (boven budget)'}`)}</span>${mini}</li>`;
 }).join('');
-const PRE_CTA = (() => { const r = passend0[0]; if (!r) return ''; const k = knopHtml(r, 1, 'btn'); return `${k.html}<p class="sub cta-sub">${esc([k.c.uitleg, `naar ${host(k.a.site)}`].filter(Boolean).join(' · '))}${k.u.partner ? ' · <span class="plabel">partnerlink</span>' : ''}</p>${pagina(k.a, 1, `Lees alles over ${k.red.kort} →`)}`; })();
+const PRE_CTA = (() => { const r = passend0[0]; if (!r) return ''; const k = knopHtml(r, 1, 'btn'); return `${k.html}${k.u.partner ? ' <span class="plabel">partnerlink</span>' : ''}${pagina(k.a, 1, `Lees alles over ${k.red.kort} →`)}`; })();
 const PRE_BEST = passend0[0] ? `${passend0[0].naam} ${passend0[0].planNaam}` : '–';
 const PRE_CMP = '/boekhoudprogramma-vergelijken/?aanbieders=' + passend0.slice(0, 3).map((r) => r.aanbieder).join(',') + '#per-aanbieder';
 
@@ -28,7 +28,7 @@ const path = '/boekhoudprogramma-kiezen/';
 const radios = (name, legend, opts, def, hint = '') => `<fieldset class="q"><legend>${legend}</legend>${hint ? `<p class="hint">${hint}</p>` : ''}<div class="opts">${opts.map(([v, l]) => `<label><input type="radio" name="${name}" value="${v}"${String(v) === String(def) ? ' checked' : ''}><span>${esc(l)}</span></label>`).join('')}</div></fieldset>`;
 
 const faq = [
-  ['Welk boekhoudprogramma is het beste voor een zzp\'er?', 'Dat hangt af van hoeveel facturen en bonnen je hebt, of je btw-aangifte doet of de KOR gebruikt, of je een automatische bankkoppeling wilt en of je hulp wilt bij je aangifte inkomstenbelasting. Een klein pakket met limieten is vaak het goedkoopst. Ga je over de limiet, dan moet je upgraden. De match rekent dat voor je uit.'],
+  ['Welk boekhoudprogramma is het beste voor een zzp\'er?', 'Dat hangt af van je aantal facturen en bonnen, je btw, of je een bankkoppeling wilt en of je hulp wilt bij je aangifte. Een klein pakket is vaak het goedkoopst, zolang je onder de limiet blijft. De match rekent dat voor je uit.'],
   ['Heb ik een boekhoudprogramma nodig als ik de KOR gebruik?', 'Je doet dan geen btw-aangifte, maar je moet wel een administratie bijhouden en facturen bewaren (7 jaar). Een gratis of klein pakket kan dan genoeg zijn.'],
   ['Zijn de prijzen inclusief btw?', 'De meeste aanbieders noemen prijzen exclusief btw. Zegt de aanbieder het niet, dan staat er “niet vermeld”. Doe je btw-aangifte, dan trek je de btw op je abonnement meestal weer af.'],
   ['Verdienen jullie aan de aanbevelingen?', 'Nu niet. Komen er later partnerlinks, dan zijn die gemarkeerd en tellen ze niet mee in de volgorde.'],
@@ -53,18 +53,15 @@ ${radios('bank', '5. Wil je je bank automatisch koppelen?', VRAGEN.bank, 'auto')
 </div></fieldset>
 ${radios('ib', '7. Je aangifte inkomstenbelasting', VRAGEN.ib, 'zelf')}
 ${radios('budget', '8. Wat mag het per maand kosten (excl. btw)?', VRAGEN.budget.map(([v, l]) => [String(v), l]), 'Infinity')}
-<div class="qdone"><button type="submit" class="btn" id="q-submit">Toon mijn uitslag</button><p class="sub">Gratis en zonder account. We slaan je antwoorden niet op.</p></div>
+<div class="qdone"><button type="submit" class="btn" id="q-submit">Toon mijn uitslag</button><p>Gratis, zonder account.</p></div>
 </form>
 <section class="card result" id="uitkomst" aria-live="polite">
 <h2 id="uitkomst-kop" tabindex="-1">Jouw beste match</h2>
-<p class="sub" id="out-status">Bij de standaardantwoorden. Pas de vragen aan voor jouw uitslag.</p>
 <p class="big best" id="big-mirror">${esc(PRE_BEST)}</p>
 <div id="out-cta" class="match-cta">${PRE_CTA}</div>
-<p class="sub">Commissie telt nooit mee. <a href="#methode">Zo werkt de match</a></p>
 <div id="out-pick" class="pick" hidden></div>
 <p class="lbl" style="margin-bottom:4px">Top 3</p>
 <ol class="top" id="out-top">${PRE_TOP}</ol>
-<p class="sub" id="out-vol">We rekenen met ${passend0[0].volumes.facturen} facturen, ${passend0[0].volumes.uitgaven} bonnen en ongeveer ${passend0[0].volumes.transacties} banktransacties per maand.</p>
 <div class="match-next">
 <a class="btn ghost" id="out-cmp" href="${esc(PRE_CMP)}" rel="nofollow" data-cta="compare">Vergelijk deze 3 naast elkaar</a>
 <p class="match-links"><a href="/boekhoudprogramma-kiezen/" data-cta="restart">Opnieuw beginnen</a><button type="button" class="linkbtn" id="out-copy" data-cta="copy_link">Kopieer link naar je uitslag</button> <span id="out-copy-ok" class="sub" role="status"></span></p>

@@ -66,7 +66,7 @@ Vooral tijd. Het abonnement zelf is meestal maandelijks opzegbaar, maar controle
 
 - de maanden dat je twee pakketten tegelijk hebt, bijvoorbeeld tot je laatste btw-aangifte uit het oude pakket;
 - het werk om relaties, openstaande facturen en de beginbalans over te zetten;
-- als je een boekhouder hebt: de tijd die die kwijt is aan de overstap.
+- als je een boekhouder hebt: de uren die je boekhouder aan de overstap besteedt.
 
 Een overstap verdient zich terug als het nieuwe pakket goedkoper is bij jouw volume of je echt tijd scheelt. Een verschil van een paar euro per maand is dat vaak niet.
 

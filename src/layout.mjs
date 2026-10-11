@@ -41,7 +41,7 @@ const NAV = [
   ['/boekhoudprogramma-kiezen/', 'Boekhoudmatch'],
   ['/boekhoudprogramma-vergelijken/', 'Vergelijken'],
   ['/gidsen/', 'Gidsen'],
-  ['/zzp-netto-inkomen/', 'Netto inkomen'],
+  ['/zzp-netto-inkomen/', 'Netto-inkomen'],
   ['/zzp-uurtarief/', 'Uurtarief'],
   ['/btw-berekenen/', 'Btw'],
   ['/offerte-factuur-maken/', 'Factuur'],
@@ -105,7 +105,7 @@ ${p.body.replace('{{related}}', relatedPosts(p.path))}
 <footer class="site"><div class="wrap">
 <div class="cols">
 <div><a class="logo" href="/">${LOGO}<span>Boekhoud<b>Match</b></span></a><p>Eerlijke hulp bij boekhouding en belasting voor zzp'ers.</p></div>
-<div><h2>Tools</h2><ul><li><a href="/boekhoudprogramma-kiezen/">Boekhoudprogramma kiezen</a></li><li><a href="/boekhoudprogramma-vergelijken/">Boekhoudprogramma's vergelijken</a></li><li><a href="/zzp-netto-inkomen/">Netto inkomen zzp</a></li><li><a href="/zzp-uurtarief/">Uurtarief berekenen</a></li><li><a href="/btw-berekenen/">Btw berekenen</a></li><li><a href="/offerte-factuur-maken/">Offerte en factuur maken</a></li></ul></div>
+<div><h2>Tools</h2><ul><li><a href="/boekhoudprogramma-kiezen/">Boekhoudprogramma kiezen</a></li><li><a href="/boekhoudprogramma-vergelijken/">Boekhoudprogramma's vergelijken</a></li><li><a href="/zzp-netto-inkomen/">Netto-inkomen zzp</a></li><li><a href="/zzp-uurtarief/">Uurtarief berekenen</a></li><li><a href="/btw-berekenen/">Btw berekenen</a></li><li><a href="/offerte-factuur-maken/">Offerte en factuur maken</a></li></ul></div>
 <div><h2>Gidsen</h2><ul><li><a href="/beste-boekhoudprogramma-zzp/">Beste boekhoudprogramma zzp</a></li><li><a href="/gratis-boekhoudprogramma/">Gratis boekhoudprogramma</a></li><li><a href="/boekhoudprogramma-starters/">Voor starters</a></li><li><a href="/boekhoudprogramma-eenmanszaak/">Voor een eenmanszaak</a></li><li><a href="/boekhoudprogramma-bv/">Voor een bv</a></li><li><a href="/btw-aangifte-boekhoudprogramma/">Btw-aangifte</a></li><li><a href="/gidsen/">Alle gidsen</a></li></ul></div>
 <div><h2>Over ons</h2><ul><li><a href="/blog/">Blog</a></li><li><a href="/over/">Over BoekhoudMatch</a></li><li><a href="/bronnen/">Bronnen en cijfers</a></li><li><a href="/privacy/">Privacy</a></li>${GA_ID ? '<li><a href="/privacy/#cookies" data-consent-open>Cookie-instellingen</a></li>' : ''}<li><a href="/disclaimer/">Disclaimer</a></li><li><a href="mailto:${SITE.email}">Contact</a></li></ul></div>
 </div>

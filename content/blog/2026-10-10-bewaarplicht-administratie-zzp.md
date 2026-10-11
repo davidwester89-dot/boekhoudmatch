@@ -22,7 +22,7 @@ sources:
 ---
 Als zzp'er ben je wettelijk verplicht een administratie bij te houden én te bewaren. Dat heet de fiscale bewaarplicht. In dit artikel lees je wat er onder je administratie valt, hoe lang je die bewaart, of je bonnetjes mag scannen en waar je op let als je overstapt of stopt.
 
-> **Kort gezegd:** de basis is **7 jaar** bewaren. Gegevens over onroerende zaken en verkopen via het éénloketsysteem (One Stop Shop) bewaar je **10 jaar**.
+> **Kort gezegd:** de basis is **7 jaar** bewaren. Gegevens over onroerende zaken en verkopen via het eenloketsysteem (One Stop Shop) bewaar je **10 jaar**.
 >
 > De termijn begint pas als een gegeven niet meer actueel is.
 >
@@ -65,10 +65,10 @@ Een urenadministratie is niet verplicht. Maar wil je de zelfstandigenaftrek of s
 |---|---|
 | Basisgegevens | 7 jaar |
 | Gegevens over onroerende zaken en rechten op onroerende zaken (zoals een bedrijfspand of grond) | 10 jaar |
-| Gegevens over verkopen via het éénloketsysteem (One Stop Shop) | 10 jaar |
+| Gegevens over verkopen via het eenloketsysteem (One Stop Shop) | 10 jaar |
 | Andere gegevens | 7 jaar, of korter als je dat met de Belastingdienst afspreekt |
 
-De **10 jaar voor One Stop Shop** geldt als je goederen of diensten verkoopt aan klanten in andere EU-landen die geen btw-aangifte doen, en je daarvoor het éénloketsysteem gebruikt. Voor de meeste zzp'ers met alleen Nederlandse klanten is 7 jaar de termijn die telt.
+De **10 jaar voor One Stop Shop** geldt als je goederen of diensten verkoopt aan klanten in andere EU-landen die geen btw-aangifte doen, en je daarvoor het eenloketsysteem gebruikt. Voor de meeste zzp'ers met alleen Nederlandse klanten is 7 jaar de termijn die telt.
 
 Wil je bepaalde stukken korter bewaren? Dat kan alleen voor de andere gegevens, niet voor de basisgegevens, en alleen na een afspraak met je belastingkantoor. Zo'n afspraak geldt bovendien alleen voor de Belastingdienst. Volgens Ondernemersplein kan voor andere overheden de wettelijke termijn van 7 jaar blijven gelden.
 
@@ -108,7 +108,7 @@ Twijfel je welk pakket bij jou past? Doe de [boekhoudmatch](/boekhoudprogramma-k
 
 ### Hoe lang moet ik als zzp'er mijn administratie bewaren?
 
-In principe 7 jaar. Gegevens over onroerende zaken en verkopen via het éénloketsysteem bewaar je 10 jaar.
+In principe 7 jaar. Gegevens over onroerende zaken en verkopen via het eenloketsysteem bewaar je 10 jaar.
 
 ### Mag ik papieren bonnetjes weggooien na het scannen?
 

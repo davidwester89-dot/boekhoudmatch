@@ -15,19 +15,15 @@ sources:
 - Belastingdienst: uiterste aangifte- en betaaldatums btw | https://www.belastingdienst.nl/wps/wcm/connect/nl/btw/content/uiterste-aangifte-en-betaaldatums
 - Belastingdienst: hoelang moet u gegevens bewaren? | https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/ondernemen/administratie/hoelang-moet-u-gegevens-bewaren
 ---
-Er bestaat geen boekhoudprogramma dat voor elke zzp'er het beste is. Het beste pakket is het goedkoopste pakket dat past bij hoeveel facturen en bonnen je hebt, of je btw-aangifte doet en of je hulp wilt bij je aangifte inkomstenbelasting. Daarom zie je hieronder geen ranglijst met sterren, maar per situatie het pakket dat volgens een vaste regel bovenaan komt.
-
-We vergelijken {{n:pakketten}} pakketten van {{n:aanbieders}} aanbieders, met de prijzen van de aanbieders zelf.
+Er is geen boekhoudprogramma dat voor elke zzp'er het beste is. Het beste pakket is het goedkoopste dat past bij jouw facturen, bonnen, btw en aangifte. Daarom zie je hier geen sterren, maar per situatie het pakket dat bovenaan komt. We vergelijken {{n:pakketten}} pakketten van {{n:aanbieders}} aanbieders, met hun eigen prijzen.
 
 ## Per situatie
 
 {{blok:situaties}}
 
-Dit zegt niets over gebruiksgemak of support. Dat probeer je het best zelf uit in een proefperiode.
-
 ## Drie voorbeelden uit de match
 
-De match stelt 8 vragen en zet daarna alle aanbieders op volgorde: eerst wat past, dan wat binnen je budget valt, dan de prijs. Dit is de echte uitkomst voor drie gangbare situaties.
+Dit is de echte uitkomst van de match voor drie gangbare situaties.
 
 {{blok:voorbeelden}}
 
@@ -35,30 +31,28 @@ De match stelt 8 vragen en zet daarna alle aanbieders op volgorde: eerst wat pas
 
 ### 1. De limiet die bij jou knelt
 
-De meeste goedkope pakketten hebben een grens. Die gaat over facturen, uitgaven, banktransacties of boekingen per maand of per jaar, en soms over je omzet. Een pakket van een paar euro is alleen goedkoop zolang je eronder blijft. Ga je erover, dan moet je upgraden en betaal je vaak het dubbele.
-
-Een paar voorbeelden van de prijspagina's:
+De meeste goedkope pakketten hebben een grens op facturen, uitgaven, banktransacties of boekingen, en soms op je omzet. Ga je erover, dan moet je upgraden en betaal je vaak het dubbele. Een paar voorbeelden:
 
 - Rompslomp Puur Factuur ({{p:rompslomp/puur}}) heeft een grens van 8 facturen en 5 uitgaven per maand.
 - e-Boekhouden ZZP ({{p:eboekhouden/zzp}}) heeft een grens van 240 boekingen per jaar, en elke mutatie telt: verkoop, inkoop en bank.
 - Moneybird Start ({{p:moneybird/start}}) verwerkt 20 banktransacties per maand.
 - MoneyMonk Basis ({{p:moneymonk/basis}}) verwerkt 20 banktransacties per maand en is voor een omzet tot € 20.000 per jaar.
 
-Tel daarom eerst je eigen volume. Een factuur levert later ook een bankbetaling op, en elke bon ook. De match rekent dat voor je uit.
+Tel dus eerst je eigen volume: elke factuur en elke bon levert ook een bankbetaling op. De match rekent dat voor je uit.
 
 ### 2. Btw-aangifte: direct indienen of zelf overtypen
 
-Bijna elk pakket rekent je btw uit. Het verschil zit in het indienen. Bij sommige pakketten verstuur je de aangifte rechtstreeks vanuit het programma. Bij andere zie je een overzicht en vul je de bedragen zelf in bij de Belastingdienst. Doe je per kwartaal aangifte, dan is dat vier keer per jaar een klus. De aangifte en betaling moeten binnen zijn vóór het einde van de maand na het kwartaal (bijvoorbeeld 31 oktober 2026 voor het derde kwartaal).
+Bijna elk pakket rekent je btw uit. Het verschil zit in het indienen: rechtstreeks vanuit het programma, of zelf de bedragen overtypen bij de Belastingdienst. Aangifte en betaling moeten binnen zijn vóór het einde van de maand na het kwartaal (bijvoorbeeld 31 oktober 2026 voor het derde kwartaal).
 
 Bij Tellow Gratis en Basis dien je zelf in; vanaf Plus ({{p:tellow/plus}}) kan het direct. Bij Rompslomp kan het vanaf Puur Factuur. Meer daarover lees je in [btw-aangifte vanuit je boekhoudprogramma](/btw-aangifte-boekhoudprogramma/).
 
 ### 3. Bankkoppeling
 
-Met een automatische bankkoppeling komen je transacties vanzelf in je boekhouding. Zonder koppeling download je een bestand bij je bank en lees je dat in. Er zijn drie varianten: gratis voor elke bank, alleen met de eigen betaalrekening van de aanbieder, of tegen meerprijs. Informer rekent € 1 per maand per rekening, Silvasoft € 3. Bij Moneybird kun je een externe bank pas vanaf Groei ({{p:moneybird/groei}}) koppelen. Zie ook [bankkoppeling: wel of niet](/bankkoppeling-boekhoudprogramma/).
+Met een automatische bankkoppeling komen je transacties vanzelf binnen; zonder koppeling lees je zelf een bestand van je bank in. De koppeling is gratis, alleen mogelijk met de eigen rekening van de aanbieder, of kost extra. Informer rekent € 1 per maand per rekening, Silvasoft € 3. Bij Moneybird kun je een externe bank pas vanaf Groei ({{p:moneybird/groei}}) koppelen. Zie ook [bankkoppeling: wel of niet](/bankkoppeling-boekhoudprogramma/).
 
 ### 4. Hulp bij je aangifte inkomstenbelasting
 
-Wil je hulp bij je IB-aangifte, dan wordt het verschil groot. Jortt noemt een gecontroleerde aangifte inkomstenbelasting in ZZP ({{p:jortt/zzp}}), MKB en Plus. Bij Tellow Compleet ({{p:tellow/compleet}}) zit een boekhouder die je btw- en IB-aangifte opstelt. MoneyMonk maakt een balans en winst- en verliesrekening die je overneemt in je aangifte. Bij de meeste andere pakketten doe je de IB-aangifte zelf, of staat het niet vermeld.
+Wil je hulp bij je IB-aangifte, dan wordt het verschil groot. Jortt noemt een gecontroleerde aangifte inkomstenbelasting in ZZP ({{p:jortt/zzp}}), MKB en Plus. Bij Tellow Compleet ({{p:tellow/compleet}}) zit een boekhouder die je btw- en IB-aangifte opstelt. MoneyMonk maakt een balans en winst-en-verliesrekening die je overneemt in je aangifte. Bij de meeste andere pakketten doe je de IB-aangifte zelf, of staat het niet vermeld.
 
 ### 5. Rechtsvorm
 
@@ -66,14 +60,12 @@ Heb je een vof of bv, controleer dan of de aanbieder die rechtsvorm noemt. Money
 
 ## Waarom geen sterren of “meest gekozen”?
 
-Omdat we die niet kunnen onderbouwen. We hebben geen eigen gebruikersonderzoek en tellen geen reviews. Wat we wel kunnen controleren, is wat er op de prijspagina staat. Daar houden we ons aan. Bij elke aanbieder staan de bronlink en de datum waarop we keken. Dave West controleert de prijzen elke maand.
+Omdat we die niet kunnen onderbouwen. We houden ons aan wat op de prijspagina van de aanbieder staat, met bronlink en controledatum. Dave West controleert de prijzen elke maand.
 
 ## Zo kies je in drie stappen
 
 1. Doe de match en kijk naar de bovenste drie.
 2. Open bij die drie de pagina van de aanbieder en lees de limieten.
-3. Probeer je favoriet in de proefperiode, met je eigen bankafschrift en een paar echte bonnen.
-
-Bewaar je administratie in elk geval zeven jaar, ook als je later overstapt. Dat geldt voor je facturen, bonnen en grootboek.
+3. Probeer je favoriet in de proefperiode, met een paar echte bonnen.
 
 {{blok:cta}}

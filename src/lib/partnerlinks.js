@@ -11,8 +11,9 @@ export function uitgaand(aanbieder, partnerlinks = PARTNERLINKS) {
   return { href: partner ? pl.url : aanbieder.site, partner, rel: partner ? 'nofollow sponsored noopener' : 'nofollow noopener' };
 }
 
-/** CTA-tekst voor een pakket: "Probeer X gratis" als de aanbieder een gratis proefperiode noemt of het pakket gratis is. */
+/** CTA-tekst voor een pakket: de proefperiode (volgens de aanbieder) staat in de knop zelf, zodat er geen regel onder hoeft. */
 export function ctaTekst(kort, { proef, prijs }) {
-  const gratis = (Number(proef) > 0) || prijs === 0;
-  return { gratis, tekst: gratis ? `Probeer ${kort} gratis` : `Bekijk ${kort}`, uitleg: Number(proef) > 0 ? `${proef} dagen gratis proberen, volgens ${kort}` : prijs === 0 ? 'Dit pakket is gratis' : '' };
+  const dagen = Number(proef) > 0 ? Number(proef) : 0;
+  const gratis = dagen > 0 || prijs === 0;
+  return { gratis, tekst: dagen ? `${dagen} dagen gratis proberen bij ${kort}` : prijs === 0 ? `Gratis beginnen bij ${kort}` : `Bekijk ${kort}` };
 }

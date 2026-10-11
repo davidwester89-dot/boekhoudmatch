@@ -71,7 +71,7 @@ Rijd je met je privéauto voor je bedrijf? Dan mag je per zakelijke kilometer ee
 
 ## Wat kun je nu al doen?
 
-1. **Reken je netto inkomen en uurtarief opnieuw uit.** Een lagere aftrek en hogere tarieven betekenen dat je meer belasting betaalt over dezelfde winst. Misschien is het tijd om je tarief voor 2027 te verhogen.
+1. **Reken je netto-inkomen en uurtarief opnieuw uit.** Een lagere aftrek en hogere tarieven betekenen dat je meer belasting betaalt over dezelfde winst. Misschien is het tijd om je tarief voor 2027 te verhogen.
 2. **Zet iets meer opzij.** Reserveer een vast percentage van elke betaalde factuur (exclusief btw) voor de inkomstenbelasting en de Zvw.
 3. **Controleer je voorlopige aanslag 2027.** De Belastingdienst gebruikt daarvoor de bedragen van Prinsjesdag. Klopt je verwachte winst niet meer, pas de aanslag dan aan in Mijn Belastingdienst.
 4. **Starter? Plan je investeringen.** Over 2026 kun je de startersaftrek nog gebruiken. Overleg bij twijfel met een adviseur.
