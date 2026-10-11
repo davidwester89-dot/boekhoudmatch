@@ -1,0 +1,16 @@
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
+import { home, over } from '../src/pages/static.mjs';
+
+test('homepage: merk als H1 met tagline, zoekwoord in title en intro', () => {
+  assert.match(home.body, /<h1 class="h1-brand">Boekhoud<b>Match<\/b>\.nl<\/h1>\n<p class="tagline">Boekhouden\? Gewoon\. Zonder gedoe\.<\/p>/);
+  assert.equal((home.body.match(/<h1/g) || []).length, 1);
+  assert.ok(home.title.length <= 60, `title ${home.title.length} tekens`);
+  assert.match(home.title, /^Boekhoudprogramma zzp/);
+  assert.doesNotMatch(home.title, /vergelijken/i, 'niet concurreren met /boekhoudprogramma-vergelijken/');
+  assert.match(home.body, /<p class="lead">[^<]*boekhoudprogramma[^<]*zzp/);
+});
+
+test('/over/: geen verzonnen feiten, wel de vaste zin over Dave', () => {
+  assert.match(over.body, /Dave West|FOUNDER|oprichter/);
+});
