@@ -66,7 +66,7 @@ ${radios('budget', '8. Wat mag het per maand kosten (excl. btw)?', VRAGEN.budget
 <a class="btn ghost" id="out-cmp" href="${esc(PRE_CMP)}" rel="nofollow" data-cta="compare">Vergelijk deze 3 naast elkaar</a>
 <p class="match-links"><a href="/boekhoudprogramma-kiezen/" data-cta="restart">Opnieuw beginnen</a><button type="button" class="linkbtn" id="out-copy" data-cta="copy_link">Kopieer link naar je uitslag</button> <span id="out-copy-ok" class="sub" role="status"></span></p>
 </div>
-<p><a href="#rangorde">Bekijk alle ${PAKKETTEN.length} aanbieders ↓</a></p>
+<p><a class="vlink" href="#rangorde">Bekijk alle ${PAKKETTEN.length} aanbieders ↓</a></p>
 </section>
 </div>
 <a class="mobilebar" href="#uitkomst"><span>Beste match</span><strong data-mirror></strong></a>

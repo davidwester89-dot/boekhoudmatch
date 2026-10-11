@@ -38,7 +38,7 @@ export const ICONS = {
 };
 
 const NAV = [
-  ['/boekhoudprogramma-kiezen/', 'Boekhoudmatch'],
+  ['/boekhoudprogramma-kiezen/', 'Start de match', 'nav-cta'],
   ['/boekhoudprogramma-vergelijken/', 'Vergelijken'],
   ['/gidsen/', 'Gidsen'],
   ['/zzp-netto-inkomen/', 'Netto-inkomen'],
@@ -47,6 +47,9 @@ const NAV = [
   ['/offerte-factuur-maken/', 'Factuur'],
   ['/blog/', 'Blog'],
 ];
+
+// Desktop: menu in de header. Mobiel (<900px): knop 'Menu' (details/summary, werkt zonder JavaScript) met alle links.
+const navLinks = (navPath) => NAV.map(([h, t, c]) => `<a href="${h}"${c ? ` class="${c}"` : ''}${navPath.startsWith(h) ? ' aria-current="page"' : ''}>${esc(t)}</a>`).join('');
 
 const CSS = readFileSync(new URL('./assets/css/style.css', import.meta.url), 'utf8')
   .replace(/\/\*[\s\S]*?\*\//g, '').replace(/\s*\n\s*/g, '').replace(/\s*([{};:,>])\s*/g, '$1').replace(/;}/g, '}');
@@ -96,7 +99,8 @@ ${ld.map((x) => `<script type="application/ld+json">${JSON.stringify(x).replace(
 <a class="skip" href="#inhoud">Naar de inhoud</a>
 <header class="site"><div class="wrap">
 <a class="logo" href="/" aria-label="${SITE.name}, naar de homepage">${LOGO}<span>Boekhoud<b>Match</b></span></a>
-<nav class="main" aria-label="Hoofdmenu">${NAV.map(([h, t]) => `<a href="${h}"${navPath.startsWith(h) ? ' aria-current="page"' : ''}>${esc(t)}</a>`).join('')}</nav>
+<nav class="main" aria-label="Hoofdmenu">${navLinks(navPath)}</nav>
+<details class="menu"><summary><span class="burger" aria-hidden="true"></span><span class="menu-txt">Menu</span></summary><nav aria-label="Hoofdmenu">${navLinks(navPath)}</nav></details>
 </div></header>
 <main id="inhoud"><div class="wrap">
 ${crumbs}
