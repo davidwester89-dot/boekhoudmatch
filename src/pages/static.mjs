@@ -33,22 +33,23 @@ export function logoTile(a, href) {
 
 export const home = {
   path: '/',
-  title: 'Boekhoudprogramma vergelijken voor zzp (2026) | BoekhoudMatch',
-  ogTitle: 'Welk boekhoudprogramma past bij jouw zzp-bedrijf?',
+  title: 'Boekhoudprogramma zzp: welk pakket past? | BoekhoudMatch',
+  ogTitle: 'BoekhoudMatch: welk boekhoudprogramma past bij jouw zzp-bedrijf?',
   description: `Welk boekhoudprogramma past bij jouw zzp-bedrijf? 8 vragen, ${N_PAK} pakketten van ${N_AANB} aanbieders, met prijs, limiet en bron. Gratis, zonder account.`,
   og: 'home',
   body: `
 <section class="hero">
 <div>
-<h1>Welk boekhoudprogramma past bij jouw zzp-bedrijf?</h1>
-<p class="lead">Beantwoord 8 vragen en zie welk pakket bij je past en wat het kost.</p>
+<h1 class="h1-brand">Boekhoud<b>Match</b>.nl</h1>
+<p class="tagline">Boekhouden? Gewoon. Zonder gedoe.</p>
+<p class="lead">Welk boekhoudprogramma past bij jouw zzp-bedrijf? Beantwoord 8 vragen en zie wat bij je past en wat het kost.</p>
 <div class="actions"><a class="btn" href="/boekhoudprogramma-kiezen/">Start de match</a><a class="btn ghost" href="/boekhoudprogramma-vergelijken/">Vergelijk alle ${N_PAK} pakketten</a></div>
 <ul class="trust"><li>${N_AANB} aanbieders</li><li>Actuele prijzen</li><li>Gratis, zonder account</li></ul>
 </div>
 <figure class="shot"><img src="/img/match-voorbeeld-680.webp" srcset="/img/match-voorbeeld-480.webp 480w, /img/match-voorbeeld-680.webp 680w, /img/match-voorbeeld-900.webp 900w" sizes="(min-width: 900px) 410px, (min-width: 600px) 560px, calc(100vw - 40px)" width="560" height="400" alt="Voorbeeld van de boekhoudmatch: vragen links, beste match en top 3 met maandprijs rechts" decoding="async" fetchpriority="low"></figure>
 </section>
 
-<h2>Voorbeelden uit de match</h2>
+<h2>Boekhoudprogramma voor zzp: drie voorbeelden</h2>
 <div class="grid cards">
 ${VOORBEELDEN.map(voorbeeld).join('\n')}
 </div>
