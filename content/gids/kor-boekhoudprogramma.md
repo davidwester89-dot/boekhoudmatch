@@ -1,6 +1,6 @@
 ---
-title: KOR en boekhoudsoftware: wat heb je nodig? (2026)
-seo_title: KOR en boekhoudprogramma (2026) | BoekhoudMatch
+title: KOR en boekhoudsoftware: wat heb je nodig?
+seo_title: KOR en boekhoudprogramma: wat heb je nodig? | BoekhoudMatch
 description: Gebruik je de kleineondernemersregeling? Wat je dan nog moet bijhouden, welke functies je niet nodig hebt en wat de match kiest zonder btw-aangifte.
 crumb: KOR en boekhoudsoftware
 updated: 2026-10-10

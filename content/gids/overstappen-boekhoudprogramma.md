@@ -1,5 +1,5 @@
 ---
-title: Overstappen naar een ander boekhoudprogramma (2026)
+title: Overstappen naar een ander boekhoudprogramma
 seo_title: Overstappen boekhoudprogramma: zo doe je het | BoekhoudMatch
 description: Wil je overstappen naar een ander boekhoudprogramma? Wanneer je het beste wisselt, wat je meeneemt, wat je zeven jaar bewaart en hoe je de nieuwe kiest.
 crumb: Overstappen
