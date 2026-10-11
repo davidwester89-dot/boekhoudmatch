@@ -171,3 +171,20 @@ test('build met GA_ID: consent-script en CSP, geen gtag.js in de HTML, privacypa
   for (const h of [home, privacy]) assert.doesNotMatch(h.replace(/<script[\s\S]*?<\/script>/g, ''), /geen cookies|zonder cookies/i);
   assert.throws(() => execFileSync(process.execPath, ['--input-type=module', '-e', "await import('./src/layout.mjs')"], { env: { ...process.env, GA_ID: 'UA-1' }, cwd: new URL('..', import.meta.url), stdio: 'pipe' }));
 });
+
+test('schone URL ook via gtag set, zodat latere hits geen invoer meesturen', () => {
+  const { c, win } = setup();
+  c.init();
+  c.accept();
+  const set = win.dataLayer.map((a) => [...a]).find((a) => a[0] === 'set' && typeof a[1] === 'object');
+  assert.equal(set[1].page_location, 'https://boekhoudmatch.nl/zzp-uurtarief/');
+  assert.equal(set[1].page_referrer, 'https://boekhoudmatch.nl/zzp-netto-inkomen/');
+});
+
+test('form.js zet invoer in de URL via de originele History.prototype.replaceState (GA ziet het niet) en met vaste form-action', async () => {
+  const { readFileSync } = await import('node:fs');
+  const src = readFileSync(new URL('../src/assets/js/form.js', import.meta.url), 'utf8');
+  assert.match(src, /History\.prototype\.replaceState/);
+  assert.match(src, /setAttribute\('action', location\.pathname\)/);
+  assert.doesNotMatch(src.replace(/history\.replaceState\(history\.state/, ''), /history\.replaceState\(/);
+});

@@ -45,7 +45,7 @@ function build() {
   el.setAttribute('role', 'region');
   el.setAttribute('aria-label', 'Cookie-instellingen');
   el.hidden = true;
-  el.innerHTML = '<div class="consent-in"><p id="consent-text">Mogen we anonieme statistieken bijhouden met Google Analytics? Zo zien we welke tools helpen. Je kunt dit altijd wijzigen. <a href="/privacy/#cookies">Meer info</a></p>'
+  el.innerHTML = '<div class="consent-in"><p id="consent-text">Mogen we statistieken bijhouden met Google Analytics? Zo zien we welke tools helpen. Je kunt dit altijd wijzigen. <a href="/privacy/#cookies">Meer info</a></p>'
     + '<div class="consent-btns"><button type="button" class="consent-btn" data-c="yes" aria-describedby="consent-text">Accepteren</button>'
     + '<button type="button" class="consent-btn" data-c="no" aria-describedby="consent-text">Weigeren</button></div></div>';
   el.addEventListener('click', (e) => {
