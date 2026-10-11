@@ -10,7 +10,7 @@ related:
 - Overstappen naar een ander boekhoudprogramma | /overstappen-boekhoudprogramma/
 - Beste boekhoudprogramma voor zzp'ers | /beste-boekhoudprogramma-zzp/
 sources:
-- KVK: jaarrekening wel of niet deponeren? | https://www.kvk.nl/deponeren/jaarrekening-wel-of-niet-deponeren
+- KVK: jaarrekening wel of niet deponeren? | https://www.kvk.nl/deponeren/jaarrekening-wel-of-niet-deponeren/
 - KVK: jaarrekening deponeren bedrijfsklasse micro en klein | https://www.kvk.nl/deponeren/jaarrekening-deponeren-bedrijfsklasse-micro-en-klein/
 - Belastingdienst: hoelang moet u gegevens bewaren? | https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/ondernemen/administratie/hoelang-moet-u-gegevens-bewaren
 ---
@@ -44,7 +44,7 @@ Heb je een holding met een werkmaatschappij, dan heb je twee administraties. Rom
 
 ## Wat kost het?
 
-- Moneybird Start ({{p:moneybird/start}}) is het goedkoopste pakket waarbij de bv genoemd wordt en je btw-aangifte doet, maar met een grens van 20 verwerkte banktransacties per maand en zonder koppeling met je externe bank.
+- Moneybird Start ({{p:moneybird/start}}) is het goedkoopste pakket waarbij de bv genoemd wordt en je btw-aangifte doet. Wel met een grens van 20 verwerkte banktransacties per maand en zonder koppeling met je externe bank.
 - Moneybird Groei ({{p:moneybird/groei}}) koppelt je externe bank en verwerkt 50 transacties.
 - Jortt MKB ({{p:jortt/mkb}}) noemt geen boekingsgrens en heeft een automatische bankkoppeling.
 - Moneybird Compleet ({{p:moneybird/compleet}}) heeft geen limieten.

@@ -76,7 +76,7 @@ ${tool('/gidsen/', 'blog', 'Gidsen', 'Het beste pakket voor jouw situatie.')}
 <div class="card"><h3>Maandelijks gecontroleerd</h3><p>Door Dave West, oprichter. <a href="/over/">Over ons</a></p></div>
 </div>`,
   schema: [
-    { '@context': 'https://schema.org', ...ORG, sameAs: [] },
+    { '@context': 'https://schema.org', ...ORG },
     { '@context': 'https://schema.org', '@type': 'WebSite', name: SITE.name, url: SITE.domain + '/', inLanguage: 'nl-NL', publisher: { '@type': 'Organization', name: SITE.name } },
   ],
 };
@@ -181,8 +181,16 @@ export const over = {
 <h2>Wie controleert de prijzen</h2>
 <figure class="photo"><img src="/img/dave-west-bus-800.webp" srcset="/img/dave-west-bus-480.webp 480w, /img/dave-west-bus-800.webp 800w" sizes="(min-width: 760px) 560px, 100vw" width="800" height="533" alt="Dave West in zijn werkbus" decoding="async"></figure>
 <p>${FOUNDER.zin}</p>
+<h2>Wat je hier vindt</h2>
+<ul>
+<li><a href="/boekhoudprogramma-kiezen/">De boekhoudmatch</a>: 8 vragen, en je ziet welk pakket past en wat het kost.</li>
+<li><a href="/boekhoudprogramma-vergelijken/">De vergelijking</a>: alle ${N_PAK} pakketten van ${N_AANB} aanbieders naast elkaar.</li>
+<li><a href="/gidsen/">Gidsen</a> per rechtsvorm en situatie, en <a href="/blog/">blogs</a> over regels die veranderen.</li>
+<li>Rekentools voor <a href="/zzp-netto-inkomen/">netto-inkomen</a>, <a href="/zzp-uurtarief/">uurtarief</a>, <a href="/btw-berekenen/">btw</a> en een gratis <a href="/offerte-factuur-maken/">factuurtool</a>.</li>
+</ul>
 <h2>Zo werken we</h2>
 ${METHODE_LIJST}
+<p>We verzinnen geen sterren, reviews of “meest gekozen”-labels. Je hebt geen account nodig en wat je invult, blijft in je eigen browser.</p>
 <p>De volledige rekenregels van de match staan <a href="/boekhoudprogramma-kiezen/#methode">bij de match</a>. Alle bronnen en controledatums staan op de <a href="/bronnen/">bronnenpagina</a>.</p>
 <h2>Hoe we geld verdienen</h2>
 <p>Nu verdienen we niets aan deze site. Later plaatsen we misschien partnerlinks: sluit je via zo'n link iets af, dan krijgen wij een vergoeding. Jouw prijs blijft gelijk. Zulke links zijn altijd gemarkeerd en hebben geen invloed op de volgorde.</p>
@@ -245,7 +253,7 @@ ${GA_ID ? gaHtml : '<h2 id="cookies">Cookies</h2>\n<p>We plaatsen op dit moment 
 <h2>Partnerlinks</h2>
 <p>Klik je later op een gemarkeerde partnerlink, dan kan die partij cookies plaatsen volgens haar eigen beleid.</p>
 <h2>Contact</h2>
-<p>Vragen? Mail naar <a href="mailto:${SITE.email}">${SITE.email}</a>.</p>
+<p>BoekhoudMatch is een website van Dave West. Vragen? Mail naar <a href="mailto:${SITE.email}">${SITE.email}</a>.</p>
 <p>Bijgewerkt op ${fmtDate(SITE.updated)}.</p>
 </div>`,
 };

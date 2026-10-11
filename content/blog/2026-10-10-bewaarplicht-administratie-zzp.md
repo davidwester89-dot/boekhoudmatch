@@ -20,7 +20,7 @@ sources:
 - Ondernemersplein: Zakelijke administratie bijhouden en bewaarplicht | https://ondernemersplein.overheid.nl/wetten-en-regels/administratie-bijhouden-en-bewaren/
 - Ondernemersplein: Stappenplan administratie bijhouden | https://ondernemersplein.overheid.nl/bedrijfsvoering/administratie/stappenplan-administratie-onderhouden/
 ---
-Als zzp'er ben je wettelijk verplicht een administratie bij te houden én te bewaren. Dat heet de fiscale bewaarplicht. In dit artikel lees je wat er onder je administratie valt, hoe lang je die bewaart, of je bonnetjes mag scannen en waar je op let als je overstapt of stopt.
+Als zzp'er ben je wettelijk verplicht een administratie bij te houden én te bewaren. Dat heet de fiscale bewaarplicht.
 
 > **Kort gezegd:** de basis is **7 jaar** bewaren. Gegevens over onroerende zaken en verkopen via het eenloketsysteem (One Stop Shop) bewaar je **10 jaar**.
 >

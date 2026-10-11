@@ -10,7 +10,7 @@ related:
 - Boekhoudprogramma voor een eenmanszaak | /boekhoudprogramma-eenmanszaak/
 - Overstappen naar een ander boekhoudprogramma | /overstappen-boekhoudprogramma/
 sources:
-- KVK: jaarrekening wel of niet deponeren? | https://www.kvk.nl/deponeren/jaarrekening-wel-of-niet-deponeren
+- KVK: jaarrekening wel of niet deponeren? | https://www.kvk.nl/deponeren/jaarrekening-wel-of-niet-deponeren/
 - Belastingdienst: kleineondernemersregeling (KOR) | https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/btw/hoe_werkt_de_btw/kleineondernemersregeling/
 - Belastingdienst: hoelang moet u gegevens bewaren? | https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/ondernemen/administratie/hoelang-moet-u-gegevens-bewaren
 ---
