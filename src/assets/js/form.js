@@ -27,6 +27,8 @@ export function writeForm(form, values) {
 /** Koppel formulier: herbereken bij elke wijziging, bewaar invoer in de URL (deelbaar, geen cookies). */
 export function bindForm(form, run) {
   noindexMetParams();
+  // Vaste action zonder querystring: anders stuurt GA (formulierinteracties) de invoer mee als form_destination.
+  form.setAttribute('action', location.pathname);
   const params = new URLSearchParams(location.search);
   if ([...params.keys()].length) {
     const vals = {};
@@ -46,13 +48,24 @@ export function bindForm(form, run) {
       else if (el.type === 'hidden' && !el.value) continue;
       else q.set(el.name, el.value);
     }
-    history.replaceState(null, '', `${location.pathname}?${q}`);
+    setUrl(`${location.pathname}?${q}`);
   };
   form.addEventListener('input', go);
   form.addEventListener('change', go);
   form.addEventListener('submit', (e) => { e.preventDefault(); go(); });
   go();
   return go;
+}
+
+/**
+ * Invoer in de adresbalk zetten zonder dat Google Analytics het ziet. gtag.js (uitgebreide metingen) vervangt
+ * history.replaceState door een eigen versie en stuurt dan bij elke wijziging een paginaweergave mét de invoer.
+ * De originele functie van History.prototype omzeilt dat: de invoer gaat nooit naar Google.
+ */
+export function setUrl(url) {
+  const native = window.History && History.prototype.replaceState;
+  if (native) native.call(history, history.state, '', url);
+  else history.replaceState(history.state, '', url);
 }
 
 export const $ = (sel, root = document) => root.querySelector(sel);

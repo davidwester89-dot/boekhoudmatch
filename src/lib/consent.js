@@ -76,9 +76,11 @@ export function createConsent({ gaId, storage, doc, win, hostname, load, now = (
     gtag('set', 'ads_data_redaction', true);
     gtag('set', 'url_passthrough', false);
     gtag('js', now());
+    // Schone URL voor alle hits (ook latere events), nooit de invoer uit de querystring.
+    const page = { page_location: cleanUrl(win.location && win.location.href), page_referrer: cleanUrl(doc.referrer) };
+    gtag('set', page);
     gtag('config', gaId, {
-      page_location: cleanUrl(win.location && win.location.href),
-      page_referrer: cleanUrl(doc.referrer),
+      ...page,
       allow_google_signals: false,
       allow_ad_personalization_signals: false,
       cookie_expires: MAX_AGE_DAYS * 86400,
