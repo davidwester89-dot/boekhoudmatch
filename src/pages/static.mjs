@@ -178,9 +178,14 @@ export const over = {
 <h1>Over ${SITE.name}</h1>
 <div class="prose">
 <p class="lead">We helpen zzp'ers met boekhouding, geld en belasting. Elk getal heeft een bron en alles werkt zonder account.</p>
-<h2>Wie controleert de prijzen</h2>
-<figure class="photo"><img src="/img/dave-west-bus-800.webp" srcset="/img/dave-west-bus-480.webp 480w, /img/dave-west-bus-800.webp 800w" sizes="(min-width: 760px) 560px, 100vw" width="800" height="533" alt="Dave West in zijn werkbus" decoding="async"></figure>
-<p>${FOUNDER.zin}</p>
+<h2>Ons team</h2>
+<p>Achter BoekhoudMatch zit een klein team dat elke week voor je aan de slag gaat:</p>
+<ul>
+<li><strong>Prijzen en voorwaarden checken</strong> op de sites van de aanbieders zelf.</li>
+<li><strong>Nieuwe regels volgen</strong>, zoals btw, de e-factuur en wijzigingen bij de Belastingdienst.</li>
+<li><strong>Gidsen bijwerken</strong> zodra er iets verandert.</li>
+<li><strong>De match testen</strong>, zodat de uitkomst klopt met de prijzen.</li>
+</ul>
 <h2>Wat je hier vindt</h2>
 <ul>
 <li><a href="/boekhoudprogramma-kiezen/">De boekhoudmatch</a>: 8 vragen, en je ziet welk pakket past en wat het kost.</li>
@@ -197,7 +202,7 @@ ${METHODE_LIJST}
 <h2>Fout gezien?</h2>
 <p>Een verouderde prijs of een fout in een berekening? Mail naar <a href="mailto:${SITE.email}">${SITE.email}</a>. We passen het snel aan.</p>
 </div>`,
-  schema: [{ '@context': 'https://schema.org', '@type': 'AboutPage', name: 'Over BoekhoudMatch', url: SITE.domain + '/over/', publisher: ORG, mainEntity: { ...FOUNDER.schema, worksFor: { '@type': 'Organization', name: SITE.name } } }],
+  schema: [{ '@context': 'https://schema.org', '@type': 'AboutPage', name: 'Over BoekhoudMatch', url: SITE.domain + '/over/', publisher: ORG }],
 };
 
 const GA_COOKIE = GA_ID ? `_ga_${GA_ID.slice(2)}` : '_ga_<ID>';

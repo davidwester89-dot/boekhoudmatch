@@ -1,6 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { GA_ID as GA_CONFIG } from './analytics.config.mjs';
 import { GA_ID_RE } from './lib/consent.js';
+import { networkFor } from './network.mjs';
 
 // Google Analytics: Metings-ID uit src/analytics.config.mjs (GA_ID=... als omgevingsvariabele overschrijft, voor lokaal testen).
 export const GA_ID = (process.env.GA_ID ?? GA_CONFIG).trim();
@@ -113,6 +114,7 @@ ${p.body.replace('{{related}}', relatedPosts(p.path))}
 <div><p class="fh">Gidsen</p><ul><li><a href="/beste-boekhoudprogramma-zzp/">Beste boekhoudprogramma zzp</a></li><li><a href="/gratis-boekhoudprogramma/">Gratis boekhoudprogramma</a></li><li><a href="/boekhoudprogramma-starters/">Voor starters</a></li><li><a href="/boekhoudprogramma-eenmanszaak/">Voor een eenmanszaak</a></li><li><a href="/boekhoudprogramma-bv/">Voor een bv</a></li><li><a href="/btw-aangifte-boekhoudprogramma/">Btw-aangifte</a></li><li><a href="/gidsen/">Alle gidsen</a></li></ul></div>
 <div><p class="fh">Over ons</p><ul><li><a href="/blog/">Blog</a></li><li><a href="/over/">Over BoekhoudMatch</a></li><li><a href="/bronnen/">Bronnen en cijfers</a></li><li><a href="/privacy/">Privacy</a></li>${GA_ID ? '<li><a href="/privacy/#cookies" data-consent-open>Cookie-instellingen</a></li>' : ''}<li><a href="/disclaimer/">Disclaimer</a></li><li><a href="mailto:${SITE.email}">Contact</a></li></ul></div>
 </div>
+<div class="net"><p class="fh">Ook van ons</p><ul>${networkFor('boekhoudmatch.nl').map((s) => `<li><a href="${s.url}">${s.logo}</a> · ${esc(s.wat)}</li>`).join('')}</ul></div>
 <p class="fine">© 2026 ${SITE.name}. Uitkomsten zijn een indicatie, geen persoonlijk advies. Partnerlinks hebben nooit invloed op de volgorde.</p>
 </div></footer>
 ${[...(GA_ID ? ['/js/consent.js'] : []), ...(p.scripts || [])].map((s) => `<script type="module" src="${s}"></script>`).join('\n')}

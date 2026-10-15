@@ -250,3 +250,7 @@ table.ptest-facts td{vertical-align:top}
 .crumbs a,.vlinks a,a.vlink,.example>a,table.data a,.vcard h3 a,.sit h3 a{display:inline-block;padding:13px 0;margin:-13px 0}
 .skip:focus{padding:14px 16px}
 body.has-consent .mobilebar{display:none}
+
+/* Netwerk-footer */
+footer.site .net{border-top:1px solid rgba(0,0,0,.1);margin-top:18px;padding-top:10px}
+footer.site .net ul{display:flex;flex-wrap:wrap;gap:4px 22px;list-style:none;margin:0;padding:0}
