@@ -12,6 +12,6 @@ test('homepage: merk als H1 met tagline, zoekwoord in title en intro', () => {
 });
 
 test('/over/: vaste zin over Dave en overzicht van wat er op de site staat', () => {
-  assert.match(over.body, /\$\{FOUNDER\.zin\}|Dave West, oprichter/);
+  assert.match(over.body, /Ons team/); assert.doesNotMatch(over.body, /Dave West|dave-west/);
   assert.match(over.body, /<h2>Wat je hier vindt<\/h2>/);
 });
