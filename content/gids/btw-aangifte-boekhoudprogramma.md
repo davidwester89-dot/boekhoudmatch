@@ -27,7 +27,7 @@ Aangifte en betaling moeten binnen zijn vóór het einde van de maand na het tij
 - 3e kwartaal: uiterlijk 31 oktober 2026
 - 4e kwartaal: uiterlijk 31 januari 2027
 
-Doe je aangifte met boekhoudsoftware, dan kun je volgens de Belastingdienst insturen vanaf de 24e van de laatste maand van het tijdvak. Eerder insturen geeft een foutmelding.
+Doe je aangifte met boekhoudsoftware, dan kun je volgens de Belastingdienst insturen vanaf de 24e van de laatste maand van het tijdvak. Eerder insturen geeft een foutmelding. Zo doe je de aangifte stap voor stap: [btw-aangifte doen als zzp'er](/blog/btw-aangifte-doen-zzp/).
 
 Te laat of niet ingediend, of te laat betaald? Dan kun je een boete krijgen. Een vergissing herstel je met een suppletie.
 
