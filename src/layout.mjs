@@ -141,11 +141,11 @@ export function sourceList(keys, SOURCES) {
 export function more(summary, html) {
   return `<details><summary>${esc(summary)}</summary>${html}</details>`;
 }
-// Wie erachter zit: letterlijk zoals Dave het opgaf. Niets toevoegen.
+// Wie erachter zit: het team van BoekhoudMatch (zie /over/). Auteur in JSON-LD = de organisatie.
 export const FOUNDER = {
-  naam: 'Dave West',
-  zin: 'Dave West, oprichter. Controleert elke maand de prijzen op de prijspagina\'s van de aanbieders.',
-  schema: { '@type': 'Person', name: 'Dave West', jobTitle: 'Oprichter', url: 'https://boekhoudmatch.nl/over/' },
+  naam: 'het team van BoekhoudMatch',
+  zin: 'Ons team controleert elke maand de prijzen op de prijspagina\'s van de aanbieders.',
+  schema: { '@type': 'Organization', name: 'BoekhoudMatch', url: 'https://boekhoudmatch.nl/' },
 };
 // De methode, kort. Staat boven de vergelijking, op /over/ en bij de match.
 export const METHODE_LIJST = `<ul class="method">

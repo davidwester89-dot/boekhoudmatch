@@ -106,7 +106,7 @@ export function gidsPages() {
     const pageBody = `
 <article class="article gids">
 <h1>${esc(meta.title)}</h1>
-<p class="post-meta">Door <a href="/over/">Dave West</a> · bijgewerkt <time datetime="${meta.updated}">${fmtDate(meta.updated)}</time></p>
+<p class="post-meta">Door <a href="/over/">de redactie van BoekhoudMatch</a> · bijgewerkt <time datetime="${meta.updated}">${fmtDate(meta.updated)}</time></p>
 ${meta.update ? `<p class="alert ok"><strong>Update ${fmtDate(meta.updated)}:</strong> ${esc(meta.update)}</p>` : ''}
 ${html}
 <aside class="cta"><h2>Verder kiezen</h2><ul><li><a href="/boekhoudprogramma-kiezen/">Doe de match (8 vragen) →</a></li><li><a href="/boekhoudprogramma-vergelijken/">Vergelijk alle ${N_PAK} pakketten →</a></li>${(meta.related || []).map((r) => { const [t, u] = r.split(/\s+\|\s+/); return `<li><a href="${u}">${esc(t)} →</a></li>`; }).join('')}</ul></aside>
@@ -118,7 +118,7 @@ ${html}
       path, title: meta.seo_title, ogTitle: meta.title, description: meta.description, crumb: meta.crumb, og: ogKey, updated: meta.updated, words, kind: meta.kind || 'gids',
       body: pageBody,
       schema: [{ '@context': 'https://schema.org', '@type': 'Article', headline: meta.title, description: meta.description, datePublished: meta.published || meta.updated, dateModified: meta.updated, inLanguage: 'nl-NL', wordCount: words, image: `${SITE.domain}/og/${ogKey}.png`,
-        author: { ...FOUNDER.schema }, publisher: ORG, mainEntityOfPage: { '@type': 'WebPage', '@id': SITE.domain + path }, citation: sources.map((s) => s.url) }],
+        author: ORG, publisher: ORG, mainEntityOfPage: { '@type': 'WebPage', '@id': SITE.domain + path }, citation: sources.map((s) => s.url) }],
     };
   });
 }
@@ -131,7 +131,7 @@ export function gidsHub(gidsen) {
   return {
     path: '/gidsen/', title: 'Gidsen over boekhoudprogramma\'s voor zzp | BoekhoudMatch', description: `Gidsen bij het kiezen van een boekhoudprogramma: per rechtsvorm, gratis, starters, btw, bank, KOR en uren. Prijzen gecontroleerd op ${fmtDate(CHECKED)}.`, crumb: 'Gidsen', og: 'vergelijken', updated: CHECKED,
     body: `<section class="article"><h1>Gidsen: boekhoudprogramma kiezen</h1>
-<p class="lead">Korte gidsen om het juiste boekhoudprogramma te kiezen. Geschreven door <a href="/over/">Dave West</a>.</p>
+<p class="lead">Korte gidsen om het juiste boekhoudprogramma te kiezen. Geschreven door <a href="/over/">ons team</a>.</p>
 ${groepen.map((g) => `<h2>${g}</h2><ul class="gidslijst">${lijst(g)}</ul>`).join('\n')}
 <aside class="cta"><h2>Liever meteen kiezen?</h2><ul><li><a href="/boekhoudprogramma-kiezen/">Doe de match →</a></li><li><a href="/boekhoudprogramma-vergelijken/">Vergelijk alle ${N_PAK} pakketten →</a></li></ul></aside>
 </section>`,

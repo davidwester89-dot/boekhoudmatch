@@ -73,7 +73,7 @@ ${tool('/gidsen/', 'blog', 'Gidsen', 'Het beste pakket voor jouw situatie.')}
 <div class="grid cards">
 <div class="card"><h3>Echte prijzen</h3><p>Rechtstreeks van de prijspagina van elke aanbieder.</p></div>
 <div class="card"><h3>Eerlijke volgorde</h3><p>Eerst wat past, dan de prijs. Of wij ergens aan verdienen, telt nooit mee.</p></div>
-<div class="card"><h3>Maandelijks gecontroleerd</h3><p>Door Dave West, oprichter. <a href="/over/">Over ons</a></p></div>
+<div class="card"><h3>Maandelijks gecontroleerd</h3><p>Door ons team. <a href="/over/">Over ons</a></p></div>
 </div>`,
   schema: [
     { '@context': 'https://schema.org', ...ORG },
@@ -258,7 +258,7 @@ ${GA_ID ? gaHtml : '<h2 id="cookies">Cookies</h2>\n<p>We plaatsen op dit moment 
 <h2>Partnerlinks</h2>
 <p>Klik je later op een gemarkeerde partnerlink, dan kan die partij cookies plaatsen volgens haar eigen beleid.</p>
 <h2>Contact</h2>
-<p>BoekhoudMatch is een website van Dave West. Vragen? Mail naar <a href="mailto:${SITE.email}">${SITE.email}</a>.</p>
+<p>Vragen? Mail naar <a href="mailto:${SITE.email}">${SITE.email}</a>.</p>
 <p>Bijgewerkt op ${fmtDate(SITE.updated)}.</p>
 </div>`,
 };

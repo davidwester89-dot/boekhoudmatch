@@ -4,7 +4,7 @@ body{margin:0;font:17px/1.6 var(--sans);color:var(--ink);background:var(--bg)}
 a{color:var(--brand-d);text-underline-offset:2px}a:hover{color:var(--brand)}
 img,svg{max-width:100%;height:auto}
 .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
-.skip{position:absolute;left:-999px}.skip:focus{left:8px;top:8px;background:#fff;padding:10px 14px;z-index:9;border-radius:8px}
+.skip{position:absolute;left:-999px}.skip:focus{left:8px;top:8px;background:#fff;padding:10px 14px;z-index:9;border-radius:8px;min-height:44px;display:inline-flex;align-items:center;box-sizing:border-box}
 :focus-visible{outline:3px solid var(--amber);outline-offset:2px}
 /* header */
 header.site{background:var(--bg);border-bottom:1px solid var(--line)}
