@@ -70,6 +70,6 @@ Je hoeft vandaag nog niets te veranderen. Maar een paar dingen nu regelen, schee
 
 ## Ondertussen: btw-aangifte over het derde kwartaal
 
-Doe je per kwartaal btw-aangifte? De aangifte en betaling over juli tot en met september 2026 moeten uiterlijk **31 oktober 2026** binnen zijn bij de Belastingdienst. Let op: het geld moet dan ook echt op de rekening van de Belastingdienst staan. Wil je snel een btw-bedrag checken, gebruik dan onze [btw-calculator](/btw-berekenen/).
+Doe je per kwartaal btw-aangifte? De aangifte en betaling over juli tot en met september 2026 moeten uiterlijk **31 oktober 2026** binnen zijn bij de Belastingdienst. Let op: het geld moet dan ook echt op de rekening van de Belastingdienst staan. Wil je snel een btw-bedrag checken, gebruik dan onze [btw-calculator](/btw-berekenen/). Hoe je de aangifte invult en betaalt, lees je in [btw-aangifte doen als zzp'er: stappenplan en deadline Q3](/blog/btw-aangifte-doen-zzp/).
 
 Twijfel je welk boekhoudprogramma bij je past, ook met het oog op e-facturen? Doe de [boekhoudmatch](/boekhoudprogramma-kiezen/): 8 vragen, met echte prijzen.
