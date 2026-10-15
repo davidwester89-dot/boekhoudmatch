@@ -60,7 +60,7 @@ Heb je een vof of bv, controleer dan of de aanbieder die rechtsvorm noemt. Money
 
 ## Waarom geen sterren of “meest gekozen”?
 
-Omdat we die niet kunnen onderbouwen. We houden ons aan wat op de prijspagina van de aanbieder staat, met bronlink en controledatum. Dave West controleert de prijzen elke maand.
+Omdat we die niet kunnen onderbouwen. We houden ons aan wat op de prijspagina van de aanbieder staat, met bronlink en controledatum. Ons team controleert de prijzen elke maand.
 
 ## Zo kies je in drie stappen
 

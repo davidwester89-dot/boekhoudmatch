@@ -51,7 +51,7 @@ const goedkoopst = sit.find((s) => s.id === 'instap');
 const faq = [
   ['Wat is het goedkoopste boekhoudprogramma voor zzp\'ers?', `Gratis en heel goedkope pakketten, zoals Tellow Gratis, Rompslomp Starter en Moneybird Compact, hebben strenge limieten. Voor btw-aangifte en 5 facturen en 5 uitgaven per maand is ${goedkoopst.top.a.naam} ${goedkoopst.top.p.naam} (${e2(goedkoopst.top.prijs)} p/m) het goedkoopst. Stuur je maar af en toe een factuur? Dan is onze gratis <a href="/offerte-factuur-maken/">factuurtool</a> misschien genoeg.`],
   ['Waarom staat er soms “niet vermeld”?', 'De aanbieder noemt het niet op zijn site. We vullen niets zelf in. Vraag het na of probeer het in de proefperiode.'],
-  ['Hoe vaak worden de prijzen gecontroleerd?', `Elke maand, door Dave West. De laatste controle was op ${fmtDate(CHECKED)}. Is een prijswijziging al aangekondigd (zoals bij Rompslomp per 1 november 2026), dan rekenen we met de nieuwe prijs.`],
+  ['Hoe vaak worden de prijzen gecontroleerd?', `Elke maand, door ons team. De laatste controle was op ${fmtDate(CHECKED)}. Is een prijswijziging al aangekondigd (zoals bij Rompslomp per 1 november 2026), dan rekenen we met de nieuwe prijs.`],
   ['Telt commissie mee in de volgorde?', 'Nee. De tabel staat op alfabet en de situaties volgen een vaste regel op prijs en functies. Er staan nu geen partnerlinks op de site.'],
 ];
 
@@ -64,7 +64,7 @@ const body = `
 <div class="actions"><a class="btn" href="/boekhoudprogramma-kiezen/">Liever advies op maat? Doe de match</a></div>
 <section class="band methodbox" aria-labelledby="methode"><h2 id="methode">Zo vergelijken we</h2>
 ${METHODE_LIJST}
-<p>Gecontroleerd door Dave West. Alle <a href="/bronnen/">bronnen</a>.</p></section>
+<p>Gecontroleerd door ons team. Alle <a href="/bronnen/">bronnen</a>.</p></section>
 
 <h2>Per situatie</h2>
 <div class="grid cards two sits">${sit.map(sitBlok).join('\n')}</div>
