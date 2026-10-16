@@ -2,11 +2,12 @@ import { SITE, GA_ID, esc, field, slot, sourceList, webApp, fmtDate, more, ORG, 
 import { SOURCES, IB2026, BTW, CHECKED } from '../lib/constants.js';
 import { PAKKETTEN, CHECKED as PCHECKED } from '../lib/pakketten.js';
 import { REDACTIE, vendorHref } from '../lib/aanbieders.js';
-import { match } from '../lib/match.js';
+import { match, VRAGEN } from '../lib/match.js';
+import { situaties } from '../lib/situaties.mjs';
 
 const nl = (x, d = 2) => new Intl.NumberFormat('nl-NL', { minimumFractionDigits: d, maximumFractionDigits: d }).format(x);
 const pc = (x) => nl(x * 100, 2).replace(/,00$/, '') + '%';
-const tool = (href, icon, title, text) => `<a class="card" href="${href}"><span class="ico">${ICONS[icon]}</span><h3>${title}</h3><p>${text}</p></a>`;
+const tool = (href, icon, title) => `<a class="tool" href="${href}"><span class="ico">${ICONS[icon]}</span>${title}</a>`;
 
 const N_AANB = PAKKETTEN.length;
 const N_PAK = PAKKETTEN.reduce((n, a) => n + a.plannen.length, 0);
@@ -20,11 +21,12 @@ export const VOORBEELDEN = [
   { id: 'uren', titel: 'Dienstverlener met uren', wie: 'Eenmanszaak, tot 5 facturen per maand, met bankkoppeling, uren en offertes, budget tot € 20.', a: { rechtsvorm: 'eenmanszaak', facturen: 5, uitgaven: 10, btw: 'plichtig', bank: 'auto', ib: 'zelf', extra: ['uren', 'offertes'], budget: 20 } },
   { id: 'groei', titel: 'Groeiende eenmanszaak', wie: 'Eenmanszaak, tot 25 facturen per maand, met bankkoppeling en hulp bij de aangifte, budget tot € 50.', a: { rechtsvorm: 'eenmanszaak', facturen: 25, uitgaven: 50, btw: 'plichtig', bank: 'auto', ib: 'hulp', extra: ['offertes'], budget: 50 } },
 ];
-export const matchUrl = (a) => '/boekhoudprogramma-kiezen/?' + new URLSearchParams({ rechtsvorm: a.rechtsvorm, facturen: a.facturen, uitgaven: a.uitgaven, btw: a.btw, bank: a.bank, offertes: a.extra.includes('offertes') ? '1' : '0', uren: a.extra.includes('uren') ? '1' : '0', ib: a.ib, budget: String(a.budget) }).toString();
+export const matchUrl = (a) => '/boekhoudprogramma-kiezen/?' + new URLSearchParams({ rechtsvorm: a.rechtsvorm, facturen: a.facturen, uitgaven: a.uitgaven, btw: a.btw, bank: a.bank, offertes: a.extra.includes('offertes') ? '1' : '0', uren: a.extra.includes('uren') ? '1' : '0', ib: a.ib, budget: a.budget === Infinity ? 'geen' : String(a.budget) }).toString();
 function voorbeeld(v) {
   const top = match(PAKKETTEN, v.a).filter((r) => r.past).slice(0, 3);
   return `<article class="card example"><h3>${esc(v.titel)}</h3><p class="sub">${esc(v.wie)}</p><ol class="top">${top.map((r) => `<li><strong>${esc(r.naam)} ${esc(r.planNaam)}</strong> <span class="price">${e2(r.prijs)} p/m</span></li>`).join('')}</ol><a href="${esc(matchUrl(v.a))}" rel="nofollow">Bekijk deze match →</a></article>`;
 }
+const logoImg = (a) => { const r = REDACTIE[a.id]; return r.logo ? `<img src="/logos/${r.logo}.webp" width="120" height="36" alt="${esc(a.naam)}" loading="lazy" decoding="async">` : `<span class="wordmark">${esc(r.kort)}</span>`; };
 export function logoTile(a, href) {
   const r = REDACTIE[a.id];
   const inner = r.logo ? `<img src="/logos/${r.logo}.webp" width="160" height="48" alt="${esc(a.naam)}" loading="lazy" decoding="async">` : `<span class="wordmark">${esc(r.kort)}</span>`;
@@ -44,37 +46,53 @@ export const home = {
 <p class="tagline">Boekhouden? Gewoon. Zonder gedoe.</p>
 <p class="lead">Welk boekhoudprogramma past bij jouw zzp-bedrijf? Beantwoord 8 vragen en zie wat bij je past en wat het kost.</p>
 <div class="actions"><a class="btn" href="/boekhoudprogramma-kiezen/">Start de match</a><a class="btn ghost" href="/boekhoudprogramma-vergelijken/">Vergelijk alle ${N_PAK} pakketten</a></div>
-<ul class="trust"><li>${N_AANB} aanbieders</li><li>Actuele prijzen</li><li>Gratis, zonder account</li></ul>
 </div>
-<figure class="shot"><img src="/img/match-voorbeeld-680.webp" srcset="/img/match-voorbeeld-480.webp 480w, /img/match-voorbeeld-680.webp 680w, /img/match-voorbeeld-900.webp 900w" sizes="(min-width: 900px) 410px, (min-width: 600px) 560px, calc(100vw - 40px)" width="560" height="400" alt="Voorbeeld van de boekhoudmatch: vragen links, beste match en top 3 met maandprijs rechts" decoding="async" fetchpriority="high"></figure>
+<div class="hero-q">
+<p class="hero-q-step">Vraag 1 van 8</p>
+<p class="hero-q-title" id="hq">Wat is je rechtsvorm?</p>
+<div class="hero-q-opts" role="group" aria-labelledby="hq">${VRAGEN.rechtsvorm.map(([v, l]) => `<a class="choice" href="/boekhoudprogramma-kiezen/?rechtsvorm=${v}" rel="nofollow">${esc(l)}<span aria-hidden="true">→</span></a>`).join('')}</div>
+<p class="hero-q-foot">Daarna nog 7 korte vragen. Gratis, zonder account.</p>
+</div>
 </section>
 
-<h2>Boekhoudprogramma voor zzp: drie voorbeelden</h2>
-<div class="grid cards">
-${VOORBEELDEN.map(voorbeeld).join('\n')}
-</div>
+<ul class="trustbar">
+<li>${ICONS.kalender}<span>Prijzen gecontroleerd op <time datetime="${LAATSTE_CONTROLE}">${fmtDate(LAATSTE_CONTROLE)}</time></span></li>
+<li>${ICONS.bron}<span>Bron bij elke prijs</span></li>
+<li>${ICONS.schild}<span>Volgorde nooit betaald</span></li>
+<li>${ICONS.gratis}<span>Gratis, zonder account</span></li>
+</ul>
 
-<h2>Deze ${N_AANB} aanbieders vergelijken we</h2>
+<section class="logobar" aria-labelledby="h-aanb">
+<h2 id="h-aanb">Deze ${N_AANB} aanbieders vergelijken we</h2>
 <div class="logos">${[...PAKKETTEN].sort((x, y) => x.naam.localeCompare(y.naam, 'nl')).map((a) => logoTile(a, vendorHref(a.id))).join('')}</div>
+</section>
+
+<h2>Beste keuze per situatie</h2>
+<p class="sub">Een vaste regel op prijs en functies, uit de prijspagina's van de aanbieders. Partnerschappen tellen niet mee.</p>
+<ol class="sitlist">
+${situaties().filter((x) => x.top).map((x) => `<li><span class="sit-logo">${logoImg(x.top.a)}</span><span class="sit-txt"><strong>${esc(x.titel)}</strong><span>${esc(x.regel)}</span></span><span class="sit-pick">${esc(x.top.a.naam)} ${esc(x.top.p.naam)}<b>${e2(x.top.prijs)} p/m</b></span><a class="sit-why" href="${vendorHref(x.top.a.id)}">Waarom?<span class="sr-only"> ${esc(x.top.a.naam)}</span></a></li>`).join('\n')}
+</ol>
+<p><a href="/boekhoudprogramma-kiezen/">Jouw situatie is anders? Doe de match →</a></p>
+
+<section class="band method-band">
+<h2>Zo vergelijken we</h2>
+<ol class="steps">
+<li><strong>Prijs van de aanbieder zelf.</strong> We halen elke prijs van de prijspagina van de aanbieder en linken naar die bron.</li>
+<li><strong>Elke maand gecontroleerd.</strong> Bij elk pakket staat de datum van de laatste controle.</li>
+<li><strong>Partnerlinks veranderen niets.</strong> Eerst wat past, dan je budget, dan de prijs. Commissie telt nooit mee.</li>
+</ol>
+<p class="author">Door de <a href="/over/">Redactie BoekhoudMatch</a> · <a href="/boekhoudprogramma-kiezen/#methode">Hoe de match werkt</a></p>
+</section>
 
 <h2>Rekentools voor zzp'ers</h2>
-<div class="grid cards">
-${tool('/zzp-netto-inkomen/', 'netto', 'Netto-inkomen', 'Wat houd je over van je winst?')}
-${tool('/zzp-uurtarief/', 'uur', 'Uurtarief', 'Welk tarief heb je nodig?')}
-${tool('/btw-berekenen/', 'btw', 'Btw berekenen', 'Van exclusief naar inclusief en terug.')}
-${tool('/offerte-factuur-maken/', 'factuur', 'Offerte en factuur', 'Gratis en zonder account.')}
-${tool('/boekhoudprogramma-vergelijken/', 'compare', 'Alle pakketten vergelijken', 'Prijs, limieten en functies naast elkaar.')}
-${tool('/gidsen/', 'blog', 'Gidsen', 'Het beste pakket voor jouw situatie.')}
+<div class="toolrow">
+${tool('/zzp-netto-inkomen/', 'netto', 'Netto-inkomen')}
+${tool('/zzp-uurtarief/', 'uur', 'Uurtarief')}
+${tool('/btw-berekenen/', 'btw', 'Btw berekenen')}
+${tool('/offerte-factuur-maken/', 'factuur', 'Offerte en factuur')}
 </div>
 
-{{latest}}
-
-<h2>Waarom BoekhoudMatch</h2>
-<div class="grid cards">
-<div class="card"><h3>Echte prijzen</h3><p>Rechtstreeks van de prijspagina van elke aanbieder.</p></div>
-<div class="card"><h3>Eerlijke volgorde</h3><p>Eerst wat past, dan de prijs. Of wij ergens aan verdienen, telt nooit mee.</p></div>
-<div class="card"><h3>Maandelijks gecontroleerd</h3><p>Door ons team. <a href="/over/">Over ons</a></p></div>
-</div>`,
+{{latest}}`,
   schema: [
     { '@context': 'https://schema.org', ...ORG },
     { '@context': 'https://schema.org', '@type': 'WebSite', name: SITE.name, url: SITE.domain + '/', inLanguage: 'nl-NL', publisher: { '@type': 'Organization', name: SITE.name } },
@@ -277,6 +295,7 @@ export const disclaimer = {
 <ul>
 <li>We houden bedragen zo actueel en juist mogelijk, maar fouten zijn niet uitgesloten. Bedragen voor 2027 zijn deels nog voorstellen.</li>
 <li>Je eigen situatie (partner, ander inkomen, toeslagen, eigen woning) kan tot een andere uitkomst leiden.</li>
+<li>Logo's en merknamen zijn eigendom van de betreffende aanbieders. We gebruiken alleen logo's uit hun eigen beeldbank of van hun eigen site, om aan te geven welk pakket we bespreken.</li>
 <li>Prijzen van boekhoudprogramma's komen van de sites van de aanbieders op de vermelde datum. De informatie bij de aanbieder is leidend.</li>
 <li>Twijfel je? Vraag een adviseur of de Belastingdienst. We zijn niet aansprakelijk voor schade door het gebruik van deze site.</li>
 <li>Fout gezien? Mail naar <a href="mailto:${SITE.email}">${SITE.email}</a>.</li>

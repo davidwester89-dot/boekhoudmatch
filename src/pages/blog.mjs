@@ -68,7 +68,7 @@ ${posts.map((x) => `<a class="card" href="${x.path}"><time datetime="${x.date}">
 
 export function latestHtml(posts, n = 3) {
   if (!posts.length) return '';
-  return `<h2>Nieuw op de blog</h2><div class="grid cards">${posts.slice(0, n).map((x) => `<a class="card" href="${x.path}"><h3>${esc(x.title)}</h3><span class="more">Lees verder →</span></a>`).join('')}</div>`;
+  return `<h2>Nieuw op de blog</h2><ul class="postlist">${posts.slice(0, n).map((x) => `<li><a href="${x.path}">${esc(x.title)}</a><span class="sub"><time datetime="${x.date}">${fmtDate(x.date)}</time> · ${readMin(x.words)} min lezen</span></li>`).join('')}</ul><p><a href="/blog/">Alle artikelen →</a></p>`;
 }
 
 const rfc822 = (iso) => new Date(iso + 'T08:00:00+02:00').toUTCString();
