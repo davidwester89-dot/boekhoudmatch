@@ -1,6 +1,6 @@
 ---
 title: Gratis boekhoudprogramma: wat krijg je wel en niet? (2026)
-seo_title: Gratis boekhoudprogramma zzp 2026: de feiten | BoekhoudMatch
+seo_title: Gratis boekhoudprogramma zzp 2026 (en de grenzen)
 description: Welke boekhoudprogramma's zijn gratis, en wat zijn de grenzen? Gratis pakketten, starterskortingen en proefperiodes op een rij, met bron en datum.
 crumb: Gratis boekhoudprogramma
 updated: 2026-10-10

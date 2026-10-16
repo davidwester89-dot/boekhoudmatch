@@ -1,6 +1,6 @@
 ---
 title: Boekhoudprogramma voor starters (2026)
-seo_title: Boekhoudprogramma voor starters 2026 | BoekhoudMatch
+seo_title: Boekhoudprogramma starters 2026: kortingen en tips
 description: Net begonnen als zzp'er? Welk boekhoudprogramma past, welke starterskortingen er zijn en wat je vanaf dag één bijhoudt. Met prijs, bron en datum.
 crumb: Boekhoudprogramma starters
 updated: 2026-10-10
