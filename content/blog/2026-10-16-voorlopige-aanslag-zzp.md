@@ -10,11 +10,11 @@ image_alt: Tijdlijn voorlopige aanslag voor zzp'ers: formulier vanaf december, a
 image_caption: Tijdlijn voorlopige aanslag. Illustratie: BoekhoudMatch, op basis van de Belastingdienst.
 tools: /zzp-netto-inkomen/, /boekhoudprogramma-kiezen/
 sources:
-- Belastingdienst: Reserveer geld om uw belastingen te betalen (geraadpleegd 16-10-2026) | https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/ondernemen/onderneming_starten/reserveer-geld-om-uw-belastingen-te-betalen/reserveer-geld-om-uw-belastingen-te-betalen
-- Belastingdienst: In welke situaties moet ik mijn voorlopige aanslag wijzigen? (geraadpleegd 16-10-2026) | https://www.belastingdienst.nl/wps/wcm/connect/nl/voorlopige-aanslag/content/in-welke-situaties-moet-ik-mijn-voorlopige-aanslag-wijzigen
-- Belastingdienst: Vanaf wanneer kan ik een voorlopige aanslag aanvragen of wijzigen? (geraadpleegd 16-10-2026) | https://www.belastingdienst.nl/wps/wcm/connect/nl/voorlopige-aanslag/content/vanaf-wanneer-een-voorlopige-aanslag-aanvragen-of-wijzigen
-- Belastingdienst: Belastingrente betalen bij inkomstenbelasting (geraadpleegd 16-10-2026) | https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/standaard_functies/prive/contact/rechten_en_plichten_bij_de_belastingdienst/belastingrente/belastingrente_betalen_bij_inkomstenbelasting
-- Belastingdienst: Overzicht percentages belastingrente (geraadpleegd 16-10-2026) | https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/standaard_functies/prive/contact/rechten_en_plichten_bij_de_belastingdienst/belastingrente/overzicht_percentages_belastingrente
+- Belastingdienst: Reserveer geld om uw belastingen te betalen | https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/ondernemen/onderneming_starten/reserveer-geld-om-uw-belastingen-te-betalen/reserveer-geld-om-uw-belastingen-te-betalen
+- Belastingdienst: In welke situaties moet ik mijn voorlopige aanslag wijzigen? | https://www.belastingdienst.nl/wps/wcm/connect/nl/voorlopige-aanslag/content/in-welke-situaties-moet-ik-mijn-voorlopige-aanslag-wijzigen
+- Belastingdienst: Vanaf wanneer kan ik een voorlopige aanslag aanvragen of wijzigen? | https://www.belastingdienst.nl/wps/wcm/connect/nl/voorlopige-aanslag/content/vanaf-wanneer-een-voorlopige-aanslag-aanvragen-of-wijzigen
+- Belastingdienst: Belastingrente betalen bij inkomstenbelasting | https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/standaard_functies/prive/contact/rechten_en_plichten_bij_de_belastingdienst/belastingrente/belastingrente_betalen_bij_inkomstenbelasting
+- Belastingdienst: Overzicht percentages belastingrente | https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/standaard_functies/prive/contact/rechten_en_plichten_bij_de_belastingdienst/belastingrente/overzicht_percentages_belastingrente
 ---
 Als zzp'er houdt niemand loonheffing voor je in. Je betaalt inkomstenbelasting, premies volksverzekeringen en de bijdrage Zvw dus zelf. Met een voorlopige aanslag doe je dat al tijdens het jaar, in maandelijkse termijnen. Zo krijg je na je aangifte geen grote rekening in één keer.
 
