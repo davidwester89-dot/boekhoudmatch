@@ -25,10 +25,10 @@ Een koppeling scheelt je per maand een paar handelingen. Het verwerken zelf, dus
 - **Informer**: automatische koppeling met je eigen bank kost € 1 per maand per rekening. Met de eigen Informer Money-rekening zijn er volgens Informer geen vaste kosten.
 - **Jortt**: in ZZP ({{p:jortt/zzp}}) 1 bankkoppeling; MKB en Plus ook met koppeling. Starter: importeren.
 - **Moneybird**: je externe bank koppelen kan vanaf Groei ({{p:moneybird/groei}}). Bij Compact en Start importeer je zelf, of gebruik je de Moneybird Betaalrekening (eerste 12 maanden gratis, daarna € 7 per maand).
-- **MoneyMonk**: een gratis PSD2-bankkoppeling voor al je bankrekeningen, in elk pakket.
+- **[MoneyMonk](/moneymonk/)**: een gratis PSD2-bankkoppeling voor al je bankrekeningen, in elk pakket.
 - **Rompslomp**: automatisch vanaf Basic ({{p:rompslomp/basic}}). Bij Starter en Puur Factuur importeer je zelf.
 - **Silvasoft**: automatische koppeling met alle Nederlandse banken voor € 3 per bankrekening per maand. Importeren via een MT940-bestand zit erin.
-- **SnelStart**: in alle pakketten genoemd.
+- **[SnelStart](/snelstart/)**: in alle pakketten genoemd.
 - **Tellow**: alle pakketten met een eigen betaalrekening; in onze data als automatische koppeling.
 
 Alle pakketten met een automatische koppeling, met of zonder meerprijs:
