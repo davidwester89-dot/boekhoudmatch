@@ -1,7 +1,7 @@
 ---
 title: Beste boekhoudprogramma voor zzp'ers in 2026
-seo_title: Beste boekhoudprogramma voor zzp (okt. 2026) | BoekhoudMatch
-description: Welk boekhoudprogramma is het beste voor jou als zzp'er? Per situatie het goedkoopste passende pakket, met prijs, limiet en bron. Bijgewerkt oktober 2026.
+seo_title: Beste boekhoudprogramma zzp 2026: top per situatie
+description: Welk boekhoudprogramma is het beste voor jou als zzp'er? Per situatie het goedkoopste passende pakket, met prijs en limiet. Bijgewerkt okt. 2026.
 crumb: Beste boekhoudprogramma zzp
 updated: 2026-10-10
 published: 2026-10-10

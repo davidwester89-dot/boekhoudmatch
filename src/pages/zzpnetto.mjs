@@ -59,8 +59,8 @@ ${volgendeStap([['Uurtarief berekenen', '/zzp-uurtarief/'], ['Urenregistratie vo
 
 export default {
   path,
-  title: 'Netto-inkomen zzp berekenen 2026 | BoekhoudMatch', og: 'netto', ogTitle: 'Netto-inkomen zzp berekenen (2026)',
-  description: 'Bereken je netto-inkomen als zzp\'er in 2026, met zelfstandigenaftrek, mkb-winstvrijstelling en Zvw. Zie ook hoeveel je moet reserveren.',
+  title: 'Zzp bruto netto berekenen 2026 | BoekhoudMatch', og: 'netto', ogTitle: 'Netto-inkomen zzp berekenen (2026)',
+  description: 'Van bruto winst naar netto als zzp\'er in 2026: met zelfstandigenaftrek, mkb-winstvrijstelling en Zvw. Plus hoeveel je moet reserveren.',
   crumb: 'Netto-inkomen zzp',
   body,
   scripts: ['/js/zzpnetto.js'],

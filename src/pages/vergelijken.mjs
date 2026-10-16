@@ -107,7 +107,7 @@ ${faqHtml(faq)}
 `;
 
 export default {
-  path, title: 'Boekhoudprogramma\'s vergelijken 2026 | BoekhoudMatch', og: 'vergelijken', ogTitle: 'Boekhoudprogramma\'s vergelijken 2026',
+  path, title: 'Boekhoudprogramma zzp vergelijken 2026 | BoekhoudMatch', og: 'vergelijken', ogTitle: 'Boekhoudprogramma\'s vergelijken 2026',
   description: `Vergelijk ${N_PAK} pakketten van ${N_AANB} boekhoudprogramma's op prijs, limieten, btw-aangifte en bankkoppeling. Filter op je situatie. Met bron en datum.`,
   crumb: 'Boekhoudprogramma vergelijken', body, scripts: ['/js/vergelijken.js'], updated: CHECKED,
   schema: [faqSchema(faq), {
