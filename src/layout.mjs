@@ -73,11 +73,15 @@ export function layout(p) {
       '@context': 'https://schema.org', '@type': 'BreadcrumbList',
       itemListElement: trail.map(([h, t], i) => ({ '@type': 'ListItem', position: i + 1, name: t, item: SITE.domain + h })),
     }] : []),
+    siteGraph(),
     ...(p.schema || []),
   ];
   const og = `${SITE.domain}/og/${p.og || 'home'}.png`;
   const navPath = p.navPath || p.path;
   const hasBar = p.body.includes('class="mobilebar"');
+  // Vaste mobiele knop naar de match (niet op de match zelf, niet op pagina's met een eigen uitkomstbalk).
+  const hasCta = !hasBar && !p.noCta && p.path !== '/boekhoudprogramma-kiezen/' && p.path !== '/404.html';
+  const bodyCls = [hasBar && 'has-bar', hasCta && 'has-cta'].filter(Boolean).join(' ');
   return `<!doctype html>
 <html lang="nl">
 <head>
@@ -101,7 +105,7 @@ ${p.article ? `<meta property="article:published_time" content="${p.article.date
 <style>${CSS}</style>
 ${ld.map((x) => `<script type="application/ld+json">${JSON.stringify(x).replace(/</g, '\\u003c')}</script>`).join('\n')}
 </head>
-<body${hasBar ? ' class="has-bar"' : ''}${GA_ID ? ` data-ga="${GA_ID}"` : ''}>
+<body${bodyCls ? ` class="${bodyCls}"` : ''}${GA_ID ? ` data-ga="${GA_ID}"` : ''}>
 <a class="skip" href="#inhoud">Naar de inhoud</a>
 <header class="site"><div class="wrap">
 <a class="logo" href="/" aria-label="${SITE.name}, naar de homepage">${LOGO}<span>Boekhoud<b>Match</b></span></a>
@@ -110,7 +114,8 @@ ${ld.map((x) => `<script type="application/ld+json">${JSON.stringify(x).replace(
 </div></header>
 <main id="inhoud"><div class="wrap">
 ${crumbs}
-${p.body.replace('{{related}}', relatedPosts(p.path))}
+${withStamp(p.body, p.stamp).replace('{{related}}', relatedPosts(p.path))}
+${foutGezien(url)}
 </div></main>
 <footer class="site"><div class="wrap">
 <div class="cols">
@@ -122,6 +127,7 @@ ${p.body.replace('{{related}}', relatedPosts(p.path))}
 <div class="net"><p class="fh">Ook van ons</p><ul>${networkFor('boekhoudmatch.nl').map((s) => `<li><a href="${s.url}">${s.logo}</a> · ${esc(s.wat)}</li>`).join('')}</ul></div>
 <p class="fine">© 2026 ${SITE.name}. Uitkomsten zijn een indicatie, geen persoonlijk advies. Partnerlinks hebben nooit invloed op de volgorde.</p>
 </div></footer>
+${hasCta ? `<a class="stickycta" href="/boekhoudprogramma-kiezen/" data-cta="sticky_match">${ICONS.match}<span>Bekijk jouw match in 2 minuten</span></a>` : ''}
 ${[...(GA_ID ? ['/js/consent.js'] : []), ...(p.scripts || [])].map((s) => `<script type="module" src="${s}"></script>`).join('\n')}
 </body>
 </html>`;
@@ -190,4 +196,40 @@ export function relatedPosts(path, n = 2) {
 export function volgendeStap(extra = []) {
   const items = [['Doe de match (8 vragen)', '/boekhoudprogramma-kiezen/'], ['Vergelijk alle boekhoudpakketten', '/boekhoudprogramma-vergelijken/'], ...extra];
   return `<aside class="cta"><h2>Volgende stap</h2><ul>${items.map(([t, u]) => `<li><a href="${u}">${esc(t)} →</a></li>`).join('')}</ul></aside>`;
+}
+
+/** Organization + WebSite op elke pagina (één graaf, met vaste @id's). */
+export function siteGraph() {
+  return { '@context': 'https://schema.org', '@graph': [
+    { ...ORG, '@id': SITE.domain + '/#org' },
+    { '@type': 'WebSite', '@id': SITE.domain + '/#website', name: SITE.name, url: SITE.domain + '/', inLanguage: 'nl-NL', publisher: { '@id': SITE.domain + '/#org' } },
+  ] };
+}
+
+/** Badge 'Gecontroleerd op' + 'Laatst bijgewerkt' (alleen echte datums uit de data; ontbreekt er een, dan tonen we die niet). */
+export function stampHtml(stamp) {
+  if (!stamp || (!stamp.checked && !stamp.updated)) return '';
+  const t = (d) => `<time datetime="${d}">${fmtDate(d)}</time>`;
+  return `<p class="stamp">${stamp.checked ? `<span class="badge-ok">${ICONS.schild}Gecontroleerd op ${t(stamp.checked)}</span>` : ''}${stamp.updated ? `<span class="upd">Laatst bijgewerkt ${t(stamp.updated)}</span>` : ''}</p>`;
+}
+/** Zet de badge direct onder de h1 (en onder de auteursregel als die er staat). */
+export function withStamp(body, stamp) {
+  const html = stampHtml(stamp);
+  if (!html) return body;
+  const m = body.match(/<\/h1>\s*(<p class="lead">[\s\S]*?<\/p>\s*)?(<p class="post-meta">[\s\S]*?<\/p>)?/);
+  if (!m) return html + body;
+  const end = m.index + m[0].length;
+  return body.slice(0, end) + '\n' + html + body.slice(end);
+}
+/** 'Fout gezien?': mailto met de pagina-URL al ingevuld. */
+export function foutGezien(url) {
+  const q = `subject=${encodeURIComponent(`Fout gezien op ${url.replace(/^https?:\/\//, '')}`)}&body=${encodeURIComponent(`Pagina: ${url}\n\nWat klopt er niet?\n`)}`;
+  return `<p class="report">Fout gezien? <a href="mailto:${SITE.email}?${q}" data-cta="report_error">Laat het ons weten</a>.</p>`;
+}
+/** Echte FAQ's uit een artikel: de h3-vragen onder een h2 'Veelgestelde vragen' (tot de volgende h2). */
+export function faqFromHtml(html) {
+  const m = html.match(/<h2[^>]*>\s*Veelgestelde vragen\s*<\/h2>([\s\S]*?)(?=<h2|$)/i);
+  if (!m) return [];
+  const strip = (x) => x.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+  return [...m[1].matchAll(/<h3[^>]*>([\s\S]*?)<\/h3>([\s\S]*?)(?=<h3|$)/g)].map(([, q, a]) => [strip(q), strip(a)]).filter(([q, a]) => q && a);
 }

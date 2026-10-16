@@ -1,4 +1,12 @@
 import { bindForm, setUrl } from './form.js';
+import { bewaar, laad, wis } from './lib/opslag.js';
+
+// Vorige antwoorden terugzetten (alleen op dit apparaat bewaard). Een link met antwoorden gaat altijd voor.
+const OPSLAG = 'boekhoudmatch-quiz-v1';
+const store = (() => { try { return window.localStorage; } catch { return null; } })();
+const VELDEN = [...new Set([...document.querySelectorAll('#form [name]')].map((x) => x.name))];
+let hersteld = false;
+if (store && !location.search) { const q = laad(store, OPSLAG, VELDEN); if (q) { setUrl(`${location.pathname}?${q}${location.hash}`); hersteld = true; } }
 
 // Oude links met budget=Infinity: omzetten naar budget=geen (zelfde betekenis, nette URL).
 if (/[?&]budget=Infinity\b/.test(location.search)) setUrl(location.pathname + location.search.replace(/budget=Infinity\b/, 'budget=geen') + location.hash);
@@ -101,6 +109,18 @@ bindForm(form, (v) => {
   }));
 });
 
+// Antwoorden bewaren na elke eigen keuze; 'Opnieuw beginnen' wist ze.
+const resume = document.getElementById('q-resume');
+if (resume && hersteld) resume.hidden = false;
+const opslaan = (e) => { if (store && (!e || e.isTrusted || e.type === 'submit')) bewaar(store, OPSLAG, location.search, VELDEN); };
+form.addEventListener('change', opslaan);
+form.addEventListener('submit', opslaan);
+document.addEventListener('click', (e) => {
+  const r = e.target.closest('[data-reset]'); if (!r) return;
+  e.preventDefault(); if (store) wis(store, OPSLAG);
+  location.href = location.pathname;
+});
+
 // Statistieken (alleen na toestemming, zie consent.js): start = eerste eigen antwoord,
 // afgerond = vraag 8 beantwoord of de uitslag geopend. Alleen de naam van de beste match, nooit de antwoorden.
 let started = false, done = false;
@@ -118,9 +138,13 @@ function complete() {
 // Link naar de uitslag kopiëren: de invoer staat al in de URL (URL's met invoer zijn noindex).
 const copyBtn = document.getElementById('out-copy'), copyOk = document.getElementById('out-copy-ok');
 if (copyBtn) {
-  if (!navigator.clipboard) copyBtn.hidden = true;
+  const delen = typeof navigator.share === 'function' && matchMedia('(pointer: coarse)').matches;
+  if (!navigator.clipboard && !delen) copyBtn.hidden = true;
+  if (delen) copyBtn.textContent = 'Deel of bewaar je uitslag';
   copyBtn.addEventListener('click', async () => {
-    try { await navigator.clipboard.writeText(location.href); copyOk.textContent = 'Link gekopieerd.'; }
+    opslaan();
+    if (delen) { try { await navigator.share({ title: 'Mijn BoekhoudMatch-uitslag', url: location.href }); return; } catch (err) { if (err && err.name === 'AbortError') return; } }
+    try { await navigator.clipboard.writeText(location.href); copyOk.textContent = 'Link gekopieerd. Bewaar of deel hem; je antwoorden staan erin.'; }
     catch { copyOk.textContent = 'Kopiëren lukte niet; kopieer de adresbalk.'; }
   });
 }
@@ -141,7 +165,9 @@ function voortgang() {
   document.getElementById('q-prog').textContent = n === N ? `Alle ${N} vragen beantwoord` : `${n} van ${N} vragen beantwoord`;
   const vl = document.getElementById('q-voorlopig'); if (vl) vl.hidden = n === N;
   if (vl && n > 0) vl.textContent = 'Nog niet alles ingevuld. Voor open vragen rekent de uitslag met gangbare antwoorden.';
-  document.getElementById('q-bar').style.width = `${Math.round((n / N) * 100)}%`;
+  const pct = Math.round((n / N) * 100);
+  document.getElementById('q-bar').style.width = `${pct}%`;
+  const pb = document.querySelector('.qbar'); if (pb) { pb.setAttribute('aria-valuenow', String(n)); pb.setAttribute('aria-valuetext', `${n} van ${N} vragen beantwoord`); }
 }
 function markeer(e) {
   if (!e.isTrusted) return;

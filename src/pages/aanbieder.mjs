@@ -50,7 +50,7 @@ export const aanbiederPages = PAKKETTEN.map((a) => {
   const body = `
 <h1>${esc(a.naam)}: prijzen en pakketten (2026)</h1>
 <p class="lead">${esc(r.kort)} heeft ${a.plannen.length} pakketten${prijzen.length ? `, van ${e2(Math.min(...prijzen))} tot ${e2(Math.max(...prijzen))} per maand` : ''}.</p>
-<p class="post-meta">Door de <a href="/over/">Redactie BoekhoudMatch</a> · Prijzen gecontroleerd op <time datetime="${c}">${fmtDate(c)}</time> · <a href="/boekhoudprogramma-kiezen/#methode">Hoe we vergelijken</a></p>
+<p class="post-meta">Door de <a href="/over/">Redactie BoekhoudMatch</a> · <a href="/boekhoudprogramma-kiezen/#methode">Hoe we vergelijken</a></p>
 <div class="actions"><a class="btn" href="/boekhoudprogramma-kiezen/?aanbieder=${a.id}" rel="nofollow">Past ${esc(r.kort)} bij jou? Doe de match</a><a class="btn ghost" href="/boekhoudprogramma-vergelijken/">Vergelijk met ${N_AANB - 1} andere aanbieders</a></div>
 
 <h2>In het kort</h2>
@@ -71,13 +71,13 @@ ${uitCta(a, r)}
 <h2 id="bronnen">Bronnen</h2>
 <ul class="sources">${a.bronnen.map((b) => `<li><a href="${b.url}" rel="noopener" data-vendor="${esc(a.naam)}">${esc(b.titel)}</a></li>`).join('')}</ul>
 ${vsVoor(r.slug).map((g) => `<p>Twijfel je tussen ${esc(r.kort)} en ${esc(g.ander)}? Lees <a href="${g.path}">${esc(g.kort)}</a>.</p>`).join('')}
-<p>${vsVoor(r.slug).length ? 'Nog twijfels?' : `Twijfel je tussen ${esc(r.kort)} en een ander pakket?`} <a href="/boekhoudprogramma-kiezen/">Doe de match</a> of bekijk de <a href="/boekhoudprogramma-vergelijken/">vergelijking</a>. Fout gezien? Mail <a href="mailto:${SITE.email}">${SITE.email}</a>.</p>
+<p>${vsVoor(r.slug).length ? 'Nog twijfels?' : `Twijfel je tussen ${esc(r.kort)} en een ander pakket?`} <a href="/boekhoudprogramma-kiezen/">Doe de match</a> of bekijk de <a href="/boekhoudprogramma-vergelijken/">vergelijking</a>.</p>
 {{related}}`;
   const titel = `${r.kort} prijzen 2026: kosten per pakket | BoekhoudMatch`; // max. 60 tekens, anders korter
   return {
     path, title: titel.length <= 60 ? titel : `${r.kort} prijzen 2026 | BoekhoudMatch`, ogTitle: `${a.naam}: prijzen en pakketten`, og: existsSync(`src/assets/og/vendor-${r.slug}.png`) ? `vendor-${r.slug}` : 'vergelijken',
     description: `${r.kort}: ${a.plannen.length} pakketten, ${v.prijs === 0 ? 'ook een gratis pakket' : `vanaf ${e2(v.prijs)} p/m`}. Prijs, limieten, btw-aangifte en bankkoppeling per pakket, gecontroleerd op ${fmtDate(c)}.`,
-    crumb: r.kort, parents: [['/boekhoudprogramma-vergelijken/', 'Vergelijken']], navPath: '/boekhoudprogramma-vergelijken/', updated: mod,
+    crumb: r.kort, parents: [['/boekhoudprogramma-vergelijken/', 'Vergelijken']], navPath: '/boekhoudprogramma-vergelijken/', updated: mod, stamp: { checked: c, updated: mod },
     body, schema: [{ ...softwareSchema(a, SITE.domain + path), dateModified: mod }],
   };
 });

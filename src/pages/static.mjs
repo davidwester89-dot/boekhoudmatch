@@ -93,10 +93,7 @@ ${tool('/offerte-factuur-maken/', 'factuur', 'Offerte en factuur')}
 </div>
 
 {{latest}}`,
-  schema: [
-    { '@context': 'https://schema.org', ...ORG },
-    { '@context': 'https://schema.org', '@type': 'WebSite', name: SITE.name, url: SITE.domain + '/', inLanguage: 'nl-NL', publisher: { '@type': 'Organization', name: SITE.name } },
-  ],
+  // Organization en WebSite staan op elke pagina (layout.mjs, siteGraph).
 };
 
 export const btw = {
@@ -160,6 +157,7 @@ export const bronnen = {
   title: 'Bronnen en cijfers 2026 | BoekhoudMatch',
   description: 'Alle bedragen en prijzen die onze tools gebruiken, met officiële bron en controledatum: inkomstenbelasting 2026, zelfstandigenaftrek, Zvw en btw.',
   crumb: 'Bronnen en cijfers',
+  stamp: { checked: [CHECKED, ...PAKKETTEN.map((a) => a.gecontroleerd || PCHECKED)].sort()[0] },
   body: `
 <h1>Bronnen en cijfers</h1>
 <p class="lead">Alle cijfers en prijzen die onze tools gebruiken, met de bron.</p>
@@ -272,6 +270,7 @@ export const privacy = {
 <p>Alles wordt in je eigen browser berekend. Wat je invult, komt in de adresbalk te staan zodat je een berekening kunt bewaren of delen. Het wordt niet naar ons verstuurd.</p>
 <h2>Factuurtool</h2>
 <p>De factuurtool onthoudt je bedrijfsgegevens in de lokale opslag van je browser. Wij kunnen daar niet bij. Je wist het via de instellingen van je browser.</p>
+<p>De match bewaart je antwoorden in de lokale opslag van je browser (<code>boekhoudmatch-quiz-v1</code>, maximaal 90 dagen), zodat je later verder kunt. Wij kunnen daar niet bij. “Opnieuw beginnen” wist ze.</p>
 ${GA_ID ? gaHtml : '<h2 id="cookies">Cookies</h2>\n<p>We plaatsen op dit moment geen cookies en gebruiken geen statistieken. Gaan we dat wel doen, dan vragen we eerst je toestemming en staat hier precies wat we meten.</p>'}
 <h2>Hosting</h2>
 <p>De site draait op GitHub Pages (GitHub, Inc.). GitHub verwerkt technische gegevens zoals je IP-adres om de site te tonen en te beveiligen; zie de <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">privacyverklaring van GitHub</a>. Wij ontvangen via GitHub geen bezoekersgegevens.</p>

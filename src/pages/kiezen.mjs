@@ -41,7 +41,8 @@ const body = `
 <div class="grid calc">
 <form class="calc-form card" id="form" novalidate>
 <input type="hidden" name="aanbieder" value="">
-<div class="qprog"><p id="q-prog">0 van 8 vragen beantwoord</p><p class="sub" id="q-voorlopig">Nog niets gekozen. De uitslag hiernaast gaat uit van gangbare antwoorden tot je zelf kiest.</p><div class="qbar" aria-hidden="true"><span id="q-bar"></span></div></div>
+<div class="qprog"><p id="q-prog">0 van 8 vragen beantwoord</p><p class="sub" id="q-voorlopig">Nog niets gekozen. De uitslag hiernaast gaat uit van gangbare antwoorden tot je zelf kiest.</p><div class="qbar" role="progressbar" aria-label="Voortgang" aria-valuemin="0" aria-valuemax="8" aria-valuenow="0"><span id="q-bar"></span></div></div>
+<p class="resume" id="q-resume" hidden>Je vorige antwoorden staan er weer (alleen bewaard op dit apparaat). <button type="button" class="linkbtn" data-reset data-cta="restart">Opnieuw beginnen</button></p>
 ${radios('rechtsvorm', '1. Wat is je rechtsvorm?', VRAGEN.rechtsvorm, 'eenmanszaak')}
 ${radios('facturen', '2. Hoeveel facturen stuur je per maand?', VRAGEN.facturen, 5)}
 ${radios('uitgaven', '3. Hoeveel bonnen en inkoopfacturen heb je per maand?', VRAGEN.uitgaven, 10, 'Denk aan abonnementen, tanken, materiaal en telefoon.')}
@@ -64,7 +65,8 @@ ${radios('budget', '8. Wat mag het per maand kosten (excl. btw)?', VRAGEN.budget
 <ol class="top" id="out-top">${PRE_TOP}</ol>
 <div class="match-next">
 <a class="btn ghost" id="out-cmp" href="${esc(PRE_CMP)}" rel="nofollow" data-cta="compare">Vergelijk deze 3 naast elkaar</a>
-<p class="match-links"><a href="/boekhoudprogramma-kiezen/" data-cta="restart">Opnieuw beginnen</a><button type="button" class="linkbtn" id="out-copy" data-cta="copy_link">Kopieer link naar je uitslag</button> <span id="out-copy-ok" class="sub" role="status"></span></p>
+<p class="match-links"><a href="/boekhoudprogramma-kiezen/" data-reset data-cta="restart">Opnieuw beginnen</a><button type="button" class="linkbtn" id="out-copy" data-cta="copy_link">Deel of bewaar: kopieer de link</button> <span id="out-copy-ok" class="sub" role="status"></span></p>
+<p class="sub">Je antwoorden staan in de link en blijven alleen op dit apparaat bewaard. Geen account, geen e-mail.</p>
 </div>
 <p><a class="vlink" href="#rangorde">Bekijk alle ${PAKKETTEN.length} aanbieders ↓</a></p>
 </section>

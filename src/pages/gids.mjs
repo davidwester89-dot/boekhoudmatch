@@ -2,7 +2,7 @@
 // Prijzen in de tekst komen uit de data via {{p:aanbieder/pakket}}; blokken via een regel {{blok:naam args}}.
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
-import { SITE, esc, fmtDate, ORG, FOUNDER } from '../layout.mjs';
+import { SITE, esc, fmtDate, ORG, FOUNDER, faqFromHtml, faqSchema } from '../layout.mjs';
 import { parseFrontmatter, markdown, wordCount } from '../lib/markdown.mjs';
 import { PAKKETTEN, CHECKED } from '../lib/pakketten.js';
 import { REDACTIE, vendorHref } from '../lib/aanbieders.js';
@@ -106,7 +106,7 @@ export function gidsPages() {
     const pageBody = `
 <article class="article gids">
 <h1>${esc(meta.title)}</h1>
-<p class="post-meta">Door <a href="/over/">de redactie van BoekhoudMatch</a> · bijgewerkt <time datetime="${meta.updated}">${fmtDate(meta.updated)}</time></p>
+<p class="post-meta">Door <a href="/over/">de redactie van BoekhoudMatch</a></p>
 ${meta.update ? `<p class="alert ok"><strong>Update ${fmtDate(meta.updated)}:</strong> ${esc(meta.update)}</p>` : ''}
 ${html}
 <aside class="cta"><h2>Verder kiezen</h2><ul><li><a href="/boekhoudprogramma-kiezen/">Doe de match (8 vragen) →</a></li><li><a href="/boekhoudprogramma-vergelijken/">Vergelijk alle ${N_PAK} pakketten →</a></li>${(meta.related || []).map((r) => { const [t, u] = r.split(/\s+\|\s+/); return `<li><a href="${u}">${esc(t)} →</a></li>`; }).join('')}</ul></aside>
@@ -115,10 +115,10 @@ ${html}
 </article>
 {{related}}`;
     return {
-      path, title: meta.seo_title, ogTitle: meta.title, description: meta.description, crumb: meta.crumb, og: ogKey, updated: meta.updated, words, kind: meta.kind || 'gids',
+      path, title: meta.seo_title, ogTitle: meta.title, description: meta.description, crumb: meta.crumb, og: ogKey, updated: meta.updated, words, stamp: { checked: meta.checked || (vendors.length ? vendors.map(checked).sort()[0] : null), updated: meta.updated }, kind: meta.kind || 'gids',
       body: pageBody,
       schema: [{ '@context': 'https://schema.org', '@type': 'Article', headline: meta.title, description: meta.description, datePublished: meta.published || meta.updated, dateModified: meta.updated, inLanguage: 'nl-NL', wordCount: words, image: `${SITE.domain}/og/${ogKey}.png`,
-        author: ORG, publisher: ORG, mainEntityOfPage: { '@type': 'WebPage', '@id': SITE.domain + path }, citation: sources.map((s) => s.url) }],
+        author: ORG, publisher: ORG, mainEntityOfPage: { '@type': 'WebPage', '@id': SITE.domain + path }, citation: sources.map((s) => s.url) }].concat(faqFromHtml(html).length ? [faqSchema(faqFromHtml(html))] : []),
     };
   });
 }
@@ -129,7 +129,7 @@ export function gidsHub(gidsen) {
   const groepen = ['Kiezen voor jouw situatie', 'Twee aanbieders naast elkaar', 'Uitleg bij het kiezen'];
   const lijst = (g) => gidsen.filter((p) => GROEP(p.path.slice(1, -1)) === g).map((p) => `<li><a href="${p.path}"><strong>${esc(p.ogTitle)}</strong></a></li>`).join('');
   return {
-    path: '/gidsen/', title: 'Gidsen over boekhoudprogramma\'s voor zzp | BoekhoudMatch', description: `Gidsen bij het kiezen van een boekhoudprogramma: per rechtsvorm, gratis, starters, btw, bank, KOR en uren. Prijzen gecontroleerd op ${fmtDate(CHECKED)}.`, crumb: 'Gidsen', og: 'vergelijken', updated: CHECKED,
+    path: '/gidsen/', title: 'Gidsen over boekhoudprogramma\'s voor zzp | BoekhoudMatch', description: `Gidsen bij het kiezen van een boekhoudprogramma: per rechtsvorm, gratis, starters, btw, bank, KOR en uren. Prijzen gecontroleerd op ${fmtDate(CHECKED)}.`, crumb: 'Gidsen', og: 'vergelijken', updated: CHECKED, stamp: { updated: gidsen.map((p) => p.updated).sort().at(-1) },
     body: `<section class="article"><h1>Gidsen: boekhoudprogramma kiezen</h1>
 <p class="lead">Korte gidsen om het juiste boekhoudprogramma te kiezen. Geschreven door <a href="/over/">ons team</a>.</p>
 ${groepen.map((g) => `<h2>${g}</h2><ul class="gidslijst">${lijst(g)}</ul>`).join('\n')}

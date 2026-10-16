@@ -1,5 +1,5 @@
 import { existsSync } from 'node:fs';
-import { SITE, esc, fmtDate, ORG } from '../layout.mjs';
+import { SITE, esc, fmtDate, ORG, faqFromHtml, faqSchema } from '../layout.mjs';
 
 const TOOLNAMES = {
   '/boekhoudprogramma-kiezen/': 'Welk boekhoudprogramma past bij jou? Doe de match',
@@ -25,7 +25,7 @@ export function postPage(post, all, ogKey) {
   const body = `
 <article class="article">
 <h1>${esc(post.title)}</h1>
-<p class="post-meta">Door <a href="/over/">de redactie van BoekhoudMatch</a> · <time datetime="${post.date}">${fmtDate(post.date)}</time>${post.updated !== post.date ? ` · bijgewerkt <time datetime="${post.updated}">${fmtDate(post.updated)}</time>` : ''} · ${readMin(post.words)} min lezen</p>
+<p class="post-meta">Door <a href="/over/">de redactie van BoekhoudMatch</a> · <time datetime="${post.date}">${fmtDate(post.date)}</time> · ${readMin(post.words)} min lezen</p>
 ${post.image ? figure(post.image) : ''}
 ${post.html}
 ${post.tools.length ? `<aside class="cta"><h2>Reken het zelf uit</h2><ul>${post.tools.map((t) => `<li><a href="${t}">${esc(TOOLNAMES[t] || t)} →</a></li>`).join('')}</ul></aside>` : ''}
@@ -36,7 +36,7 @@ ${others.length ? `<h2>Meer op de blog</h2><div class="grid cards two">${others.
   return {
     path: post.path, title: post.seoTitle, ogTitle: post.title, description: post.description, crumb: post.title,
     parents: [['/blog/', 'Blog']], navPath: '/blog/', og: ogKey, ogType: 'article',
-    ogAlt: post.image ? post.image.alt : null, updated: post.updated,
+    ogAlt: post.image ? post.image.alt : null, updated: post.updated, stamp: { checked: post.checked, updated: post.updated },
     article: { date: post.date, updated: post.updated },
     body,
     schema: [{
@@ -46,7 +46,7 @@ ${others.length ? `<h2>Meer op de blog</h2><div class="grid cards two">${others.
       image: post.image ? [{ '@type': 'ImageObject', url: SITE.domain + postImg(post.image.name), width: POST_IMG.w, height: POST_IMG.h, caption: post.image.alt }, `${SITE.domain}/og/${ogKey}.png`] : `${SITE.domain}/og/${ogKey}.png`,
       mainEntityOfPage: { '@type': 'WebPage', '@id': SITE.domain + post.path },
       citation: post.sources.map((s) => s.url),
-    }],
+    }].concat(faqFromHtml(post.html).length ? [faqSchema(faqFromHtml(post.html))] : []),
   };
 }
 
@@ -60,7 +60,7 @@ ${posts.map((x) => `<a class="card" href="${x.path}"><time datetime="${x.date}">
   return {
     path: '/blog/', title: 'Blog voor zzp\'ers: boekhouding en belasting | BoekhoudMatch', ogTitle: 'Blog: boekhouding en belasting voor zzp\'ers',
     description: 'Actuele artikelen over boekhouding, btw en belasting voor zzp\'ers: wat verandert er en wat betekent het voor jou? Met officiële bronnen.',
-    crumb: 'Blog', og: 'blog', body, updated: posts[0]?.updated,
+    crumb: 'Blog', og: 'blog', body, updated: posts[0]?.updated, stamp: { updated: posts.map((x) => x.updated).sort().at(-1) },
     schema: [{ '@context': 'https://schema.org', '@type': 'Blog', name: 'BoekhoudMatch blog', url: SITE.domain + '/blog/', inLanguage: 'nl-NL', publisher: ORG,
       blogPost: posts.map((x) => ({ '@type': 'BlogPosting', headline: x.title, url: SITE.domain + x.path, datePublished: x.date, dateModified: x.updated })) }],
   };
