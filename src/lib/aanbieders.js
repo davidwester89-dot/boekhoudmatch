@@ -2,10 +2,13 @@
 // Geen meningen, scores of populariteit. Elke bewering is terug te vinden in de prijs- of functiepagina (zie `bronnen`).
 // proef = gratis proefperiode in dagen volgens de site van de aanbieder (null = geen proefperiode vermeld).
 // logo = bestandsnaam in src/assets/logos (webp, 320x96, van de eigen site van de aanbieder); null = woordmerk.
-// moneymonk.webp: officiële beeldbank https://www.moneymonk.nl/beeldbank (logo lichte achtergrond), 16-10-2026. e-Boekhouden, Exact en Tellow: geen openbare perskit gevonden, dus woordmerk.
+// moneymonk.webp: officiële beeldbank https://www.moneymonk.nl/beeldbank (logo lichte achtergrond), 16-10-2026.
+// e-boekhouden.webp: eigen CDN https://cdn.e-boekhouden.nl/branding/eb-logo-full-blue.svg (blauwe variant van het headerlogo op https://www.e-boekhouden.nl/), 16-10-2026.
+// exact.webp: header-SVG van https://www.exact.com/nl (#logo), in Exact-rood #e81120 (--color-exact-red uit hun style.css), 16-10-2026.
+// tellow.webp: footer-SVG 'Tellow by Shine' van https://www.tellow.nl/ (fill #2F2F2F), 16-10-2026.
 export const REDACTIE = {
   eboekhouden: {
-    slug: 'e-boekhouden', kort: 'e-Boekhouden', logo: null, proef: 14,
+    slug: 'e-boekhouden', kort: 'e-Boekhouden', logo: 'e-boekhouden', proef: 14,
     sterk: 'Alle functies (bankkoppeling, btw-aangifte, offertes, uren) zitten in elk pakket.',
     zwak: 'Het ZZP-pakket heeft een grens van 240 boekingen per jaar; elke mutatie (verkoop, inkoop, bank) telt.',
     knelt: 'ZZP: max. 240 boekingen per jaar',
@@ -45,7 +48,7 @@ export const REDACTIE = {
     niet: ['Je hebt meer dan 10 facturen of uitgaven per maand en een klein budget: dan wordt het Professional (€ 28,95).', 'Je wilt hulp bij je IB-aangifte: niet vermeld.'],
   },
   tellow: {
-    slug: 'tellow', kort: 'Tellow', logo: null, proef: null,
+    slug: 'tellow', kort: 'Tellow', logo: 'tellow', proef: null,
     sterk: 'Gratis pakket met betaalrekening; Compleet heeft een boekhouder die je btw- en IB-aangifte opstelt.',
     zwak: 'Bij Gratis en Basis dien je de btw-aangifte zelf in.',
     knelt: 'Gratis: max. 3 facturen, 20 uitgaven en 25 transacties per maand',
@@ -69,7 +72,7 @@ export const REDACTIE = {
     niet: ['Je hebt een bv en wilt weten of ZZP-pakketten passen: rechtsvormen niet vermeld.', 'Je wilt hulp bij je IB-aangifte: niet in de pakketten genoemd.'],
   },
   exact: {
-    slug: 'exact', kort: 'Exact', logo: null, proef: 30,
+    slug: 'exact', kort: 'Exact', logo: 'exact', proef: 30,
     sterk: 'Reeleezee Slim Boekhouden: btw-aangifte direct indienen en onbeperkt facturen.',
     zwak: 'Offertes en urenregistratie staan niet bij deze boekhoudpakketten vermeld.',
     knelt: 'Slim Boekhouden Start: max. 10 facturen en 10 boekingen per maand',
