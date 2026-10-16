@@ -1,4 +1,7 @@
-import { bindForm } from './form.js';
+import { bindForm, setUrl } from './form.js';
+
+// Oude links met budget=Infinity: omzetten naar budget=geen (zelfde betekenis, nette URL).
+if (/[?&]budget=Infinity\b/.test(location.search)) setUrl(location.pathname + location.search.replace(/budget=Infinity\b/, 'budget=geen') + location.hash);
 import { PAKKETTEN } from './lib/pakketten.js';
 import { match } from './lib/match.js';
 import { track } from './consent.js';
@@ -32,7 +35,7 @@ function lijst(cls, items) { const ul = el('ul', cls); for (const t of items) ul
 
 let topVendor = '';
 // Antwoorden in de binnenkomende link? (bindForm zet daarna altijd de antwoorden in de URL.)
-const uitLink = /[?&]rechtsvorm=/.test(location.search);
+const inLink = new URLSearchParams(location.search);
 const form = document.getElementById('form');
 bindForm(form, (v) => {
   const extra = [v.offertes && 'offertes', v.uren && 'uren'].filter(Boolean);
@@ -131,10 +134,13 @@ document.getElementById('uitkomst').addEventListener('click', (e) => {
 // Komt de bezoeker binnen met antwoorden in de link, dan tellen alle vragen als beantwoord.
 const vragen = [...form.querySelectorAll('fieldset.q')];
 const gedaan = new Set();
-if (uitLink) vragen.forEach((f, i) => gedaan.add(i));
+// Antwoorden uit de link (bijv. ?rechtsvorm=bv vanaf de homepage) tellen alleen voor die vragen.
+vragen.forEach((f, i) => { if ([...f.querySelectorAll('input')].some((x) => inLink.has(x.name) && (x.type !== 'checkbox' || inLink.get(x.name) === '1' || inLink.has('budget')))) gedaan.add(i); });
 function voortgang() {
   const n = gedaan.size, N = vragen.length;
   document.getElementById('q-prog').textContent = n === N ? `Alle ${N} vragen beantwoord` : `${n} van ${N} vragen beantwoord`;
+  const vl = document.getElementById('q-voorlopig'); if (vl) vl.hidden = n === N;
+  if (vl && n > 0) vl.textContent = 'Nog niet alles ingevuld. Voor open vragen rekent de uitslag met gangbare antwoorden.';
   document.getElementById('q-bar').style.width = `${Math.round((n / N) * 100)}%`;
 }
 function markeer(e) {

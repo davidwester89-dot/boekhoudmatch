@@ -25,8 +25,8 @@ export { esc };
 // Logo: warm terracotta vlak met een vinkje (match) en een amber stip.
 export const LOGO = '<svg viewBox="0 0 40 40" aria-hidden="true" focusable="false"><rect width="40" height="40" rx="11" fill="#b44d22"/><path d="M11 21.5l6 6 12-13" fill="none" stroke="#fff" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="31" cy="9" r="4" fill="#e7a33e"/></svg>';
 
-// Kleine lijn-iconen (inline SVG, geen extra verzoeken).
-const ic = (d) => `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="#9c3f1b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${d}</svg>`;
+// Eén iconenset: lijn-iconen in Lucide-stijl (24px, lijn 2, ronde uiteinden; Lucide is MIT). Inline SVG, kleur via currentColor.
+const ic = (d) => `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${d}</svg>`;
 export const ICONS = {
   match: ic('<path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/>'),
   compare: ic('<path d="M4 6h16M4 12h16M4 18h10"/>'),
@@ -35,6 +35,10 @@ export const ICONS = {
   btw: ic('<path d="M19 5L5 19"/><circle cx="7" cy="7" r="2.5"/><circle cx="17" cy="17" r="2.5"/>'),
   factuur: ic('<path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/>'),
   blog: ic('<path d="M5 4h14v16H5z"/><path d="M9 8h6M9 12h6M9 16h4"/>'),
+  kalender: ic('<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>'),
+  bron: ic('<path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/>'),
+  schild: ic('<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/>'),
+  gratis: ic('<circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 12 0v1"/><path d="M17 11l2 2 4-4"/>'),
   zon: ic('<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M5 19l1.5-1.5M17.5 6.5L19 5"/>'),
 };
 
@@ -93,6 +97,7 @@ ${p.article ? `<meta property="article:published_time" content="${p.article.date
 <meta name="theme-color" content="${SITE.theme}">
 <link rel="icon" href="/favicon.ico" sizes="32x32"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest">
 <link rel="alternate" type="application/rss+xml" title="BoekhoudMatch blog" href="/blog/feed.xml">
+<link rel="preload" href="/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
 <style>${CSS}</style>
 ${ld.map((x) => `<script type="application/ld+json">${JSON.stringify(x).replace(/</g, '\\u003c')}</script>`).join('\n')}
 </head>

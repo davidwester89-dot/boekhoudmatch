@@ -2,6 +2,7 @@
 // Geen meningen, scores of populariteit. Elke bewering is terug te vinden in de prijs- of functiepagina (zie `bronnen`).
 // proef = gratis proefperiode in dagen volgens de site van de aanbieder (null = geen proefperiode vermeld).
 // logo = bestandsnaam in src/assets/logos (webp, 320x96, van de eigen site van de aanbieder); null = woordmerk.
+// moneymonk.webp: officiële beeldbank https://www.moneymonk.nl/beeldbank (logo lichte achtergrond), 16-10-2026. e-Boekhouden, Exact en Tellow: geen openbare perskit gevonden, dus woordmerk.
 export const REDACTIE = {
   eboekhouden: {
     slug: 'e-boekhouden', kort: 'e-Boekhouden', logo: null, proef: 14,
@@ -28,7 +29,7 @@ export const REDACTIE = {
     niet: ['Je zoekt een gratis pakket mét boekhouding: Starter is alleen factureren.', 'Je zoekt de laagste maandprijs voor een klein volume.'],
   },
   moneymonk: {
-    slug: 'moneymonk', kort: 'MoneyMonk', logo: null, proef: 30,
+    slug: 'moneymonk', kort: 'MoneyMonk', logo: 'moneymonk', proef: 30,
     sterk: 'Gratis PSD2-bankkoppeling voor al je bankrekeningen, in elk pakket.',
     zwak: 'Elk pakket heeft een omzetgrens; Basis is tot € 20.000 omzet per jaar.',
     knelt: 'Basis: max. 20 banktransacties per maand en tot € 20.000 omzet per jaar',

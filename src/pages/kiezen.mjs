@@ -7,7 +7,7 @@ import { uitgaand, ctaTekst } from '../lib/partnerlinks.js';
 // Uitslag bij de standaardantwoorden alvast in de HTML (zelfde opbouw als kiezen.js), zodat er bij laden niets verspringt.
 const euro = (x) => '€ ' + x.toFixed(2).replace('.', ',');
 const host = (url) => url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/.*$/, '');
-const DEF = { aanbieder: '', rechtsvorm: 'eenmanszaak', facturen: '5', uitgaven: '10', btw: 'plichtig', bank: 'auto', offertes: false, uren: false, ib: 'zelf', budget: 'Infinity', extra: [] };
+const DEF = { aanbieder: '', rechtsvorm: 'eenmanszaak', facturen: '5', uitgaven: '10', btw: 'plichtig', bank: 'auto', offertes: false, uren: false, ib: 'zelf', budget: 'geen', extra: [] };
 const byId = Object.fromEntries(PAKKETTEN.map((a) => [a.id, a]));
 const passend0 = match(PAKKETTEN, DEF).filter((r) => r.past);
 function knopHtml(r, pos, cls) {
@@ -25,7 +25,7 @@ const PRE_BEST = passend0[0] ? `${passend0[0].naam} ${passend0[0].planNaam}` : '
 const PRE_CMP = '/boekhoudprogramma-vergelijken/?aanbieders=' + passend0.slice(0, 3).map((r) => r.aanbieder).join(',') + '#per-aanbieder';
 
 const path = '/boekhoudprogramma-kiezen/';
-const radios = (name, legend, opts, def, hint = '') => `<fieldset class="q"><legend>${legend}</legend>${hint ? `<p class="hint">${hint}</p>` : ''}<div class="opts">${opts.map(([v, l]) => `<label><input type="radio" name="${name}" value="${v}"${String(v) === String(def) ? ' checked' : ''}><span>${esc(l)}</span></label>`).join('')}</div></fieldset>`;
+const radios = (name, legend, opts, def, hint = '') => `<fieldset class="q"><legend>${legend}</legend>${hint ? `<p class="hint">${hint}</p>` : ''}<div class="opts">${opts.map(([v, l]) => `<label><input type="radio" name="${name}" value="${v}"><span>${esc(l)}</span></label>`).join('')}</div></fieldset>`;
 
 const faq = [
   ['Welk boekhoudprogramma is het beste voor een zzp\'er?', 'Dat hangt af van je aantal facturen en bonnen, je btw, of je een bankkoppeling wilt en of je hulp wilt bij je aangifte. Een klein pakket is vaak het goedkoopst, zolang je onder de limiet blijft. De match rekent dat voor je uit.'],
@@ -41,7 +41,7 @@ const body = `
 <div class="grid calc">
 <form class="calc-form card" id="form" novalidate>
 <input type="hidden" name="aanbieder" value="">
-<div class="qprog"><p id="q-prog">0 van 8 vragen beantwoord</p><div class="qbar" aria-hidden="true"><span id="q-bar"></span></div></div>
+<div class="qprog"><p id="q-prog">0 van 8 vragen beantwoord</p><p class="sub" id="q-voorlopig">Nog niets gekozen. De uitslag hiernaast gaat uit van gangbare antwoorden tot je zelf kiest.</p><div class="qbar" aria-hidden="true"><span id="q-bar"></span></div></div>
 ${radios('rechtsvorm', '1. Wat is je rechtsvorm?', VRAGEN.rechtsvorm, 'eenmanszaak')}
 ${radios('facturen', '2. Hoeveel facturen stuur je per maand?', VRAGEN.facturen, 5)}
 ${radios('uitgaven', '3. Hoeveel bonnen en inkoopfacturen heb je per maand?', VRAGEN.uitgaven, 10, 'Denk aan abonnementen, tanken, materiaal en telefoon.')}
@@ -52,7 +52,7 @@ ${radios('bank', '5. Wil je je bank automatisch koppelen?', VRAGEN.bank, 'auto')
 <label><input type="checkbox" name="uren"><span>Uren of projecten bijhouden</span></label>
 </div></fieldset>
 ${radios('ib', '7. Je aangifte inkomstenbelasting', VRAGEN.ib, 'zelf')}
-${radios('budget', '8. Wat mag het per maand kosten (excl. btw)?', VRAGEN.budget.map(([v, l]) => [String(v), l]), 'Infinity')}
+${radios('budget', '8. Wat mag het per maand kosten (excl. btw)?', VRAGEN.budget.map(([v, l]) => [v === Infinity ? 'geen' : String(v), l]), '')}
 <div class="qdone"><button type="submit" class="btn" id="q-submit">Toon mijn uitslag</button><p>Gratis, zonder account.</p></div>
 </form>
 <section class="card result" id="uitkomst" aria-live="polite">

@@ -44,10 +44,17 @@ export function softwareSchema(a, url) {
 
 /** Pakkettabel voor één aanbieder. */
 export function pakketTabel(a) {
-  return `<p class="scrollhint">Schuif opzij voor alle kolommen →</p><div class="table-wrap" tabindex="0" role="region" aria-label="Pakketten ${esc(a.naam)}"><table class="data">
-<thead><tr><th>Pakket</th><th>Prijs p/m</th><th>Bij jaarbetaling</th><th>Limieten</th><th>Btw-aangifte</th><th>Bankkoppeling</th><th>Offertes</th><th>Uren</th><th>Aangifte IB</th><th>Rechtsvorm</th></tr></thead>
-<tbody>${a.plannen.map((p) => `<tr><th scope="row">${esc(p.naam)}${p.noot ? `<br><span class="sub">${esc(p.noot)}</span>` : ''}</th><td class="n">${e2(p.prijs)}</td><td class="n">${p.prijsJaar != null ? e2(p.prijsJaar) : UNK}</td><td>${limieten(p)}</td><td>${BTW_L[String(p.btwAangifte)]}</td><td>${bankL(p, a)}</td><td>${yn(p.offertes)}</td><td>${yn(p.uren)}</td><td>${ibL(p)}</td><td>${rvL(p, a)}</td></tr>`).join('')}</tbody></table></div>
-<p>Maandprijs bij maandbetaling, ${btwNoot(a)}.</p>`;
+  // Pakketkaarten: de belangrijkste feiten zichtbaar, de rest in "Alle details". Geen horizontale scroll, ook niet op mobiel.
+  const rij = (k, v) => `<dt>${k}</dt><dd>${v}</dd>`;
+  const kaart = (p) => `<article class="pkg-card">
+<h3>${esc(p.naam)}</h3>
+<p class="pkg-price"><strong>${e2(p.prijs)}</strong> <span>p/m, ${btwNoot(a)}</span></p>
+<p class="pkg-year">Bij jaarbetaling: ${p.prijsJaar != null ? `${e2(p.prijsJaar)} p/m` : UNK}</p>
+<dl class="pkg-facts">${rij('Limiet', limieten(p))}${rij('Btw-aangifte', BTW_L[String(p.btwAangifte)])}${rij('Bankkoppeling', bankL(p, a))}</dl>
+<details class="pkg-more"><summary>Alle details</summary><dl class="pkg-facts">${rij('Offertes', yn(p.offertes))}${rij('Uren', yn(p.uren))}${rij('Aangifte IB', ibL(p))}${rij('Rechtsvorm', rvL(p, a))}${p.noot ? rij('Noot', esc(p.noot)) : ''}</dl></details>
+</article>`;
+  return `<ul class="pkg-grid" aria-label="Pakketten ${esc(a.naam)}">${a.plannen.map((p) => `<li>${kaart(p)}</li>`).join('')}</ul>
+<p class="sub">Maandprijs bij maandbetaling, ${btwNoot(a)}.</p>`;
 }
 
 /** Logo of woordmerk, vaste afmetingen. */

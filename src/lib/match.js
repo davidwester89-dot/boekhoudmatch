@@ -116,7 +116,7 @@ export function normaliseer(a) {
     facturen: n(a.facturen, 5), uitgaven: n(a.uitgaven, 10),
     btw: a.btw || 'plichtig', bank: a.bank || 'auto', ib: a.ib || 'zelf',
     extra: Array.isArray(a.extra) ? a.extra : String(a.extra || '').split(',').filter(Boolean),
-    budget: a.budget === 'Infinity' || a.budget === undefined || a.budget === '' ? Infinity : Number(a.budget),
+    budget: a.budget === 'Infinity' || a.budget === 'geen' || a.budget === Infinity || a.budget === undefined || a.budget === '' ? Infinity : Number(a.budget),
   };
 }
 export { fmt };

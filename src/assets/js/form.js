@@ -48,6 +48,9 @@ export function bindForm(form, run) {
       else if (el.type === 'hidden' && !el.value) continue;
       else q.set(el.name, el.value);
     }
+    // Nog geen enkele keuze gemaakt (quiz zonder voorselectie): adresbalk schoon laten.
+    const radios = [...form.elements].filter((el) => el.type === 'radio');
+    if (radios.length && !radios.some((el) => el.checked)) return;
     setUrl(`${location.pathname}?${q}`);
   };
   form.addEventListener('input', go);
