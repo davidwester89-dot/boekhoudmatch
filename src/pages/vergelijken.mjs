@@ -109,7 +109,7 @@ ${faqHtml(faq)}
 export default {
   path, title: 'Boekhoudprogramma zzp vergelijken 2026 | BoekhoudMatch', og: 'vergelijken', ogTitle: 'Boekhoudprogramma\'s vergelijken 2026',
   description: `Vergelijk ${N_PAK} pakketten van ${N_AANB} boekhoudprogramma's op prijs, limieten, btw-aangifte en bankkoppeling. Filter op je situatie. Met bron en datum.`,
-  crumb: 'Boekhoudprogramma vergelijken', body, scripts: ['/js/vergelijken.js'], updated: CHECKED,
+  crumb: 'Boekhoudprogramma vergelijken', body, scripts: ['/js/vergelijken.js'], updated: CHECKED, stamp: { checked: PAKKETTEN.map(checked).sort()[0], updated: PAKKETTEN.map(checked).sort().at(-1) },
   schema: [faqSchema(faq), {
     '@context': 'https://schema.org', '@type': 'ItemList', name: 'Boekhoudprogramma\'s voor zzp\'ers (op alfabet)', dateModified: CHECKED,
     itemListElement: ALFA.map((a, i) => ({ '@type': 'ListItem', position: i + 1, name: a.naam, url: SITE.domain + vendorHref(a.id).replace(/#.*/, '') })),

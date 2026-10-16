@@ -43,7 +43,11 @@ for (const f of htmls) {
   for (const m of h.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
     try { JSON.parse(m[1]); } catch { errors.push(`${rel}: ongeldige JSON-LD`); }
   }
-  if (h.includes('"FAQPage"') && !h.includes('<details><summary>')) errors.push(`${rel}: FAQPage-schema zonder zichtbare FAQ`);
+  if (h.includes('"FAQPage"') && !h.includes('<details><summary>') && !/<h2[^>]*>\s*Veelgestelde vragen/.test(h)) errors.push(`${rel}: FAQPage-schema zonder zichtbare FAQ`);
+  // Elke pagina: Open Graph + Twitter, Organization/WebSite, 'Fout gezien?' met de pagina-URL. Geen ratings of reviews in schema.
+  if (!noindex) for (const t of ['property="og:title"', 'property="og:description"', 'property="og:image"', 'property="og:url"', 'name="twitter:card"', 'name="twitter:image"', '"@type":"WebSite"', '"@type":"Organization"', 'class="report"']) if (!h.includes(t)) errors.push(`${rel}: ${t} ontbreekt`);
+  if (/"(aggregateRating|review|Review|AggregateRating)"/.test(h)) errors.push(`${rel}: rating of review in schema`);
+  if (/"@type":"(Article|SoftwareApplication)"/.test(h) && !h.includes('class="stamp"')) errors.push(`${rel}: controle-/bijwerkdatum ontbreekt`);
   for (const m of h.matchAll(/<img\b[^>]*>/g)) if (!/\balt="/.test(m[0])) errors.push(`${rel}: <img> zonder alt`);
   for (const m of h.matchAll(/href="(\/[^"]*)"/g)) if (!exists(m[1])) errors.push(`${rel}: dode interne link ${m[1]}`);
   for (const m of h.matchAll(/src="(\/[^"]*)"/g)) if (!exists(m[1])) errors.push(`${rel}: ontbrekend bestand ${m[1]}`);
