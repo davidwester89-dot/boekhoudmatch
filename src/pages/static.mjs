@@ -248,6 +248,8 @@ export const privacy = {
 <h1>Privacy en cookies</h1>
 <div class="prose">
 <p class="lead">Kort: wat je in onze tools invult, blijft in je eigen browser. ${GA_ID ? 'Alleen als je daar toestemming voor geeft, houden we statistieken bij met Google Analytics.' : 'We houden geen statistieken bij en plaatsen geen cookies.'}</p>
+<h2>Wie is verantwoordelijk?</h2>
+<p>Verantwoordelijk voor de verwerking van persoonsgegevens op deze site: BoekhoudMatch.nl, <a href="mailto:info@boekhoudmatch.nl">info@boekhoudmatch.nl</a>.</p>
 <h2>Tools en match</h2>
 <p>Alles wordt in je eigen browser berekend. Wat je invult, komt in de adresbalk te staan zodat je een berekening kunt bewaren of delen. Het wordt niet naar ons verstuurd.</p>
 <h2>Factuurtool</h2>
