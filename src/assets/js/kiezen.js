@@ -12,6 +12,7 @@ if (store && !location.search) { const q = laad(store, OPSLAG, VELDEN); if (q) {
 if (/[?&]budget=Infinity\b/.test(location.search)) setUrl(location.pathname + location.search.replace(/budget=Infinity\b/, 'budget=geen') + location.hash);
 import { PAKKETTEN } from './lib/pakketten.js';
 import { match } from './lib/match.js';
+import { top3Verschil } from './lib/top3.js';
 import { track } from './consent.js';
 import { REDACTIE, vendorHref } from './lib/aanbieders.js';
 import { uitgaand, ctaTekst } from './lib/partnerlinks.js';
@@ -42,6 +43,7 @@ const plabel = () => el('span', 'plabel', 'partnerlink');
 function lijst(cls, items) { const ul = el('ul', cls); for (const t of items) ul.append(el('li', '', t)); return ul; }
 
 let topVendor = '';
+let huidigTop = [], bevestigdTop = null;
 // Antwoorden in de binnenkomende link? (bindForm zet daarna altijd de antwoorden in de URL.)
 const inLink = new URLSearchParams(location.search);
 const form = document.getElementById('form');
@@ -78,6 +80,7 @@ bindForm(form, (v) => {
   cmp.textContent = top3.length > 1 ? `Vergelijk deze ${top3.length} naast elkaar` : 'Vergelijk alle aanbieders';
   if (!passend.length) top.replaceChildren(el('li', '', 'Geen pakket past bij al je wensen. Hieronder zie je waarom, en wat het dichtst in de buurt komt.'));
   topVendor = passend[0] ? passend[0].naam : '';
+  huidigTop = passend.slice(0, 3).map((r) => r.naam);
   document.getElementById('big-mirror').textContent = passend[0] ? `${passend[0].naam} ${passend[0].planNaam}` : '–';
 
   // Vooringestelde aanbieder (?aanbieder=id, vanaf een aanbiederpagina): laat zien waar die staat. Verandert de volgorde niet.
@@ -186,4 +189,15 @@ form.addEventListener('submit', () => {
   const kop = document.getElementById('uitkomst-kop');
   document.getElementById('uitkomst').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
   kop.focus({ preventScroll: true });
+});
+
+// 'Dit verandert je top-3': na elk eigen antwoord een korte hint bij die vraag (alleen uit de match-uitslag).
+bevestigdTop = huidigTop;
+form.addEventListener('change', (e) => {
+  if (!e.isTrusted) return;
+  const f = e.target.closest('fieldset.q'); if (!f) return;
+  const d = top3Verschil(bevestigdTop, huidigTop); bevestigdTop = huidigTop;
+  form.querySelectorAll('.t3').forEach((x) => x.remove());
+  const p = el('p', 't3' + (d.veranderd ? ' on' : ''), d.tekst); p.setAttribute('role', 'status');
+  f.append(p);
 });
