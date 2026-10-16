@@ -1,4 +1,4 @@
-import { SITE, esc, slot, webApp, faqSchema, faqHtml, fmtDate, more } from '../layout.mjs';
+import { SITE, esc, slot, webApp, faqSchema, faqHtml, fmtDate, more, ICONS } from '../layout.mjs';
 import { PAKKETTEN, CHECKED } from '../lib/pakketten.js';
 import { VRAGEN, PUNTEN, match } from '../lib/match.js';
 import { REDACTIE, vendorHref } from '../lib/aanbieders.js';
@@ -25,7 +25,8 @@ const PRE_BEST = passend0[0] ? `${passend0[0].naam} ${passend0[0].planNaam}` : '
 const PRE_CMP = '/boekhoudprogramma-vergelijken/?aanbieders=' + passend0.slice(0, 3).map((r) => r.aanbieder).join(',') + '#per-aanbieder';
 
 const path = '/boekhoudprogramma-kiezen/';
-const radios = (name, legend, opts, def, hint = '') => `<fieldset class="q"><legend>${legend}</legend>${hint ? `<p class="hint">${hint}</p>` : ''}<div class="opts">${opts.map(([v, l]) => `<label><input type="radio" name="${name}" value="${v}"><span>${esc(l)}</span></label>`).join('')}</div></fieldset>`;
+const QI = { rechtsvorm: 'persoon', facturen: 'factuur', uitgaven: 'bon', btw: 'btw', bank: 'bank', ib: 'aangifte', budget: 'euro' };
+const radios = (name, legend, opts, def, hint = '') => `<fieldset class="q" data-q="${name}"><legend><span class="qi">${ICONS[QI[name]]}</span>${legend}</legend>${hint ? `<p class="hint">${hint}</p>` : ''}<div class="opts">${opts.map(([v, l]) => `<label><input type="radio" name="${name}" value="${v}"><span>${esc(l)}</span></label>`).join('')}</div></fieldset>`;
 
 const faq = [
   ['Welk boekhoudprogramma is het beste voor een zzp\'er?', 'Dat hangt af van je aantal facturen en bonnen, je btw, of je een bankkoppeling wilt en of je hulp wilt bij je aangifte. Een klein pakket is vaak het goedkoopst, zolang je onder de limiet blijft. De match rekent dat voor je uit.'],
@@ -48,7 +49,7 @@ ${radios('facturen', '2. Hoeveel facturen stuur je per maand?', VRAGEN.facturen,
 ${radios('uitgaven', '3. Hoeveel bonnen en inkoopfacturen heb je per maand?', VRAGEN.uitgaven, 10, 'Denk aan abonnementen, tanken, materiaal en telefoon.')}
 ${radios('btw', '4. Btw', VRAGEN.btw, 'plichtig')}
 ${radios('bank', '5. Wil je je bank automatisch koppelen?', VRAGEN.bank, 'auto')}
-<fieldset class="q"><legend>6. Wat wil je er ook mee doen?</legend><div class="opts">
+<fieldset class="q" data-q="extra"><legend><span class="qi">${ICONS.extra}</span>6. Wat wil je er ook mee doen?</legend><div class="opts">
 <label><input type="checkbox" name="offertes"><span>Offertes maken</span></label>
 <label><input type="checkbox" name="uren"><span>Uren of projecten bijhouden</span></label>
 </div></fieldset>
