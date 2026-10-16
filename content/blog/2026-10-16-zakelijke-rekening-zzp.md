@@ -38,7 +38,7 @@ Overweeg je de stap naar een bv? Dan verandert ook je boekhouding: je krijgt te 
 
 ## Waarom kiezen veel zzp'ers toch voor een zakelijke rekening?
 
-Ook als het niet hoeft, kiezen veel ondernemers voor een aparte rekening. KVK noemt drie redenen: meer overzicht, een makkelijkere administratie en een professionele uitstraling.
+Ook als het niet hoeft, kiezen veel ondernemers voor een aparte rekening. KVK noemt vier redenen: duidelijkheid (privé en zakelijk gescheiden), tijdwinst bij je administratie, een professionele uitstraling en belastingvoordeel (de kosten zijn meestal aftrekbaar).
 
 Dat overzicht merk je vooral bij je boekhouding. Staan zakelijke en privébetalingen door elkaar, dan zoek je elk kwartaal uit welke betaling bij je bedrijf hoort. Met een aparte rekening is elke regel op je afschrift zakelijk. Dat scheelt werk bij je btw-aangifte en bij je aangifte inkomstenbelasting.
 
