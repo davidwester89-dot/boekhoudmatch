@@ -81,3 +81,6 @@ Uitzetten: `npm run set-ga -- ""`, commit en push.
 - `scripts/`: `check.mjs` (SEO-controle), `og.mjs` (afbeeldingen), `new-post.mjs`, `set-ga.mjs` (Metings-ID)
 - `src/analytics.config.mjs`: `GA_ID` (leeg = geen Analytics)
 - `test/`: unit tests (`node --test`)
+
+## Schrijfregel: geen disclaimer-zinnen onder artikelen (16-10-2026, Dave)
+Nooit zinnen als "geraadpleegd op …", "kan na een update verschuiven", "controleer altijd zelf", "check altijd de actuele prijs", "informatie/voorwaarden kunnen veranderen", "dit is geen advies". Klinkt te AI-achtig. Bron nodig? Alleen een kale bronnaam/link, zonder datum-voorbehoud. Wettelijk nodige partnerlink-labels en het Goodfellas-blok "Vanaf de pitmuur" blijven.
