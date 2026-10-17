@@ -7,7 +7,6 @@ updated: 2026-10-17
 checked: 2026-10-17
 image: wat-kost-een-boekhoudprogramma
 image_alt: Prijsladder boekhoudprogramma per maand: gratis met strenge limieten, tot € 10 met limieten op facturen of transacties, € 10 tot € 25 voor de meeste zzp'ers en vanaf € 25 meer gebruikers en rekeningen
-image_caption: Wat een boekhoudprogramma per maand kost, per prijsklasse. Illustratie: BoekhoudMatch, op basis van de prijspagina's van de aanbieders.
 tools: /boekhoudprogramma-vergelijken/, /boekhoudprogramma-kiezen/
 sources:
 - e-Boekhouden.nl: Prijzen | https://www.e-boekhouden.nl/prijzen

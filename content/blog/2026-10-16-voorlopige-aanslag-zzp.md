@@ -7,7 +7,6 @@ updated: 2026-10-16
 checked: 2026-10-16
 image: voorlopige-aanslag-zzp
 image_alt: Tijdlijn voorlopige aanslag voor zzp'ers: formulier vanaf december, aangifte vóór 1 mei, belastingrente vanaf 1 juli
-image_caption: Tijdlijn voorlopige aanslag. Illustratie: BoekhoudMatch, op basis van de Belastingdienst.
 tools: /zzp-netto-inkomen/, /boekhoudprogramma-kiezen/
 sources:
 - Belastingdienst: Reserveer geld om uw belastingen te betalen | https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/ondernemen/onderneming_starten/reserveer-geld-om-uw-belastingen-te-betalen/reserveer-geld-om-uw-belastingen-te-betalen

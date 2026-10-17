@@ -7,7 +7,6 @@ updated: 2026-10-16
 checked: 2026-10-16
 image: zakelijke-rekening-zzp
 image_alt: Schema zakelijke rekening per rechtsvorm: bij een eenmanszaak of vof meestal niet verplicht maar handig, bij een bv of nv in de praktijk wel nodig
-image_caption: Zakelijke rekening per rechtsvorm. Illustratie: BoekhoudMatch, op basis van KVK.
 tools: /boekhoudprogramma-kiezen/, /boekhoudprogramma-vergelijken/
 sources:
 - KVK: Is een zakelijke rekening verplicht? | https://www.kvk.nl/geldzaken/zakelijke-rekening-handig-niet-verplicht/
