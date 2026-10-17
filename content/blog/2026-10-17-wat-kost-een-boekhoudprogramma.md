@@ -6,7 +6,7 @@ date: 2026-10-17
 updated: 2026-10-17
 checked: 2026-10-17
 image: wat-kost-een-boekhoudprogramma
-image_alt: Prijsladder boekhoudprogramma per maand: gratis met strenge limieten, tot € 10 met limieten op facturen of transacties, € 10 tot € 25 voor de meeste zzp'ers en vanaf € 25 onbeperkt
+image_alt: Prijsladder boekhoudprogramma per maand: gratis met strenge limieten, tot € 10 met limieten op facturen of transacties, € 10 tot € 25 voor de meeste zzp'ers en vanaf € 25 meer gebruikers en rekeningen
 image_caption: Wat een boekhoudprogramma per maand kost, per prijsklasse. Illustratie: BoekhoudMatch, op basis van de prijspagina's van de aanbieders.
 tools: /boekhoudprogramma-vergelijken/, /boekhoudprogramma-kiezen/
 sources:
@@ -18,19 +18,20 @@ sources:
 - Rompslomp: Nieuwe tarieven per 1 november 2026 | https://rompslomp.nl/tarieven/update-november-2026
 - Informer: Prijzen | https://www.informer.nl/prijzen
 - Exact Reeleezee: Plans and pricing | https://www.exact.com/nl/bedrijven/exact-reeleezee
-- Exact Online Boekhouden: Features en prijzen | https://www.exact.com/nl/bedrijven/boekhouden/features-en-prijzen
 - Silvasoft: Prijzen | https://www.silvasoft.nl/prijzen/
 - MoneyMonk: Prijzen | https://www.moneymonk.nl/prijzen
 - Belastingdienst: Zakelijke kosten | https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/winst/inkomstenbelasting/inkomstenbelasting_voor_ondernemers/zakelijke_kosten
 - Belastingdienst: Kleineondernemersregeling (KOR) | https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/btw/hoe_werkt_de_btw/kleineondernemersregeling/
 ---
-Je wilt je administratie op orde, maar niet maandelijks geld weggooien aan een pakket dat te groot is. Of juist te klein, zodat je na drie maanden toch moet overstappen. Goed nieuws: de prijzen zijn prima te overzien. Je moet alleen weten waar de limieten zitten.
+Wat kost een boekhoudprogramma? Je wilt je administratie op orde, maar niet maandelijks geld weggooien aan een pakket dat te groot is. Of juist te klein, zodat je na drie maanden toch moet overstappen. Goed nieuws: de prijzen zijn prima te overzien. Je moet alleen weten waar de limieten zitten.
 
-> **Kort gezegd:** een boekhoudprogramma kost van € 0 tot ruim € 50 per maand.
+> **Kort gezegd:** een boekhoudprogramma kost van € 0 tot zo'n € 70 per maand.
 >
 > Gratis en heel goedkope pakketten hebben limieten op facturen, bonnen of banktransacties.
 >
-> Wil je bankkoppeling én btw-aangifte in je pakket, dan zit je bij negen van de tien aanbieders onder € 25 per maand.
+> Kies op je aantallen facturen, bonnen en bankbetalingen, niet alleen op de prijs.
+>
+> Alle pakketten naast elkaar: [boekhoudprogramma's vergelijken](/boekhoudprogramma-vergelijken/).
 
 ## Wat kost een boekhoudprogramma per maand?
 
@@ -38,26 +39,26 @@ Bij de tien aanbieders die we volgen, begint het bij € 0 en loopt het op tot �
 
 Voor alleen de software betaal je minder. Wil je een automatische bankkoppeling én btw-aangifte in het pakket? Dan zit je bij negen van de tien aanbieders onder € 25 per maand. Alleen bij Moneybird betaal je daarvoor meer (Groei, € 35).
 
-Wat kost een goed boekhoudprogramma dan? Dat hangt vooral af van hoeveel je factureert en hoeveel bonnen en bankbetalingen je verwerkt.
+Wat kost een goed boekhoudprogramma dan? De kosten van een boekhoudprogramma als zzp'er hangen vooral af van hoeveel je factureert en hoeveel bonnen en bankbetalingen je verwerkt.
 
 ## Prijzen per pakket 2026
 
 Dit zijn de reguliere prijzen per maand bij maandbetaling, zoals de aanbieders ze op hun eigen site noemen. Tijdelijke acties en starterskortingen tellen we niet mee. De meeste aanbieders noemen bedragen exclusief btw.
 
-| Aanbieder | Instappakket | Pakket zonder limieten |
+| Aanbieder | Instappakket | Goedkoopste pakket zonder limieten |
 |---|---|---|
 | e-Boekhouden.nl | ZZP € 9,95 (max. 240 boekingen per jaar) | Standaard + Factureren € 24,00 |
 | Moneybird | Compact € 4 (1 factuur, 5 transacties) | Compleet € 49 (€ 41 bij jaarbetaling) |
-| Jortt | Starter € 0 (geen boekhouding) | Plus € 39,95 |
-| SnelStart | inKaart € 22,00 | inZicht € 54,00 |
+| Jortt | Starter € 0 (geen boekhouding) | MKB € 29,95 |
+| SnelStart | inKaart € 22,00 | inKaart € 22,00 |
 | Tellow | Gratis € 0 (3 facturen) | Basis € 12,99 |
 | Rompslomp | Starter € 0 (€ 1,50 per factuur) | Professional € 28,95 |
 | Informer | ZZP Basis € 15 (30 transacties) | ZZP Plus € 23 |
 | Exact Reeleezee | Slim Boekhouden Start € 18 | Slim Boekhouden € 43 |
-| Silvasoft | Boekhouden € 13,95 (zonder facturen) | alle modules € 33,80 |
+| Silvasoft | Boekhouden € 13,95 (zonder facturen) | Boekhouden + Facturatie € 22,90 |
 | MoneyMonk | Basis € 9,00 (20 transacties) | Ultra € 37,50 |
 
-Rompslomp rekent met de tarieven die per 1 november 2026 gelden. Bij SnelStart zijn inOrde en inStap goedkoper, maar die neem je alleen samen met een boekhouder.
+Rompslomp rekent met de tarieven die per 1 november 2026 gelden. Bij SnelStart zijn inOrde en inStap goedkoper, maar die zijn bedoeld voor samenwerking met een boekhouder (inOrde krijg je alleen via een boekhouder).
 
 Alle pakketten naast elkaar, met functies per abonnement, zie je op [boekhoudprogramma's vergelijken](/boekhoudprogramma-vergelijken/).
 
@@ -91,11 +92,11 @@ Zoek je een goedkoop boekhoudprogramma als zzp'er? Lees dan ook [goedkoopste boe
 - **Gebruikers en rechtsvorm:** Moneybird Start heeft 1 gebruiker. Jortt ZZP is alleen voor een eenmanszaak.
 - **Support:** Tellow Plus geeft telefonische support. Bij MoneyMonk krijgen Pro en Ultra voorrang op support.
 
-### Vanaf € 25: onbeperkt
+### Vanaf € 25: meer gebruikers en rekeningen
 
-Hier verdwijnen de limieten: onbeperkt transacties, meer gebruikers en vaak meer bankrekeningen. Dat is vooral nuttig bij veel bankbetalingen, bijvoorbeeld met een webshop, of als je met meer mensen in de administratie werkt.
+Hier verdwijnen bij de meeste aanbieders de laatste limieten. Je krijgt vaak meer gebruikers en meer gekoppelde bankrekeningen. Dat is vooral nuttig bij veel bankbetalingen, bijvoorbeeld met een webshop, of als je met meer mensen in de administratie werkt.
 
-## Zijn de kosten aftrekbaar?
+## Zijn de kosten van een boekhoudprogramma aftrekbaar?
 
 Ja. Volgens de Belastingdienst mag je zakelijke kosten aftrekken van je opbrengsten. Dat zijn kosten die je maakt voor je onderneming. Een boekhoudprogramma voor je bedrijf valt daaronder.
 
