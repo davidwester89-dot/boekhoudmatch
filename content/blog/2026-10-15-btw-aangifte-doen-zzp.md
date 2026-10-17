@@ -7,7 +7,6 @@ updated: 2026-10-15
 checked: 2026-10-15
 image: btw-aangifte-doen-zzp
 image_alt: Stappenplan btw-aangifte doen als zzp'er: omzet optellen, voorbelasting optellen, rubrieken 1a en 5b invullen, versturen en betalen vóór 31 oktober 2026
-image_caption: Btw-aangifte in vijf stappen. Illustratie: BoekhoudMatch, op basis van de Belastingdienst.
 tools: /btw-berekenen/, /boekhoudprogramma-vergelijken/, /boekhoudprogramma-kiezen/
 sources:
 - Belastingdienst: Wanneer moeten mijn btw-aangifte en mijn betaling binnen zijn? | https://www.belastingdienst.nl/wps/wcm/connect/nl/btw/content/uiterste-aangifte-en-betaaldatums

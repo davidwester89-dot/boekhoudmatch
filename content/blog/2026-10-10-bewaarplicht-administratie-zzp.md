@@ -7,7 +7,6 @@ updated: 2026-10-10
 checked: 2026-10-10
 image: bewaarplicht-administratie-zzp
 image_alt: Infographic bewaarplicht administratie zzp: basisgegevens en overige stukken 7 jaar bewaren, gegevens over onroerende zaken en One Stop Shop 10 jaar
-image_caption: Bewaartermijnen voor je administratie. Illustratie: BoekhoudMatch, op basis van de Belastingdienst.
 tools: /boekhoudprogramma-kiezen/, /boekhoudprogramma-vergelijken/
 sources:
 - Belastingdienst: Hoelang moet u gegevens bewaren? | https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/ondernemen/administratie/hoelang-moet-u-gegevens-bewaren
