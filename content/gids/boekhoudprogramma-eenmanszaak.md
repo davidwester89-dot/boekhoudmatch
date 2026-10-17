@@ -9,6 +9,7 @@ related:
 - Beste boekhoudprogramma voor zzp'ers | /beste-boekhoudprogramma-zzp/
 - Boekhoudprogramma voor starters | /boekhoudprogramma-starters/
 - KOR en boekhoudsoftware | /kor-boekhoudprogramma/
+- Boekhoudprogramma voor een vof | /boekhoudprogramma-vof/
 sources:
 - Ondernemersplein: moet u een jaarrekening of jaarverslag maken? | https://ondernemersplein.overheid.nl/bedrijfsvoering/administratie/jaarverslag-of-jaarrekening/
 - Belastingdienst: hoelang moet u gegevens bewaren? | https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/ondernemen/administratie/hoelang-moet-u-gegevens-bewaren

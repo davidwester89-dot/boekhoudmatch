@@ -9,6 +9,7 @@ related:
 - Btw berekenen | /btw-berekenen/
 - KOR en boekhoudsoftware | /kor-boekhoudprogramma/
 - Rompslomp vs Tellow | /rompslomp-vs-tellow/
+- Btw-aangifte doen als zzp'er | /blog/btw-aangifte-doen-zzp/
 sources:
 - Belastingdienst: btw-aangifte doen en betalen | https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/btw/btw_aangifte_doen_en_betalen/
 - Belastingdienst: uiterste aangifte- en betaaldatums btw | https://www.belastingdienst.nl/wps/wcm/connect/nl/btw/content/uiterste-aangifte-en-betaaldatums
