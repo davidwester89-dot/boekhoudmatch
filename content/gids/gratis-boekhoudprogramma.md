@@ -9,6 +9,7 @@ related:
 - Boekhoudprogramma voor starters | /boekhoudprogramma-starters/
 - Rompslomp vs Tellow | /rompslomp-vs-tellow/
 - KOR en boekhoudsoftware | /kor-boekhoudprogramma/
+- Goedkoopste boekhoudprogramma | /goedkoopste-boekhoudprogramma/
 sources:
 - Belastingdienst: kleineondernemersregeling (KOR) | https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/btw/hoe_werkt_de_btw/kleineondernemersregeling/
 - Belastingdienst: hoelang moet u gegevens bewaren? | https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/ondernemen/administratie/hoelang-moet-u-gegevens-bewaren

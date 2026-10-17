@@ -11,6 +11,7 @@ related:
 - Boekhoudprogramma voor een eenmanszaak | /boekhoudprogramma-eenmanszaak/
 - Gratis boekhoudprogramma: wat krijg je wel en niet? | /gratis-boekhoudprogramma/
 - Btw-aangifte vanuit je boekhoudprogramma | /btw-aangifte-boekhoudprogramma/
+- Goedkoopste boekhoudprogramma | /goedkoopste-boekhoudprogramma/
 sources:
 - Belastingdienst: uiterste aangifte- en betaaldatums btw | https://www.belastingdienst.nl/wps/wcm/connect/nl/btw/content/uiterste-aangifte-en-betaaldatums
 - Belastingdienst: hoelang moet u gegevens bewaren? | https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/ondernemen/administratie/hoelang-moet-u-gegevens-bewaren
