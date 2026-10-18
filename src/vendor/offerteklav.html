@@ -297,7 +297,7 @@ table.items .c{text-align:center}
   <div class="app-actions">
     <button type="button" class="btn-ghost" id="btnNieuw">Nieuw</button>
     <button type="button" class="btn-ghost" id="btnOpslaan">Opslaan</button>
-    <button type="button" class="btn-gold" id="btnPrint">Afdrukken / PDF</button>
+    <button type="button" class="btn-gold" id="btnPrint">Afdrukken / pdf</button>
   </div>
 </div>
 
@@ -332,7 +332,7 @@ table.items .c{text-align:center}
       <label class="fld">Postcode<input type="text" id="cPostcode"></label>
       <label class="fld">Plaats<input type="text" id="cPlaats"></label>
       <label class="fld">KvK-nummer<input type="text" id="cKvk" placeholder="12345678"></label>
-      <label class="fld">BTW-id<input type="text" id="cBtw" placeholder="NL123456789B01"></label>
+      <label class="fld">Btw-id<input type="text" id="cBtw" placeholder="NL123456789B01"></label>
       <label class="fld span2">IBAN<input type="text" id="cIban" placeholder="NL00 BANK 0000 0000 00"></label>
       <label class="fld">Betaaltermijn (dagen)<input type="number" id="cTermijn" min="0" max="90" value="14"></label>
     </div>
@@ -347,12 +347,12 @@ table.items .c{text-align:center}
       <label class="fld span2">Adres<input type="text" id="kStraat"></label>
       <label class="fld">Postcode<input type="text" id="kPostcode"></label>
       <label class="fld">Plaats<input type="text" id="kPlaats"></label>
-      <label class="fld span2">BTW-id (optioneel, verplicht bij btw verlegd)<input type="text" id="kBtw" placeholder="NL…"></label>
+      <label class="fld span2">Btw-id (optioneel, verplicht bij btw verlegd)<input type="text" id="kBtw" placeholder="NL…"></label>
     </div>
   </section>
 
   <section class="card">
-    <h2>Vak · presets</h2>
+    <h2>Vak · voorbeeldregels</h2>
     <div class="chips" id="vakChips">
       <button type="button" data-vak="schilder">Schilder</button>
       <button type="button" data-vak="loodgieter">Loodgieter</button>
@@ -361,7 +361,7 @@ table.items .c{text-align:center}
       <button type="button" data-vak="klus">Klus</button>
       <button type="button" data-vak="adviseur">Adviseur</button>
     </div>
-    <p class="hint">Preset vult typische regels. Pas daarna prijzen en teksten aan.</p>
+    <p class="hint">Een voorbeeld vult typische regels. Pas daarna prijzen en teksten aan.</p>
   </section>
 
   <section class="card">
@@ -385,7 +385,7 @@ table.items .c{text-align:center}
             <th class="col-qty">Aantal</th>
             <th class="col-unit">Eenheid</th>
             <th class="col-price">Stukprijs</th>
-            <th class="col-btw">BTW</th>
+            <th class="col-btw">Btw</th>
             <th class="col-del"></th>
           </tr>
         </thead>
@@ -408,10 +408,10 @@ table.items .c{text-align:center}
       <label class="fld factuur-only">Leverdatum<input type="date" id="leverdatum"></label>
       <label class="fld factuur-only">Betalingskenmerk<input type="text" id="kenmerk"></label>
       <label class="fld span2 offerte-only">Uitsluitingen<textarea id="uitsluitingen"></textarea></label>
-      <label class="fld span2 offerte-only">Meerwerk-voorbehoud<textarea id="meerwerk"></textarea></label>
+      <label class="fld span2 offerte-only">Meerwerkvoorbehoud<textarea id="meerwerk"></textarea></label>
       <label class="fld offerte-only">Akkoord naam<input type="text" id="akkoordNaam" placeholder="Opdrachtgever"></label>
       <label class="fld offerte-only">Akkoord datum<input type="date" id="akkoordDatum"></label>
-      <label class="fld span2">Interne notitie (niet op PDF)<input type="text" id="notitie"></label>
+      <label class="fld span2">Interne notitie (niet op de pdf)<input type="text" id="notitie"></label>
     </div>
   </section>
 
@@ -965,13 +965,13 @@ table.items .c{text-align:center}
       if (!company.naam) msgs.push("Factuur: bedrijfsnaam ontbreekt.");
       if (!company.straat || !company.postcode || !company.plaats) msgs.push("Factuur: volledig adres van jou ontbreekt.");
       if (!company.kvk) msgs.push("Factuur: KvK-nummer is verplicht (Belastingdienst / KVK).");
-      if (!company.kor && !company.btwId) msgs.push("Factuur: BTW-id is verplicht (tenzij KOR).");
+      if (!company.kor && !company.btwId) msgs.push("Factuur: btw-id is verplicht (tenzij KOR).");
       if (!company.iban) msgs.push("Factuur: IBAN ontbreekt — klant weet niet waarheen te betalen.");
       if (!doc.client.naam || !doc.client.straat) msgs.push("Factuur: naam en adres van de klant zijn verplicht.");
       if (!doc.leverdatum) msgs.push("Factuur: leverdatum is verplicht.");
       if (!currentNumber()) msgs.push("Factuur: factuurnummer ontbreekt.");
     }
-    if (t.hasVerlegd && !doc.client.btwId) msgs.push("Btw verlegd: vul het BTW-id van de klant in.");
+    if (t.hasVerlegd && !doc.client.btwId) msgs.push("Btw verlegd: vul het btw-id van de klant in.");
     if (t.hasKor && company.btwId && !company.kor) {
       /* fine — line-level KOR mention */
     }
@@ -1035,11 +1035,11 @@ table.items .c{text-align:center}
     totRows += '<tr class="grand"><td>' + (isF ? "Te voldoen" : "Totaal incl. btw") + '</td><td class="r">' +
       (t.allKor || t.allVerlegd ? eur(t.excl) : eur(t.incl)) + "</td></tr>";
 
-    var korHtml = t.hasKor ? '<p class="kor-line">BTW vrijgesteld op grond van de kleineondernemersregeling (KOR).</p>' : "";
+    var korHtml = t.hasKor ? '<p class="kor-line">Btw vrijgesteld op grond van de kleineondernemersregeling (KOR).</p>' : "";
     var verHtml = "";
     if (t.hasVerlegd) {
       verHtml = '<p class="verlegd-line">Btw verlegd' +
-        (doc.client.btwId ? " — BTW-id afnemer: <strong>" + esc(doc.client.btwId) + "</strong>" : " — vul het BTW-id van de klant in") +
+        (doc.client.btwId ? " — btw-id afnemer: <strong>" + esc(doc.client.btwId) + "</strong>" : " — vul het btw-id van de klant in") +
         ".</p>";
     }
 
@@ -1062,7 +1062,7 @@ table.items .c{text-align:center}
     if (!isF) {
       extraNotes =
         '<div class="note-block"><h3>Uitsluitingen</h3>' + esc(doc.uitsluitingen).replace(/\n/g, "<br>") + "</div>" +
-        '<div class="note-block"><h3>Meerwerk-voorbehoud</h3>' + esc(doc.meerwerk).replace(/\n/g, "<br>") + "</div>";
+        '<div class="note-block"><h3>Meerwerkvoorbehoud</h3>' + esc(doc.meerwerk).replace(/\n/g, "<br>") + "</div>";
     }
 
     var leftBottom;
@@ -1091,7 +1091,7 @@ table.items .c{text-align:center}
 
     var legalBits = [];
     if (company.kvk) legalBits.push("KvK " + esc(company.kvk));
-    if (company.btwId && !t.allKor) legalBits.push("BTW-id " + esc(company.btwId));
+    if (company.btwId && !t.allKor) legalBits.push("Btw-id " + esc(company.btwId));
     if (t.allKor) legalBits.push("KOR — geen btw-identificatienummer op factuur vereist");
     if (company.iban) legalBits.push("IBAN " + esc(formatIban(company.iban)));
 
@@ -1112,11 +1112,11 @@ table.items .c{text-align:center}
           '<div class="party"><div class="party-lbl">Van</div><strong>' + esc(company.naam || "—") + "</strong><p>" +
             (addr || "—") +
             (company.kvk ? "<br>KvK " + esc(company.kvk) : "") +
-            (company.btwId && !t.allKor ? "<br>BTW-id " + esc(company.btwId) : "") +
+            (company.btwId && !t.allKor ? "<br>Btw-id " + esc(company.btwId) : "") +
           "</p></div>" +
           '<div class="party"><div class="party-lbl">Aan</div><strong>' + esc(doc.client.naam || "Klant") + "</strong><p>" +
             (kaddr || "—") +
-            (doc.client.btwId ? "<br>BTW-id " + esc(doc.client.btwId) : "") +
+            (doc.client.btwId ? "<br>Btw-id " + esc(doc.client.btwId) : "") +
           "</p></div>" +
         "</div>" +
         (doc.onderwerp ? '<div class="subject"><small>Betreft</small><p>' + esc(doc.onderwerp) + "</p></div>" : "") +

@@ -106,7 +106,7 @@ export function gidsPages() {
     const pageBody = `
 <article class="article gids">
 <h1>${esc(meta.title)}</h1>
-<p class="post-meta">Door <a href="/over/">de redactie van BoekhoudMatch</a></p>
+<p class="post-meta">Door <a href="/over/">Redactie BoekhoudMatch</a></p>
 ${meta.update ? `<p class="alert ok"><strong>Update ${fmtDate(meta.updated)}:</strong> ${esc(meta.update)}</p>` : ''}
 ${html}
 <aside class="cta"><h2>Verder kiezen</h2><ul><li><a href="/boekhoudprogramma-kiezen/">Doe de match (8 vragen) →</a></li><li><a href="/boekhoudprogramma-vergelijken/">Vergelijk alle ${N_PAK} pakketten →</a></li>${(meta.related || []).map((r) => { const [t, u] = r.split(/\s+\|\s+/); return `<li><a href="${u}">${esc(t)} →</a></li>`; }).join('')}</ul></aside>
@@ -131,7 +131,7 @@ export function gidsHub(gidsen) {
   return {
     path: '/gidsen/', title: 'Gidsen over boekhoudprogramma\'s voor zzp | BoekhoudMatch', description: `Gidsen bij het kiezen van een boekhoudprogramma: per rechtsvorm, gratis, starters, btw, bank, KOR en uren. Prijzen gecontroleerd op ${fmtDate(CHECKED)}.`, crumb: 'Gidsen', og: 'vergelijken', updated: CHECKED, stamp: { updated: gidsen.map((p) => p.updated).sort().at(-1) },
     body: `<section class="article"><h1>Gidsen: boekhoudprogramma kiezen</h1>
-<p class="lead">Korte gidsen om het juiste boekhoudprogramma te kiezen. Geschreven door <a href="/over/">ons team</a>.</p>
+<p class="lead">Korte gidsen om het juiste boekhoudprogramma te kiezen. Door <a href="/over/">Redactie BoekhoudMatch</a>.</p>
 ${groepen.map((g) => `<h2>${g}</h2><ul class="gidslijst">${lijst(g)}</ul>`).join('\n')}
 <aside class="cta"><h2>Liever meteen kiezen?</h2><ul><li><a href="/boekhoudprogramma-kiezen/">Doe de match →</a></li><li><a href="/boekhoudprogramma-vergelijken/">Vergelijk alle ${N_PAK} pakketten →</a></li></ul></aside>
 </section>`,

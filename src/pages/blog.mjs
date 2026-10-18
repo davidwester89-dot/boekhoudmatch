@@ -25,7 +25,7 @@ export function postPage(post, all, ogKey) {
   const body = `
 <article class="article">
 <h1>${esc(post.title)}</h1>
-<p class="post-meta">Door <a href="/over/">de redactie van BoekhoudMatch</a> · <time datetime="${post.date}">${fmtDate(post.date)}</time> · ${readMin(post.words)} min lezen</p>
+<p class="post-meta">Door <a href="/over/">Redactie BoekhoudMatch</a> · <time datetime="${post.date}">${fmtDate(post.date)}</time> · ${readMin(post.words)} min lezen</p>
 ${post.image ? figure(post.image) : ''}
 ${post.html}
 ${post.tools.length ? `<aside class="cta"><h2>Reken het zelf uit</h2><ul>${post.tools.map((t) => `<li><a href="${t}">${esc(TOOLNAMES[t] || t)} →</a></li>`).join('')}</ul></aside>` : ''}

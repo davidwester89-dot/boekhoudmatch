@@ -19,7 +19,7 @@ De meeste zzp'ers hebben een eenmanszaak. Daar zijn de meeste boekhoudprogramma'
 
 ## Wat moet je als eenmanszaak bijhouden?
 
-Je bent verplicht een administratie bij te houden en die zeven jaar te bewaren. Daar horen in elk geval je verkoop- en inkoopfacturen, je bankafschriften en een grootboek bij. Een jaarrekening hoef je als eenmanszaak niet bij de KVK in te leveren. Je maakt hem wel voor je eigen administratie en gebruikt hem voor je aangifte inkomstenbelasting.
+Je bent verplicht een administratie bij te houden en die zeven jaar te bewaren. Daar horen in elk geval je verkoop- en inkoopfacturen, je bankafschriften en een grootboek bij. Een jaarrekening hoef je als eenmanszaak niet bij de KVK in te leveren. Je maakt hem wel voor je eigen administratie en gebruikt hem voor je aangifte inkomstenbelasting. Hoe je dat stap voor stap aanpakt, lees je in [boekhouden als zzp'er in 5 stappen](/blog/boekhouden-als-zzper/). Wat je precies moet bewaren, staat bij [de bewaarplicht voor zzp'ers](/blog/bewaarplicht-administratie-zzp/).
 
 Daarnaast doe je meestal per kwartaal btw-aangifte, tenzij je de kleineondernemersregeling (KOR) gebruikt. De aangifte en betaling moeten binnen zijn vóór het einde van de maand na het kwartaal.
 

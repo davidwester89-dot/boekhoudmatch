@@ -62,7 +62,7 @@ Een te lage voorlopige aanslag kost op zich dus geen rente, zolang je op tijd en
 
 ## Wat kun je nu doen?
 
-1. **Bereken je verwachte winst.** Gebruik je cijfers tot nu toe en schat de rest van het jaar. Met de [netto-inkomen-calculator](/zzp-netto-inkomen/) zie je ongeveer wat er na belasting overblijft.
+1. **Bereken je verwachte winst.** Gebruik je cijfers tot nu toe en schat de rest van het jaar. Met de [netto-inkomencalculator](/zzp-netto-inkomen/) zie je ongeveer wat er na belasting overblijft.
 2. **Vergelijk met je huidige voorlopige aanslag.** Wijkt het flink af, pas hem dan aan in Mijn Belastingdienst.
 3. **Zet maandelijks geld apart.** Een aparte spaarrekening voor belasting maakt dat overzichtelijk.
 4. **Houd je administratie bij.** Een boekhoudprogramma dat je winst per maand laat zien, maakt een schatting veel makkelijker. Zie welk pakket bij je past met de [boekhoudmatch](/boekhoudprogramma-kiezen/).

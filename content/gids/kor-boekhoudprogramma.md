@@ -36,7 +36,7 @@ De KOR is een vrijstelling van btw, niet van je administratie. Je houdt nog stee
 - je bankafschriften;
 - je omzet, zodat je weet of je onder de € 20.000 blijft.
 
-De basisregel is dat je je administratie zeven jaar bewaart. Daarnaast heb je je cijfers nodig voor je aangifte inkomstenbelasting: je winst is niet btw-vrij.
+De basisregel is dat je je administratie zeven jaar bewaart (zie [bewaarplicht voor zzp'ers](/blog/bewaarplicht-administratie-zzp/)). Daarnaast heb je je cijfers nodig voor je aangifte inkomstenbelasting: je winst is niet btw-vrij.
 
 ## Wat heb je niet nodig in een pakket?
 

@@ -54,7 +54,7 @@ Praktisch betekent dat:
 
 - exporteer je oude jaren voordat je je oude abonnement opzegt: grootboek, facturen, btw-aangiftes en jaaroverzichten;
 - bewaar ook de facturen zelf, in de vorm waarin je ze verstuurd of ontvangen hebt;
-- vraag na of je bij je oude aanbieder een goedkoop alleen-lezen-abonnement kunt houden. Of dat kan, staat niet op de prijspagina's.
+- vraag na of je bij je oude aanbieder een goedkoop alleen-lezenabonnement kunt houden. Of dat kan, staat niet op de prijspagina's.
 
 ## Bank
 

@@ -42,8 +42,8 @@ export const home = {
   body: `
 <section class="hero">
 <div>
-<h1 class="h1-brand">Boekhoud<b>Match</b>.nl</h1>
-<p class="tagline">Boekhouden? Gewoon. Zonder gedoe.</p>
+<p class="h1-brand">Boekhoud<b>Match</b>.nl</p>
+<h1 class="tagline">Boekhoudprogramma kiezen als zzp'er? Gewoon. Zonder gedoe.</h1>
 <p class="lead">Welk boekhoudprogramma past bij jouw zzp-bedrijf? Beantwoord 8 vragen en zie wat bij je past en wat het kost.</p>
 <div class="actions"><a class="btn" href="/boekhoudprogramma-kiezen/">Start de match</a><a class="btn ghost" href="/boekhoudprogramma-vergelijken/">Vergelijk alle ${N_PAK} pakketten</a></div>
 </div>
@@ -81,7 +81,7 @@ ${situaties().filter((x) => x.top).map((x) => `<li><span class="sit-logo">${logo
 <li><strong>Elke maand gecontroleerd.</strong> Bij elk pakket staat de datum van de laatste controle.</li>
 <li><strong>Partnerlinks veranderen niets.</strong> Eerst wat past, dan je budget, dan de prijs. Commissie telt nooit mee.</li>
 </ol>
-<p class="author">Door de <a href="/over/">Redactie BoekhoudMatch</a> · <a href="/boekhoudprogramma-kiezen/#methode">Hoe de match werkt</a></p>
+<p class="author">Door <a href="/over/">Redactie BoekhoudMatch</a> · <a href="/boekhoudprogramma-kiezen/#methode">Hoe de match werkt</a></p>
 </section>
 
 <h2>Rekentools voor zzp'ers</h2>

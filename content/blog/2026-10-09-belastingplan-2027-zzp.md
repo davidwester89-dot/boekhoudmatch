@@ -41,7 +41,7 @@ Daarnaast stelt het kabinet voor om de **willekeurige afschrijving voor starters
 
 ## Hogere tarieven in box 1
 
-Het kabinet wil dat burgers een zogenoemde *vrijheidsbijdrage* leveren. Daarvoor worden de belastingschijven en heffingskortingen in 2027 maar voor 48% aangepast aan de inflatie. Ook stijgen de tarieven in de eerste twee schijven. De voorgestelde bedragen voor iemand onder de AOW-leeftijd:
+Het kabinet wil dat burgers een zogenoemde *vrijheidsbijdrage* leveren. Daarvoor worden de belastingschijven en heffingskortingen in 2027 slechts voor 48% aangepast aan de inflatie. Ook stijgen de tarieven in de eerste twee schijven. De voorgestelde bedragen voor iemand onder de AOW-leeftijd:
 
 | Onderdeel | 2026 | 2027 (voorstel) |
 |---|---|---|

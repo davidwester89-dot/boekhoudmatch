@@ -67,6 +67,6 @@ Het goedkoopste pakket met uren, btw-aangifte en bankkoppeling:
 
 Kan ook. Dan zet je de uren zelf op de factuur. Bewaar de export wel bij je administratie.
 
-Wil je weten wat je per uur moet vragen? Gebruik de [uurtarief-calculator](/zzp-uurtarief/).
+Wil je weten wat je per uur moet vragen? Gebruik de [uurtariefcalculator](/zzp-uurtarief/).
 
 {{blok:cta uren=1}}

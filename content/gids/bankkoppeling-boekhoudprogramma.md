@@ -41,7 +41,7 @@ Dit is per aanbieder het goedkoopste pakket met koppeling. Bij Informer en Silva
 
 Kijk niet alleen naar de prijs van het pakket. Drie voorbeelden met de prijzen van {{datum}}:
 
-- Moneybird: met handmatig importeren kan Start ({{p:moneybird/start}}). Wil je je eigen bank koppelen, dan wordt het Groei ({{p:moneybird/groei}}).
+- Moneybird: met handmatig importeren kan Start ({{p:moneybird/start}}). Wil je je eigen bank koppelen, dan kom je uit op Groei ({{p:moneybird/groei}}).
 - Rompslomp: Puur Factuur ({{p:rompslomp/puur}}) zonder koppeling, Basic ({{p:rompslomp/basic}}) met.
 - Silvasoft: Boekhouden + Facturatie ({{p:silvasoft/boekhouden-facturatie}}) plus € 3 per rekening per maand.
 

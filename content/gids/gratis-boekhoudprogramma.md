@@ -48,7 +48,7 @@ Bijna elke aanbieder laat je eerst proberen. De duur volgens de sites:
 - Jortt: 30 dagen, daarna 3 maanden € 9,95 per maand.
 - SnelStart, Informer, Exact, Silvasoft en MoneyMonk: 30 dagen.
 - e-Boekhouden: 14 dagen.
-- Tellow: 14 dagen niet-goed-geld-terug op betaalde pakketten.
+- Tellow: 14 dagen niet-goed-geld-teruggarantie op betaalde pakketten.
 - Rompslomp: een gratis Starter-pakket; een aparte proefperiode staat niet vermeld.
 
 Gebruik de proef serieus: zet er je echte bankafschrift van een maand in, maak een factuur en verwerk een paar bonnen. Dan weet je of het werkt.

@@ -43,7 +43,7 @@ Het verschil in één zin: bij Rompslomp betaal je meer als je meer facturen stu
 
 ## Btw-aangifte direct indienen
 
-Rompslomp: vanaf Puur Factuur. Tellow: vanaf Plus. Wil je goedkoop en direct indienen met weinig facturen, dan is Rompslomp Puur Factuur in onze data het goedkoopste pakket dat dat noemt. Zie [btw-aangifte vanuit je boekhoudprogramma](/btw-aangifte-boekhoudprogramma/).
+Rompslomp: vanaf Puur Factuur. Tellow: vanaf Plus. Wil je goedkoop en direct indienen met weinig facturen, dan is Rompslomp Puur Factuur in onze data het goedkoopste pakket dat direct indienen noemt. Zie [btw-aangifte vanuit je boekhoudprogramma](/btw-aangifte-boekhoudprogramma/).
 
 ## Uren, offertes en IB
 
@@ -57,11 +57,11 @@ Rompslomp koppelt je bank automatisch vanaf Basic; bij Starter en Puur Factuur i
 
 ## Rechtsvorm en proefperiode
 
-Geen van beide noemt rechtsvormen op de prijspagina. Beide noemen prijzen exclusief btw. Tellow geeft 14 dagen niet-goed-geld-terug op betaalde pakketten. Rompslomp heeft het gratis Starter-pakket; een aparte proefperiode staat niet vermeld.
+Geen van beide noemt rechtsvormen op de prijspagina. Beide noemen prijzen exclusief btw. Tellow geeft 14 dagen niet-goed-geld-teruggarantie op betaalde pakketten. Rompslomp heeft het gratis Starter-pakket; een aparte proefperiode staat niet vermeld.
 
 ## Wanneer kies je wat?
 
-**Rompslomp** past bij weinig facturen en de wens om toch je btw-aangifte direct in te dienen. Groei je boven 10 facturen of uitgaven per maand, dan wordt het Professional ({{p:rompslomp/professional}}).
+**Rompslomp** past bij weinig facturen en de wens om toch je btw-aangifte direct in te dienen. Groei je boven 10 facturen of uitgaven per maand, dan kom je uit op Professional ({{p:rompslomp/professional}}).
 
 **Tellow** past bij veel facturen en uitgaven tegen een vaste prijs, zeker als je zelf je btw-aangifte wilt invullen (Basis) of als je een boekhouder in het pakket wilt (Compleet).
 

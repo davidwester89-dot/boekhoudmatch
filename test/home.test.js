@@ -2,8 +2,8 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { home, over } from '../src/pages/static.mjs';
 
-test('homepage: merk als H1 met tagline, zoekwoord in title en intro', () => {
-  assert.match(home.body, /<h1 class="h1-brand">Boekhoud<b>Match<\/b>\.nl<\/h1>\n<p class="tagline">Boekhouden\? Gewoon\. Zonder gedoe\.<\/p>/);
+test('homepage: logo is geen H1, beschrijvende H1 met zoekwoord, zoekwoord in title en intro', () => {
+  assert.match(home.body, /<p class="h1-brand">Boekhoud<b>Match<\/b>\.nl<\/p>\n<h1 class="tagline">Boekhoudprogramma kiezen als zzp'er\? Gewoon\. Zonder gedoe\.<\/h1>/);
   assert.equal((home.body.match(/<h1/g) || []).length, 1);
   assert.ok(home.title.length <= 60, `title ${home.title.length} tekens`);
   assert.match(home.title, /^Boekhoudprogramma zzp/);

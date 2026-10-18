@@ -50,7 +50,7 @@ export const aanbiederPages = PAKKETTEN.map((a) => {
   const body = `
 <h1>${esc(a.naam)}: prijzen en pakketten (2026)</h1>
 <p class="lead">${esc(r.kort)} heeft ${a.plannen.length} pakketten${prijzen.length ? `, van ${e2(Math.min(...prijzen))} tot ${e2(Math.max(...prijzen))} per maand` : ''}.</p>
-<p class="post-meta">Door de <a href="/over/">Redactie BoekhoudMatch</a> · <a href="/boekhoudprogramma-kiezen/#methode">Hoe we vergelijken</a></p>
+<p class="post-meta">Door <a href="/over/">Redactie BoekhoudMatch</a> · <a href="/boekhoudprogramma-kiezen/#methode">Hoe we vergelijken</a></p>
 <div class="actions"><a class="btn" href="/boekhoudprogramma-kiezen/?aanbieder=${a.id}" rel="nofollow">Past ${esc(r.kort)} bij jou? Doe de match</a><a class="btn ghost" href="/boekhoudprogramma-vergelijken/">Vergelijk met ${N_AANB - 1} andere aanbieders</a></div>
 
 <h2>In het kort</h2>

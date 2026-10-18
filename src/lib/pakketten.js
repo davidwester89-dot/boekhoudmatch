@@ -80,7 +80,7 @@ export const PAKKETTEN = [
     id: 'tellow', naam: 'Tellow', site: 'https://www.tellow.nl',
     bronnen: [{ url: 'https://www.tellow.nl/prijs/', titel: 'Tellow – Prijs' }],
     btwPrijzen: 'excl', rechtsvormen: null, eigenRekening: true, partner: null,
-    actie: '14 dagen niet-goed-geld-terug op betaalde pakketten.',
+    actie: '14 dagen niet-goed-geld-teruggarantie op betaalde pakketten.',
     noot: 'Inclusief betaalrekening. Btw-aangifte automatisch indienen vanaf Plus; bij Gratis en Basis dien je zelf in. Offertes vanaf Plus. Of urenregistratie en IB-voorbereiding in Gratis/Basis zitten, is in de functietabel niet per pakket af te lezen.',
     webshopkoppelingen: { gecontroleerd: '2026-10-16', shopify: 'niet gevonden', woocommerce: 'niet gevonden', lightspeed: 'niet gevonden', bol: 'niet gevonden', mollie: 'niet gevonden', noot: 'Helpcentrum beschrijft alleen handmatig verwerken van Mollie-, Bol- en Shopify-verkopen.',
       bronnen: [{ url: 'https://help.tellow.nl/nl/articles/4046294-hoe-verwerk-ik-verkopen-via-mollie', titel: 'Tellow Help Center – Verkopen via Mollie verwerken' }, { url: 'https://help.tellow.nl/nl/collections/1755215-hoe-koppel-ik', titel: 'Tellow Help Center – Hoe koppel ik' }] },
@@ -124,7 +124,7 @@ export const PAKKETTEN = [
   },
   {
     id: 'exact', naam: 'Exact (Reeleezee / Online)', site: 'https://www.exact.com/nl',
-    bronnen: [{ url: 'https://www.exact.com/nl/bedrijven/exact-reeleezee', titel: 'Exact Reeleezee – Plans and pricing' }, { url: 'https://www.exact.com/nl/bedrijven/boekhouden/features-en-prijzen', titel: 'Exact Online Boekhouden – Features en prijzen' }],
+    bronnen: [{ url: 'https://www.exact.com/nl/bedrijven/exact-reeleezee', titel: 'Exact Reeleezee – prijzen' }, { url: 'https://www.exact.com/nl/bedrijven/boekhouden/features-en-prijzen', titel: 'Exact Online Boekhouden – Features en prijzen' }],
     btwPrijzen: 'excl', rechtsvormen: null, eigenRekening: false, partner: null,
     actie: '30 dagen gratis proberen.',
     noot: 'Exact Reeleezee (Slim Boekhouden) is de zzp-lijn van Exact; Exact Online Boekhouden is uitgebreider. Offertes en uren staan niet bij deze boekhoudpakketten vermeld.',

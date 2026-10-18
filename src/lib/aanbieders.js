@@ -45,7 +45,7 @@ export const REDACTIE = {
     zwak: 'Automatische bankkoppeling pas vanaf Basic; Puur Factuur en Basic hebben lage limieten.',
     knelt: 'Puur Factuur: max. 8 facturen en 5 uitgaven per maand',
     wel: ['Je stuurt weinig facturen en wilt toch je btw-aangifte direct indienen.', 'Je wilt gratis beginnen (Starter, facturen € 1,50 per stuk).'],
-    niet: ['Je hebt meer dan 10 facturen of uitgaven per maand en een klein budget: dan wordt het Professional (€ 28,95).', 'Je wilt hulp bij je IB-aangifte: niet vermeld.'],
+    niet: ['Je hebt meer dan 10 facturen of uitgaven per maand en een klein budget: dan kom je uit op Professional (€ 28,95).', 'Je wilt hulp bij je IB-aangifte: niet vermeld.'],
   },
   tellow: {
     slug: 'tellow', kort: 'Tellow', logo: 'tellow', proef: null,

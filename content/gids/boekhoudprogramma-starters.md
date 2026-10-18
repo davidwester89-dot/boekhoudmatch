@@ -19,12 +19,12 @@ Als starter weet je nog niet precies hoeveel facturen je gaat sturen. Dat maakt 
 
 ## Wat moet je vanaf dag één bijhouden?
 
-- **Facturen**: alle facturen die je stuurt en ontvangt. Je bewaart ze zeven jaar, in de vorm waarin je ze verstuurde of ontving.
+- **Facturen**: alle facturen die je stuurt en ontvangt. Je bewaart ze zeven jaar, in de vorm waarin je ze verstuurde of ontving. Zie [bewaarplicht voor zzp'ers](/blog/bewaarplicht-administratie-zzp/).
 - **Bonnen en bankafschriften**: elke zakelijke uitgave, en je zakelijke rekening.
 - **Btw**: meestal doe je per kwartaal aangifte. Aangifte en betaling moeten binnen zijn vóór het einde van de maand na het kwartaal. Voor het vierde kwartaal van 2026 is dat 31 januari 2027.
 - **Uren**: niet verplicht, maar wel nodig als je zelfstandigenaftrek of startersaftrek wilt. Dan moet je kunnen aantonen dat je minstens 1.225 uur per jaar aan je bedrijf werkt. Zie [urenregistratie voor zzp'ers](/urenregistratie-zzp/).
 
-Verwacht je een omzet onder de € 20.000 per jaar, kijk dan ook naar de kleineondernemersregeling (KOR). Dan doe je geen btw-aangifte. Lees [KOR en boekhoudsoftware](/kor-boekhoudprogramma/).
+Verwacht je een omzet onder de € 20.000 per jaar, kijk dan ook naar de kleineondernemersregeling (KOR). Dan doe je geen btw-aangifte. Lees [KOR en boekhoudsoftware](/kor-boekhoudprogramma/). Nieuw met boekhouden? Begin met [boekhouden als zzp'er in 5 stappen](/blog/boekhouden-als-zzper/).
 
 ## Starterskortingen op een rij
 

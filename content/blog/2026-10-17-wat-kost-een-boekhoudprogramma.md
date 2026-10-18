@@ -16,7 +16,7 @@ sources:
 - Tellow: Prijs | https://www.tellow.nl/prijs/
 - Rompslomp: Nieuwe tarieven per 1 november 2026 | https://rompslomp.nl/tarieven/update-november-2026
 - Informer: Prijzen | https://www.informer.nl/prijzen
-- Exact Reeleezee: Plans and pricing | https://www.exact.com/nl/bedrijven/exact-reeleezee
+- Exact Reeleezee: prijzen | https://www.exact.com/nl/bedrijven/exact-reeleezee
 - Silvasoft: Prijzen | https://www.silvasoft.nl/prijzen/
 - MoneyMonk: Prijzen | https://www.moneymonk.nl/prijzen
 - Belastingdienst: Zakelijke kosten | https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/winst/inkomstenbelasting/inkomstenbelasting_voor_ondernemers/zakelijke_kosten
