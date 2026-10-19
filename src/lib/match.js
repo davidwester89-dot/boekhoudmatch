@@ -32,6 +32,7 @@ export function beoordeel(aanbieder, plan, a) {
   const v = volumes(a);
   const plus = [], let_op = [], nee = [];
   let prijs = plan.prijs;
+  const toeslagen = [];
   let score = 0;
   let subgroep = 0;
 
@@ -40,7 +41,7 @@ export function beoordeel(aanbieder, plan, a) {
   if (rv && !rv.includes(a.rechtsvorm)) nee.push(`Niet voor ${a.rechtsvorm === 'bv' ? 'een bv' : a.rechtsvorm === 'vof' ? 'een vof' : 'een eenmanszaak'}.`);
   else if (!rv && a.rechtsvorm !== 'eenmanszaak') { let_op.push('Rechtsvorm niet vermeld door de aanbieder.'); score += PUNTEN.rechtsvormOnbekend; }
 
-  if (plan.perFactuur) { prijs += plan.perFactuur * v.facturen; let_op.push(`Facturen kosten ${euro(plan.perFactuur)} per stuk (bij ${v.facturen} facturen: ${euro(plan.perFactuur * v.facturen)} p/m).`); }
+  if (plan.perFactuur) { prijs += plan.perFactuur * v.facturen; toeslagen.push(`${euro(plan.perFactuur * v.facturen)} facturen`); let_op.push(`Facturen kosten ${euro(plan.perFactuur)} per stuk (bij ${v.facturen} facturen: ${euro(plan.perFactuur * v.facturen)} p/m).`); }
   if (plan.facturen !== undefined && v.facturen > plan.facturen) nee.push(plan.facturen === 0 ? 'Geen verkoopfacturen in dit pakket.' : `Max. ${plan.facturen} facturen per maand.`);
   if (plan.uitgaven !== undefined && v.uitgaven > plan.uitgaven) nee.push(`Max. ${plan.uitgaven} uitgaven/boekingen per maand.`);
   if (plan.transacties !== undefined && v.transacties > plan.transacties) nee.push(`Max. ${plan.transacties} banktransacties per maand (jij: ca. ${v.transacties}).`);
@@ -62,7 +63,7 @@ export function beoordeel(aanbieder, plan, a) {
 
   if (a.bank === 'auto') {
     if (plan.bank === 'auto') { score += PUNTEN.bankAuto; plus.push('Automatische bankkoppeling.'); }
-    else if (plan.bank === 'auto-extra') { score += PUNTEN.bankAuto; prijs += plan.bankExtra; plus.push(`Automatische bankkoppeling (+ ${euro(plan.bankExtra)} p/m, meegeteld in de prijs).`); }
+    else if (plan.bank === 'auto-extra') { score += PUNTEN.bankAuto; prijs += plan.bankExtra; toeslagen.push(`${euro(plan.bankExtra)} bankkoppeling`); plus.push(`Automatische bankkoppeling (+ ${euro(plan.bankExtra)} p/m, meegeteld in de prijs).`); }
     else if (aanbieder.eigenRekening) { score += PUNTEN.eigenRekening; let_op.push(`Automatisch alleen met de eigen zakelijke rekening van ${aanbieder.naam}; je huidige bank importeer je handmatig.`); }
     else nee.push('Geen automatische bankkoppeling.');
   }
@@ -91,7 +92,7 @@ export function beoordeel(aanbieder, plan, a) {
   const binnenBudget = prijs <= a.budget + 1e-9;
   if (!binnenBudget) let_op.push(`Boven je budget (${euro(prijs)} p/m).`);
   score += 100 - prijs; // goedkoper = hoger; elke euro p/m telt even zwaar
-  return { aanbieder: aanbieder.id, naam: aanbieder.naam, plan: plan.id, planNaam: plan.naam, prijs, prijsJaar: plan.prijsJaar ?? null, score: Math.round(score * 100) / 100, subgroep, past: nee.length === 0, binnenBudget, plus, let_op, nee, volumes: v };
+  return { aanbieder: aanbieder.id, naam: aanbieder.naam, plan: plan.id, planNaam: plan.naam, prijs, basisPrijs: plan.prijs, toeslagen, prijsJaar: plan.prijsJaar ?? null, score: Math.round(score * 100) / 100, subgroep, past: nee.length === 0, binnenBudget, plus, let_op, nee, volumes: v };
 }
 
 const groep = (r) => (r.past ? (r.binnenBudget ? 0 : 1) : 2);

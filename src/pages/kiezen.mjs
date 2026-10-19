@@ -18,7 +18,7 @@ const pagina = (a, pos, t) => `<a class="vlink" href="${vendorHref(a.id)}" data-
 const PRE_TOP = passend0.slice(0, 3).map((r, i) => {
   let mini = '';
   if (i > 0) { const k = knopHtml(r, i + 1, 'btn ghost sm'); mini = `<div class="mini-cta">${k.html}${pagina(k.a, i + 1, `Alles over ${k.red.kort}`)}${k.u.partner ? '<span class="plabel">partnerlink</span>' : ''}</div>`; }
-  return `<li><strong>${esc(`${r.naam} ${r.planNaam}`)}</strong><span class="price">${esc(` ${euro(r.prijs)} p/m${r.binnenBudget ? '' : ' (boven budget)'}`)}</span>${mini}</li>`;
+  return `<li><strong>${esc(`${r.naam} ${r.planNaam}`)}</strong><span class="price">${esc(` ${euro(r.prijs)} p/m${r.toeslagen?.length ? ` (incl. ${r.toeslagen.join(', ')})` : ''}${r.binnenBudget ? '' : ' (boven budget)'}`)}</span>${mini}</li>`;
 }).join('');
 const PRE_CTA = (() => { const r = passend0[0]; if (!r) return ''; const k = knopHtml(r, 1, 'btn'); return `${k.html}${k.u.partner ? ' <span class="plabel">partnerlink</span>' : ''}${pagina(k.a, 1, `Lees alles over ${k.red.kort} →`)}`; })();
 const PRE_BEST = passend0[0] ? `${passend0[0].naam} ${passend0[0].planNaam}` : '–';

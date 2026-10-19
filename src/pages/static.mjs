@@ -24,7 +24,7 @@ export const VOORBEELDEN = [
 export const matchUrl = (a) => '/boekhoudprogramma-kiezen/?' + new URLSearchParams({ rechtsvorm: a.rechtsvorm, facturen: a.facturen, uitgaven: a.uitgaven, btw: a.btw, bank: a.bank, offertes: a.extra.includes('offertes') ? '1' : '0', uren: a.extra.includes('uren') ? '1' : '0', ib: a.ib, budget: a.budget === Infinity ? 'geen' : String(a.budget) }).toString();
 function voorbeeld(v) {
   const top = match(PAKKETTEN, v.a).filter((r) => r.past).slice(0, 3);
-  return `<article class="card example"><h3>${esc(v.titel)}</h3><p class="sub">${esc(v.wie)}</p><ol class="top">${top.map((r) => `<li><strong>${esc(r.naam)} ${esc(r.planNaam)}</strong> <span class="price">${e2(r.prijs)} p/m</span></li>`).join('')}</ol><a href="${esc(matchUrl(v.a))}" rel="nofollow">Bekijk deze match →</a></article>`;
+  return `<article class="card example"><h3>${esc(v.titel)}</h3><p class="sub">${esc(v.wie)}</p><ol class="top">${top.map((r) => `<li><strong>${esc(r.naam)} ${esc(r.planNaam)}</strong> <span class="price">${e2(r.prijs)} p/m${r.toeslagen?.length ? ` <small>(incl. ${esc(r.toeslagen.join(', '))})</small>` : ''}</span></li>`).join('')}</ol><a href="${esc(matchUrl(v.a))}" rel="nofollow">Bekijk deze match →</a></article>`;
 }
 const logoImg = (a) => { const r = REDACTIE[a.id]; return r.logo ? `<img src="/logos/${r.logo}.webp" width="120" height="36" alt="${esc(a.naam)}" loading="lazy" decoding="async">` : `<span class="wordmark">${esc(r.kort)}</span>`; };
 export function logoTile(a, href) {

@@ -38,7 +38,7 @@ function sitBlokken(ids) {
   return `<div class="grid cards two">${s.map((x) => `<div class="card sit"><span class="tag">${esc(x.titel)}</span><h3><a href="${vendorHref(x.top.a.id)}">${esc(x.top.a.naam)} ${esc(x.top.p.naam)}</a></h3><p class="vprice"><strong>${e2(x.top.prijs)}</strong> p/m</p><p>${esc(x.regel)}${x.alt ? ` Met je eigen boekhouder: ${esc(x.alt.a.naam)} ${esc(x.alt.p.naam)} (${e2(x.alt.prijs)} p/m plus je boekhouder).` : ''}</p></div>`).join('')}</div>`;
 }
 function voorbeelden(ids) {
-  return `<div class="grid cards">${VOORBEELDEN.filter((v) => !ids || ids.includes(v.id)).map((v) => { const top = match(PAKKETTEN, v.a).filter((r) => r.past).slice(0, 3); return `<article class="card example"><h3>${esc(v.titel)}</h3><p class="sub">${esc(v.wie)}</p><ol class="top">${top.map((r) => `<li><strong>${esc(r.naam)} ${esc(r.planNaam)}</strong> <span class="price">${e2(r.prijs)} p/m</span></li>`).join('')}</ol><a href="${esc(matchUrl(v.a))}" rel="nofollow">Bekijk deze match →</a></article>`; }).join('')}</div>`;
+  return `<div class="grid cards">${VOORBEELDEN.filter((v) => !ids || ids.includes(v.id)).map((v) => { const top = match(PAKKETTEN, v.a).filter((r) => r.past).slice(0, 3); return `<article class="card example"><h3>${esc(v.titel)}</h3><p class="sub">${esc(v.wie)}</p><ol class="top">${top.map((r) => `<li><strong>${esc(r.naam)} ${esc(r.planNaam)}</strong> <span class="price">${e2(r.prijs)} p/m${r.toeslagen?.length ? ` <small>(incl. ${esc(r.toeslagen.join(', '))})</small>` : ''}</span></li>`).join('')}</ol><a href="${esc(matchUrl(v.a))}" rel="nofollow">Bekijk deze match →</a></article>`; }).join('')}</div>`;
 }
 // Rechtsvormen per aanbieder: op aanbiederniveau, of per pakket als de aanbieder het per pakket noemt.
 function rvAll(a) {
