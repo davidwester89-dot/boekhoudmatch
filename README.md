@@ -48,7 +48,7 @@ Google Analytics 4 staat uit zolang `GA_ID` in `src/analytics.config.mjs` leeg i
 - wordt `gtag.js` pas geladen na **Accepteren**. Zonder keuze of na Weigeren gaat er geen enkel verzoek naar Google;
 - staat de keuze in `localStorage` (`bm-consent`, met versie en datum). Na 12 maanden, of als `CONSENT_VERSION` in `src/lib/consent.js` omhoog gaat, vragen we het opnieuw;
 - heropent **Cookie-instellingen** in de footer de melding. Weigeren stopt GA en wist de `_ga*`-cookies;
-- gaan alleen deze events mee: `quiz_start`, `quiz_complete` (`vendor` = beste match), `vendor_click` (`vendor`, `page`) en `calculator_use` (`tool_name`, één keer per paginaweergave). Nooit invoer. Paginaadressen gaan zonder querystring mee, want de tools zetten invoer in de URL;
+- gaan alleen deze events mee: `quiz_start`, `quiz_complete` (`vendor` = beste match), `vendor_click` (`vendor`, `page`), `match_cta` (`cta_type`), `calculator_use` (`tool_name`, één keer per paginaweergave), `video_start` en `video_complete` (`page`, één keer per afspeelbeurt). Nooit invoer. Paginaadressen gaan zonder querystring mee, want de tools zetten invoer in de URL;
 - is GA ingesteld met Google Signals uit, advertentiepersonalisatie uit en `ads_data_redaction`.
 
 Logica: `src/lib/consent.js` (getest in `test/consent.test.js`), UI en events: `src/assets/js/consent.js`, privacytekst: `src/pages/static.mjs`.
@@ -70,13 +70,24 @@ Uitzetten: `npm run set-ga -- ""`, commit en push.
 - Markeer `quiz_complete` en `vendor_click` als belangrijke gebeurtenis. Maak aangepaste dimensies (bereik: gebeurtenis) voor `vendor`, `tool_name` en `page`.
 - Koppel Search Console aan de property (Beheer → Productkoppelingen).
 
+## Video (proef sinds 19-10-2026)
+
+Op `/boekhoudprogramma-kiezen/` staat onder de lead een video van 1 minuut: een echte schermopname van de match (mobiel, 390 px, opgenomen met Playwright) met tekst in beeld per scène. Geen geluid, geen gezichten, geen losse logo's. Ondertitels als WebVTT.
+
+- Bestanden in `src/assets/video/` (komen in `dist/video/`): `boekhoudprogramma-kiezen.mp4` (H.264, 540×1168, onder 2 MB, `+faststart`), `boekhoudprogramma-kiezen.nl.vtt`, `-poster.webp` en `-poster-420.webp` (staand, 540×1168 en 420×908, het klikbare beeld via `srcset`), `-1280.webp` (1280×720, `thumbnailUrl` in het schema) en `-480.webp` (thumbnail op de homepage).
+- **Klik om te laden:** in de HTML staat alleen een knop met het stilstaande beeld in een vak met vaste verhouding (`aspect-ratio: 540/1168`, dus geen CLS). Pas na een klik zet `src/assets/js/video.js` er een `<video controls preload="none" playsinline>` met `<track kind="subtitles" srclang="nl" default>` in en start hem. Geen autoplay, geen YouTube, niets van de video laadt vóór de klik.
+- **Schema:** `VideoObject` in `src/pages/kiezen.mjs` (`VIDEO`): `name`, `description`, `thumbnailUrl`, `contentUrl`, `duration` (`PT1M`), `uploadDate`. Pas `uploadDate` aan als je een nieuwe versie plaatst.
+- **Homepage:** alleen een kleine thumbnail die linkt naar `/boekhoudprogramma-kiezen/` (geen embed).
+- **Events:** `video_start` (eerste keer afspelen) en `video_complete` (einde bereikt), met `page`. Alleen na toestemming, via `track()` uit `consent.js`.
+- **Nieuwe opname:** gebruik een schone browser (lege `localStorage`), cookiekeuze vooraf op Weigeren, en het voorbeeldprofiel uit `/workspace/plannen/video-script-boekhoudmatch.md`. Comprimeren: `ffmpeg -i opname.webm -an -vf "scale=540:1168:flags=lanczos,setsar=1,fps=25" -c:v libx264 -preset veryslow -crf 22 -maxrate 600k -bufsize 1200k -pix_fmt yuv420p -tune stillimage -movflags +faststart boekhoudprogramma-kiezen.mp4`. Partnerlinks die dan in de uitslag staan moeten met hun label in beeld blijven.
+
 ## Structuur
 
 - `build.mjs`: bouwt alle pagina's, blog, RSS (`/blog/feed.xml`), sitemap en manifest naar `dist/`
 - `src/layout.mjs`: layout, meta-tags, Open Graph, schema.org
 - `src/pages/`: pagina's; `src/pages/blog.mjs`: blogoverzicht, artikelen en feed
 - `src/lib/`: rekenlogica, prijsdata (`pakketten.js`), match-algoritme, markdown
-- `src/assets/`: CSS (wordt inline gezet), JavaScript, OG-afbeeldingen, iconen
+- `src/assets/`: CSS (wordt inline gezet), JavaScript, OG-afbeeldingen, iconen, video (`src/assets/video/`)
 - `content/blog/`: blogartikelen in markdown
 - `scripts/`: `check.mjs` (SEO-controle), `og.mjs` (afbeeldingen), `new-post.mjs`, `set-ga.mjs` (Metings-ID)
 - `src/analytics.config.mjs`: `GA_ID` (leeg = geen Analytics)

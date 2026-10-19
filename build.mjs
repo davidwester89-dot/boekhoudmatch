@@ -41,6 +41,7 @@ cpSync('src/lib', join(OUT, 'js/lib'), { recursive: true, filter: (f) => !f.ends
 cpSync('src/assets/og', join(OUT, 'og'), { recursive: true });
 cpSync('src/assets/fonts', join(OUT, 'fonts'), { recursive: true });
 cpSync('src/assets/logos', join(OUT, 'logos'), { recursive: true });
+cpSync('src/assets/video', join(OUT, 'video'), { recursive: true });
 if (existsSync('src/assets/img')) cpSync('src/assets/img', join(OUT, 'img'), { recursive: true });
 cpSync('src/assets/icons', OUT, { recursive: true });
 

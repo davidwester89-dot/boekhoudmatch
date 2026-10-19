@@ -25,6 +25,28 @@ const PRE_BEST = passend0[0] ? `${passend0[0].naam} ${passend0[0].planNaam}` : '
 const PRE_CMP = '/boekhoudprogramma-vergelijken/?aanbieders=' + passend0.slice(0, 3).map((r) => r.aanbieder).join(',') + '#per-aanbieder';
 
 const path = '/boekhoudprogramma-kiezen/';
+
+// Video (proef 19-10-2026): klikbaar stilstaand beeld; de <video> met ondertitels komt er pas na een klik in (js/video.js).
+const VIDEO = {
+  name: 'Boekhoudprogramma kiezen als zzp\'er in 1 minuut',
+  description: 'Beantwoord een paar vragen over je bedrijf en zie welk boekhoudprogramma bij je past. Zo werkt de gratis match van BoekhoudMatch.',
+  src: '/video/boekhoudprogramma-kiezen.mp4', vtt: '/video/boekhoudprogramma-kiezen.nl.vtt', poster: '/video/boekhoudprogramma-kiezen-poster.webp',
+  thumb: '/video/boekhoudprogramma-kiezen-1280.webp', duration: 'PT1M', uploadDate: '2026-10-19',
+};
+const videoHtml = `<section class="vid" aria-labelledby="vid-kop">
+<div class="vid-box" data-video data-src="${VIDEO.src}" data-vtt="${VIDEO.vtt}" data-poster="${VIDEO.poster}" data-title="${esc(VIDEO.name)}">
+<button type="button" class="vid-play" aria-label="Speel de video af: ${esc(VIDEO.name)} (met ondertitels)"><img src="${VIDEO.poster}" srcset="/video/boekhoudprogramma-kiezen-poster-420.webp 420w, ${VIDEO.poster} 540w" sizes="240px" width="540" height="1168" fetchpriority="high" alt="Voorbeeld van de uitslag van de match: jouw beste match en je top 3 met maandprijzen"></button>
+</div>
+<div class="vid-txt">
+<h2 id="vid-kop">Zo werkt de match in 1 minuut</h2>
+<p>Een boekhoudprogramma kiezen als zzp'er hoeft niet lang te duren. In de video zie je hoe de match werkt. Je beantwoordt een paar korte vragen: je rechtsvorm, hoeveel facturen en bonnen je hebt, of je btw-aangifte doet, of je je bank wilt koppelen en wat het mag kosten. Daarna zie je meteen je beste match, je top 3 en wat elk pakket per maand kost. Per aanbieder lees je waarom het wel of niet past. De match is gratis en je hebt geen account nodig.</p>
+</div>
+</section>`;
+const videoSchema = {
+  '@context': 'https://schema.org', '@type': 'VideoObject', name: VIDEO.name, description: VIDEO.description,
+  thumbnailUrl: [SITE.domain + VIDEO.thumb], contentUrl: SITE.domain + VIDEO.src, uploadDate: VIDEO.uploadDate, duration: VIDEO.duration,
+  inLanguage: 'nl-NL', isFamilyFriendly: true, publisher: { '@type': 'Organization', name: SITE.name, url: SITE.domain + '/' },
+};
 const QI = { rechtsvorm: 'persoon', facturen: 'factuur', uitgaven: 'bon', btw: 'btw', bank: 'bank', ib: 'aangifte', budget: 'euro' };
 const radios = (name, legend, opts, def, hint = '') => `<fieldset class="q" data-q="${name}"><legend><span class="qi">${ICONS[QI[name]]}</span>${legend}</legend>${hint ? `<p class="hint">${hint}</p>` : ''}<div class="opts">${opts.map(([v, l]) => `<label><input type="radio" name="${name}" value="${v}"><span>${esc(l)}</span></label>`).join('')}</div></fieldset>`;
 
@@ -38,6 +60,7 @@ const faq = [
 const body = `
 <h1>Welk boekhoudprogramma past bij jou?</h1>
 <p class="lead">Beantwoord 8 korte vragen. Je ziet meteen wat past, wat het kost en waarom.</p>
+${videoHtml}
 <noscript><div class="alert">De match heeft JavaScript nodig. Bekijk anders de <a href="/boekhoudprogramma-vergelijken/">vergelijkingstabel</a>.</div></noscript>
 <div class="grid calc">
 <form class="calc-form card" id="form" novalidate>
@@ -107,6 +130,6 @@ ${faqHtml(faq)}
 export default {
   path, title: 'Boekhoudprogramma kiezen als zzp\'er | BoekhoudMatch', og: 'match', ogTitle: 'Welk boekhoudprogramma past bij jou?',
   description: `Welk boekhoudprogramma past bij jouw zzp-bedrijf? 8 vragen, ${PAKKETTEN.length} aanbieders, actuele prijzen en eerlijk uitgelegd waarom. Gratis, zonder account.`,
-  crumb: 'Boekhoudprogramma kiezen', body, scripts: ['/js/kiezen.js'],
-  schema: [webApp({ name: 'Boekhoudprogramma-match', url: SITE.domain + path, description: 'Vind het boekhoudprogramma dat bij je onderneming past.' }), faqSchema(faq)],
+  crumb: 'Boekhoudprogramma kiezen', body, scripts: ['/js/kiezen.js', '/js/video.js'], updated: '2026-10-19',
+  schema: [webApp({ name: 'Boekhoudprogramma-match', url: SITE.domain + path, description: 'Vind het boekhoudprogramma dat bij je onderneming past.' }), faqSchema(faq), videoSchema],
 };
