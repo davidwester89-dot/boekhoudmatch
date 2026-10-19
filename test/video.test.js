@@ -5,7 +5,7 @@ import kiezen from '../src/pages/kiezen.mjs';
 import { home } from '../src/pages/static.mjs';
 
 test('video op de match: klik om te laden, geen <video> of MP4 in de HTML', () => {
-  assert.match(kiezen.body, /<div class="vid-box" data-video data-src="\/video\/boekhoudprogramma-kiezen\.mp4" data-vtt="\/video\/boekhoudprogramma-kiezen\.nl\.vtt"/);
+  assert.match(kiezen.body, /<div class="vid-box" data-video data-src="\/video\/boekhoudprogramma-kiezen-v2\.mp4" data-vtt="\/video\/boekhoudprogramma-kiezen\.nl\.vtt"/);
   assert.doesNotMatch(kiezen.body, /<video|<track|autoplay|youtube/i);
   assert.ok(kiezen.scripts.includes('/js/video.js'));
   assert.ok(kiezen.body.indexOf('class="vid"') > kiezen.body.indexOf('</form>'), 'video staat (mobiel) onder het formulier');
@@ -19,19 +19,19 @@ test('VideoObject-schema met de afgesproken titel en beschrijving', () => {
   assert.ok(v);
   assert.equal(v.name, 'Boekhoudprogramma kiezen als zzp\'er in 1 minuut');
   assert.equal(v.description, 'Beantwoord een paar vragen over je bedrijf en zie welk boekhoudprogramma bij je past. Zo werkt de gratis match van BoekhoudMatch.');
-  assert.equal(v.contentUrl, 'https://boekhoudmatch.nl/video/boekhoudprogramma-kiezen.mp4');
-  assert.equal(v.uploadDate, '2026-10-19T12:55:00+02:00');
+  assert.equal(v.contentUrl, 'https://boekhoudmatch.nl/video/boekhoudprogramma-kiezen-v2.mp4');
+  assert.equal(v.uploadDate, '2026-10-19T13:30:00+02:00');
   assert.match(v.duration, /^PT/);
   assert.ok(!('aggregateRating' in v));
 });
 
 test('homepage: alleen een thumbnail-link, geen embed', () => {
-  assert.match(home.body, /<a class="vid-teaser" href="\/boekhoudprogramma-kiezen\/"><img src="\/video\/boekhoudprogramma-kiezen-480\.webp"/);
+  assert.match(home.body, /<a class="vid-teaser" href="\/boekhoudprogramma-kiezen\/"><img src="\/video\/boekhoudprogramma-kiezen-480-v2\.webp"/);
   assert.doesNotMatch(home.body, /<video|data-video/);
 });
 
 test('videobestanden: MP4 onder 2 MB, VTT geldig, events alleen via track()', () => {
-  assert.ok(statSync('src/assets/video/boekhoudprogramma-kiezen.mp4').size < 2 * 1024 * 1024);
+  assert.ok(statSync('src/assets/video/boekhoudprogramma-kiezen-v2.mp4').size < 2 * 1024 * 1024);
   assert.match(readFileSync('src/assets/video/boekhoudprogramma-kiezen.nl.vtt', 'utf8'), /^WEBVTT\n/);
   const js = readFileSync('src/assets/js/video.js', 'utf8');
   assert.match(js, /track\('video_start', \{ page \}\)/);

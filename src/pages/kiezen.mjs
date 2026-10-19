@@ -30,12 +30,12 @@ const path = '/boekhoudprogramma-kiezen/';
 const VIDEO = {
   name: 'Boekhoudprogramma kiezen als zzp\'er in 1 minuut',
   description: 'Beantwoord een paar vragen over je bedrijf en zie welk boekhoudprogramma bij je past. Zo werkt de gratis match van BoekhoudMatch.',
-  src: '/video/boekhoudprogramma-kiezen.mp4', vtt: '/video/boekhoudprogramma-kiezen.nl.vtt', poster: '/video/boekhoudprogramma-kiezen-poster.webp',
-  thumb: '/video/boekhoudprogramma-kiezen-1280.webp', duration: 'PT1M', uploadDate: '2026-10-19T12:55:00+02:00',
+  src: '/video/boekhoudprogramma-kiezen-v2.mp4', vtt: '/video/boekhoudprogramma-kiezen.nl.vtt', poster: '/video/boekhoudprogramma-kiezen-poster-v2.webp',
+  thumb: '/video/boekhoudprogramma-kiezen-1280-v2.webp', duration: 'PT1M', uploadDate: '2026-10-19T13:30:00+02:00',
 };
 const videoHtml = `<section class="vid" aria-labelledby="vid-kop">
 <div class="vid-box" data-video data-src="${VIDEO.src}" data-vtt="${VIDEO.vtt}" data-poster="${VIDEO.poster}" data-title="${esc(VIDEO.name)}">
-<button type="button" class="vid-play" aria-label="Speel de video af: ${esc(VIDEO.name)} (met ondertitels)"><img src="${VIDEO.poster}" srcset="/video/boekhoudprogramma-kiezen-poster-420.webp 420w, ${VIDEO.poster} 540w" sizes="240px" width="540" height="1168" fetchpriority="high" alt="Stilstaand beeld uit de video: vraag 1 van de match, met een afspeelknop"></button>
+<button type="button" class="vid-play" aria-label="Speel de video af: ${esc(VIDEO.name)} (met ondertitels)"><img src="${VIDEO.poster}" srcset="/video/boekhoudprogramma-kiezen-poster-420-v2.webp 420w, ${VIDEO.poster} 540w" sizes="240px" width="540" height="1168" fetchpriority="high" alt="Stilstaand beeld uit de video: vraag 1 van de match, met een afspeelknop"></button>
 </div>
 <div class="vid-txt">
 <h2 id="vid-kop">Zo werkt de match in 1 minuut</h2>

@@ -75,7 +75,7 @@ ${situaties().filter((x) => x.top).map((x) => `<li><span class="sit-logo">${logo
 </ol>
 <p><a href="/boekhoudprogramma-kiezen/">Jouw situatie is anders? Doe de match →</a></p>
 
-<a class="vid-teaser" href="/boekhoudprogramma-kiezen/"><img src="/video/boekhoudprogramma-kiezen-480.webp" width="480" height="270" loading="lazy" decoding="async" alt="Stilstaand beeld uit de video: vraag 1 van de match, met een afspeelknop"><span><strong>Video: zo werkt de match in 1 minuut</strong><span>Bekijk hoe je met een paar vragen je boekhoudprogramma kiest →</span></span></a>
+<a class="vid-teaser" href="/boekhoudprogramma-kiezen/"><img src="/video/boekhoudprogramma-kiezen-480-v2.webp" width="480" height="270" loading="lazy" decoding="async" alt="Stilstaand beeld uit de video: vraag 1 van de match, met een afspeelknop"><span><strong>Video: zo werkt de match in 1 minuut</strong><span>Bekijk hoe je met een paar vragen je boekhoudprogramma kiest →</span></span></a>
 
 <section class="band method-band">
 <h2>Zo vergelijken we</h2>
