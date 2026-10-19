@@ -334,10 +334,11 @@ fieldset.q legend{display:flex;align-items:center;gap:8px}
 .t3.on{color:var(--ink);border-left-color:var(--brand);background:rgba(231,163,62,.12)}
 @keyframes t3in{from{opacity:0}to{opacity:1}}@media(prefers-reduced-motion:reduce){.t3{animation:none}}
 
-/* video (klik om te laden; vaste verhouding = staande video 540x1168, dus geen verspringing) */
-.vid{display:grid;gap:18px;align-items:start;margin:14px 0 26px}
+/* video (klik om te laden; vaste verhouding = staande video 390x844, dus geen verspringing). Mobiel onder het formulier, vanaf 900px boven formulier en uitslag. */
+.vid{display:grid;gap:18px;align-items:start;margin:6px 0}
+@media(min-width:900px){.calc>.vid{grid-column:1/-1;order:-1;margin:0 0 6px}}
 @media(min-width:720px){.vid{grid-template-columns:240px 1fr;gap:28px}}
-.vid-box{position:relative;width:min(100%,240px);aspect-ratio:540/1168;margin:0 auto;border-radius:18px;overflow:hidden;background:#fbf6ef;box-shadow:var(--shadow);border:1px solid var(--line)}
+.vid-box{position:relative;width:min(100%,240px);aspect-ratio:390/844;margin:0 auto;border-radius:18px;overflow:hidden;background:#fbf6ef;box-shadow:var(--shadow);border:1px solid var(--line)}
 .vid-box .vid-play{all:unset;display:block;width:100%;height:100%;cursor:pointer;position:relative}
 .vid-box .vid-play:focus-visible{outline:3px solid var(--brand);outline-offset:-3px}
 .vid-box img,.vid-box video{display:block;width:100%;height:100%;object-fit:cover}

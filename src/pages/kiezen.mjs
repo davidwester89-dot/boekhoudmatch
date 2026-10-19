@@ -26,16 +26,16 @@ const PRE_CMP = '/boekhoudprogramma-vergelijken/?aanbieders=' + passend0.slice(0
 
 const path = '/boekhoudprogramma-kiezen/';
 
-// Video (proef 19-10-2026): klikbaar stilstaand beeld; de <video> met ondertitels komt er pas na een klik in (js/video.js).
+// Video (proef 19-10-2026): klikbaar stilstaand beeld. In de HTML na het formulier (mobiel: onder de vragen); op desktop via CSS boven formulier en uitslag; de <video> met ondertitels komt er pas na een klik in (js/video.js).
 const VIDEO = {
   name: 'Boekhoudprogramma kiezen als zzp\'er in 1 minuut',
   description: 'Beantwoord een paar vragen over je bedrijf en zie welk boekhoudprogramma bij je past. Zo werkt de gratis match van BoekhoudMatch.',
   src: '/video/boekhoudprogramma-kiezen.mp4', vtt: '/video/boekhoudprogramma-kiezen.nl.vtt', poster: '/video/boekhoudprogramma-kiezen-poster.webp',
-  thumb: '/video/boekhoudprogramma-kiezen-1280.webp', duration: 'PT1M', uploadDate: '2026-10-19',
+  thumb: '/video/boekhoudprogramma-kiezen-1280.webp', duration: 'PT1M', uploadDate: '2026-10-19T12:55:00+02:00',
 };
 const videoHtml = `<section class="vid" aria-labelledby="vid-kop">
 <div class="vid-box" data-video data-src="${VIDEO.src}" data-vtt="${VIDEO.vtt}" data-poster="${VIDEO.poster}" data-title="${esc(VIDEO.name)}">
-<button type="button" class="vid-play" aria-label="Speel de video af: ${esc(VIDEO.name)} (met ondertitels)"><img src="${VIDEO.poster}" srcset="/video/boekhoudprogramma-kiezen-poster-420.webp 420w, ${VIDEO.poster} 540w" sizes="240px" width="540" height="1168" fetchpriority="high" alt="Voorbeeld van de uitslag van de match: jouw beste match en je top 3 met maandprijzen"></button>
+<button type="button" class="vid-play" aria-label="Speel de video af: ${esc(VIDEO.name)} (met ondertitels)"><img src="${VIDEO.poster}" srcset="/video/boekhoudprogramma-kiezen-poster-420.webp 420w, ${VIDEO.poster} 540w" sizes="240px" width="540" height="1168" fetchpriority="high" alt="Stilstaand beeld uit de video: vraag 1 van de match, met een afspeelknop"></button>
 </div>
 <div class="vid-txt">
 <h2 id="vid-kop">Zo werkt de match in 1 minuut</h2>
@@ -60,7 +60,6 @@ const faq = [
 const body = `
 <h1>Welk boekhoudprogramma past bij jou?</h1>
 <p class="lead">Beantwoord 8 korte vragen. Je ziet meteen wat past, wat het kost en waarom.</p>
-${videoHtml}
 <noscript><div class="alert">De match heeft JavaScript nodig. Bekijk anders de <a href="/boekhoudprogramma-vergelijken/">vergelijkingstabel</a>.</div></noscript>
 <div class="grid calc">
 <form class="calc-form card" id="form" novalidate>
@@ -80,6 +79,7 @@ ${radios('ib', '7. Je aangifte inkomstenbelasting', VRAGEN.ib, 'zelf')}
 ${radios('budget', '8. Wat mag het per maand kosten (excl. btw)?', VRAGEN.budget.map(([v, l]) => [v === Infinity ? 'geen' : String(v), l]), '')}
 <div class="qdone"><button type="submit" class="btn" id="q-submit">Toon mijn uitslag</button><p>Gratis, zonder account.</p></div>
 </form>
+${videoHtml}
 <section class="card result" id="uitkomst" aria-live="polite">
 <h2 id="uitkomst-kop" tabindex="-1">Jouw beste match</h2>
 <p class="big best" id="big-mirror">${esc(PRE_BEST)}</p>

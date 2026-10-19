@@ -8,7 +8,8 @@ test('video op de match: klik om te laden, geen <video> of MP4 in de HTML', () =
   assert.match(kiezen.body, /<div class="vid-box" data-video data-src="\/video\/boekhoudprogramma-kiezen\.mp4" data-vtt="\/video\/boekhoudprogramma-kiezen\.nl\.vtt"/);
   assert.doesNotMatch(kiezen.body, /<video|<track|autoplay|youtube/i);
   assert.ok(kiezen.scripts.includes('/js/video.js'));
-  assert.ok(kiezen.body.indexOf('class="vid"') < kiezen.body.indexOf('<form'), 'video staat boven het formulier');
+  assert.ok(kiezen.body.indexOf('class="vid"') > kiezen.body.indexOf('</form>'), 'video staat (mobiel) onder het formulier');
+  assert.ok(kiezen.body.indexOf('class="vid"') < kiezen.body.indexOf('id="uitkomst"'));
   assert.equal(kiezen.title, 'Boekhoudprogramma kiezen als zzp\'er | BoekhoudMatch');
   assert.match(kiezen.body, /<h1>Welk boekhoudprogramma past bij jou\?<\/h1>/);
 });
@@ -19,7 +20,7 @@ test('VideoObject-schema met de afgesproken titel en beschrijving', () => {
   assert.equal(v.name, 'Boekhoudprogramma kiezen als zzp\'er in 1 minuut');
   assert.equal(v.description, 'Beantwoord een paar vragen over je bedrijf en zie welk boekhoudprogramma bij je past. Zo werkt de gratis match van BoekhoudMatch.');
   assert.equal(v.contentUrl, 'https://boekhoudmatch.nl/video/boekhoudprogramma-kiezen.mp4');
-  assert.equal(v.uploadDate, '2026-10-19');
+  assert.equal(v.uploadDate, '2026-10-19T12:55:00+02:00');
   assert.match(v.duration, /^PT/);
   assert.ok(!('aggregateRating' in v));
 });
