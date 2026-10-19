@@ -190,6 +190,10 @@ export function faqSchema(items) {
 export function faqHtml(items) {
   return items.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${a}</p></details>`).join('\n');
 }
+/** Knop naar de match (aanbieder- en blogpagina's, boven en onder). data-cta = match_top / match_bottom (event match_cta, alleen na toestemming). */
+export function matchCta(pos, { tekst = 'Welk boekhoudprogramma past bij jou? Doe de match', href = '/boekhoudprogramma-kiezen/', sub = '8 korte vragen, gratis en zonder account.' } = {}) {
+  return `<div class="matchcta matchcta-${pos}"><a class="btn" href="${esc(href)}"${href.includes('?') ? ' rel="nofollow"' : ''} data-cta="match_${pos}">${esc(tekst)}</a>${sub ? `<p class="sub">${esc(sub)}</p>` : ''}</div>`;
+}
 /** "Lees ook" blok met blogartikelen die bij een tool horen (wordt in build.mjs gevuld). */
 export const RELATED = { posts: [] };
 export function relatedPosts(path, n = 2) {

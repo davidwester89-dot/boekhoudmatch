@@ -1,6 +1,6 @@
 // Aanbiederpagina's: /<slug>/ per aanbieder. Alleen feiten uit pakketten.js en aanbieders.js (bron: site van de aanbieder).
 import { existsSync } from 'node:fs';
-import { SITE, esc, fmtDate } from '../layout.mjs';
+import { SITE, esc, fmtDate, faqSchema, matchCta } from '../layout.mjs';
 import { PAKKETTEN } from '../lib/pakketten.js';
 import { REDACTIE } from '../lib/aanbieders.js';
 import { uitgaand, ctaTekst } from '../lib/partnerlinks.js';
@@ -45,13 +45,16 @@ function praktijkSectie(a, r, t) {
 const ul = (l) => `<ul>${l.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>`;
 
 export const aanbiederPages = PAKKETTEN.map((a) => {
-  const r = REDACTIE[a.id], v = vanaf(a), t = praktijktest(a.id), c = checked(a), mod = t && t.datum > c ? t.datum : c, path = `/${r.slug}/`;
+  const r = REDACTIE[a.id], v = vanaf(a), t = praktijktest(a.id), c = checked(a), mod = [c, t && t.datum, r.bijgewerkt].filter(Boolean).sort().at(-1), path = `/${r.slug}/`;
   const prijzen = a.plannen.map((p) => p.prijs).filter((x) => x > 0);
+  const pl = (id) => { const x = a.plannen.find((q) => q.id === id); if (!x) throw new Error(`Onbekend pakket ${a.id}/${id}`); return x; };
+  const faq = (r.faq || []).map(([q, x]) => [q, x.replace(/\{\{p:([a-z-]+)\}\}/g, (_, id) => e2(pl(id).prijs)).replace(/\{\{pj:([a-z-]+)\}\}/g, (_, id) => e2(pl(id).prijsJaar))]);
   const body = `
 <h1>${esc(a.naam)}: prijzen en pakketten (2026)</h1>
 <p class="lead">${esc(r.kort)} heeft ${a.plannen.length} pakketten${prijzen.length ? `, van ${e2(Math.min(...prijzen))} tot ${e2(Math.max(...prijzen))} per maand` : ''}.</p>
 <p class="post-meta">Door <a href="/over/">Redactie BoekhoudMatch</a> · <a href="/boekhoudprogramma-kiezen/#methode">Hoe we vergelijken</a></p>
-<div class="actions"><a class="btn" href="/boekhoudprogramma-kiezen/?aanbieder=${a.id}" rel="nofollow">Past ${esc(r.kort)} bij jou? Doe de match</a><a class="btn ghost" href="/boekhoudprogramma-vergelijken/">Vergelijk met ${N_AANB - 1} andere aanbieders</a></div>
+${matchCta('top', { tekst: `Past ${r.kort} bij jou? Doe de match`, href: `/boekhoudprogramma-kiezen/?aanbieder=${a.id}`, sub: '' })}
+<p><a href="/boekhoudprogramma-vergelijken/">Vergelijk met ${N_AANB - 1} andere aanbieders →</a></p>
 
 <h2>In het kort</h2>
 <div class="vhead big">${logo(a, false)}</div>
@@ -60,6 +63,7 @@ export const aanbiederPages = PAKKETTEN.map((a) => {
 <h2>Pakketten en prijzen</h2>
 ${pakketTabel(a)}
 <details><summary>Goed om te weten</summary><p>${esc(a.noot)}</p></details>
+${faq.map(([q, ans]) => `<h2>${esc(q)}</h2>\n<p>${ans}</p>`).join('\n')}
 ${t ? praktijkSectie(a, r, t) : ''}
 
 <div class="grid cards two">
@@ -72,12 +76,13 @@ ${uitCta(a, r)}
 <ul class="sources">${a.bronnen.map((b) => `<li><a href="${b.url}" rel="noopener" data-vendor="${esc(a.naam)}">${esc(b.titel)}</a></li>`).join('')}</ul>
 ${vsVoor(r.slug).map((g) => `<p>Twijfel je tussen ${esc(r.kort)} en ${esc(g.ander)}? Lees <a href="${g.path}">${esc(g.kort)}</a>.</p>`).join('')}
 <p>${vsVoor(r.slug).length ? 'Nog twijfels?' : `Twijfel je tussen ${esc(r.kort)} en een ander pakket?`} <a href="/boekhoudprogramma-kiezen/">Doe de match</a> of bekijk de <a href="/boekhoudprogramma-vergelijken/">vergelijking</a>.</p>
+${matchCta('bottom', { tekst: `Twijfel je over ${r.kort}? Doe de match` })}
 {{related}}`;
   const titel = `${r.kort} prijzen 2026: kosten per pakket | BoekhoudMatch`; // max. 60 tekens, anders korter
   return {
     path, title: titel.length <= 60 ? titel : `${r.kort} prijzen 2026 | BoekhoudMatch`, ogTitle: `${a.naam}: prijzen en pakketten`, og: existsSync(`src/assets/og/vendor-${r.slug}.png`) ? `vendor-${r.slug}` : 'vergelijken',
     description: `${r.kort}: ${a.plannen.length} pakketten, ${v.prijs === 0 ? 'ook een gratis pakket' : `vanaf ${e2(v.prijs)} p/m`}. Prijs, limieten, btw-aangifte en bankkoppeling per pakket, gecontroleerd op ${fmtDate(c)}.`,
     crumb: r.kort, parents: [['/boekhoudprogramma-vergelijken/', 'Vergelijken']], navPath: '/boekhoudprogramma-vergelijken/', updated: mod, stamp: { checked: c, updated: mod },
-    body, schema: [{ ...softwareSchema(a, SITE.domain + path), dateModified: mod }],
+    body, schema: [{ ...softwareSchema(a, SITE.domain + path), dateModified: mod }, ...(faq.length ? [faqSchema(faq)] : [])],
   };
 });

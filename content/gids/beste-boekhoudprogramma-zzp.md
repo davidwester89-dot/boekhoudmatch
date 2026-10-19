@@ -3,7 +3,7 @@ title: Beste boekhoudprogramma voor zzp'ers in 2026
 seo_title: Beste boekhoudprogramma zzp 2026: top per situatie
 description: Welk boekhoudprogramma is het beste voor jou als zzp'er? Per situatie het goedkoopste passende pakket, met prijs en limiet. Bijgewerkt okt. 2026.
 crumb: Beste boekhoudprogramma zzp
-updated: 2026-10-10
+updated: 2026-10-19
 published: 2026-10-10
 update: Alle prijzen opnieuw gecontroleerd en MoneyMonk toegevoegd. Rompslomp rekent per 1 november 2026 met nieuwe tarieven; die gebruiken we al.
 vendors: rompslomp, jortt, tellow, moneymonk
@@ -53,11 +53,11 @@ Met een automatische bankkoppeling komen je transacties vanzelf binnen; zonder k
 
 ### 4. Hulp bij je aangifte inkomstenbelasting
 
-Wil je hulp bij je IB-aangifte, dan wordt het verschil groot. Jortt noemt een gecontroleerde aangifte inkomstenbelasting in ZZP ({{p:jortt/zzp}}), MKB en Plus. Bij Tellow Compleet ({{p:tellow/compleet}}) zit een boekhouder die je btw- en IB-aangifte opstelt. MoneyMonk maakt een balans en winst-en-verliesrekening die je overneemt in je aangifte. Bij de meeste andere pakketten doe je de IB-aangifte zelf, of staat het niet vermeld.
+Wil je hulp bij je IB-aangifte, dan wordt het verschil groot. Jortt noemt een gecontroleerde aangifte inkomstenbelasting in ZZP ({{p:jortt/zzp}}), MKB en Plus; de [Jortt kosten](/jortt/) per pakket zie je op de aanbiederpagina. Bij Tellow Compleet ({{p:tellow/compleet}}) zit een boekhouder die je btw- en IB-aangifte opstelt. MoneyMonk maakt een balans en winst-en-verliesrekening die je overneemt in je aangifte. Bij de meeste andere pakketten doe je de IB-aangifte zelf, of staat het niet vermeld.
 
 ### 5. Rechtsvorm
 
-Heb je een vof of bv, controleer dan of de aanbieder die rechtsvorm noemt. Moneybird noemt eenmanszaak, vof en bv. Jortt ZZP is alleen voor een eenmanszaak; MKB en Plus ook voor vof en bv. Bij de meeste andere aanbieders staat het niet op de prijspagina. Dan schrijven wij “niet vermeld” en vraag je het na. Zie [boekhoudprogramma voor een vof](/boekhoudprogramma-vof/) en [voor een bv](/boekhoudprogramma-bv/).
+Heb je een vof of bv, controleer dan of de aanbieder die rechtsvorm noemt. Moneybird noemt eenmanszaak, vof en bv. Jortt ZZP is alleen voor een eenmanszaak; MKB en Plus ook voor vof en bv. Bij de meeste andere aanbieders staat het niet op de prijspagina. Dan schrijven wij “niet vermeld” en vraag je het na. Zie [boekhoudprogramma voor een vof](/boekhoudprogramma-vof/) en het [boekhoudpakket voor een bv](/boekhoudprogramma-bv/).
 
 ## Waarom geen sterren of “meest gekozen”?
 

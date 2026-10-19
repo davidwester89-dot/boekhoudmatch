@@ -1,5 +1,5 @@
 import { SITE, esc, slot, fmtDate, faqHtml, faqSchema, METHODE_LIJST } from '../layout.mjs';
-import { PAKKETTEN, CHECKED } from '../lib/pakketten.js';
+import { PAKKETTEN } from '../lib/pakketten.js';
 import { REDACTIE, vendorHref } from '../lib/aanbieders.js';
 import { situaties } from '../lib/situaties.mjs';
 import { VS_GIDSEN } from '../lib/vsgidsen.mjs';
@@ -48,10 +48,15 @@ const sitBlok = (s) => {
 };
 
 const goedkoopst = sit.find((s) => s.id === 'instap');
+// Echte controledatums uit de data (pakketten.js: CHECKED of per aanbieder `gecontroleerd`); geen latere datum claimen dan er echt gecontroleerd is.
+const CDATA = PAKKETTEN.map((a) => [checked(a), a.naam]).sort((x, y) => x[0].localeCompare(y[0]));
+const C_OUD = CDATA[0][0], C_NIEUW = CDATA.at(-1)[0];
+const C_LATER = CDATA.filter(([d]) => d === C_NIEUW).map(([, n]) => n);
+const controleTekst = C_OUD === C_NIEUW ? `De laatste controle was op ${fmtDate(C_NIEUW)}.` : `Alle prijzen zijn gecontroleerd op ${fmtDate(C_OUD)}; die van ${C_LATER.join(' en ')} opnieuw op ${fmtDate(C_NIEUW)}.`;
 const faq = [
   ['Wat is het goedkoopste boekhoudprogramma voor zzp\'ers?', `Gratis en heel goedkope pakketten, zoals Tellow Gratis, Rompslomp Starter en Moneybird Compact, hebben strenge limieten. Voor btw-aangifte en 5 facturen en 5 uitgaven per maand is ${goedkoopst.top.a.naam} ${goedkoopst.top.p.naam} (${e2(goedkoopst.top.prijs)} p/m) het goedkoopst. Stuur je maar af en toe een factuur? Dan is onze gratis <a href="/offerte-factuur-maken/">factuurtool</a> misschien genoeg.`],
   ['Waarom staat er soms “niet vermeld”?', 'De aanbieder noemt het niet op zijn site. We vullen niets zelf in. Vraag het na of probeer het in de proefperiode.'],
-  ['Hoe vaak worden de prijzen gecontroleerd?', `Elke maand, door ons team. De laatste controle was op ${fmtDate(CHECKED)}. Is een prijswijziging al aangekondigd (zoals bij Rompslomp per 1 november 2026), dan rekenen we met de nieuwe prijs.`],
+  ['Hoe vaak worden de prijzen gecontroleerd?', `Elke maand, door ons team. ${controleTekst} Is een prijswijziging al aangekondigd (zoals bij Rompslomp per 1 november 2026), dan rekenen we met de nieuwe prijs.`],
   ['Telt commissie mee in de volgorde?', 'Nee. De tabel staat op alfabet en de situaties volgen een vaste regel op prijs en functies. Er staan nu geen partnerlinks op de site.'],
 ];
 
@@ -68,6 +73,7 @@ ${METHODE_LIJST}
 
 <h2>Per situatie</h2>
 <div class="grid cards two sits">${sit.map(sitBlok).join('\n')}</div>
+<p>Wil je één aanbieder beter bekijken? Zie bijvoorbeeld de <a href="/jortt/">Jortt kosten</a> per pakket. Heb je een bv, lees dan welk <a href="/boekhoudprogramma-bv/">boekhoudpakket voor een bv</a> past.</p>
 
 <h2 id="filter">Filter de aanbieders</h2>
 <form class="card filters" id="filters" novalidate>
@@ -109,9 +115,9 @@ ${faqHtml(faq)}
 export default {
   path, title: 'Boekhoudprogramma zzp vergelijken 2026 | BoekhoudMatch', og: 'vergelijken', ogTitle: 'Boekhoudprogramma\'s vergelijken 2026',
   description: `Vergelijk ${N_PAK} pakketten van ${N_AANB} boekhoudprogramma's op prijs, limieten, btw-aangifte en bankkoppeling. Filter op je situatie. Met bron en datum.`,
-  crumb: 'Boekhoudprogramma vergelijken', body, scripts: ['/js/vergelijken.js'], updated: CHECKED, stamp: { checked: PAKKETTEN.map(checked).sort()[0], updated: PAKKETTEN.map(checked).sort().at(-1) },
+  crumb: 'Boekhoudprogramma vergelijken', body, scripts: ['/js/vergelijken.js'], updated: C_NIEUW, stamp: { checked: PAKKETTEN.map(checked).sort()[0], updated: PAKKETTEN.map(checked).sort().at(-1) },
   schema: [faqSchema(faq), {
-    '@context': 'https://schema.org', '@type': 'ItemList', name: 'Boekhoudprogramma\'s voor zzp\'ers (op alfabet)', dateModified: CHECKED,
+    '@context': 'https://schema.org', '@type': 'ItemList', name: 'Boekhoudprogramma\'s voor zzp\'ers (op alfabet)', dateModified: C_NIEUW,
     itemListElement: ALFA.map((a, i) => ({ '@type': 'ListItem', position: i + 1, name: a.naam, url: SITE.domain + vendorHref(a.id).replace(/#.*/, '') })),
   }],
 };

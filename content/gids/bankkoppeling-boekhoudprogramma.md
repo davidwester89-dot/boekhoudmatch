@@ -3,8 +3,13 @@ title: Bankkoppeling in je boekhoudprogramma: wel of niet?
 seo_title: Bankkoppeling boekhoudprogramma: nodig? | BoekhoudMatch
 description: Heb je een automatische bankkoppeling nodig? Per aanbieder vanaf welk pakket het kan, wat het extra kost en wanneer handmatig importeren genoeg is.
 crumb: Bankkoppeling
-updated: 2026-10-10
+updated: 2026-10-19
 vendors: moneybird, informer, silvasoft, moneymonk, rompslomp
+sources:
+- SnelStart Kennisplein: een bankkoppeling maken | https://kennisplein.snelstart.nl/klanten/s/article/de-nieuwe-generatie-bankkoppeling-via-psd2
+- SnelStart Kennisplein: een standaard of een uitgebreide bankkoppeling | https://kennisplein.snelstart.nl/klanten/s/article/een-uitgebreide-bankkoppeling-maken
+- Moneybird Kennisbank: bankkoppeling via Ponto | https://helpcenter.moneybird.nl/nl/articles/208068-bankkoppeling-via-ponto
+- Moneybird Kennisbank: bankkoppeling Rabobank | https://helpcenter.moneybird.nl/nl/articles/208119-bankkoppeling-rabobank
 related:
 - Moneybird vs e-Boekhouden | /moneybird-vs-e-boekhouden/
 - Btw-aangifte vanuit je boekhoudprogramma | /btw-aangifte-boekhoudprogramma/
@@ -37,6 +42,20 @@ Alle pakketten met een automatische koppeling, met of zonder meerprijs:
 
 Dit is per aanbieder het goedkoopste pakket met koppeling. Bij Informer en Silvasoft komt de meerprijs nog bovenop de prijs in de tabel.
 
+## Per bank: Rabobank, ING en ABN AMRO
+
+Werkt de koppeling met jouw bank? Voor SnelStart en Moneybird staat het in de eigen helppagina's:
+
+| | Rabobank | ING | ABN AMRO |
+|---|---|---|---|
+| SnelStart | ja | ja | ja |
+| Moneybird (vanaf Groei) | ja, via Ponto | ja, via Ponto | ja, via Ponto |
+
+- **SnelStart**: de standaard bankkoppeling is gratis en zit in je pakket. Die werkt met zakelijke betaalrekeningen bij onder meer ABN AMRO, ING en Rabobank. Bij Rabobank en ING kun je ook een uitgebreide koppeling kiezen, waarmee je ook je zakelijke spaarrekening koppelt. SnelStart rekent daar niets voor, maar je bank kan dat wel doen.
+- **Moneybird**: je externe bank koppel je via Ponto, vanaf het pakket Groei. ABN AMRO, ING en Rabobank kunnen allemaal. Bij Rabobank lukt het alleen met Rabo Business Banking. Bij Compact en Start lees je je transacties zelf in.
+
+Bij de andere aanbieders zie je hierboven vanaf welk pakket de koppeling werkt.
+
 ## Wat kost het echt?
 
 Kijk niet alleen naar de prijs van het pakket. Drie voorbeelden met de prijzen van {{datum}}:
@@ -60,5 +79,15 @@ Handmatig importeren is genoeg als je weinig transacties hebt, bijvoorbeeld een 
 - Bij de meeste aanbieders zit een koppeling in elk pakket. Bij Moneybird pas vanaf Groei, bij Rompslomp vanaf Basic.
 - Informer en Silvasoft rekenen per rekening een meerprijs.
 - Met weinig transacties is importeren vaak genoeg; dat scheelt soms een pakket.
+
+## Veelgestelde vragen
+
+### Heeft SnelStart een koppeling met de Rabobank?
+
+Ja. De standaard bankkoppeling van SnelStart werkt met zakelijke betaalrekeningen bij de Rabobank, en zit gratis in je pakket. Wil je ook je zakelijke spaarrekening koppelen, dan kan dat met de uitgebreide koppeling van de Rabobank. Daar kan de bank kosten voor rekenen.
+
+### Heeft Moneybird een automatische bankkoppeling?
+
+Ja, vanaf het pakket Groei ({{p:moneybird/groei}}). Je koppelt je bank dan via Ponto, ook ABN AMRO, ING en Rabobank. De koppeling zit in je pakket. Bij Compact en Start lees je je banktransacties zelf in, of gebruik je de Moneybird Betaalrekening.
 
 {{blok:cta bank=auto}}

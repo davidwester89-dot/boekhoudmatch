@@ -61,12 +61,12 @@ const faq = [
 
 const body = `
 <h1>Welk boekhoudprogramma past bij jou?</h1>
-<p class="lead">Beantwoord 8 korte vragen. Je ziet meteen wat past, wat het kost en waarom.</p>
+<p class="lead">8 korte vragen, meteen je uitslag.</p>
 <noscript><div class="alert">De match heeft JavaScript nodig. Bekijk anders de <a href="/boekhoudprogramma-vergelijken/">vergelijkingstabel</a>.</div></noscript>
 <div class="grid calc">
 <form class="calc-form card" id="form" novalidate>
 <input type="hidden" name="aanbieder" value="">
-<div class="qprog"><p id="q-prog">0 van 8 vragen beantwoord</p><p class="sub" id="q-voorlopig">Nog niets gekozen. De uitslag hiernaast gaat uit van gangbare antwoorden tot je zelf kiest.</p><div class="qbar" role="progressbar" aria-label="Voortgang" aria-valuemin="0" aria-valuemax="8" aria-valuenow="0"><span id="q-bar"></span></div></div>
+<div class="qprog"><p id="q-prog">0 van 8 vragen beantwoord</p><p class="sub" id="q-voorlopig">Tot je kiest, rekent de uitslag met gangbare antwoorden.</p><div class="qbar" role="progressbar" aria-label="Voortgang" aria-valuemin="0" aria-valuemax="8" aria-valuenow="0"><span id="q-bar"></span></div></div>
 <p class="resume" id="q-resume" hidden>Je vorige antwoorden staan er weer (alleen bewaard op dit apparaat). <button type="button" class="linkbtn" data-reset data-cta="restart">Opnieuw beginnen</button></p>
 ${radios('rechtsvorm', '1. Wat is je rechtsvorm?', VRAGEN.rechtsvorm, 'eenmanszaak')}
 ${radios('facturen', '2. Hoeveel facturen stuur je per maand?', VRAGEN.facturen, 5)}
@@ -98,6 +98,7 @@ ${videoHtml}
 </section>
 </div>
 <a class="mobilebar" href="#uitkomst"><span>Beste match</span><strong data-mirror></strong></a>
+<p class="intro-na">Beantwoord 8 korte vragen. Je ziet meteen wat past, wat het kost en waarom.</p>
 
 <h2 id="rangorde">Alle aanbieders op volgorde</h2>
 <div id="out-list" class="ranklist"></div>

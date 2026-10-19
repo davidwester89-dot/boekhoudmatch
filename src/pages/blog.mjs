@@ -1,5 +1,5 @@
 import { existsSync } from 'node:fs';
-import { SITE, esc, fmtDate, ORG, faqFromHtml, faqSchema } from '../layout.mjs';
+import { SITE, esc, fmtDate, ORG, faqFromHtml, faqSchema, matchCta } from '../layout.mjs';
 
 const TOOLNAMES = {
   '/boekhoudprogramma-kiezen/': 'Welk boekhoudprogramma past bij jou? Doe de match',
@@ -26,9 +26,11 @@ export function postPage(post, all, ogKey) {
 <article class="article">
 <h1>${esc(post.title)}</h1>
 <p class="post-meta">Door <a href="/over/">Redactie BoekhoudMatch</a> · <time datetime="${post.date}">${fmtDate(post.date)}</time> · ${readMin(post.words)} min lezen</p>
+${matchCta('top', { sub: '' })}
 ${post.image ? figure(post.image) : ''}
 ${post.html}
 ${post.tools.length ? `<aside class="cta"><h2>Reken het zelf uit</h2><ul>${post.tools.map((t) => `<li><a href="${t}">${esc(TOOLNAMES[t] || t)} →</a></li>`).join('')}</ul></aside>` : ''}
+${matchCta('bottom')}
 <h2>Bronnen</h2>
 <ul class="sources">${post.sources.map((s) => `<li><a href="${esc(s.url)}" rel="noopener">${esc(s.title)}</a></li>`).join('')}</ul>
 </article>

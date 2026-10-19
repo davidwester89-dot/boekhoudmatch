@@ -75,6 +75,9 @@ function open(focus) {
 if (consent.enabled) {
   if (consent.init()) open(false);
   document.addEventListener('click', (e) => {
+    // Knoppen naar de match buiten de uitslag (aanbieder- en blogpagina's, sticky knop): match_cta met cta_type. De uitslag op de matchpagina telt kiezen.js zelf.
+    const m = e.target.closest('a[data-cta][href^="/boekhoudprogramma-kiezen/"]');
+    if (m && !m.dataset.vendor && !m.closest('#uitkomst')) track('match_cta', { cta_type: m.dataset.cta });
     const t = e.target.closest('[data-consent-open], a[data-vendor], a[data-tool]');
     if (!t) return;
     if (t.matches('[data-consent-open]')) { e.preventDefault(); open(true); return; }

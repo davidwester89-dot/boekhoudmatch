@@ -4,6 +4,11 @@ import { PAKKETTEN, CHECKED as PCHECKED } from '../lib/pakketten.js';
 import { REDACTIE, vendorHref } from '../lib/aanbieders.js';
 import { match, VRAGEN } from '../lib/match.js';
 import { situaties } from '../lib/situaties.mjs';
+import { btwVanExcl } from '../lib/btw.js';
+import { euro2 } from '../lib/format.js';
+// Uitkomst bij de standaardinvoer (€ 100 excl., 21%) al in de HTML, zodat er bij laden niets verspringt (zelfde opbouw als js/btw.js).
+const BTW0 = btwVanExcl(100, 0.21);
+const BTW0_ROWS = [['Exclusief btw', euro2(BTW0.excl)], ['Btw 21%', euro2(BTW0.btw)], ['Inclusief btw', euro2(BTW0.incl), 'total']].map(([l, v, c]) => `<tr${c ? ` class="${c}"` : ''}><td>${l}</td><td>${v}</td></tr>`).join('');
 
 const nl = (x, d = 2) => new Intl.NumberFormat('nl-NL', { minimumFractionDigits: d, maximumFractionDigits: d }).format(x);
 const pc = (x) => nl(x * 100, 2).replace(/,00$/, '') + '%';
@@ -74,6 +79,7 @@ export const home = {
 ${situaties().filter((x) => x.top).map((x) => `<li><span class="sit-logo">${logoImg(x.top.a)}</span><span class="sit-txt"><strong>${esc(x.titel)}</strong><span>${esc(x.regel)}</span></span><span class="sit-pick">${esc(x.top.a.naam)} ${esc(x.top.p.naam)}<b>${e2(x.top.prijs)} p/m</b></span><a class="sit-why" href="${vendorHref(x.top.a.id)}">Waarom?<span class="sr-only"> ${esc(x.top.a.naam)}</span></a></li>`).join('\n')}
 </ol>
 <p><a href="/boekhoudprogramma-kiezen/">Jouw situatie is anders? Doe de match →</a></p>
+<p>Wil je weten wat een pakket per maand kost? Bekijk bijvoorbeeld de <a href="/jortt/">Jortt kosten</a> per pakket. Heb je een bv? Lees dan welk <a href="/boekhoudprogramma-bv/">boekhoudpakket voor een bv</a> je nodig hebt.</p>
 
 <a class="vid-teaser" href="/boekhoudprogramma-kiezen/"><img src="/video/boekhoudprogramma-kiezen-480-v2.webp" width="480" height="270" loading="lazy" decoding="async" alt="Stilstaand beeld uit de video: vraag 1 van de match, met een afspeelknop"><span><strong>Video: zo werkt de match in 1 minuut</strong><span>Bekijk hoe je met een paar vragen je boekhoudprogramma kiest →</span></span></a>
 
@@ -107,7 +113,6 @@ export const btw = {
   crumb: 'Btw berekenen', og: 'btw',
   body: `
 <h1>Btw berekenen</h1>
-<p class="lead">Vul een bedrag in en kies het tarief. Je ziet direct de btw en het bedrag in- en exclusief btw.</p>
 <div class="grid calc">
 <form class="calc-form card" id="form" novalidate>
 ${field({ name: 'bedrag', label: 'Bedrag', value: '100', unit: '€' })}
@@ -116,10 +121,11 @@ ${field({ name: 'bedrag', label: 'Bedrag', value: '100', unit: '€' })}
 </form>
 <section class="card result" id="uitkomst" aria-live="polite">
 <h2>Uitkomst</h2>
-<table class="kv"><tbody id="out-table"></tbody></table>
+<table class="kv"><tbody id="out-table">${BTW0_ROWS}</tbody></table>
 </section>
 </div>
 <a class="mobilebar" href="#uitkomst"><span>Uitkomst</span><strong data-mirror></strong></a>
+<p class="intro-na">Vul een bedrag in en kies het tarief. Je ziet direct de btw en het bedrag in- en exclusief btw.</p>
 <h2>Goed om te weten</h2>
 ${more('Hoe reken je btw uit?', '<p>Btw = bedrag exclusief × tarief. Exclusief = inclusief ÷ (1 + tarief). We ronden af op hele centen.</p>')}
 ${more('Wanneer reken je geen btw?', `<p>Met de kleineondernemersregeling (KOR, omzet tot € ${nl(BTW.korGrens, 0)} per jaar) reken je geen btw. Bij verlegde btw (bijvoorbeeld bij zakelijke klanten in een ander EU-land) zet je “btw verlegd” en het btw-nummer van je klant op de factuur.</p>`)}
@@ -159,7 +165,7 @@ export const bronnen = {
   path: '/bronnen/',
   title: 'Bronnen en cijfers 2026 | BoekhoudMatch',
   description: 'Alle bedragen en prijzen die onze tools gebruiken, met officiële bron en controledatum: inkomstenbelasting 2026, zelfstandigenaftrek, Zvw en btw.',
-  crumb: 'Bronnen en cijfers',
+  crumb: 'Bronnen en cijfers', updated: '2026-10-19',
   stamp: { checked: [CHECKED, ...PAKKETTEN.map((a) => a.gecontroleerd || PCHECKED)].sort()[0] },
   body: `
 <h1>Bronnen en cijfers</h1>
@@ -184,8 +190,14 @@ ${IB2026.brackets.map((b, i) => `<tr><td>Schijf ${i + 1}${b.upTo === Infinity ? 
 ${sourceList(['box1_2026', 'kortingen_2026', 'arbeidsinkomen', 'zelfstandigenaftrek_2026', 'mkb_2026', 'tariefaanpassing_2026', 'zvw_2026', 'urencriterium'], SOURCES)}
 <h2>Btw</h2>
 ${sourceList(['btw', 'kor'], SOURCES)}
+<h2>Minimumloon 2026</h2>
+<p>Voor de veelgestelde vragen bij de <a href="/zzp-uurtarief/">uurtarief-tool</a>. Het minimumloon geldt voor werknemers, niet voor zzp'ers.</p>
+${sourceList(['minimumloon_2026'], SOURCES)}
+<h2>Bankkoppelingen per bank</h2>
+<p>Voor de gids <a href="/bankkoppeling-boekhoudprogramma/">bankkoppeling in je boekhoudprogramma</a>.</p>
+<ul class="sources"><li><a href="https://kennisplein.snelstart.nl/klanten/s/article/de-nieuwe-generatie-bankkoppeling-via-psd2" rel="noopener">SnelStart Kennisplein – Een bankkoppeling maken</a></li><li><a href="https://kennisplein.snelstart.nl/klanten/s/article/een-uitgebreide-bankkoppeling-maken" rel="noopener">SnelStart Kennisplein – Een standaard of een uitgebreide bankkoppeling</a></li><li><a href="https://helpcenter.moneybird.nl/nl/articles/208068-bankkoppeling-via-ponto" rel="noopener">Moneybird Kennisbank – Bankkoppeling via Ponto</a></li><li><a href="https://helpcenter.moneybird.nl/nl/articles/208119-bankkoppeling-rabobank" rel="noopener">Moneybird Kennisbank – Bankkoppeling Rabobank</a></li></ul>
 <h2>Wijzigingen</h2>
-<ul><li>11 oktober 2026: Informer MKB Basis aangepast naar € 34 p/m, zoals op informer.nl/prijzen staat.</li><li>10 oktober 2026: de energietools (einde salderen en thuisbatterij) en hun bronnen verwijderd; ze vielen buiten het zzp-thema.</li><li>10 oktober 2026: MoneyMonk toegevoegd (prijzen van moneymonk.nl). Alle prijzen opnieuw gecontroleerd; geen wijzigingen.</li><li>10 oktober 2026: Silvasoft toegevoegd als 9e aanbieder (prijzen en functies van silvasoft.nl).</li><li>9 oktober 2026: nieuw design en blog.</li><li>8 oktober 2026: eerste versie. Rompslomp: tarieven per 1 november 2026.</li></ul>`,
+<ul><li>19 oktober 2026: minimumloon 2026 (Rijksoverheid) en bankkoppelingen per bank (SnelStart, Moneybird) als bron toegevoegd.</li><li>11 oktober 2026: Informer MKB Basis aangepast naar € 34 p/m, zoals op informer.nl/prijzen staat.</li><li>10 oktober 2026: de energietools (einde salderen en thuisbatterij) en hun bronnen verwijderd; ze vielen buiten het zzp-thema.</li><li>10 oktober 2026: MoneyMonk toegevoegd (prijzen van moneymonk.nl). Alle prijzen opnieuw gecontroleerd; geen wijzigingen.</li><li>10 oktober 2026: Silvasoft toegevoegd als 9e aanbieder (prijzen en functies van silvasoft.nl).</li><li>9 oktober 2026: nieuw design en blog.</li><li>8 oktober 2026: eerste versie. Rompslomp: tarieven per 1 november 2026.</li></ul>`,
 };
 
 export const over = {

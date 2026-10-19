@@ -40,6 +40,10 @@ export const SOURCES = {
     title: 'Belastingdienst – Btw-tarieven (21%, 9%, 0%)',
     url: 'https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/btw/tarieven_en_vrijstellingen/',
   },
+  minimumloon_2026: {
+    title: 'Rijksoverheid – Bedragen minimumloon 2026 (€ 14,71 per 1-1-2026, € 14,99 per 1-7-2026, 21 jaar en ouder)',
+    url: 'https://www.rijksoverheid.nl/onderwerpen/minimumloon/bedragen-minimumloon/bedragen-minimumloon-2026',
+  },
   kor: {
     title: 'Belastingdienst – Kleineondernemersregeling (KOR), omzetgrens € 20.000',
     url: 'https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/btw/hoe_werkt_de_btw/kleineondernemersregeling/',

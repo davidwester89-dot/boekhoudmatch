@@ -12,7 +12,6 @@ const faq = [
 
 const body = `
 <h1>Netto-inkomen zzp berekenen (2026)</h1>
-<p class="lead">Vul je omzet en kosten in. Je ziet wat je netto overhoudt en hoeveel je opzij moet zetten voor de belasting.</p>
 <noscript><div class="alert">Deze rekentool heeft JavaScript nodig.</div></noscript>
 <div class="grid calc">
 <form class="calc-form card" id="form" novalidate>
@@ -34,6 +33,7 @@ ${slot('boekhoudsoftware', 'partnerlink boekhoudprogramma.')}
 </section>
 </div>
 <a class="mobilebar" href="#uitkomst"><span>Netto per maand</span><strong data-mirror></strong></a>
+<p class="intro-na">Vul je omzet en kosten in. Je ziet wat je netto overhoudt en hoeveel je opzij moet zetten voor de belasting.</p>
 
 <h2>Zo rekenen we</h2>
 ${more('Berekening stap voor stap (2026)', `

@@ -17,6 +17,9 @@ export const REDACTIE = {
   },
   moneybird: {
     slug: 'moneybird', kort: 'Moneybird', logo: 'moneybird', proef: 60,
+    // Vraag uit Search Console ('moneybird niet meer gratis'). Bron: moneybird.nl/prijzen, gecontroleerd 19-10-2026. {{p:pakket}} = maandprijs, {{pj:pakket}} = prijs p/m bij jaarbetaling (uit pakketten.js).
+    bijgewerkt: '2026-10-19',
+    faq: [['Is Moneybird nog gratis?', 'Nee, Moneybird heeft geen gratis pakket. Het kleinste pakket is Compact: {{p:compact}} per maand, of {{pj:compact}} per maand bij jaarbetaling. Daarmee maak je 1 verkoopfactuur en verwerk je 5 banktransacties per maand. Wel kun je Moneybird 60 dagen gratis proberen. Je werkt dan met het pakket Compleet en kiest daarna een betaald pakket.']],
     sterk: 'Btw-aangifte direct indienen vanaf Start; eenmanszaak, vof en bv worden genoemd.',
     zwak: 'Je externe bank automatisch koppelen kan pas vanaf Groei.',
     knelt: 'Start: max. 20 verwerkte banktransacties per maand',
