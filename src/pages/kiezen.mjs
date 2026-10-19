@@ -30,7 +30,7 @@ const path = '/boekhoudprogramma-kiezen/';
 const VIDEO = {
   name: 'Boekhoudprogramma kiezen als zzp\'er in 1 minuut',
   description: 'Beantwoord een paar vragen over je bedrijf en zie welk boekhoudprogramma bij je past. Zo werkt de gratis match van BoekhoudMatch.',
-  src: '/video/boekhoudprogramma-kiezen-v2.mp4', vtt: '/video/boekhoudprogramma-kiezen.nl.vtt', poster: '/video/boekhoudprogramma-kiezen-poster-v2.webp',
+  src: '/video/boekhoudprogramma-kiezen-v2.mp4', vtt: '/video/boekhoudprogramma-kiezen-v2.nl.vtt', poster: '/video/boekhoudprogramma-kiezen-poster-v2.webp',
   thumb: '/video/boekhoudprogramma-kiezen-1280-v2.webp', duration: 'PT1M', uploadDate: '2026-10-19T13:30:00+02:00',
 };
 const videoHtml = `<section class="vid" aria-labelledby="vid-kop">
