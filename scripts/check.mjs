@@ -7,7 +7,7 @@ const errors = [];
 const files = [];
 const walk = (d) => readdirSync(d, { withFileTypes: true }).forEach((e) => (e.isDirectory() ? walk(join(d, e.name)) : files.push(join(d, e.name))));
 walk(OUT);
-const htmls = files.filter((f) => f.endsWith('.html') && !f.includes('/tools/'));
+const htmls = files.filter((f) => f.endsWith('.html') && !f.includes('/tools/') && !//google[0-9a-f]+.html$/.test(f));
 const decode = (s) => s.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
 const titles = new Map();
 const descs = new Map();
