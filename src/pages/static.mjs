@@ -6,6 +6,7 @@ import { match, VRAGEN } from '../lib/match.js';
 import { situaties } from '../lib/situaties.mjs';
 import { btwVanExcl } from '../lib/btw.js';
 import { euro2 } from '../lib/format.js';
+import { HERO_ART } from '../hero-art.mjs';
 // Uitkomst bij de standaardinvoer (€ 100 excl., 21%) al in de HTML, zodat er bij laden niets verspringt (zelfde opbouw als js/btw.js).
 const BTW0 = btwVanExcl(100, 0.21);
 const BTW0_ROWS = [['Exclusief btw', euro2(BTW0.excl)], ['Btw 21%', euro2(BTW0.btw)], ['Inclusief btw', euro2(BTW0.incl), 'total']].map(([l, v, c]) => `<tr${c ? ` class="${c}"` : ''}><td>${l}</td><td>${v}</td></tr>`).join('');
@@ -46,33 +47,38 @@ export const home = {
   og: 'home',
   updated: '2026-10-19',
   body: `
-<section class="hero">
-<div>
+<section class="hero sec">
+<div class="hero-txt">
 <p class="h1-brand">Boekhoud<b>Match</b>.nl</p>
 <h1 class="tagline">Boekhoudprogramma kiezen als zzp'er? Gewoon. Zonder gedoe.</h1>
 <p class="lead">Welk boekhoudprogramma past bij jouw zzp-bedrijf? Beantwoord 8 vragen en zie wat bij je past en wat het kost.</p>
 <div class="actions"><a class="btn" href="/boekhoudprogramma-kiezen/">Start de match</a><a class="btn ghost" href="/boekhoudprogramma-vergelijken/">Vergelijk alle ${N_PAK} pakketten</a></div>
 </div>
+<div class="hero-side">
+${HERO_ART}
 <div class="hero-q">
 <p class="hero-q-step">Vraag 1 van 8</p>
 <p class="hero-q-title" id="hq">Wat is je rechtsvorm?</p>
 <div class="hero-q-opts" role="group" aria-labelledby="hq">${VRAGEN.rechtsvorm.map(([v, l]) => `<a class="choice" href="/boekhoudprogramma-kiezen/?rechtsvorm=${v}" rel="nofollow">${esc(l)}<span aria-hidden="true">→</span></a>`).join('')}</div>
 <p class="hero-q-foot">Daarna nog 7 korte vragen. Gratis, zonder account.</p>
 </div>
-</section>
-
+</div>
 <ul class="trustbar">
 <li>${ICONS.kalender}<span>Prijzen gecontroleerd op <time datetime="${LAATSTE_CONTROLE}">${fmtDate(LAATSTE_CONTROLE)}</time></span></li>
 <li>${ICONS.bron}<span>Bron bij elke prijs</span></li>
 <li>${ICONS.schild}<span>Volgorde nooit betaald</span></li>
 <li>${ICONS.gratis}<span>Gratis, zonder account</span></li>
 </ul>
+</section>
 
+<div class="sec">
 <section class="logobar" aria-labelledby="h-aanb">
 <h2 id="h-aanb">Deze ${N_AANB} aanbieders vergelijken we</h2>
 <div class="logos">${[...PAKKETTEN].sort((x, y) => x.naam.localeCompare(y.naam, 'nl')).map((a) => logoTile(a, vendorHref(a.id))).join('')}</div>
 </section>
+</div>
 
+<section class="sec tint">
 <h2>Beste keuze per situatie</h2>
 <p class="sub">Een vaste regel op prijs en functies, uit de prijspagina's van de aanbieders. Partnerschappen tellen niet mee.</p>
 <ol class="sitlist">
@@ -83,7 +89,9 @@ ${situaties().filter((x) => x.top).map((x) => `<li><span class="sit-logo">${logo
 
 <a class="vid-teaser" href="/boekhoudprogramma-kiezen/"><img src="/video/boekhoudprogramma-kiezen-480-v2.webp" width="480" height="270" loading="lazy" decoding="async" alt="Stilstaand beeld uit de video: vraag 1 van de match, met een afspeelknop"><span><strong>Video: zo werkt de match in 1 minuut</strong><span>Bekijk hoe je met een paar vragen je boekhoudprogramma kiest →</span></span></a>
 
-<section class="band method-band">
+</section>
+
+<section class="band method-band sec">
 <h2>Zo vergelijken we</h2>
 <ol class="steps">
 <li><strong>Prijs van de aanbieder zelf.</strong> We halen elke prijs van de prijspagina van de aanbieder en linken naar die bron.</li>
@@ -93,6 +101,7 @@ ${situaties().filter((x) => x.top).map((x) => `<li><span class="sit-logo">${logo
 <p class="author">Door <a href="/over/">Redactie BoekhoudMatch</a> · <a href="/boekhoudprogramma-kiezen/#methode">Hoe de match werkt</a></p>
 </section>
 
+<section class="sec tint">
 <h2>Rekentools voor zzp'ers</h2>
 <div class="toolrow">
 ${tool('/zzp-netto-inkomen/', 'netto', 'Netto-inkomen')}
@@ -100,8 +109,15 @@ ${tool('/zzp-uurtarief/', 'uur', 'Uurtarief')}
 ${tool('/btw-berekenen/', 'btw', 'Btw berekenen')}
 ${tool('/offerte-factuur-maken/', 'factuur', 'Offerte en factuur')}
 </div>
+</section>
 
-{{latest}}`,
+<section class="sec">
+{{latest}}
+</section>
+
+<section class="sec band-sec">
+<div class="cta-band"><div><h2>Welk boekhoudprogramma past bij jou?</h2><p>8 korte vragen, gratis en zonder account.</p></div><a class="btn" href="/boekhoudprogramma-kiezen/" data-cta="home_band">Start de match</a></div>
+</section>`,
   // Organization en WebSite staan op elke pagina (layout.mjs, siteGraph).
 };
 
