@@ -2,6 +2,7 @@ import { track } from './consent.js';
 
 // Klik om te laden: vóór de klik laadt er niets van de video (geen <video>, geen MP4, geen ondertitels).
 // Desktop (vanaf 900px) krijgt de brede versie, mobiel de staande; beide met voice-over en dezelfde ondertitels.
+// Ondertitels: desktop een eigen VTT met line:70% (anders vallen ze over de bedieningsbalk), mobiel de VTT met line:80%; dezelfde matchMedia-keuze als de MP4.
 // De klik start de video met geluid (niet automatisch); dempen kan met de knoppen van de speler.
 // Events video_start en video_complete (met de pagina) gaan alleen mee na toestemming, via track() in consent.js.
 const BREED = '(min-width: 900px)';
@@ -21,7 +22,7 @@ for (const box of document.querySelectorAll('[data-video]')) {
     const src = document.createElement('source');
     src.src = breed ? box.dataset.src : box.dataset.srcMobiel; src.type = 'video/mp4';
     const tr = document.createElement('track');
-    tr.kind = 'subtitles'; tr.srclang = 'nl'; tr.label = 'Nederlands'; tr.src = box.dataset.vtt; tr.default = true;
+    tr.kind = 'subtitles'; tr.srclang = 'nl'; tr.label = 'Nederlands'; tr.src = breed ? box.dataset.vtt : box.dataset.vttMobiel; tr.default = true;
     v.append(src, tr);
     const page = location.pathname;
     let started = false, done = false;
