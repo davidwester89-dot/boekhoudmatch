@@ -219,7 +219,7 @@ ${sourceList(['minimumloon_2026'], SOURCES)}
 export const over = {
   path: '/over/',
   title: 'Over BoekhoudMatch: wie we zijn en hoe we werken',
-  description: 'Wie maakt BoekhoudMatch, hoe de boekhoudmatch de volgorde bepaalt en hoe we (later mogelijk) geld verdienen met duidelijk gemarkeerde partnerlinks.',
+  description: 'Wie maakt BoekhoudMatch, hoe de boekhoudmatch de volgorde bepaalt en hoe we (later mogelijk) geld verdienen met duidelijk vermelde partnerlinks.',
   crumb: 'Over ons',
   body: `
 <h1>Over ${SITE.name}</h1>
@@ -306,7 +306,7 @@ ${GA_ID ? gaHtml : '<h2 id="cookies">Cookies</h2>\n<p>We plaatsen op dit moment 
 <h2>Hosting</h2>
 <p>De site draait op GitHub Pages (GitHub, Inc.). GitHub verwerkt technische gegevens zoals je IP-adres om de site te tonen en te beveiligen; zie de <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">privacyverklaring van GitHub</a>. Wij ontvangen via GitHub geen bezoekersgegevens.</p>
 <h2>Partnerlinks</h2>
-<p>Klik je later op een gemarkeerde partnerlink, dan kan die partij cookies plaatsen volgens haar eigen beleid.</p>
+<p>Klik je later op een vermelde partnerlink, dan kan die partij cookies plaatsen volgens haar eigen beleid.</p>
 <h2>Contact</h2>
 <p>Vragen? Mail naar <a href="mailto:${SITE.email}">${SITE.email}</a>.</p>
 <p>Bijgewerkt op ${fmtDate(SITE.updated)}.</p>
