@@ -8,10 +8,10 @@ import { praktijktest } from '../lib/praktijktests.js';
 import { e2, checked, vanaf, bronLinks, pakketTabel, logo, softwareSchema, btwNoot, N_AANB, UNK } from '../lib/weergave.mjs';
 import { vsVoor } from '../lib/vsgidsen.mjs';
 
-// Uitgaande knop naar de aanbieder: partnerlink alleen als die is goedgekeurd (dan met label), anders gewone link.
+// Uitgaande knop naar de aanbieder: partnerlink alleen als die is goedgekeurd, anders gewone link.
 function uitCta(a, r) {
   const u = uitgaand(a), c = ctaTekst(r.kort, { proef: r.proef, prijs: Math.min(...a.plannen.map((p) => p.prijs)) });
-  return `<div class="card vendor-out"><a class="btn" href="${esc(u.href)}" target="_blank" rel="${u.rel}" data-vendor="${esc(a.naam)}" data-pos="aanbiederpagina" data-cta="${c.gratis ? 'trial' : 'visit'}">${esc(c.tekst)}<span aria-hidden="true"> ↗</span><span class="sr-only"> (opent in een nieuw tabblad)</span></a>${u.partner ? ' <span class="plabel">partnerlink</span>' : ''}</div>`;
+  return `<div class="card vendor-out"><a class="btn" href="${esc(u.href)}" target="_blank" rel="${u.rel}" data-vendor="${esc(a.naam)}" data-pos="aanbiederpagina" data-cta="${c.gratis ? 'trial' : 'visit'}">${esc(c.tekst)}<span aria-hidden="true"> ↗</span><span class="sr-only"> (opent in een nieuw tabblad)</span></a></div>`;
 }
 // Praktijktest-sectie (alleen als er een test is). Feiten uit praktijktests.js, geen scores.
 function praktijkSectie(a, r, t) {

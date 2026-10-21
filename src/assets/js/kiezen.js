@@ -23,7 +23,7 @@ const byId = Object.fromEntries(PAKKETTEN.map((p) => [p.id, p]));
 
 const host = (url) => url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/.*$/, '');
 
-// Uitgaande knop naar de aanbieder (nieuw tabblad). Partnerlink alleen als die in partnerlinks.js staat; dan met label.
+// Uitgaande knop naar de aanbieder (nieuw tabblad). Partnerlink alleen als die in partnerlinks.js staat; geen zichtbaar label.
 function knop(a, r, pos, cls) {
   const red = REDACTIE[a.id], u = uitgaand(a), c = ctaTekst(red.kort, { proef: red.proef, prijs: r.prijs });
   const l = el('a', cls);
@@ -38,7 +38,6 @@ function paginaLink(a, pos, tekst) {
   l.dataset.vendor = a.naam; l.dataset.pos = String(pos); l.dataset.cta = 'vendor_page';
   return l;
 }
-const plabel = () => el('span', 'plabel', 'partnerlink');
 
 function lijst(cls, items) { const ul = el('ul', cls); for (const t of items) ul.append(el('li', '', t)); return ul; }
 
@@ -57,9 +56,8 @@ bindForm(form, (v) => {
     li.append(el('strong', '', `${r.naam} ${r.planNaam}`), el('span', 'price', ` ${euro(r.prijs)} p/m${r.binnenBudget ? '' : ' (boven budget)'}`));
     const pos = passend.indexOf(r) + 1;
     if (pos > 1) {
-      const a = byId[r.aanbieder], { l, u, red } = knop(a, r, pos, 'btn ghost sm');
+      const a = byId[r.aanbieder], { l, red } = knop(a, r, pos, 'btn ghost sm');
       const d = el('div', 'mini-cta'); d.append(l, paginaLink(a, pos, `Alles over ${red.kort}`));
-      if (u.partner) d.append(plabel());
       li.append(d);
     }
     return li;
@@ -69,7 +67,7 @@ bindForm(form, (v) => {
   const cta = document.getElementById('out-cta');
   if (passend[0]) {
     const r = passend[0], a = byId[r.aanbieder], { l, u, c, red } = knop(a, r, 1, 'btn');
-    cta.replaceChildren(...[l, u.partner && plabel(), paginaLink(a, 1, `Lees alles over ${red.kort} →`)].filter(Boolean));
+    cta.replaceChildren(...[l, paginaLink(a, 1, `Lees alles over ${red.kort} →`)].filter(Boolean));
     cta.hidden = false;
   } else { cta.replaceChildren(); cta.hidden = true; }
 
