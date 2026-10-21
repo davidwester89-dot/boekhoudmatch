@@ -245,7 +245,7 @@ ${METHODE_LIJST}
 <p>We verzinnen geen sterren, reviews of “meest gekozen”-labels. Je hebt geen account nodig en wat je invult, blijft in je eigen browser.</p>
 <p>De volledige rekenregels van de match staan <a href="/boekhoudprogramma-kiezen/#methode">bij de match</a>. Alle bronnen en controledatums staan op de <a href="/bronnen/">bronnenpagina</a>.</p>
 <h2>Hoe we geld verdienen</h2>
-<p>Nu verdienen we niets aan deze site. Later plaatsen we misschien partnerlinks: sluit je via zo'n link iets af, dan krijgen wij een vergoeding. Jouw prijs blijft gelijk. Zulke links zijn altijd gemarkeerd en hebben geen invloed op de volgorde.</p>
+<p>Nu verdienen we niets aan deze site. Later plaatsen we misschien partnerlinks: sluit je via zo'n link iets af, dan krijgen wij een vergoeding. Jouw prijs blijft gelijk. Zulke links worden bij de knoppen vermeld en hebben geen invloed op de volgorde.</p>
 <h2>Fout gezien?</h2>
 <p>Een verouderde prijs of een fout in een berekening? Mail naar <a href="mailto:${SITE.email}">${SITE.email}</a>. We passen het snel aan.</p>
 </div>`,

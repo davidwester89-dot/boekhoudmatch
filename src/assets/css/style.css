@@ -468,3 +468,6 @@ main:has(.band-sec) .report{margin-top:24px}
 --plus:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239c3f1b' stroke-width='2.6' stroke-linecap='round'%3E%3Cpath d='M12 5v14M5 12h14'/%3E%3C/svg%3E")}
 .hero .tagline{color:var(--green)}
 .method-band .steps li:nth-child(3)::before{background:var(--green);box-shadow:0 0 0 7px #dcebe2}
+
+/* Partnerzin per blok met partnerlinks (vervangt het label per knop) */
+.pnoot{font-size:.875rem;color:var(--muted);margin:6px 0 0}

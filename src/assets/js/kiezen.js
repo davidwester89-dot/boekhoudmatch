@@ -15,7 +15,7 @@ import { match } from './lib/match.js';
 import { top3Verschil } from './lib/top3.js';
 import { track } from './consent.js';
 import { REDACTIE, vendorHref } from './lib/aanbieders.js';
-import { uitgaand, ctaTekst } from './lib/partnerlinks.js';
+import { uitgaand, ctaTekst, PARTNER_NOOT } from './lib/partnerlinks.js';
 
 const euro = (x) => '€ ' + x.toFixed(2).replace('.', ',');
 const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text !== undefined) e.textContent = text; return e; };
@@ -37,6 +37,13 @@ function paginaLink(a, pos, tekst) {
   const l = el('a', 'vlink', tekst); l.href = vendorHref(a.id);
   l.dataset.vendor = a.naam; l.dataset.pos = String(pos); l.dataset.cta = 'vendor_page';
   return l;
+}
+
+// Precies één partnerzin direct na een blok met een partnerlink (rel sponsored); anders geen zin.
+function zetNoot(blok) {
+  const na = blok.nextElementSibling;
+  if (na && na.classList.contains('pnoot')) na.remove();
+  if (!blok.hidden && blok.querySelector('a[rel~="sponsored"]')) blok.after(el('p', 'pnoot', PARTNER_NOOT));
 }
 
 function lijst(cls, items) { const ul = el('ul', cls); for (const t of items) ul.append(el('li', '', t)); return ul; }
@@ -78,6 +85,7 @@ bindForm(form, (v) => {
   cmp.textContent = top3.length > 1 ? `Vergelijk deze ${top3.length} naast elkaar` : 'Vergelijk alle aanbieders';
   if (!passend.length) top.replaceChildren(el('li', '', 'Geen pakket past bij al je wensen. Hieronder zie je waarom, en wat het dichtst in de buurt komt.'));
   topVendor = passend[0] ? passend[0].naam : '';
+  zetNoot(cta); zetNoot(top);
   huidigTop = passend.slice(0, 3).map((r) => r.naam);
   document.getElementById('big-mirror').textContent = passend[0] ? `${passend[0].naam} ${passend[0].planNaam}` : '–';
 

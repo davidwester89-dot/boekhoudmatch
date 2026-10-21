@@ -1,6 +1,7 @@
 import { mkdirSync, writeFileSync, readFileSync, cpSync, rmSync, readdirSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { layout, SITE, RELATED } from './src/layout.mjs';
+import { partnerNoten } from './src/lib/partnerlinks.js';
 import zzpnetto from './src/pages/zzpnetto.mjs';
 import uurtarief from './src/pages/uurtarief.mjs';
 import * as S from './src/pages/static.mjs';
@@ -32,7 +33,7 @@ const pages = [home, kiezen, vergelijken, ...aanbiederPages, ...(gidsen.length ?
 
 for (const p of pages) {
   const file = p.path.endsWith('.html') ? join(OUT, p.path) : join(OUT, p.path, 'index.html');
-  write(file, layout(p));
+  write(file, partnerNoten(layout(p)));
 }
 
 // assets

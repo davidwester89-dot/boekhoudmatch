@@ -56,7 +56,7 @@ const faq = [
   ['Welk boekhoudprogramma is het beste voor een zzp\'er?', 'Dat hangt af van je aantal facturen en bonnen, je btw, of je een bankkoppeling wilt en of je hulp wilt bij je aangifte. Een klein pakket is vaak het goedkoopst, zolang je onder de limiet blijft. De match rekent dat voor je uit.'],
   ['Heb ik een boekhoudprogramma nodig als ik de KOR gebruik?', 'Je doet dan geen btw-aangifte, maar je moet wel een administratie bijhouden en facturen bewaren (7 jaar). Een gratis of klein pakket kan dan genoeg zijn.'],
   ['Zijn de prijzen inclusief btw?', 'De meeste aanbieders noemen prijzen exclusief btw. Zegt de aanbieder het niet, dan staat er “niet vermeld”. Doe je btw-aangifte, dan trek je de btw op je abonnement meestal weer af.'],
-  ['Verdienen jullie aan de aanbevelingen?', 'Nu niet. Komen er later partnerlinks, dan zijn die gemarkeerd en tellen ze niet mee in de volgorde.'],
+  ['Verdienen jullie aan de aanbevelingen?', 'Nu niet. Komen er later partnerlinks, dan worden die bij de knoppen vermeld en tellen ze niet mee in de volgorde.'],
 ];
 
 const body = `
@@ -133,6 +133,6 @@ ${faqHtml(faq)}
 export default {
   path, title: 'Boekhoudprogramma kiezen als zzp\'er | BoekhoudMatch', og: 'match', ogTitle: 'Welk boekhoudprogramma past bij jou?',
   description: `Welk boekhoudprogramma past bij jouw zzp-bedrijf? 8 vragen, ${PAKKETTEN.length} aanbieders, actuele prijzen en eerlijk uitgelegd waarom. Gratis, zonder account.`,
-  crumb: 'Boekhoudprogramma kiezen', body, scripts: ['/js/kiezen.js', '/js/video.js'], updated: '2026-10-19',
+  crumb: 'Boekhoudprogramma kiezen', body, scripts: ['/js/kiezen.js', '/js/video.js'], updated: '2026-10-21',
   schema: [webApp({ name: 'Boekhoudprogramma-match', url: SITE.domain + path, description: 'Vind het boekhoudprogramma dat bij je onderneming past.' }), faqSchema(faq), videoSchema],
 };
