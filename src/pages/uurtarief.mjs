@@ -56,6 +56,8 @@ ${more('Berekening stap voor stap', `
 <p>Het urencriterium (1.225 uur) bepalen we uit je gewerkte uren: werkweken × uren per week. In de stand “Vanuit mijn salaris” berekenen we eerst je netto jaarloon: bruto incl. vakantiegeld, min je pensioenpremie en loonheffing met algemene heffingskorting en arbeidskorting (zonder bijtelling, reiskosten of andere vergoedingen). De WW, WIA en het werkgeversdeel van je pensioen krijg je als zzp'er niet; daarom vragen we naar AOV en pensioen.</p>
 `)}
 
+<p>Kom je met je nieuwe uurtarief op een andere winst uit dan je eerder verwachtte? Pas dan ook je voorlopige aanslag aan, zodat je achteraf niet ineens veel moet bijbetalen. Hoe dat gaat, lees je in <a href="/blog/voorlopige-aanslag-zzp/">voorlopige aanslag als zzp'er</a>.</p>
+
 <h2>Veelgestelde vragen</h2>
 ${faqHtml(faq)}
 

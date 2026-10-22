@@ -3,7 +3,7 @@ title: Belastingplan 2027: dit verandert er voor zzp'ers
 seo_title: Belastingplan 2027 voor zzp'ers: dit verandert er
 description: Lagere zelfstandigenaftrek, startersaftrek bijna weg, hogere tarieven en € 0,25 per kilometer. Wat het Belastingplan 2027 betekent voor jou als zzp'er.
 date: 2026-10-09
-updated: 2026-10-09
+updated: 2026-10-22
 tools: /zzp-netto-inkomen/, /zzp-uurtarief/, /boekhoudprogramma-kiezen/
 sources:
 - Rijksoverheid: Prinsjesdag, Belastingplan 2027 | https://www.rijksoverheid.nl/themas/belastingen-uitkeringen-en-toeslagen/belastingplan
@@ -73,7 +73,7 @@ Rijd je met je privéauto voor je bedrijf? Dan mag je per zakelijke kilometer ee
 
 1. **Reken je netto-inkomen en uurtarief opnieuw uit.** Een lagere aftrek en hogere tarieven betekenen dat je meer belasting betaalt over dezelfde winst. Misschien is het tijd om je tarief voor 2027 te verhogen.
 2. **Zet iets meer opzij.** Reserveer een vast percentage van elke betaalde factuur (exclusief btw) voor de inkomstenbelasting en de Zvw.
-3. **Controleer je voorlopige aanslag 2027.** De Belastingdienst gebruikt daarvoor de bedragen van Prinsjesdag. Klopt je verwachte winst niet meer, pas de aanslag dan aan in Mijn Belastingdienst.
+3. **Controleer je voorlopige aanslag 2027.** De Belastingdienst gebruikt daarvoor de bedragen van Prinsjesdag. Klopt je verwachte winst niet meer, pas de aanslag dan aan in Mijn Belastingdienst. Hoe dat werkt en hoe je belastingrente voorkomt, lees je in [voorlopige aanslag als zzp'er: aanvragen en wijzigen](/blog/voorlopige-aanslag-zzp/).
 4. **Starter? Plan je investeringen.** Over 2026 kun je de startersaftrek nog gebruiken. Overleg bij twijfel met een adviseur.
 5. **Houd je uren en kilometers bij.** Het urencriterium van 1.225 uur blijft de sleutel tot de zelfstandigenaftrek, en een rittenregistratie maakt de kilometeraftrek makkelijk.
 
