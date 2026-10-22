@@ -4,7 +4,7 @@ seo_title: Boekhoudprogramma met Peppol: welke pakketten kunnen het?
 description: Welk boekhoudprogramma verstuurt en ontvangt e-facturen via Peppol? Per pakket wat het kan, of het extra kost en welke gratis versies het hebben.
 date: 2026-10-20
 updated: 2026-10-20
-checked: 2026-10-19
+checked: 2026-10-20
 image: boekhoudprogramma-peppol
 image_alt: Schema van een e-factuur via Peppol: je boekhoudprogramma stuurt de factuur over het Peppol-netwerk rechtstreeks naar het boekhoudprogramma van je klant, zonder pdf in de mailbox
 tools: /boekhoudprogramma-vergelijken/, /boekhoudprogramma-kiezen/, /offerte-factuur-maken/
