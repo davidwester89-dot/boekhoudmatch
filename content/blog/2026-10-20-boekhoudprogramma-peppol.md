@@ -3,7 +3,7 @@ title: Boekhoudprogramma met Peppol: welke pakketten kunnen het?
 seo_title: Boekhoudprogramma met Peppol: welke pakketten kunnen het?
 description: Welk boekhoudprogramma verstuurt en ontvangt e-facturen via Peppol? Per pakket wat het kan, of het extra kost en welke gratis versies het hebben.
 date: 2026-10-20
-updated: 2026-10-20
+updated: 2026-10-23
 checked: 2026-10-20
 image: boekhoudprogramma-peppol
 image_alt: Schema van een e-factuur via Peppol: je boekhoudprogramma stuurt de factuur over het Peppol-netwerk rechtstreeks naar het boekhoudprogramma van je klant, zonder pdf in de mailbox
@@ -13,6 +13,7 @@ sources:
 - KVK: E-facturatie komt eraan, bereid je onderneming voor | https://www.kvk.nl/geldzaken/e-facturatie-komt-eraan/
 - Ondernemersplein: Een e-factuur versturen naar de overheid | https://ondernemersplein.overheid.nl/wetten-en-regels/een-e-factuur-versturen-naar-de-overheid/
 - Nederlandse Peppolautoriteit: Aansluiten op Peppol via een ERP- of boekhoudpakket | https://www.peppol.nl/nl/aansluiten-op-peppol-een-erp-boekhoudpakket
+- Nederlandse Peppolautoriteit: Technische specificaties (Peppol-ID's) | https://www.peppolautoriteit.nl/technische-specificaties
 - Moneybird: Peppol | https://www.moneybird.nl/functies/peppol/
 - Moneybird: Prijzen | https://www.moneybird.nl/prijzen/
 - Moneybird Kennisbank: Aanmelden voor Peppol | https://helpcenter.moneybird.nl/nl/articles/227718-aanmelden-voor-peppol
@@ -49,7 +50,7 @@ Peppol is een internationaal netwerk waarover boekhoudprogramma's facturen recht
 
 Heb je het nu al nodig? Alleen als je levert aan de Rijksoverheid. Die eist al een e-factuur. Andere overheden, zoals gemeenten, vragen er soms om.
 
-Voor facturen aan bedrijven is het nog geen plicht. Het kabinet **wil** e-facturatie tussen bedrijven verplichten vanaf 1 juli 2030. Dat is een plan: het wetsvoorstel gaat naar verwachting vóór de zomer van 2027 naar de Tweede Kamer. Zit je in de kleineondernemersregeling (KOR), dan ben je volgens het plan vrijgesteld. Alles over dat plan lees je in [verplichte e-factuur vanaf 2030](/blog/verplichte-e-factuur-2030/).
+Voor facturen aan bedrijven is het nog geen plicht. Het kabinet **wil** e-facturatie tussen bedrijven verplichten vanaf 1 juli 2030. Dat is een voornemen: het conceptwetsvoorstel gaat dit najaar in internetconsultatie, en het wetsvoorstel naar verwachting vóór de zomer van 2027 naar de Tweede Kamer. Zit je in de kleineondernemersregeling (KOR), dan ben je volgens het plan vrijgesteld. Alles over dat plan lees je in [verplichte e-factuur vanaf 2030](/blog/verplichte-e-factuur-2030/).
 
 ## Per pakket: versturen en ontvangen via Peppol
 
@@ -74,6 +75,14 @@ Een paar details die je moet weten:
 - **Moneybird en Silvasoft:** ook daar doorloop je eerst een verificatie van je bedrijf voordat je Peppol aanzet. Bij Silvasoft kun je Peppol niet gebruiken tijdens de proefperiode.
 - **e-Boekhouden.nl:** voor facturen aan de overheid verwijst e-Boekhouden.nl naar zijn partner eConnect.
 - **Exact Reeleezee:** e-facturen aan de Rijksoverheid kunnen wel, onder voorwaarden.
+
+## Peppol-ID: wat is het en hoe vraag je het aan?
+
+Je Peppol-ID is je adres op het netwerk: daar sturen anderen hun e-facturen naartoe. Voor een bedrijf is dat je KVK-nummer (code 0106) of je btw-nummer (code 9944). Rijksoverheid, provincies en gemeenten gebruiken hun OIN (code 0190).
+
+Een Peppol-ID vraag je niet los aan. Je zet Peppol aan in je boekhoudprogramma, en dat meldt je aan. Bij Moneybird rond je eerst de verificaties af, zoals je bedrijf en je IBAN. Daarna zet je Peppol aan onder Instellingen > Facturen en offertes > Peppol & UBL. Facturen van leveranciers die ook op Peppol zitten, komen dan vanzelf binnen.
+
+Wil je weten of een klant e-facturen ontvangt? In de Peppol Test Tool van de Nederlandse Peppolautoriteit zoek je op KVK-, btw- of OIN-nummer.
 
 ## Zit het in elk abonnement of kost het extra?
 
