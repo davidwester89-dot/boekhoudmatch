@@ -51,6 +51,8 @@ const goedkoopst = sit.find((s) => s.id === 'instap');
 // Echte controledatums uit de data (pakketten.js: CHECKED of per aanbieder `gecontroleerd`); geen latere datum claimen dan er echt gecontroleerd is.
 const CDATA = PAKKETTEN.map((a) => [checked(a), a.naam]).sort((x, y) => x[0].localeCompare(y[0]));
 const C_OUD = CDATA[0][0], C_NIEUW = CDATA.at(-1)[0];
+// Laatste tekstwijziging van deze pagina (FAQ partnerlinks 23-10-2026). Sitemapdatum = de nieuwste van tekst en prijscontrole.
+export const TEKST_UPDATED = '2026-10-23';
 const C_LATER = CDATA.filter(([d]) => d === C_NIEUW).map(([, n]) => n);
 const controleTekst = C_OUD === C_NIEUW ? `De laatste controle was op ${fmtDate(C_NIEUW)}.` : `Alle prijzen zijn gecontroleerd op ${fmtDate(C_OUD)}; die van ${C_LATER.join(' en ')} opnieuw op ${fmtDate(C_NIEUW)}.`;
 const faq = [
@@ -115,7 +117,7 @@ ${faqHtml(faq)}
 export default {
   path, title: 'Boekhoudprogramma zzp vergelijken 2026 | BoekhoudMatch', og: 'vergelijken', ogTitle: 'Boekhoudprogramma\'s vergelijken 2026',
   description: `Vergelijk ${N_PAK} pakketten van ${N_AANB} boekhoudprogramma's op prijs, limieten, btw-aangifte en bankkoppeling. Filter op je situatie. Met bron en datum.`,
-  crumb: 'Boekhoudprogramma vergelijken', body, scripts: ['/js/vergelijken.js'], updated: C_NIEUW, stamp: { checked: PAKKETTEN.map(checked).sort()[0], updated: PAKKETTEN.map(checked).sort().at(-1) },
+  crumb: 'Boekhoudprogramma vergelijken', body, scripts: ['/js/vergelijken.js'], updated: [C_NIEUW, TEKST_UPDATED].sort().at(-1), stamp: { checked: PAKKETTEN.map(checked).sort()[0], updated: PAKKETTEN.map(checked).sort().at(-1) },
   schema: [faqSchema(faq), {
     '@context': 'https://schema.org', '@type': 'ItemList', name: 'Boekhoudprogramma\'s voor zzp\'ers (op alfabet)', dateModified: C_NIEUW,
     itemListElement: ALFA.map((a, i) => ({ '@type': 'ListItem', position: i + 1, name: a.naam, url: SITE.domain + vendorHref(a.id).replace(/#.*/, '') })),

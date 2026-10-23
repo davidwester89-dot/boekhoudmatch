@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs';
 import { aanbiederPages } from '../src/pages/aanbieder.mjs';
 import { postPage } from '../src/pages/blog.mjs';
 import uurtarief from '../src/pages/uurtarief.mjs';
-import vergelijken from '../src/pages/vergelijken.mjs';
+import vergelijken, { TEKST_UPDATED } from '../src/pages/vergelijken.mjs';
 import kiezen from '../src/pages/kiezen.mjs';
 import { home } from '../src/pages/static.mjs';
 import { PAKKETTEN } from '../src/lib/pakketten.js';
@@ -44,7 +44,7 @@ test('Interne links: Jortt kosten en boekhoudpakket voor een bv precies één ke
 
 test('Vergelijken: controledatum = echte laatste controle uit de data, ook in FAQ-schema en sitemapdatum', () => {
   const nieuwst = PAKKETTEN.map(checked).sort().at(-1);
-  assert.equal(vergelijken.updated, nieuwst);
+  assert.equal(vergelijken.updated, [nieuwst, TEKST_UPDATED].sort().at(-1));
   const faq = vergelijken.schema.find((s) => s['@type'] === 'FAQPage');
   const a = faq.mainEntity.find((q) => q.name === 'Hoe vaak worden de prijzen gecontroleerd?').acceptedAnswer.text;
   assert.doesNotMatch(a, /laatste controle was op 10 oktober 2026/);

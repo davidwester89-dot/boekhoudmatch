@@ -62,3 +62,11 @@ test('over: eigen datum (OVER_UPDATED) voor lastmod; SITE.updated ongewijzigd', 
   assert.equal(over.updated, OVER_UPDATED);
   assert.equal(SITE.updated, '2026-10-10');
 });
+
+test('kiezen en vergelijken: updated 2026-10-23 (FAQ partnerlinks); privacy: cookie + klik-ID naar de aanbieder', async () => {
+  const kiezen = (await import('../src/pages/kiezen.mjs')).default;
+  const vergelijken = (await import('../src/pages/vergelijken.mjs')).default;
+  assert.equal(kiezen.updated, '2026-10-23');
+  assert.equal(vergelijken.updated, '2026-10-23');
+  assert.match(privacy.body, /Daisycon plaatst op zijn eigen domein een cookie en geeft een klik-ID door aan de aanbieder, om vast te leggen dat je via BoekhoudMatch kwam\./);
+});

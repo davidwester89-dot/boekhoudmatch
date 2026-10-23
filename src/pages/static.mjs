@@ -314,7 +314,7 @@ ${GA_ID ? gaHtml : '<h2 id="cookies">Cookies</h2>\n<p>We plaatsen op dit moment 
 <h2>Hosting</h2>
 <p>De site draait op GitHub Pages (GitHub, Inc.). GitHub verwerkt technische gegevens zoals je IP-adres om de site te tonen en te beveiligen; zie de <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">privacyverklaring van GitHub</a>. Wij ontvangen via GitHub geen bezoekersgegevens.</p>
 <h2>Partnerlinks</h2>
-<p>Partnerlinks worden bij de knoppen vermeld. Klik je erop, dan ga je via het affiliatenetwerk Daisycon naar de aanbieder. Daisycon plaatst op zijn eigen domein een cookie of klik-ID, om vast te leggen dat je via BoekhoudMatch kwam. Sluit je iets af, dan kunnen wij daardoor een vergoeding krijgen. Daisycon is zelf verantwoordelijk voor die gegevens; zie het <a href="https://daisycon.com/en/legal-information/privacy-policy/" rel="noopener">privacybeleid van Daisycon</a>.</p>
+<p>Partnerlinks worden bij de knoppen vermeld. Klik je erop, dan ga je via het affiliatenetwerk Daisycon naar de aanbieder. Daisycon plaatst op zijn eigen domein een cookie en geeft een klik-ID door aan de aanbieder, om vast te leggen dat je via BoekhoudMatch kwam. Sluit je iets af, dan kunnen wij daardoor een vergoeding krijgen. Daisycon is zelf verantwoordelijk voor die gegevens; zie het <a href="https://daisycon.com/en/legal-information/privacy-policy/" rel="noopener">privacybeleid van Daisycon</a>.</p>
 <h2>Contact</h2>
 <p>Vragen? Mail naar <a href="mailto:${SITE.email}">${SITE.email}</a>.</p>
 <p>Bijgewerkt op ${fmtDate(PRIVACY_UPDATED)}.</p>
