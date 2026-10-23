@@ -80,7 +80,7 @@ Een paar details die je moet weten:
 
 Je Peppol-ID is je adres op het netwerk: daar sturen anderen hun e-facturen naartoe. Voor een bedrijf is dat je KVK-nummer (code 0106) of je btw-nummer (code 9944). Rijksoverheid, provincies en gemeenten gebruiken hun OIN (code 0190).
 
-Een Peppol-ID vraag je niet los aan. Je zet Peppol aan in je boekhoudprogramma, en dat meldt je aan. Bij Moneybird rond je eerst de verificaties af, zoals je bedrijf en je IBAN. Daarna zet je Peppol aan onder Instellingen > Facturen en offertes > Peppol & UBL. Facturen van leveranciers die ook op Peppol zitten, komen dan vanzelf binnen.
+Een Peppol-ID vraag je meestal niet los aan. Je zet Peppol aan in je boekhoudprogramma, en dat meldt je aan. Bij Moneybird rond je eerst de verificaties af, zoals je bedrijf en je IBAN. Daarna zet je Peppol aan onder Instellingen > Facturen en offertes > Peppol & UBL. Facturen van leveranciers die ook op Peppol zitten, komen dan vanzelf binnen.
 
 Wil je weten of een klant e-facturen ontvangt? In de Peppol Test Tool van de Nederlandse Peppolautoriteit zoek je op KVK-, btw- of OIN-nummer.
 

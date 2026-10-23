@@ -63,11 +63,11 @@ De standaard bankkoppeling van SnelStart is gratis en zit in elk pakket, vanaf i
 1. **Klantonderzoek.** SnelStart controleert eerst wie je bent. Zet vooraf je bedrijfsgegevens goed, zoals je KVK- en btw-nummer. De beoordeling duurt maximaal 7 werkdagen.
 2. **Koppeling activeren.** Daarna kies je je rekening. Transacties van vóór die dag haal je op met "historische transacties ophalen".
 
-Bij de Rabobank, ING en Knab kun je ook de uitgebreide koppeling van je bank kiezen. Daarmee koppel je ook je zakelijke spaarrekening. SnelStart rekent er niets voor, je bank misschien wel. ING en ABN AMRO werken met de standaard koppeling net zo. Let op: met een actieve koppeling kun je geen bankafschriften meer handmatig inlezen.
+Bij de Rabobank, ING en Knab kun je ook de uitgebreide koppeling van je bank kiezen. Daarmee koppel je ook je zakelijke spaarrekening. SnelStart rekent er niets voor, je bank misschien wel. Bij ING en ABN AMRO werkt de standaard koppeling op dezelfde manier. Let op: met een actieve koppeling kun je geen bankafschriften meer handmatig inlezen.
 
 ## Moneybird: automatische bankkoppeling instellen
 
-Bij Moneybird koppel je je bank via Ponto, vanaf het pakket Groei. Ponto heeft een PSD2-vergunning van de Belgische Nationale Bank. Je gaat naar Instellingen > Bank > Rekeningen, klikt op "Toevoegen" en kiest "Koppel een bestaande rekening". Via Ponto kunnen onder meer ABN AMRO, ING en Rabobank. Bij de Rabobank lukt het alleen met Rabo Business Banking. Spaarrekeningen gaan via Ponto alleen bij Knab.
+Bij Moneybird koppel je je bank via Ponto, vanaf het pakket Groei. Ponto heeft een PSD2-vergunning van de Belgische Nationale Bank. Je gaat naar Instellingen > Bank > Rekeningen, klikt op "Toevoegen" en kiest via "Koppel een andere bank" voor "Koppel een bestaande rekening". Via Ponto kunnen onder meer ABN AMRO, ING en Rabobank. Bij de Rabobank lukt het alleen met Rabo Business Banking. Spaarrekeningen gaan via Ponto alleen bij Knab.
 
 De koppeling zit in je pakket. Wil je ook betalingen vanuit Moneybird starten, dan betaal je € 1 per rekening per maand en € 0,03 per betaling (excl. btw).
 
