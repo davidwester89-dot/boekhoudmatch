@@ -3,13 +3,14 @@ title: Bankkoppeling in je boekhoudprogramma: wel of niet?
 seo_title: Bankkoppeling boekhoudprogramma: nodig? | BoekhoudMatch
 description: Heb je een automatische bankkoppeling nodig? Per aanbieder vanaf welk pakket het kan, wat het extra kost en wanneer handmatig importeren genoeg is.
 crumb: Bankkoppeling
-updated: 2026-10-19
+updated: 2026-10-23
 vendors: moneybird, informer, silvasoft, moneymonk, rompslomp
 sources:
 - SnelStart Kennisplein: een bankkoppeling maken | https://kennisplein.snelstart.nl/klanten/s/article/de-nieuwe-generatie-bankkoppeling-via-psd2
 - SnelStart Kennisplein: een standaard of een uitgebreide bankkoppeling | https://kennisplein.snelstart.nl/klanten/s/article/een-uitgebreide-bankkoppeling-maken
 - Moneybird Kennisbank: bankkoppeling via Ponto | https://helpcenter.moneybird.nl/nl/articles/208068-bankkoppeling-via-ponto
 - Moneybird Kennisbank: bankkoppeling Rabobank | https://helpcenter.moneybird.nl/nl/articles/208119-bankkoppeling-rabobank
+- Moneybird Kennisbank: koppeling met Ponto verlopen | https://helpcenter.moneybird.nl/nl/articles/208078-koppeling-met-ponto-verlopen
 related:
 - Moneybird vs e-Boekhouden | /moneybird-vs-e-boekhouden/
 - Btw-aangifte vanuit je boekhoudprogramma | /btw-aangifte-boekhoudprogramma/
@@ -17,9 +18,11 @@ related:
 ---
 Met een automatische bankkoppeling komen je zakelijke banktransacties vanzelf in je boekhoudprogramma. Zonder koppeling download je een bankbestand en importeer je het zelf. Het verschil lijkt klein, maar bij sommige aanbieders bepaalt het welk pakket je nodig hebt, en dus wat je betaalt. Op deze pagina zie je per aanbieder hoe het zit.
 
-## Wat doet een bankkoppeling?
+## Bankkoppeling of importeren: wat is het verschil?
 
-Je geeft je boekhoudprogramma toestemming om de transacties van je zakelijke rekening op te halen. Daarna verschijnen betalingen in je boekhouding, en koppel je ze aan een factuur of bon. Zonder koppeling doe je hetzelfde, maar haal je de transacties eerst zelf op bij je bank, bijvoorbeeld als bestand, en lees je dat in.
+Bij een bankkoppeling geef je je boekhoudprogramma toestemming om de transacties van je zakelijke rekening op te halen. Dat loopt meestal via PSD2, de Europese regels voor toegang tot je betaalrekening. Daarna verschijnen betalingen vanzelf in je boekhouding, en koppel je ze aan een factuur of bon.
+
+Bij importeren download je zelf een bankbestand, meestal MT940 of CAMT.053, en lees je dat in. Die bestanden heb je soms ook mét koppeling nodig: Moneybird haalt via Ponto hooguit zes maanden terug op, bij de Rabobank niets. Oudere transacties upload je als bestand.
 
 Een koppeling scheelt je per maand een paar handelingen. Het verwerken zelf, dus elke transactie aan een factuur of bon koppelen, blijft werk; sommige pakketten doen daar suggesties voor.
 
@@ -44,17 +47,33 @@ Dit is per aanbieder het goedkoopste pakket met koppeling. Bij Informer en Silva
 
 ## Per bank: Rabobank, ING en ABN AMRO
 
-Werkt de koppeling met jouw bank? Voor SnelStart en Moneybird staat het in de eigen helppagina's:
+Werkt de koppeling met jouw bank? Voor SnelStart en Moneybird staat het in de eigen helppagina's. Hoe je het instelt, lees je in de twee kopjes hieronder.
 
 | | Rabobank | ING | ABN AMRO |
 |---|---|---|---|
 | SnelStart | ja | ja | ja |
 | Moneybird (vanaf Groei) | ja, via Ponto | ja, via Ponto | ja, via Ponto |
 
-- **SnelStart**: de standaard bankkoppeling is gratis en zit in je pakket. Die werkt met zakelijke betaalrekeningen bij onder meer ABN AMRO, ING en Rabobank. Bij Rabobank en ING kun je ook een uitgebreide koppeling kiezen, waarmee je ook je zakelijke spaarrekening koppelt. SnelStart rekent daar niets voor, maar je bank kan dat wel doen.
-- **Moneybird**: je externe bank koppel je via Ponto, vanaf het pakket Groei. ABN AMRO, ING en Rabobank kunnen allemaal. Bij Rabobank lukt het alleen met Rabo Business Banking. Bij Compact en Start lees je je transacties zelf in.
-
 Bij de andere aanbieders zie je hierboven vanaf welk pakket de koppeling werkt.
+
+## SnelStart koppelen met de Rabobank
+
+De standaard bankkoppeling van SnelStart is gratis en zit in elk pakket, vanaf inOrde. Je maakt hem in een online administratie, in twee stappen:
+
+1. **Klantonderzoek.** SnelStart controleert eerst wie je bent. Zet vooraf je bedrijfsgegevens goed, zoals je KVK- en btw-nummer. De beoordeling duurt maximaal 7 werkdagen.
+2. **Koppeling activeren.** Daarna kies je je rekening. Transacties van vóór die dag haal je op met "historische transacties ophalen".
+
+Bij de Rabobank, ING en Knab kun je ook de uitgebreide koppeling van je bank kiezen. Daarmee koppel je ook je zakelijke spaarrekening. SnelStart rekent er niets voor, je bank misschien wel. ING en ABN AMRO werken met de standaard koppeling net zo. Let op: met een actieve koppeling kun je geen bankafschriften meer handmatig inlezen.
+
+## Moneybird: automatische bankkoppeling instellen
+
+Bij Moneybird koppel je je bank via Ponto, vanaf het pakket Groei. Ponto heeft een PSD2-vergunning van de Belgische Nationale Bank. Je gaat naar Instellingen > Bank > Rekeningen, klikt op "Toevoegen" en kiest "Koppel een bestaande rekening". Via Ponto kunnen onder meer ABN AMRO, ING en Rabobank. Bij de Rabobank lukt het alleen met Rabo Business Banking. Spaarrekeningen gaan via Ponto alleen bij Knab.
+
+De koppeling zit in je pakket. Wil je ook betalingen vanuit Moneybird starten, dan betaal je € 1 per rekening per maand en € 0,03 per betaling (excl. btw).
+
+## Elke 180 dagen opnieuw toestemming geven
+
+Een PSD2-koppeling blijft niet eeuwig staan. Bij de standaard koppeling van SnelStart geef je elke 180 dagen opnieuw toestemming; tien dagen vooraf krijg je een mail. Bij Moneybird verloopt de Ponto-koppeling bij veel banken na 180 dagen, en je krijgt 16, 7 en 1 dag vooraf een mail. Komen er geen transacties meer binnen? Dan is opnieuw toestemming geven vaak de oplossing. Dat duurt een paar minuten. De uitgebreide koppeling van je bank bij SnelStart hoef je niet te verlengen.
 
 ## Wat kost het echt?
 
@@ -82,12 +101,16 @@ Handmatig importeren is genoeg als je weinig transacties hebt, bijvoorbeeld een 
 
 ## Veelgestelde vragen
 
+### Wat is een bankkoppeling?
+
+Een verbinding tussen je boekhoudprogramma en je zakelijke rekening, waardoor je banktransacties automatisch in je administratie komen. Je hoeft dan geen bankbestanden meer te downloaden.
+
 ### Heeft SnelStart een koppeling met de Rabobank?
 
-Ja. De standaard bankkoppeling van SnelStart werkt met zakelijke betaalrekeningen bij de Rabobank, en zit gratis in je pakket. Wil je ook je zakelijke spaarrekening koppelen, dan kan dat met de uitgebreide koppeling van de Rabobank. Daar kan de bank kosten voor rekenen.
+Ja. De standaard bankkoppeling werkt met zakelijke betaalrekeningen bij de Rabobank en zit gratis in je pakket. Voor je spaarrekening kies je de uitgebreide koppeling van de Rabobank; daar kan de bank kosten voor rekenen.
 
 ### Heeft Moneybird een automatische bankkoppeling?
 
-Ja, vanaf het pakket Groei ({{p:moneybird/groei}}). Je koppelt je bank dan via Ponto, ook ABN AMRO, ING en Rabobank. De koppeling zit in je pakket. Bij Compact en Start lees je je banktransacties zelf in, of gebruik je de Moneybird Betaalrekening.
+Ja, vanaf het pakket Groei ({{p:moneybird/groei}}), via Ponto. Bij Compact en Start lees je je transacties zelf in, of gebruik je de Moneybird Betaalrekening.
 
 {{blok:cta bank=auto}}
