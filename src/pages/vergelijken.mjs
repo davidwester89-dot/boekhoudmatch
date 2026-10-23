@@ -57,7 +57,7 @@ const faq = [
   ['Wat is het goedkoopste boekhoudprogramma voor zzp\'ers?', `Gratis en heel goedkope pakketten, zoals Tellow Gratis, Rompslomp Starter en Moneybird Compact, hebben strenge limieten. Voor btw-aangifte en 5 facturen en 5 uitgaven per maand is ${goedkoopst.top.a.naam} ${goedkoopst.top.p.naam} (${e2(goedkoopst.top.prijs)} p/m) het goedkoopst. Stuur je maar af en toe een factuur? Dan is onze gratis <a href="/offerte-factuur-maken/">factuurtool</a> misschien genoeg.`],
   ['Waarom staat er soms “niet vermeld”?', 'De aanbieder noemt het niet op zijn site. We vullen niets zelf in. Vraag het na of probeer het in de proefperiode.'],
   ['Hoe vaak worden de prijzen gecontroleerd?', `Elke maand, door ons team. ${controleTekst} Is een prijswijziging al aangekondigd (zoals bij Rompslomp per 1 november 2026), dan rekenen we met de nieuwe prijs.`],
-  ['Telt commissie mee in de volgorde?', 'Nee. De tabel staat op alfabet en de situaties volgen een vaste regel op prijs en functies. Er staan nu geen partnerlinks op de site.'],
+  ['Telt commissie mee in de volgorde?', 'Nee. De tabel staat op alfabet en de situaties volgen een vaste regel op prijs en functies. Sommige knoppen naar aanbieders zijn partnerlinks; die worden bij de knoppen vermeld met één zin per blok en veranderen de volgorde nooit.'],
 ];
 
 const sel = (name, label, opts) => `<div class="field"><label for="f-${name}">${label}</label><select id="f-${name}" name="${name}">${opts.map(([v, t]) => `<option value="${v}">${t}</option>`).join('')}</select></div>`;

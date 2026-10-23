@@ -216,10 +216,14 @@ ${sourceList(['minimumloon_2026'], SOURCES)}
 <ul><li>19 oktober 2026: minimumloon 2026 (Rijksoverheid) en bankkoppelingen per bank (SnelStart, Moneybird) als bron toegevoegd.</li><li>11 oktober 2026: Informer MKB Basis aangepast naar € 34 p/m, zoals op informer.nl/prijzen staat.</li><li>10 oktober 2026: de energietools (einde salderen en thuisbatterij) en hun bronnen verwijderd; ze vielen buiten het zzp-thema.</li><li>10 oktober 2026: MoneyMonk toegevoegd (prijzen van moneymonk.nl). Alle prijzen opnieuw gecontroleerd; geen wijzigingen.</li><li>10 oktober 2026: Silvasoft toegevoegd als 9e aanbieder (prijzen en functies van silvasoft.nl).</li><li>9 oktober 2026: nieuw design en blog.</li><li>8 oktober 2026: eerste versie. Rompslomp: tarieven per 1 november 2026.</li></ul>`,
 };
 
+// Datum van de laatste inhoudelijke wijziging van /over/ (los van SITE.updated): lastmod in de sitemap.
+export const OVER_UPDATED = '2026-10-23';
+
 export const over = {
   path: '/over/',
+  updated: OVER_UPDATED,
   title: 'Over BoekhoudMatch: wie we zijn en hoe we werken',
-  description: 'Wie maakt BoekhoudMatch, hoe de boekhoudmatch de volgorde bepaalt en hoe we (later mogelijk) geld verdienen met duidelijk vermelde partnerlinks.',
+  description: 'Wie maakt BoekhoudMatch, hoe de boekhoudmatch de volgorde bepaalt en hoe we geld verdienen met duidelijk vermelde partnerlinks.',
   crumb: 'Over ons',
   body: `
 <h1>Over ${SITE.name}</h1>
@@ -245,7 +249,7 @@ ${METHODE_LIJST}
 <p>We verzinnen geen sterren, reviews of “meest gekozen”-labels. Je hebt geen account nodig en wat je invult, blijft in je eigen browser.</p>
 <p>De volledige rekenregels van de match staan <a href="/boekhoudprogramma-kiezen/#methode">bij de match</a>. Alle bronnen en controledatums staan op de <a href="/bronnen/">bronnenpagina</a>.</p>
 <h2>Hoe we geld verdienen</h2>
-<p>Nu verdienen we niets aan deze site. Later plaatsen we misschien partnerlinks: sluit je via zo'n link iets af, dan krijgen wij een vergoeding. Jouw prijs blijft gelijk. Zulke links worden bij de knoppen vermeld en hebben geen invloed op de volgorde.</p>
+<p>Bij sommige aanbieders staat een partnerlink (via het affiliatenetwerk Daisycon). Sluit je via zo'n link een abonnement af, dan krijgen wij een vergoeding. Jouw prijs blijft gelijk. Partnerlinks worden bij de knoppen vermeld met één zin per blok. Commissie telt nooit mee in de match of de volgorde.</p>
 <h2>Fout gezien?</h2>
 <p>Een verouderde prijs of een fout in een berekening? Mail naar <a href="mailto:${SITE.email}">${SITE.email}</a>. We passen het snel aan.</p>
 </div>`,
@@ -284,8 +288,12 @@ const gaHtml = `
 <h2>Jouw rechten</h2>
 <p>Je mag ons vragen welke gegevens we over je hebben, of die laten aanpassen of verwijderen. Mail ons daarvoor. Ben je het niet eens met hoe we met je gegevens omgaan, dan kun je een klacht indienen bij de <a href="https://www.autoriteitpersoonsgegevens.nl/" rel="noopener">Autoriteit Persoonsgegevens</a>.</p>`;
 
+// Datum van de laatste inhoudelijke wijziging van /privacy/ (los van SITE.updated): "Bijgewerkt op" en lastmod in de sitemap.
+export const PRIVACY_UPDATED = '2026-10-23';
+
 export const privacy = {
   path: '/privacy/',
+  updated: PRIVACY_UPDATED,
   title: 'Privacy en cookies | BoekhoudMatch',
   description: GA_ID
     ? 'Hoe BoekhoudMatch met je gegevens omgaat: tools werken in je browser en Google Analytics gebruiken we alleen met jouw toestemming.'
@@ -306,10 +314,10 @@ ${GA_ID ? gaHtml : '<h2 id="cookies">Cookies</h2>\n<p>We plaatsen op dit moment 
 <h2>Hosting</h2>
 <p>De site draait op GitHub Pages (GitHub, Inc.). GitHub verwerkt technische gegevens zoals je IP-adres om de site te tonen en te beveiligen; zie de <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">privacyverklaring van GitHub</a>. Wij ontvangen via GitHub geen bezoekersgegevens.</p>
 <h2>Partnerlinks</h2>
-<p>Klik je later op een vermelde partnerlink, dan kan die partij cookies plaatsen volgens haar eigen beleid.</p>
+<p>Partnerlinks worden bij de knoppen vermeld. Klik je erop, dan ga je via het affiliatenetwerk Daisycon naar de aanbieder. Daisycon plaatst op zijn eigen domein een cookie of klik-ID, om vast te leggen dat je via BoekhoudMatch kwam. Sluit je iets af, dan kunnen wij daardoor een vergoeding krijgen. Daisycon is zelf verantwoordelijk voor die gegevens; zie het <a href="https://daisycon.com/en/legal-information/privacy-policy/" rel="noopener">privacybeleid van Daisycon</a>.</p>
 <h2>Contact</h2>
 <p>Vragen? Mail naar <a href="mailto:${SITE.email}">${SITE.email}</a>.</p>
-<p>Bijgewerkt op ${fmtDate(SITE.updated)}.</p>
+<p>Bijgewerkt op ${fmtDate(PRIVACY_UPDATED)}.</p>
 </div>`,
 };
 

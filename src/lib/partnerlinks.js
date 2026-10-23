@@ -2,7 +2,15 @@
 // Alleen invullen als het partnerprogramma de link echt heeft goedgekeurd. Vorm: { url: 'https://…', netwerk: 'Daisycon' }.
 // De match en de volgorde lezen dit bestand NOOIT (zie test/cta.test.js). Een partnerlink krijgt geen label per knop maar één partnerzin per blok (partnerNoten)
 // en rel="nofollow sponsored noopener".
-export const PARTNERLINKS = {};
+// Daisycon, media BoekhoudMatch 436745: Jortt.nl (16611) en Moneybird NL (19080) goedgekeurd 23-10-2026.
+// Daisycon-trackinglink, deeplink /prijs/ (www.jortt.nl/prijs/).
+export const JORTT_DAISYCON = 'https://jf79.net/c/?si=16611&li=1713658&wi=436745&ws=&dl=prijs%2F';
+// Daisycon-trackinglink, homepage (geen deeplink mogelijk).
+export const MONEYBIRD_DAISYCON = 'https://bdt9.net/c/?si=19080&li=1819984&wi=436745&ws=';
+export const PARTNERLINKS = {
+  jortt: { url: JORTT_DAISYCON, netwerk: 'Daisycon' },
+  moneybird: { url: MONEYBIRD_DAISYCON, netwerk: 'Daisycon' },
+};
 
 /** Uitgaande link naar een aanbieder: partnerlink als die er is, anders de eigen site. */
 export function uitgaand(aanbieder, partnerlinks = PARTNERLINKS) {
