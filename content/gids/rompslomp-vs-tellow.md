@@ -1,9 +1,9 @@
 ---
 title: Rompslomp vs Tellow: prijzen en verschillen (2026)
 seo_title: Rompslomp vs Tellow 2026: prijs en limiet | BoekhoudMatch
-description: Rompslomp of Tellow? Gratis pakketten, prijzen, limieten en btw-aangifte naast elkaar, met de nieuwe Rompslomp-tarieven per 1 november 2026.
+description: Rompslomp vs Tellow tarieven 2026: betaald vanaf € 8,95 (Rompslomp, per 1 november) en € 12,99 (Tellow) per maand excl. btw, plus de gratis pakketten.
 crumb: Rompslomp vs Tellow
-updated: 2026-10-10
+updated: 2026-10-26
 vendors: rompslomp, tellow
 related:
 - Rompslomp: prijzen en pakketten | /rompslomp/
@@ -24,7 +24,7 @@ Rompslomp verandert per 1 november 2026 de tarieven. Wij rekenen met de nieuwe t
 
 Stuur je 3 facturen of minder, dan kost Tellow Gratis niets en Rompslomp Starter tot € 4,50. Stuur je meer, dan kun je bij Tellow niet verder met Gratis en loopt het bij Rompslomp per factuur op. Vanaf 6 facturen per maand is Rompslomp Puur Factuur ({{p:rompslomp/puur}}) goedkoper dan Starter. Meer in [gratis boekhoudprogramma](/gratis-boekhoudprogramma/).
 
-## Betaald: wat krijg je voor je geld?
+## Rompslomp en Tellow tarieven 2026: wat krijg je voor je geld?
 
 **Rompslomp** heeft vaste grenzen in de kleinere pakketten:
 
