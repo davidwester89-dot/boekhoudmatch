@@ -4,6 +4,7 @@ seo_title: Rompslomp vs Tellow 2026: prijs en limiet | BoekhoudMatch
 description: Rompslomp vs Tellow tarieven 2026: betaald vanaf € 8,95 (Rompslomp, per 1 november) en € 12,99 (Tellow) per maand excl. btw, plus de gratis pakketten.
 crumb: Rompslomp vs Tellow
 updated: 2026-10-26
+checked: 2026-10-26
 vendors: rompslomp, tellow
 related:
 - Rompslomp: prijzen en pakketten | /rompslomp/
