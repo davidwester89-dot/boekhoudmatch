@@ -7,7 +7,7 @@ import { networkFor } from './network.mjs';
 export const GA_ID = (process.env.GA_ID ?? GA_CONFIG).trim();
 if (GA_ID && !GA_ID_RE.test(GA_ID)) throw new Error(`Ongeldige GA_ID "${GA_ID}" (verwacht G-XXXXXXXXXX)`);
 // Content-Security-Policy: Google-domeinen alleen als Analytics aanstaat (gtag.js laadt pas na toestemming).
-const G = GA_ID ? { script: ' https://www.googletagmanager.com', connect: ' https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com', img: ' https://*.google-analytics.com https://www.googletagmanager.com' } : { script: '', connect: '', img: '' };
+const G = GA_ID ? { script: ' https://www.googletagmanager.com', connect: ' https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://www.google.com', img: ' https://*.google-analytics.com https://www.googletagmanager.com' } : { script: '', connect: '', img: '' };
 
 export const SITE = {
   name: 'BoekhoudMatch',
