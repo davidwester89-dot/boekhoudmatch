@@ -7,9 +7,13 @@
 export const JORTT_DAISYCON = 'https://jf79.net/c/?si=16611&li=1713658&wi=436745&ws=&dl=prijs%2F';
 // Daisycon-trackinglink, homepage (geen deeplink mogelijk).
 export const MONEYBIRD_DAISYCON = 'https://bdt9.net/c/?si=19080&li=1819984&wi=436745&ws=';
+// Awin, publisher Matchchecker 3145721: e-Boekhouden.nl (mid 101519) goedgekeurd 5-11-2026.
+// Awin-trackinglink, homepage (officiële link; geen zelfgemaakte deeplink).
+export const EBOEKHOUDEN_AWIN = 'https://www.awin1.com/cread.php?awinmid=101519&awinaffid=3145721&ued=https%3A%2F%2Fwww.e-boekhouden.nl%2F';
 export const PARTNERLINKS = {
   jortt: { url: JORTT_DAISYCON, netwerk: 'Daisycon' },
   moneybird: { url: MONEYBIRD_DAISYCON, netwerk: 'Daisycon' },
+  eboekhouden: { url: EBOEKHOUDEN_AWIN, netwerk: 'Awin' },
 };
 
 /** Uitgaande link naar een aanbieder: partnerlink als die er is, anders de eigen site. */

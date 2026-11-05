@@ -217,7 +217,7 @@ ${sourceList(['minimumloon_2026'], SOURCES)}
 };
 
 // Datum van de laatste inhoudelijke wijziging van /over/ (los van SITE.updated): lastmod in de sitemap.
-export const OVER_UPDATED = '2026-10-23';
+export const OVER_UPDATED = '2026-11-05';
 
 export const over = {
   path: '/over/',
@@ -249,7 +249,7 @@ ${METHODE_LIJST}
 <p>We verzinnen geen sterren, reviews of “meest gekozen”-labels. Je hebt geen account nodig en wat je invult, blijft in je eigen browser.</p>
 <p>De volledige rekenregels van de match staan <a href="/boekhoudprogramma-kiezen/#methode">bij de match</a>. Alle bronnen en controledatums staan op de <a href="/bronnen/">bronnenpagina</a>.</p>
 <h2>Hoe we geld verdienen</h2>
-<p>Bij sommige aanbieders staat een partnerlink (via het affiliatenetwerk Daisycon). Sluit je via zo'n link een abonnement af, dan krijgen wij een vergoeding. Jouw prijs blijft gelijk. Partnerlinks worden bij de knoppen vermeld met één zin per blok. Commissie telt nooit mee in de match of de volgorde.</p>
+<p>Bij sommige aanbieders staat een partnerlink (via het affiliatenetwerk Daisycon of Awin). Sluit je via zo'n link een abonnement af, dan krijgen wij een vergoeding. Jouw prijs blijft gelijk. Partnerlinks worden bij de knoppen vermeld met één zin per blok. Commissie telt nooit mee in de match of de volgorde.</p>
 <h2>Fout gezien?</h2>
 <p>Een verouderde prijs of een fout in een berekening? Mail naar <a href="mailto:${SITE.email}">${SITE.email}</a>. We passen het snel aan.</p>
 </div>`,
@@ -289,7 +289,7 @@ const gaHtml = `
 <p>Je mag ons vragen welke gegevens we over je hebben, of die laten aanpassen of verwijderen. Mail ons daarvoor. Ben je het niet eens met hoe we met je gegevens omgaan, dan kun je een klacht indienen bij de <a href="https://www.autoriteitpersoonsgegevens.nl/" rel="noopener">Autoriteit Persoonsgegevens</a>.</p>`;
 
 // Datum van de laatste inhoudelijke wijziging van /privacy/ (los van SITE.updated): "Bijgewerkt op" en lastmod in de sitemap.
-export const PRIVACY_UPDATED = '2026-10-23';
+export const PRIVACY_UPDATED = '2026-11-05';
 
 export const privacy = {
   path: '/privacy/',
@@ -314,7 +314,7 @@ ${GA_ID ? gaHtml : '<h2 id="cookies">Cookies</h2>\n<p>We plaatsen op dit moment 
 <h2>Hosting</h2>
 <p>De site draait op GitHub Pages (GitHub, Inc.). GitHub verwerkt technische gegevens zoals je IP-adres om de site te tonen en te beveiligen; zie de <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">privacyverklaring van GitHub</a>. Wij ontvangen via GitHub geen bezoekersgegevens.</p>
 <h2>Partnerlinks</h2>
-<p>Partnerlinks worden bij de knoppen vermeld. Klik je erop, dan ga je via het affiliatenetwerk Daisycon naar de aanbieder. Daisycon plaatst op zijn eigen domein een cookie en geeft een klik-ID door aan de aanbieder, om vast te leggen dat je via BoekhoudMatch kwam. Sluit je iets af, dan kunnen wij daardoor een vergoeding krijgen. Daisycon is zelf verantwoordelijk voor die gegevens; zie het <a href="https://daisycon.com/en/legal-information/privacy-policy/" rel="noopener">privacybeleid van Daisycon</a>.</p>
+<p>Partnerlinks worden bij de knoppen vermeld. Klik je erop, dan ga je via het affiliatenetwerk Daisycon of Awin naar de aanbieder. Daisycon of Awin plaatst op zijn eigen domein een cookie en geeft een klik-ID door aan de aanbieder, om vast te leggen dat je via BoekhoudMatch kwam. Sluit je iets af, dan kunnen wij daardoor een vergoeding krijgen. Daisycon en Awin zijn zelf verantwoordelijk voor die gegevens; zie het <a href="https://daisycon.com/en/legal-information/privacy-policy/" rel="noopener">privacybeleid van Daisycon</a> en het <a href="https://www.awin.com/nl/privacy" rel="noopener">privacybeleid van Awin</a>.</p>
 <h2>Contact</h2>
 <p>Vragen? Mail naar <a href="mailto:${SITE.email}">${SITE.email}</a>.</p>
 <p>Bijgewerkt op ${fmtDate(PRIVACY_UPDATED)}.</p>

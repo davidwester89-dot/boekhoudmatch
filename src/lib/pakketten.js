@@ -19,7 +19,7 @@ export const PAKKETTEN = [
     id: 'eboekhouden', naam: 'e-Boekhouden.nl', site: 'https://www.e-boekhouden.nl',
     bronnen: [{ url: 'https://www.e-boekhouden.nl/prijzen', titel: 'e-Boekhouden.nl – Prijzen' }],
     btwPrijzen: null, // prijspagina vermeldt niet of prijzen excl. of incl. btw zijn
-    rechtsvormen: null, eigenRekening: false, partner: 'Clicks.nu (eigen partnerprogramma)',
+    rechtsvormen: null, eigenRekening: false, partner: 'Awin',
     actie: 'Starters: 15 maanden gratis. Anderen: 12 maanden 50% korting (na 14 dagen proef, nieuwe klanten).',
     noot: 'Alle functies (bankkoppeling, btw-aangifte, offertes, uren) zitten volgens de prijspagina in elk pakket. Een boeking = elke mutatie (verkoop, inkoop, bank).',
     webshopkoppelingen: { gecontroleerd: '2026-10-16', shopify: 'ja', woocommerce: 'ja', lightspeed: 'ja', bol: 'ja', mollie: 'ja',
