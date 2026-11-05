@@ -9,6 +9,7 @@
 export const REDACTIE = {
   eboekhouden: {
     slug: 'e-boekhouden', kort: 'e-Boekhouden', logo: 'e-boekhouden', proef: 14,
+    bijgewerkt: '2026-11-05',
     sterk: 'Alle functies (bankkoppeling, btw-aangifte, offertes, uren) zitten in elk pakket.',
     zwak: 'Het ZZP-pakket heeft een grens van 240 boekingen per jaar; elke mutatie (verkoop, inkoop, bank) telt.',
     knelt: 'ZZP: max. 240 boekingen per jaar',
