@@ -1,8 +1,9 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
+import { execSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { aanbiederPages } from '../src/pages/aanbieder.mjs';
-import { gidsPages } from '../src/pages/gids.mjs';
+import { gidsPages, gidsHub } from '../src/pages/gids.mjs';
 import { postPage } from '../src/pages/blog.mjs';
 import uurtarief from '../src/pages/uurtarief.mjs';
 import vergelijken, { TEKST_UPDATED } from '../src/pages/vergelijken.mjs';
@@ -56,8 +57,11 @@ test('SEO 7-11: Moneybird beantwoordt "niet meer gratis"; SnelStart linkt naar d
   const mb = aanbiederPages.find((x) => x.path === '/moneybird/');
   assert.equal(mb.title, 'Moneybird niet meer gratis: prijzen 2026 | BoekhoudMatch');
   assert.ok(mb.title.length <= 60 && mb.description.length >= 70 && mb.description.length <= 155);
-  assert.match(mb.description, /Compact kost € 4,00 per maand, of € 3,00 bij jaarbetaling/);
-  assert.match(mb.description, /gecontroleerd op 10 oktober 2026/);
+  assert.match(mb.description, /Compact kost € 4,00 per maand, of € 3,00 bij jaarbetaling; btw niet vermeld/);
+  assert.doesNotMatch(mb.description, /excl\. btw|incl\. btw/);
+  assert.match(mb.description, /Gecontroleerd op 10 oktober 2026/);
+  assert.equal(mb.updated, '2026-10-19');
+  assert.equal(mb.schema.find((s) => s['@type'] === 'SoftwareApplication').dateModified, '2026-10-19');
   assert.match(mb.body, /<h2>Is Moneybird nog gratis\?<\/h2>[\s\S]*<h2>In het kort<\/h2>/);
   assert.equal((mb.body.match(/<h2>Is Moneybird nog gratis\?<\/h2>/g) || []).length, 1);
   assert.match(mb.body, /href="\/gratis-boekhoudprogramma\/">gratis boekhoudprogramma<\/a>/);
@@ -69,6 +73,8 @@ test('SEO 7-11: Moneybird beantwoordt "niet meer gratis"; SnelStart linkt naar d
   assert.equal(ss.title, 'SnelStart prijzen 2026: kosten per pakket | BoekhoudMatch');
   assert.equal((ss.body.match(/href="\/bankkoppeling-boekhoudprogramma\/">bankkoppeling per pakket<\/a>/g) || []).length, 1);
   assert.doesNotMatch(ss.title + ss.description, /Wat kost SnelStart/);
+  assert.equal(ss.updated, checked(PAKKETTEN.find((a) => a.id === 'snelstart')));
+  assert.notEqual(ss.updated, '2026-11-07');
 
   for (const slug of ['jortt', 'silvasoft', 'rompslomp', 'tellow', 'exact', 'informer']) {
     const p = aanbiederPages.find((x) => x.path === `/${slug}/`);
@@ -87,7 +93,10 @@ test('SEO 7-11: bankgids en Rompslomp vs Tellow, prijzen uit de bestaande data',
   assert.match(bank.body, /<strong><a href="\/moneybird\/">Moneybird<\/a><\/strong>/);
   assert.match(bank.body, /<h2 id="snelstart-koppelen-met-de-rabobank">/);
   assert.match(bank.body, /<h2 id="moneybird-automatische-bankkoppeling-instellen">/);
-  assert.equal(bank.updated, '2026-11-07');
+  assert.equal(bank.schema.find((s) => s['@type'] === 'Article').datePublished, '2026-10-23');
+  assert.equal(bank.schema.find((s) => s['@type'] === 'Article').dateModified, '2026-10-23');
+  assert.equal(bank.updated, '2026-10-23');
+  assert.equal(bank.stamp.updated, '2026-10-23');
 
   const vs = pages.find((p) => p.path === '/rompslomp-vs-tellow/');
   assert.equal(vs.title, 'Rompslomp tarieven 2026 vs Tellow | BoekhoudMatch');
@@ -98,8 +107,43 @@ test('SEO 7-11: bankgids en Rompslomp vs Tellow, prijzen uit de bestaande data',
   const h2 = [...vs.body.matchAll(/<h2 id="[^"]+">([^<]+)<\/h2>/g)].map((m) => m[1]);
   assert.equal(h2[0], 'Rompslomp en Tellow tarieven 2026: wat krijg je voor je geld?');
   assert.equal(h2[1], 'Gratis: Starter tegen Gratis');
-  assert.equal(vs.updated, '2026-11-07');
+  assert.equal(vs.schema.find((s) => s['@type'] === 'Article').datePublished, '2026-10-26');
+  assert.equal(vs.schema.find((s) => s['@type'] === 'Article').dateModified, '2026-10-26');
+  assert.equal(vs.updated, '2026-10-26');
+  assert.equal(vs.stamp.updated, '2026-10-26');
   assert.equal(vs.stamp.checked, '2026-10-26');
+});
+
+test('SEO-herstel: datePublished van bestaande gidsen blijft de basis van main', () => {
+  const basePublished = (file) => {
+    const src = execSync(`git show main:${file}`, { encoding: 'utf8' });
+    const published = (src.match(/^published:\s*(\d{4}-\d{2}-\d{2})/m) || [])[1];
+    const updated = (src.match(/^updated:\s*(\d{4}-\d{2}-\d{2})/m) || [])[1];
+    return published || updated;
+  };
+  for (const [file, path] of [
+    ['content/gids/bankkoppeling-boekhoudprogramma.md', '/bankkoppeling-boekhoudprogramma/'],
+    ['content/gids/rompslomp-vs-tellow.md', '/rompslomp-vs-tellow/'],
+  ]) {
+    const page = gidsPages().find((p) => p.path === path);
+    const article = page.schema.find((s) => s['@type'] === 'Article');
+    const basis = basePublished(file);
+    assert.equal(article.datePublished, basis, path);
+    assert.match(readFileSync(file, 'utf8'), new RegExp(`^published: ${basis}$`, 'm'));
+    assert.doesNotMatch(readFileSync(file, 'utf8'), /^updated: 2026-11-07$/m);
+    assert.equal(article.dateModified, page.updated);
+  }
+  assert.match(readFileSync('src/pages/gids.mjs', 'utf8'), /datePublished: meta\.published \|\| meta\.updated/);
+});
+
+test('SEO-herstel: /gidsen/ lastmod, zichtbare datum en dateModified zijn de nieuwste gids', () => {
+  const gidsen = gidsPages();
+  const hub = gidsHub(gidsen);
+  const laatste = gidsen.map((p) => p.updated).filter(Boolean).sort().at(-1);
+  assert.equal(hub.updated, laatste);
+  assert.equal(hub.stamp.updated, laatste);
+  assert.equal(hub.schema.find((s) => s['@type'] === 'CollectionPage').dateModified, laatste);
+  assert.notEqual(laatste, '2026-11-07');
 });
 
 test('Geen layoutverschuiving: cookiemelding fixed zonder body-padding; skiplink 48px; match-intro max. 1 regel', () => {

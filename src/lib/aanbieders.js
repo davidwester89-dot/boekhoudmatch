@@ -19,8 +19,8 @@ export const REDACTIE = {
   moneybird: {
     slug: 'moneybird', kort: 'Moneybird', logo: 'moneybird', proef: 60,
     // Vraag uit Search Console ('moneybird niet meer gratis'). Bron: moneybird.nl/prijzen, gecontroleerd 19-10-2026. {{p:pakket}} = maandprijs, {{pj:pakket}} = prijs p/m bij jaarbetaling (uit pakketten.js).
-    // 7-11-2026: title, meta en interne links. Prijzen niet opnieuw gecontroleerd; bedragen blijven uit pakketten.js. Bevriezing doorbroken, zie content/seo-log/2026-11-07-freeze-uitzondering.md.
-    bijgewerkt: '2026-11-07',
+    // Title en meta staan in de werkboom sinds 7-11. Dave gaf die dag eerst een freeze-uitzondering (f876c04) en trok die daarna in. De uitzondering geldt niet. bijgewerkt blijft 2026-10-19 tot de werkelijke publicatiedag; die datum dan zetten en opnieuw laten reviewen. Prijzen en checked niet ververst.
+    bijgewerkt: '2026-10-19',
     faq: [['Is Moneybird nog gratis?', 'Nee, Moneybird heeft geen gratis pakket. Het kleinste pakket is Compact: {{p:compact}} per maand, of {{pj:compact}} per maand bij jaarbetaling. Wel kun je Moneybird 60 dagen onbeperkt proberen en daarna een betaald pakket kiezen.']],
     sterk: 'Btw-aangifte direct indienen vanaf Start; eenmanszaak, vof en bv worden genoemd.',
     zwak: 'Je externe bank automatisch koppelen kan pas vanaf Groei.',
@@ -62,8 +62,7 @@ export const REDACTIE = {
   },
   snelstart: {
     slug: 'snelstart', kort: 'SnelStart', logo: 'snelstart', proef: 30,
-    // 7-11-2026: alleen een link naar de bankgids. Geen titel en geen kosten-deep-dive; die hoort bij de geplande E6-verdieping.
-    bijgewerkt: '2026-11-07',
+    // Alleen een link naar de bankgids. Geen bijgewerkt: nog niet gepubliceerd. Zet de datum op de werkelijke publicatiedag en laat opnieuw reviewen. De freeze-uitzondering van 7-11 is ingetrokken.
     sterk: 'inOrde en inStap zijn gemaakt voor samenwerking met je eigen boekhouder.',
     zwak: 'Urenregistratie staat niet op de pakkettenpagina.',
     knelt: 'inOrde: alleen via een boekhouder die met SnelStart werkt',

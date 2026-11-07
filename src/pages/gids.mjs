@@ -128,13 +128,15 @@ const GROEP = (slug) => (/-vs-/.test(slug) ? 'Twee aanbieders naast elkaar' : /^
 export function gidsHub(gidsen) {
   const groepen = ['Kiezen voor jouw situatie', 'Twee aanbieders naast elkaar', 'Uitleg bij het kiezen'];
   const lijst = (g) => gidsen.filter((p) => GROEP(p.path.slice(1, -1)) === g).map((p) => `<li><a href="${p.path}"><strong>${esc(p.ogTitle)}</strong></a></li>`).join('');
+  // Sitemap-lastmod, zichtbare datum en dateModified: dezelfde nieuwste gids-updated. Niet CHECKED en niet een vaste dag.
+  const laatste = gidsen.map((p) => p.updated).filter(Boolean).sort().at(-1) || CHECKED;
   return {
-    path: '/gidsen/', title: 'Gidsen over boekhoudprogramma\'s voor zzp | BoekhoudMatch', description: `Gidsen bij het kiezen van een boekhoudprogramma: per rechtsvorm, gratis, starters, btw, bank, KOR en uren. Prijzen gecontroleerd op ${fmtDate(CHECKED)}.`, crumb: 'Gidsen', og: 'vergelijken', updated: CHECKED, stamp: { updated: gidsen.map((p) => p.updated).sort().at(-1) },
+    path: '/gidsen/', title: 'Gidsen over boekhoudprogramma\'s voor zzp | BoekhoudMatch', description: `Gidsen bij het kiezen van een boekhoudprogramma: per rechtsvorm, gratis, starters, btw, bank, KOR en uren. Prijzen gecontroleerd op ${fmtDate(CHECKED)}.`, crumb: 'Gidsen', og: 'vergelijken', updated: laatste, stamp: { updated: laatste },
     body: `<section class="article"><h1>Gidsen: boekhoudprogramma kiezen</h1>
 <p class="lead">Korte gidsen om het juiste boekhoudprogramma te kiezen. Door <a href="/over/">Redactie BoekhoudMatch</a>.</p>
 ${groepen.map((g) => `<h2>${g}</h2><ul class="gidslijst">${lijst(g)}</ul>`).join('\n')}
 <aside class="cta"><h2>Liever meteen kiezen?</h2><ul><li><a href="/boekhoudprogramma-kiezen/">Doe de match →</a></li><li><a href="/boekhoudprogramma-vergelijken/">Vergelijk alle ${N_PAK} pakketten →</a></li></ul></aside>
 </section>`,
-    schema: [{ '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Gidsen: boekhoudprogramma kiezen', url: SITE.domain + '/gidsen/', inLanguage: 'nl-NL', hasPart: gidsen.map((p) => ({ '@type': 'Article', headline: p.ogTitle, url: SITE.domain + p.path })) }],
+    schema: [{ '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Gidsen: boekhoudprogramma kiezen', url: SITE.domain + '/gidsen/', dateModified: laatste, inLanguage: 'nl-NL', hasPart: gidsen.map((p) => ({ '@type': 'Article', headline: p.ogTitle, url: SITE.domain + p.path })) }],
   };
 }

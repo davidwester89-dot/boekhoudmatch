@@ -85,7 +85,7 @@ ${matchCta('bottom', { tekst: `Twijfel je over ${r.kort}? Doe de match` })}
   const titelStandaard = `${r.kort} prijzen 2026: kosten per pakket | BoekhoudMatch`; // max. 60 tekens, anders korter
   const titel = a.id === 'moneybird' ? 'Moneybird niet meer gratis: prijzen 2026 | BoekhoudMatch' : titelStandaard;
   const description = a.id === 'moneybird'
-    ? `Nee, Moneybird is niet meer gratis. Compact kost ${e2(pl('compact').prijs)} per maand, of ${e2(pl('compact').prijsJaar)} bij jaarbetaling. ${a.plannen.length} pakketten, gecontroleerd op ${fmtDate(c)}.`
+    ? `Nee, Moneybird is niet meer gratis. Compact kost ${e2(pl('compact').prijs)} per maand, of ${e2(pl('compact').prijsJaar)} bij jaarbetaling; ${btwNoot(a)}. Gecontroleerd op ${fmtDate(c)}.`
     : `${r.kort}: ${a.plannen.length} pakketten, ${v.prijs === 0 ? 'ook een gratis pakket' : `vanaf ${e2(v.prijs)} p/m`}. Prijs, limieten, btw-aangifte en bankkoppeling per pakket, gecontroleerd op ${fmtDate(c)}.`;
   return {
     path, title: a.id === 'moneybird' || titel.length <= 60 ? titel : `${r.kort} prijzen 2026 | BoekhoudMatch`, ogTitle: `${a.naam}: prijzen en pakketten`, og: existsSync(`src/assets/og/vendor-${r.slug}.png`) ? `vendor-${r.slug}` : 'vergelijken',
