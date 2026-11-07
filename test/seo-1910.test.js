@@ -1,7 +1,9 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { execSync } from 'node:child_process';
-import { readFileSync } from 'node:fs';
+import { spawnSync } from 'node:child_process';
+import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import { aanbiederPages } from '../src/pages/aanbieder.mjs';
 import { gidsPages, gidsHub } from '../src/pages/gids.mjs';
 import { postPage } from '../src/pages/blog.mjs';
@@ -53,10 +55,12 @@ test('Vergelijken: controledatum = echte laatste controle uit de data, ook in FA
   assert.match(a, /11 oktober 2026/);
 });
 
-test('SEO 7-11: Moneybird beantwoordt "niet meer gratis"; SnelStart linkt naar de bankgids; controle en Jortt blijven', () => {
+test('SEO 7-11: Moneybird zegt geen gratis pakket; SnelStart linkt naar de bankgids; controle en Jortt blijven', () => {
   const mb = aanbiederPages.find((x) => x.path === '/moneybird/');
-  assert.equal(mb.title, 'Moneybird niet meer gratis: prijzen 2026 | BoekhoudMatch');
+  assert.equal(mb.title, 'Is Moneybird nog gratis? Geen gratis pakket | BoekhoudMatch');
   assert.ok(mb.title.length <= 60 && mb.description.length >= 70 && mb.description.length <= 155);
+  assert.match(mb.description, /geen gratis pakket/);
+  assert.doesNotMatch(mb.title + mb.description, /niet meer gratis/);
   assert.match(mb.description, /Compact kost € 4,00 per maand, of € 3,00 bij jaarbetaling; btw niet vermeld/);
   assert.doesNotMatch(mb.description, /excl\. btw|incl\. btw/);
   assert.match(mb.description, /Gecontroleerd op 10 oktober 2026/);
@@ -65,7 +69,7 @@ test('SEO 7-11: Moneybird beantwoordt "niet meer gratis"; SnelStart linkt naar d
   assert.match(mb.body, /<h2>Is Moneybird nog gratis\?<\/h2>[\s\S]*<h2>In het kort<\/h2>/);
   assert.equal((mb.body.match(/<h2>Is Moneybird nog gratis\?<\/h2>/g) || []).length, 1);
   assert.match(mb.body, /href="\/gratis-boekhoudprogramma\/">gratis boekhoudprogramma<\/a>/);
-  assert.match(mb.body, /vanaf Groei \(€ 35,00 per maand\)[\s\S]*href="\/bankkoppeling-boekhoudprogramma\/">bankkoppeling per pakket<\/a>/);
+  assert.match(mb.body, /vanaf Groei \(€ 35,00 per maand; btw niet vermeld\)[\s\S]*href="\/bankkoppeling-boekhoudprogramma\/">bankkoppeling per pakket<\/a>/);
   const faq = mb.schema.find((s) => s['@type'] === 'FAQPage');
   assert.doesNotMatch(faq.mainEntity[0].acceptedAnswer.text, /<[a-z]/);
 
@@ -99,11 +103,15 @@ test('SEO 7-11: bankgids en Rompslomp vs Tellow, prijzen uit de bestaande data',
   assert.equal(bank.stamp.updated, '2026-10-23');
 
   const vs = pages.find((p) => p.path === '/rompslomp-vs-tellow/');
-  assert.equal(vs.title, 'Rompslomp tarieven 2026 vs Tellow | BoekhoudMatch');
+  assert.equal(vs.title, 'Rompslomp vs Tellow: tarieven 2026 | BoekhoudMatch');
+  assert.match(vs.title, /Rompslomp vs Tellow/);
   assert.ok(vs.title.length <= 60 && vs.description.length >= 70 && vs.description.length <= 155, `${vs.title.length} / ${vs.description.length}`);
-  assert.match(vs.description, /€ 8,95/);
+  assert.match(vs.description, /betaald vanaf € 8,95/);
   assert.match(vs.description, /€ 12,99/);
-  assert.match(vs.body, /Puur Factuur € 8,95 per maand en Tellow Basis € 12,99/);
+  assert.match(vs.description, /gratis pakket/);
+  assert.match(vs.body, /betaalde pakket Rompslomp Puur Factuur € 8,95 per maand en Tellow Basis € 12,99/);
+  assert.match(vs.body, /niet opnieuw gecontroleerd/);
+  assert.doesNotMatch(vs.body, /omdat je die na 1 november betaalt/);
   const h2 = [...vs.body.matchAll(/<h2 id="[^"]+">([^<]+)<\/h2>/g)].map((m) => m[1]);
   assert.equal(h2[0], 'Rompslomp en Tellow tarieven 2026: wat krijg je voor je geld?');
   assert.equal(h2[1], 'Gratis: Starter tegen Gratis');
@@ -114,26 +122,62 @@ test('SEO 7-11: bankgids en Rompslomp vs Tellow, prijzen uit de bestaande data',
   assert.equal(vs.stamp.checked, '2026-10-26');
 });
 
-test('SEO-herstel: datePublished van bestaande gidsen blijft de basis van main', () => {
-  const basePublished = (file) => {
-    const src = execSync(`git show main:${file}`, { encoding: 'utf8' });
-    const published = (src.match(/^published:\s*(\d{4}-\d{2}-\d{2})/m) || [])[1];
-    const updated = (src.match(/^updated:\s*(\d{4}-\d{2}-\d{2})/m) || [])[1];
-    return published || updated;
-  };
-  for (const [file, path] of [
-    ['content/gids/bankkoppeling-boekhoudprogramma.md', '/bankkoppeling-boekhoudprogramma/'],
-    ['content/gids/rompslomp-vs-tellow.md', '/rompslomp-vs-tellow/'],
-  ]) {
-    const page = gidsPages().find((p) => p.path === path);
+// Vastgelegd uit main 7de0026af46609b051eb3ca54f8235b9d495917c.
+// Daar ontbrak `published`; Article datePublished was het veld `updated`.
+const HISTORISCHE_PUBLICATIE = {
+  'content/gids/bankkoppeling-boekhoudprogramma.md': '2026-10-23',
+  'content/gids/rompslomp-vs-tellow.md': '2026-10-26',
+};
+
+test('SEO-herstel: datePublished blijft de vastgelegde historische datum', () => {
+  for (const [file, datum] of Object.entries(HISTORISCHE_PUBLICATIE)) {
+    const slug = file.split('/').pop().replace(/\.md$/, '');
+    const page = gidsPages().find((p) => p.path === `/${slug}/`);
     const article = page.schema.find((s) => s['@type'] === 'Article');
-    const basis = basePublished(file);
-    assert.equal(article.datePublished, basis, path);
-    assert.match(readFileSync(file, 'utf8'), new RegExp(`^published: ${basis}$`, 'm'));
-    assert.doesNotMatch(readFileSync(file, 'utf8'), /^updated: 2026-11-07$/m);
+    assert.equal(article.datePublished, datum, slug);
+    assert.match(readFileSync(file, 'utf8'), new RegExp(`^published: ${datum}$`, 'm'));
     assert.equal(article.dateModified, page.updated);
+    assert.notEqual(page.updated, '2026-11-07');
   }
   assert.match(readFileSync('src/pages/gids.mjs', 'utf8'), /datePublished: meta\.published \|\| meta\.updated/);
+});
+
+test('SEO-herstel: publicatiedatumtest heeft geen main-ref nodig in een detached shallow repo', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'bm-shallow-'));
+  const git = (args) => {
+    const r = spawnSync('git', args, { cwd: dir, encoding: 'utf8' });
+    assert.equal(r.status, 0, `${args.join(' ')}\n${r.stderr}`);
+    return r;
+  };
+  git(['init', '-q', '-b', 'tijdelijk']);
+  writeFileSync(join(dir, 'a.txt'), 'x\n');
+  git(['add', 'a.txt']);
+  git(['-c', 'user.email=test@example.com', '-c', 'user.name=test', 'commit', '-q', '-m', 'x']);
+  git(['checkout', '-q', '--detach']);
+  git(['branch', '-D', 'tijdelijk']);
+  const head = git(['rev-parse', 'HEAD']).stdout.trim();
+  writeFileSync(join(dir, '.git', 'shallow'), `${head}\n`);
+  const mainRef = spawnSync('git', ['rev-parse', '--verify', 'main'], { cwd: dir, encoding: 'utf8' });
+  assert.notEqual(mainRef.status, 0, mainRef.stderr);
+  const shallow = spawnSync('git', ['rev-parse', '--is-shallow-repository'], { cwd: dir, encoding: 'utf8' });
+  assert.equal(shallow.status, 0, shallow.stderr);
+  assert.equal(shallow.stdout.trim(), 'true');
+  const child = spawnSync(process.execPath, ['--input-type=module', '-e', `
+    import { gidsPages } from './src/pages/gids.mjs';
+    const verwacht = ${JSON.stringify(HISTORISCHE_PUBLICATIE)};
+    const pages = gidsPages();
+    for (const [file, datum] of Object.entries(verwacht)) {
+      const slug = file.split('/').pop().replace(/\\.md$/, '');
+      const page = pages.find((p) => p.path === '/' + slug + '/');
+      const article = page.schema.find((s) => s['@type'] === 'Article');
+      if (!page || article.datePublished !== datum) {
+        console.error('datum', slug, article && article.datePublished);
+        process.exit(1);
+      }
+    }
+  `], { cwd: process.cwd(), env: { ...process.env, GIT_DIR: join(dir, '.git'), GIT_WORK_TREE: dir }, encoding: 'utf8' });
+  assert.equal(child.status, 0, `${child.stdout}\n${child.stderr}`);
+  rmSync(dir, { recursive: true, force: true });
 });
 
 test('SEO-herstel: /gidsen/ lastmod, zichtbare datum en dateModified zijn de nieuwste gids', () => {

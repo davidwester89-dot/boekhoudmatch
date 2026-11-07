@@ -51,7 +51,7 @@ export const aanbiederPages = PAKKETTEN.map((a) => {
   const faq = (r.faq || []).map(([q, x]) => [q, x.replace(/\{\{p:([a-z-]+)\}\}/g, (_, id) => e2(pl(id).prijs)).replace(/\{\{pj:([a-z-]+)\}\}/g, (_, id) => e2(pl(id).prijsJaar))]);
   const faqHtml = faq.map(([q, ans]) => `<h2>${esc(q)}</h2>\n<p>${ans}</p>`).join('\n');
   // Alleen deze twee pagina's. Bedragen komen uit pakketten.js. Geen partnerlink en geen andere aanbieder.
-  const naGratis = a.id === 'moneybird' ? `<p>Zoek je een pakket zonder maandprijs, zie <a href="/gratis-boekhoudprogramma/">gratis boekhoudprogramma</a>. Je externe bank koppelen kan vanaf Groei (${e2(pl('groei').prijs)} per maand). De stappen staan bij <a href="/bankkoppeling-boekhoudprogramma/">bankkoppeling per pakket</a>.</p>` : '';
+  const naGratis = a.id === 'moneybird' ? `<p>Zoek je een pakket zonder maandprijs, zie <a href="/gratis-boekhoudprogramma/">gratis boekhoudprogramma</a>. Je externe bank koppelen kan vanaf Groei (${e2(pl('groei').prijs)} per maand; ${btwNoot(a)}). De stappen staan bij <a href="/bankkoppeling-boekhoudprogramma/">bankkoppeling per pakket</a>.</p>` : '';
   const naTabel = a.id === 'snelstart' ? `\n<p>Elk SnelStart-pakket in deze lijst heeft een bankkoppeling. De stappen voor de Rabobank staan bij <a href="/bankkoppeling-boekhoudprogramma/">bankkoppeling per pakket</a>.</p>` : '';
   const body = `
 <h1>${esc(a.naam)}: prijzen en pakketten (2026)</h1>
@@ -83,9 +83,9 @@ ${vsVoor(r.slug).map((g) => `<p>Twijfel je tussen ${esc(r.kort)} en ${esc(g.ande
 ${matchCta('bottom', { tekst: `Twijfel je over ${r.kort}? Doe de match` })}
 {{related}}`;
   const titelStandaard = `${r.kort} prijzen 2026: kosten per pakket | BoekhoudMatch`; // max. 60 tekens, anders korter
-  const titel = a.id === 'moneybird' ? 'Moneybird niet meer gratis: prijzen 2026 | BoekhoudMatch' : titelStandaard;
+  const titel = a.id === 'moneybird' ? 'Is Moneybird nog gratis? Geen gratis pakket | BoekhoudMatch' : titelStandaard;
   const description = a.id === 'moneybird'
-    ? `Nee, Moneybird is niet meer gratis. Compact kost ${e2(pl('compact').prijs)} per maand, of ${e2(pl('compact').prijsJaar)} bij jaarbetaling; ${btwNoot(a)}. Gecontroleerd op ${fmtDate(c)}.`
+    ? `Nee, Moneybird heeft geen gratis pakket. Compact kost ${e2(pl('compact').prijs)} per maand, of ${e2(pl('compact').prijsJaar)} bij jaarbetaling; ${btwNoot(a)}. Gecontroleerd op ${fmtDate(c)}.`
     : `${r.kort}: ${a.plannen.length} pakketten, ${v.prijs === 0 ? 'ook een gratis pakket' : `vanaf ${e2(v.prijs)} p/m`}. Prijs, limieten, btw-aangifte en bankkoppeling per pakket, gecontroleerd op ${fmtDate(c)}.`;
   return {
     path, title: a.id === 'moneybird' || titel.length <= 60 ? titel : `${r.kort} prijzen 2026 | BoekhoudMatch`, ogTitle: `${a.naam}: prijzen en pakketten`, og: existsSync(`src/assets/og/vendor-${r.slug}.png`) ? `vendor-${r.slug}` : 'vergelijken',

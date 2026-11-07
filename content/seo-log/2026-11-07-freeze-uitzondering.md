@@ -14,9 +14,9 @@ Dave heeft die toestemming daarna ingetrokken. De uitzondering is niet meer geld
 
 ## Tekst die in de werkboom staat
 
-- `/moneybird/`: title en meta. De meta noemt Compact € 4,00 per maand en € 3,00 bij jaarbetaling, met de btw-basis uit de data: btw niet vermeld. Controledatum in de meta blijft 10 oktober 2026. `bijgewerkt` blijft 2026-10-19.
+- `/moneybird/`: de title stelt de vraag en antwoordt met „geen gratis pakket”. De meta noemt Compact € 4,00 per maand en € 3,00 bij jaarbetaling, met btw niet vermeld. De zin over Groei noemt € 35,00 per maand met dezelfde btw-basis. Geen claim dat het pakket eerder gratis was. Controledatum blijft 10 oktober 2026. `bijgewerkt` blijft 2026-10-19.
 - `/bankkoppeling-boekhoudprogramma/`: title, meta, en een link van de Moneybird-regel naar `/moneybird/`. Geen nieuw bedrag.
-- `/rompslomp-vs-tellow/`: title, meta, en een openingszin met `{{p:}}`. `checked` blijft 2026-10-26.
+- `/rompslomp-vs-tellow/`: title houdt „Rompslomp vs Tellow”. De meta zegt betaald vanaf € 8,95 en € 12,99, en noemt het gratis pakket. De openingszin beperkt die bedragen tot de gegevens van 26 oktober 2026 en zegt dat de prijspagina na 1 november niet opnieuw is gecontroleerd. `checked` blijft 2026-10-26.
 - `/snelstart/`: één link naar de bankgids. Geen `bijgewerkt`.
 - `/gidsen/`: sitemap-lastmod, zichtbare datum en `dateModified` gebruiken dezelfde nieuwste `updated` van de gidsen. Dat gat zat al op main (lastmod 2026-10-10, zichtbare datum de nieuwste gids).
 
