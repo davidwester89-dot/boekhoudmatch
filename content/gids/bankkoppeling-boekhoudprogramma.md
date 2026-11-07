@@ -1,9 +1,9 @@
 ---
 title: Bankkoppeling in je boekhoudprogramma: wel of niet?
-seo_title: Bankkoppeling boekhoudprogramma: nodig? | BoekhoudMatch
-description: Heb je een automatische bankkoppeling nodig? Per aanbieder vanaf welk pakket het kan, wat het extra kost en wanneer handmatig importeren genoeg is.
+seo_title: Bankkoppeling boekhoudprogramma: per pakket | BoekhoudMatch
+description: Automatische bankkoppeling of zelf importeren? SnelStart koppelt de Rabobank in elk pakket, Moneybird vanaf Groei. Per aanbieder wat het extra kost.
 crumb: Bankkoppeling
-updated: 2026-10-23
+updated: 2026-11-07
 vendors: moneybird, informer, silvasoft, moneymonk, rompslomp
 sources:
 - SnelStart Kennisplein: een bankkoppeling maken | https://kennisplein.snelstart.nl/klanten/s/article/de-nieuwe-generatie-bankkoppeling-via-psd2
@@ -32,7 +32,7 @@ Een koppeling scheelt je per maand een paar handelingen. Het verwerken zelf, dus
 - **Exact**: in alle drie de pakketten die we vergelijken. Online Boekhouden Essentials noemt 1 bankkoppeling.
 - **Informer**: automatische koppeling met je eigen bank kost € 1 per maand per rekening. Met de eigen Informer Money-rekening zijn er volgens Informer geen vaste kosten.
 - **Jortt**: in ZZP ({{p:jortt/zzp}}) 1 bankkoppeling; MKB en Plus ook met koppeling. Starter: importeren.
-- **Moneybird**: je externe bank koppelen kan vanaf Groei ({{p:moneybird/groei}}). Bij Compact en Start importeer je zelf, of gebruik je de Moneybird Betaalrekening (eerste 12 maanden gratis, daarna € 7 per maand).
+- **[Moneybird](/moneybird/)**: je externe bank koppelen kan vanaf Groei ({{p:moneybird/groei}}). Bij Compact en Start importeer je zelf, of gebruik je de Moneybird Betaalrekening (eerste 12 maanden gratis, daarna € 7 per maand).
 - **[MoneyMonk](/moneymonk/)**: een gratis PSD2-bankkoppeling voor al je bankrekeningen, in elk pakket.
 - **Rompslomp**: automatisch vanaf Basic ({{p:rompslomp/basic}}). Bij Starter en Puur Factuur importeer je zelf.
 - **Silvasoft**: automatische koppeling met alle Nederlandse banken voor € 3 per bankrekening per maand. Importeren via een MT940-bestand zit erin.

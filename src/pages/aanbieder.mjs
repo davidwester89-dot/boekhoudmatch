@@ -49,21 +49,25 @@ export const aanbiederPages = PAKKETTEN.map((a) => {
   const prijzen = a.plannen.map((p) => p.prijs).filter((x) => x > 0);
   const pl = (id) => { const x = a.plannen.find((q) => q.id === id); if (!x) throw new Error(`Onbekend pakket ${a.id}/${id}`); return x; };
   const faq = (r.faq || []).map(([q, x]) => [q, x.replace(/\{\{p:([a-z-]+)\}\}/g, (_, id) => e2(pl(id).prijs)).replace(/\{\{pj:([a-z-]+)\}\}/g, (_, id) => e2(pl(id).prijsJaar))]);
+  const faqHtml = faq.map(([q, ans]) => `<h2>${esc(q)}</h2>\n<p>${ans}</p>`).join('\n');
+  // Alleen deze twee pagina's. Bedragen komen uit pakketten.js. Geen partnerlink en geen andere aanbieder.
+  const naGratis = a.id === 'moneybird' ? `<p>Zoek je een pakket zonder maandprijs, zie <a href="/gratis-boekhoudprogramma/">gratis boekhoudprogramma</a>. Je externe bank koppelen kan vanaf Groei (${e2(pl('groei').prijs)} per maand). De stappen staan bij <a href="/bankkoppeling-boekhoudprogramma/">bankkoppeling per pakket</a>.</p>` : '';
+  const naTabel = a.id === 'snelstart' ? `\n<p>Elk SnelStart-pakket in deze lijst heeft een bankkoppeling. De stappen voor de Rabobank staan bij <a href="/bankkoppeling-boekhoudprogramma/">bankkoppeling per pakket</a>.</p>` : '';
   const body = `
 <h1>${esc(a.naam)}: prijzen en pakketten (2026)</h1>
 <p class="lead">${esc(r.kort)} heeft ${a.plannen.length} pakketten${prijzen.length ? `, van ${e2(Math.min(...prijzen))} tot ${e2(Math.max(...prijzen))} per maand` : ''}.</p>
 <p class="post-meta">Door <a href="/over/">Redactie BoekhoudMatch</a> · <a href="/boekhoudprogramma-kiezen/#methode">Hoe we vergelijken</a></p>
 ${matchCta('top', { tekst: `Past ${r.kort} bij jou? Doe de match`, href: `/boekhoudprogramma-kiezen/?aanbieder=${a.id}`, sub: '' })}
 <p><a href="/boekhoudprogramma-vergelijken/">Vergelijk met ${N_AANB - 1} andere aanbieders →</a></p>
-
+${a.id === 'moneybird' ? `${faqHtml}\n${naGratis}\n` : ''}
 <h2>In het kort</h2>
 <div class="vhead big">${logo(a, false)}</div>
 <dl class="vfacts wide"><dt>Vanaf</dt><dd>${v.prijs === 0 ? 'gratis' : `${e2(v.prijs)} p/m`} (${esc(v.naam)}${v.perFactuur ? `, ${e2(v.perFactuur)} per factuur` : ''})</dd><dt>Limiet die vaak knelt</dt><dd>${esc(r.knelt)}</dd><dt>Sterk</dt><dd>${esc(r.sterk)}</dd><dt>Zwak</dt><dd>${esc(r.zwak)}</dd><dt>Gratis proberen</dt><dd>${r.proef ? `${r.proef} dagen` : UNK}</dd>${a.actie ? `<dt>Actie</dt><dd>${esc(a.actie)}</dd>` : ''}</dl>
 
 <h2>Pakketten en prijzen</h2>
-${pakketTabel(a)}
+${pakketTabel(a)}${naTabel}
 <details><summary>Goed om te weten</summary><p>${esc(a.noot)}</p></details>
-${faq.map(([q, ans]) => `<h2>${esc(q)}</h2>\n<p>${ans}</p>`).join('\n')}
+${a.id === 'moneybird' ? '' : faqHtml}
 ${t ? praktijkSectie(a, r, t) : ''}
 
 <div class="grid cards two">
@@ -78,10 +82,14 @@ ${vsVoor(r.slug).map((g) => `<p>Twijfel je tussen ${esc(r.kort)} en ${esc(g.ande
 <p>${vsVoor(r.slug).length ? 'Nog twijfels?' : `Twijfel je tussen ${esc(r.kort)} en een ander pakket?`} <a href="/boekhoudprogramma-kiezen/">Doe de match</a> of bekijk de <a href="/boekhoudprogramma-vergelijken/">vergelijking</a>.</p>
 ${matchCta('bottom', { tekst: `Twijfel je over ${r.kort}? Doe de match` })}
 {{related}}`;
-  const titel = `${r.kort} prijzen 2026: kosten per pakket | BoekhoudMatch`; // max. 60 tekens, anders korter
+  const titelStandaard = `${r.kort} prijzen 2026: kosten per pakket | BoekhoudMatch`; // max. 60 tekens, anders korter
+  const titel = a.id === 'moneybird' ? 'Moneybird niet meer gratis: prijzen 2026 | BoekhoudMatch' : titelStandaard;
+  const description = a.id === 'moneybird'
+    ? `Nee, Moneybird is niet meer gratis. Compact kost ${e2(pl('compact').prijs)} per maand, of ${e2(pl('compact').prijsJaar)} bij jaarbetaling. ${a.plannen.length} pakketten, gecontroleerd op ${fmtDate(c)}.`
+    : `${r.kort}: ${a.plannen.length} pakketten, ${v.prijs === 0 ? 'ook een gratis pakket' : `vanaf ${e2(v.prijs)} p/m`}. Prijs, limieten, btw-aangifte en bankkoppeling per pakket, gecontroleerd op ${fmtDate(c)}.`;
   return {
-    path, title: titel.length <= 60 ? titel : `${r.kort} prijzen 2026 | BoekhoudMatch`, ogTitle: `${a.naam}: prijzen en pakketten`, og: existsSync(`src/assets/og/vendor-${r.slug}.png`) ? `vendor-${r.slug}` : 'vergelijken',
-    description: `${r.kort}: ${a.plannen.length} pakketten, ${v.prijs === 0 ? 'ook een gratis pakket' : `vanaf ${e2(v.prijs)} p/m`}. Prijs, limieten, btw-aangifte en bankkoppeling per pakket, gecontroleerd op ${fmtDate(c)}.`,
+    path, title: a.id === 'moneybird' || titel.length <= 60 ? titel : `${r.kort} prijzen 2026 | BoekhoudMatch`, ogTitle: `${a.naam}: prijzen en pakketten`, og: existsSync(`src/assets/og/vendor-${r.slug}.png`) ? `vendor-${r.slug}` : 'vergelijken',
+    description,
     crumb: r.kort, parents: [['/boekhoudprogramma-vergelijken/', 'Vergelijken']], navPath: '/boekhoudprogramma-vergelijken/', updated: mod, stamp: { checked: c, updated: mod },
     body, schema: [{ ...softwareSchema(a, SITE.domain + path), dateModified: mod }, ...(faq.length ? [faqSchema(faq)] : [])],
   };
