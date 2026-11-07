@@ -12,7 +12,7 @@ related:
 - Tellow: prijzen en pakketten | /tellow/
 - Gratis boekhoudprogramma | /gratis-boekhoudprogramma/
 ---
-In onze gegevens van 26 oktober 2026 is het betaalde pakket Rompslomp Puur Factuur {{p:rompslomp/puur}} per maand en Tellow Basis {{p:tellow/basis}}, exclusief btw. Dat zijn de tarieven die Rompslomp voor 1 november 2026 aankondigde. Na die datum is de prijspagina niet opnieuw gecontroleerd. Tot 1 november stonden voor Rompslomp: Puur Factuur € 7,95, Basic € 13,50, Professional € 26,50 en Master € 39,50.
+In onze gegevens van 26 oktober 2026 is het betaalde pakket Rompslomp Puur Factuur {{p:rompslomp/puur}} per maand, exclusief btw. Voor Rompslomp gaat het om de voor 1 november 2026 aangekondigde tarieven. Tellow Basis is in die gegevens {{p:tellow/basis}} per maand, exclusief btw. Na die datum is de prijspagina niet opnieuw gecontroleerd. Tot 1 november stonden voor Rompslomp: Puur Factuur € 7,95, Basic € 13,50, Professional € 26,50 en Master € 39,50.
 
 Rompslomp en Tellow hebben allebei een gratis pakket. De limieten en wat er per pakket in zit, verschillen. Hieronder de feiten naast elkaar.
 

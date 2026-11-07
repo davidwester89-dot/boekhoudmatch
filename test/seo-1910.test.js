@@ -109,7 +109,11 @@ test('SEO 7-11: bankgids en Rompslomp vs Tellow, prijzen uit de bestaande data',
   assert.match(vs.description, /betaald vanaf € 8,95/);
   assert.match(vs.description, /€ 12,99/);
   assert.match(vs.description, /gratis pakket/);
-  assert.match(vs.body, /betaalde pakket Rompslomp Puur Factuur € 8,95 per maand en Tellow Basis € 12,99/);
+  assert.match(vs.body, /betaalde pakket Rompslomp Puur Factuur € 8,95 per maand, exclusief btw\. Voor Rompslomp gaat het om de voor 1 november 2026 aangekondigde tarieven\./);
+  const aankondiging = (vs.body.match(/[^.]*aangekondigde tarieven\./) || [''])[0];
+  assert.match(aankondiging, /Rompslomp/);
+  assert.doesNotMatch(aankondiging, /Tellow/);
+  assert.match(vs.body, /Tellow Basis is in die gegevens € 12,99 per maand, exclusief btw\./);
   assert.match(vs.body, /niet opnieuw gecontroleerd/);
   assert.doesNotMatch(vs.body, /omdat je die na 1 november betaalt/);
   const h2 = [...vs.body.matchAll(/<h2 id="[^"]+">([^<]+)<\/h2>/g)].map((m) => m[1]);
@@ -142,8 +146,9 @@ test('SEO-herstel: datePublished blijft de vastgelegde historische datum', () =>
   assert.match(readFileSync('src/pages/gids.mjs', 'utf8'), /datePublished: meta\.published \|\| meta\.updated/);
 });
 
-test('SEO-herstel: publicatiedatumtest heeft geen main-ref nodig in een detached shallow repo', () => {
+test('SEO-herstel: publicatiedatumtest heeft geen main-ref nodig in een detached shallow repo', (t) => {
   const dir = mkdtempSync(join(tmpdir(), 'bm-shallow-'));
+  t.after(() => rmSync(dir, { recursive: true, force: true }));
   const git = (args) => {
     const r = spawnSync('git', args, { cwd: dir, encoding: 'utf8' });
     assert.equal(r.status, 0, `${args.join(' ')}\n${r.stderr}`);
@@ -177,7 +182,6 @@ test('SEO-herstel: publicatiedatumtest heeft geen main-ref nodig in een detached
     }
   `], { cwd: process.cwd(), env: { ...process.env, GIT_DIR: join(dir, '.git'), GIT_WORK_TREE: dir }, encoding: 'utf8' });
   assert.equal(child.status, 0, `${child.stdout}\n${child.stderr}`);
-  rmSync(dir, { recursive: true, force: true });
 });
 
 test('SEO-herstel: /gidsen/ lastmod, zichtbare datum en dateModified zijn de nieuwste gids', () => {
