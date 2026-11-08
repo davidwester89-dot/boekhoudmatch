@@ -1,9 +1,9 @@
 ---
 title: Rompslomp vs Tellow: prijzen en verschillen (2026)
-seo_title: Rompslomp vs Tellow 2026: prijs en limiet | BoekhoudMatch
-description: Rompslomp vs Tellow tarieven 2026: betaald vanaf € 8,95 (Rompslomp, per 1 november) en € 12,99 (Tellow) per maand excl. btw, plus de gratis pakketten.
+seo_title: Rompslomp tarieven 2026 vs Tellow | BoekhoudMatch
+description: Rompslomp tarieven 2026: vanaf € 8,95 per maand (per 1 november), Tellow vanaf € 12,99. Beide excl. btw, plus de gratis pakketten.
 crumb: Rompslomp vs Tellow
-updated: 2026-10-26
+updated: 2026-11-07
 checked: 2026-10-26
 vendors: rompslomp, tellow
 related:
@@ -11,19 +11,11 @@ related:
 - Tellow: prijzen en pakketten | /tellow/
 - Gratis boekhoudprogramma | /gratis-boekhoudprogramma/
 ---
-Rompslomp en Tellow hebben allebei een gratis pakket en goedkope pakketten voor zzp'ers. Daarmee houden de overeenkomsten op: de limieten en wat er per pakket in zit, verschillen flink. Hieronder de feiten naast elkaar.
+Per 1 november 2026 kost Rompslomp Puur Factuur {{p:rompslomp/puur}} per maand en Tellow Basis {{p:tellow/basis}}, allebei exclusief btw. Tot die datum waren de Rompslomp-tarieven lager: Puur Factuur € 7,95, Basic € 13,50, Professional € 26,50 en Master € 39,50. Wij rekenen met de nieuwe tarieven, omdat je die na 1 november betaalt.
 
-Rompslomp verandert per 1 november 2026 de tarieven. Wij rekenen met de nieuwe tarieven, omdat je die na die datum betaalt. Tot 1 november kost Puur Factuur € 7,95, Basic € 13,50, Professional € 26,50 en Master € 39,50.
+Rompslomp en Tellow hebben allebei een gratis pakket. De limieten en wat er per pakket in zit, verschillen. Hieronder de feiten naast elkaar.
 
 {{blok:vs rompslomp tellow}}
-
-## Gratis: Starter tegen Gratis
-
-**Rompslomp Starter** heeft geen maandprijs, maar per 1 november 2026 betaal je € 1,50 per factuur. Je kunt 5 uitgaven per maand kwijt en je krijgt alleen een btw-overzicht; de aangifte doe je zelf. Je importeert je bank handmatig.
-
-**Tellow Gratis** heeft geen kosten per factuur, maar een grens van 3 facturen, 20 uitgaven en 25 transacties per maand. Tellow heeft een eigen betaalrekening. De btw-aangifte dien je bij Gratis zelf in.
-
-Stuur je 3 facturen of minder, dan kost Tellow Gratis niets en Rompslomp Starter tot € 4,50. Stuur je meer, dan kun je bij Tellow niet verder met Gratis en loopt het bij Rompslomp per factuur op. Vanaf 6 facturen per maand is Rompslomp Puur Factuur ({{p:rompslomp/puur}}) goedkoper dan Starter. Meer in [gratis boekhoudprogramma](/gratis-boekhoudprogramma/).
 
 ## Rompslomp en Tellow tarieven 2026: wat krijg je voor je geld?
 
@@ -41,6 +33,14 @@ Stuur je 3 facturen of minder, dan kost Tellow Gratis niets en Rompslomp Starter
 - Compleet ({{p:tellow/compleet}}): met een boekhouder die je btw- en IB-aangifte opstelt en controleert.
 
 Het verschil in één zin: bij Rompslomp betaal je meer als je meer facturen stuurt; bij Tellow betaal je meer als je meer functies wilt.
+
+## Gratis: Starter tegen Gratis
+
+**Rompslomp Starter** heeft geen maandprijs, maar per 1 november 2026 betaal je € 1,50 per factuur. Je kunt 5 uitgaven per maand kwijt en je krijgt alleen een btw-overzicht; de aangifte doe je zelf. Je importeert je bank handmatig.
+
+**Tellow Gratis** heeft geen kosten per factuur, maar een grens van 3 facturen, 20 uitgaven en 25 transacties per maand. Tellow heeft een eigen betaalrekening. De btw-aangifte dien je bij Gratis zelf in.
+
+Stuur je 3 facturen of minder, dan kost Tellow Gratis niets en Rompslomp Starter tot € 4,50. Stuur je meer, dan kun je bij Tellow niet verder met Gratis en loopt het bij Rompslomp per factuur op. Vanaf 6 facturen per maand is Rompslomp Puur Factuur ({{p:rompslomp/puur}}) goedkoper dan Starter. Meer in [gratis boekhoudprogramma](/gratis-boekhoudprogramma/).
 
 ## Btw-aangifte direct indienen
 
