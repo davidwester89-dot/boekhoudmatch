@@ -64,8 +64,9 @@ test('SEO 7-11: Moneybird zegt geen gratis pakket; SnelStart linkt naar de bankg
   assert.match(mb.description, /Compact kost € 4,00 per maand, of € 3,00 bij jaarbetaling; btw niet vermeld/);
   assert.doesNotMatch(mb.description, /excl\. btw|incl\. btw/);
   assert.match(mb.description, /Gecontroleerd op 10 oktober 2026/);
-  assert.equal(mb.updated, '2026-10-19');
-  assert.equal(mb.schema.find((s) => s['@type'] === 'SoftwareApplication').dateModified, '2026-10-19');
+  assert.equal(mb.updated, '2026-11-08');
+  assert.equal(mb.schema.find((s) => s['@type'] === 'SoftwareApplication').dateModified, '2026-11-08');
+  assert.equal(mb.stamp.checked, '2026-10-10');
   assert.match(mb.body, /<h2>Is Moneybird nog gratis\?<\/h2>[\s\S]*<h2>In het kort<\/h2>/);
   assert.equal((mb.body.match(/<h2>Is Moneybird nog gratis\?<\/h2>/g) || []).length, 1);
   assert.match(mb.body, /href="\/gratis-boekhoudprogramma\/">gratis boekhoudprogramma<\/a>/);
@@ -77,8 +78,9 @@ test('SEO 7-11: Moneybird zegt geen gratis pakket; SnelStart linkt naar de bankg
   assert.equal(ss.title, 'SnelStart prijzen 2026: kosten per pakket | BoekhoudMatch');
   assert.equal((ss.body.match(/href="\/bankkoppeling-boekhoudprogramma\/">bankkoppeling per pakket<\/a>/g) || []).length, 1);
   assert.doesNotMatch(ss.title + ss.description, /Wat kost SnelStart/);
-  assert.equal(ss.updated, checked(PAKKETTEN.find((a) => a.id === 'snelstart')));
-  assert.notEqual(ss.updated, '2026-11-07');
+  assert.equal(ss.updated, '2026-11-08');
+  assert.equal(ss.schema.find((s) => s['@type'] === 'SoftwareApplication').dateModified, '2026-11-08');
+  assert.equal(ss.stamp.checked, checked(PAKKETTEN.find((a) => a.id === 'snelstart')));
 
   for (const slug of ['jortt', 'silvasoft', 'rompslomp', 'tellow', 'exact', 'informer']) {
     const p = aanbiederPages.find((x) => x.path === `/${slug}/`);
@@ -98,9 +100,9 @@ test('SEO 7-11: bankgids en Rompslomp vs Tellow, prijzen uit de bestaande data',
   assert.match(bank.body, /<h2 id="snelstart-koppelen-met-de-rabobank">/);
   assert.match(bank.body, /<h2 id="moneybird-automatische-bankkoppeling-instellen">/);
   assert.equal(bank.schema.find((s) => s['@type'] === 'Article').datePublished, '2026-10-23');
-  assert.equal(bank.schema.find((s) => s['@type'] === 'Article').dateModified, '2026-10-23');
-  assert.equal(bank.updated, '2026-10-23');
-  assert.equal(bank.stamp.updated, '2026-10-23');
+  assert.equal(bank.schema.find((s) => s['@type'] === 'Article').dateModified, '2026-11-08');
+  assert.equal(bank.updated, '2026-11-08');
+  assert.equal(bank.stamp.updated, '2026-11-08');
 
   const vs = pages.find((p) => p.path === '/rompslomp-vs-tellow/');
   assert.equal(vs.title, 'Rompslomp vs Tellow: tarieven 2026 | BoekhoudMatch');
@@ -120,9 +122,9 @@ test('SEO 7-11: bankgids en Rompslomp vs Tellow, prijzen uit de bestaande data',
   assert.equal(h2[0], 'Rompslomp en Tellow tarieven 2026: wat krijg je voor je geld?');
   assert.equal(h2[1], 'Gratis: Starter tegen Gratis');
   assert.equal(vs.schema.find((s) => s['@type'] === 'Article').datePublished, '2026-10-26');
-  assert.equal(vs.schema.find((s) => s['@type'] === 'Article').dateModified, '2026-10-26');
-  assert.equal(vs.updated, '2026-10-26');
-  assert.equal(vs.stamp.updated, '2026-10-26');
+  assert.equal(vs.schema.find((s) => s['@type'] === 'Article').dateModified, '2026-11-08');
+  assert.equal(vs.updated, '2026-11-08');
+  assert.equal(vs.stamp.updated, '2026-11-08');
   assert.equal(vs.stamp.checked, '2026-10-26');
 });
 
@@ -140,8 +142,8 @@ test('SEO-herstel: datePublished blijft de vastgelegde historische datum', () =>
     const article = page.schema.find((s) => s['@type'] === 'Article');
     assert.equal(article.datePublished, datum, slug);
     assert.match(readFileSync(file, 'utf8'), new RegExp(`^published: ${datum}$`, 'm'));
-    assert.equal(article.dateModified, page.updated);
-    assert.notEqual(page.updated, '2026-11-07');
+    assert.equal(article.dateModified, '2026-11-08');
+    assert.equal(page.updated, '2026-11-08');
   }
   assert.match(readFileSync('src/pages/gids.mjs', 'utf8'), /datePublished: meta\.published \|\| meta\.updated/);
 });
@@ -191,7 +193,7 @@ test('SEO-herstel: /gidsen/ lastmod, zichtbare datum en dateModified zijn de nie
   assert.equal(hub.updated, laatste);
   assert.equal(hub.stamp.updated, laatste);
   assert.equal(hub.schema.find((s) => s['@type'] === 'CollectionPage').dateModified, laatste);
-  assert.notEqual(laatste, '2026-11-07');
+  assert.equal(laatste, '2026-11-08');
 });
 
 test('Geen layoutverschuiving: cookiemelding fixed zonder body-padding; skiplink 48px; match-intro max. 1 regel', () => {

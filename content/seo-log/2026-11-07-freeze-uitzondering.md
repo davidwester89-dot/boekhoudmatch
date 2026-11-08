@@ -23,3 +23,7 @@ Dave heeft die toestemming daarna ingetrokken. De uitzondering is niet meer geld
 `/jortt/`, `/silvasoft/`, `/rompslomp/`, `/tellow/`, `/exact/` en `/informer/` zijn niet aangepast. Geen partnerlink en geen matchvolgorde.
 
 Officiële prijspagina's zijn voor deze correctie niet opnieuw gelezen. Bestaande afgeleide zinnen (zoals 3 × € 1,50 op de vergelijking, en de volgorde gratis/€ 7 op de bankgids) zijn niet nieuw en niet in deze correctie herschreven.
+
+## Kandidaat 8 november 2026, vrijgave pending
+
+`updated` en `bijgewerkt` van `/moneybird/`, `/snelstart/`, `/bankkoppeling-boekhoudprogramma/`, `/rompslomp-vs-tellow/` en daardoor `/gidsen/` staan op 2026-11-08, gelijk in zichtbare datum, `dateModified` en sitemap-lastmod. `published` blijft 2026-10-23 en 2026-10-26. `checked` van Rompslomp vs Tellow blijft 2026-10-26. Geen nieuwe prijscontrole. Dit is geen publicatie: push wacht op SEO- en sitecontrole van deze hash, een finaal besluit en autorisatie van de eigenaar.
