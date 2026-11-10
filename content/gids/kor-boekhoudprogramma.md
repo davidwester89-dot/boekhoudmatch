@@ -17,7 +17,7 @@ Met de kleineondernemersregeling (KOR) doe je geen btw-aangifte. Dan valt een gr
 
 ## Wat is de KOR?
 
-Volgens de Belastingdienst kun je meedoen aan de KOR als je onderneming in Nederland is gevestigd en je omzet niet meer is dan € 20.000 per kalenderjaar. De KOR is een btw-vrijstelling. Als je meedoet:
+Je kunt meedoen aan de KOR als je onderneming in Nederland is gevestigd en je omzet niet meer is dan € 20.000 per kalenderjaar. De KOR is een btw-vrijstelling. Als je meedoet:
 
 - bereken je geen btw aan je klanten;
 - doe je geen btw-aangifte;

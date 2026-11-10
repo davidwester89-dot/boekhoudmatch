@@ -90,7 +90,7 @@ Bij de meeste pakketten betaal je niets extra. Maar niet bij allemaal.
 
 - **Moneybird:** aanmelden is gratis. Versturen en ontvangen zit in alle pakketten, dus ook in Compact.
 - **Jortt:** "Versturen en ontvangen via Peppol is gratis voor alle jortt gebruikers."
-- **SnelStart:** e-facturen versturen en ontvangen vanuit SnelStart Web is kosteloos, volgens SnelStart.
+- **SnelStart:** e-facturen versturen en ontvangen vanuit SnelStart Web is kosteloos.
 - **Informer:** registreren, versturen en ontvangen kost niets extra.
 - **Rompslomp:** Peppol zelf is gratis, maar elke verzonden en elke ontvangen e-factuur kost 1 credit. Bij een betaald pakket krijg je eenmalig credits: Puur Factuur 5, Basic 10, Professional 20, Master 60. Daarna koop je bundels van 50, 100 of 250 credits. Een credit kost € 0,165, en volgens de nieuwe tarieven vanaf 1 november 2026 € 0,195. Heb je een pakket met een factuurlimiet, dan tellen e-facturen mee.
 - **Silvasoft en MoneyMonk:** of er kosten per e-factuur zijn, vonden we niet op hun eigen pagina's.

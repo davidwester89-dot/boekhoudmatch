@@ -19,7 +19,7 @@ De btw-aangifte is voor veel zzp'ers de belangrijkste reden om een boekhoudprogr
 
 ## Hoe werkt de btw-aangifte?
 
-Volgens de Belastingdienst doe je btw-aangifte per maand, kwartaal of jaar; meestal per kwartaal. In je aangifte geef je de btw op die je aan klanten hebt berekend, en de btw die je mag aftrekken. Het verschil betaal je of krijg je terug. Je krijgt geen aanslag: je maakt het bedrag zelf over.
+Je doet btw-aangifte per maand, kwartaal of jaar; meestal per kwartaal. In je aangifte geef je de btw op die je aan klanten hebt berekend, en de btw die je mag aftrekken. Het verschil betaal je of krijg je terug. Je krijgt geen aanslag: je maakt het bedrag zelf over.
 
 Aangifte en betaling moeten binnen zijn vóór het einde van de maand na het tijdvak. Voor 2026 per kwartaal:
 
@@ -28,7 +28,7 @@ Aangifte en betaling moeten binnen zijn vóór het einde van de maand na het tij
 - 3e kwartaal: uiterlijk 31 oktober 2026
 - 4e kwartaal: uiterlijk 31 januari 2027
 
-Doe je aangifte met boekhoudsoftware, dan kun je volgens de Belastingdienst insturen vanaf de 24e van de laatste maand van het tijdvak. Eerder insturen geeft een foutmelding. Zo doe je de aangifte stap voor stap: [btw-aangifte doen als zzp'er](/blog/btw-aangifte-doen-zzp/).
+Doe je aangifte met boekhoudsoftware, dan kun je insturen vanaf de 24e van de laatste maand van het tijdvak. Eerder insturen geeft een foutmelding. Zo doe je de aangifte stap voor stap: [btw-aangifte doen als zzp'er](/blog/btw-aangifte-doen-zzp/).
 
 Te laat of niet ingediend, of te laat betaald? Dan kun je een boete krijgen. Een vergissing herstel je met een suppletie.
 

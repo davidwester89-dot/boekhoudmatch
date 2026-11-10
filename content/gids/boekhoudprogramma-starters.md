@@ -31,7 +31,7 @@ Verwacht je een omzet onder de € 20.000 per jaar, kijk dan ook naar de kleineo
 Deze kortingen staan op de sites van de aanbieders. Let op de voorwaarden.
 
 - **e-Boekhouden**: starters 15 maanden gratis. Daarna ZZP voor {{p:eboekhouden/zzp}} per maand, met een grens van 240 boekingen per jaar.
-- **MoneyMonk**: onlangs ingeschreven bij de KVK? Volgens de site 15 maanden gratis. Daarna Basis ({{p:moneymonk/basis}}, tot € 20.000 omzet en 20 banktransacties per maand) of hoger.
+- **MoneyMonk**: onlangs ingeschreven bij de KVK? Dan krijg je bij MoneyMonk 15 maanden gratis. Daarna Basis ({{p:moneymonk/basis}}, tot € 20.000 omzet en 20 banktransacties per maand) of hoger.
 - **Informer**: KVK-inschrijving maximaal 6 maanden oud? Dan 12 maanden € 15 per maand korting. ZZP Basis kost normaal {{p:informer/zzp-basis}}.
 - **Jortt**: 30 dagen gratis, daarna 3 maanden € 9,95 per maand. Daarna ZZP voor {{p:jortt/zzp}}.
 

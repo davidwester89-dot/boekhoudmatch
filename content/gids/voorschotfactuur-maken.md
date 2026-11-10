@@ -38,13 +38,13 @@ Je mag zelf weten of je een voorschot vraagt. Je doet het meestal als:
 - je vooraf kosten maakt, bijvoorbeeld voor materiaal;
 - je een nieuwe klant nog niet kent.
 
-Spreek het voorschot vooraf af. Volgens KVK spreek je de hoogte van de aanbetaling af met je klant, en zet je de afspraken altijd in je algemene voorwaarden. Het is handig om het ook in je offerte op te nemen.
+Spreek het voorschot vooraf af. De hoogte van de aanbetaling spreek je af met je klant, en zet je de afspraken altijd in je algemene voorwaarden. Het is handig om het ook in je offerte op te nemen.
 
-Een grens is er bij consumenten. Verkoop je producten aan particulieren, dan mag je ze volgens KVK verplichten tot maximaal 50 procent vooraf. Voor diensten geldt geen wettelijk maximum.
+Een grens is er bij consumenten. Verkoop je producten aan particulieren, dan mag je ze verplichten tot maximaal 50 procent vooraf. Voor diensten geldt geen wettelijk maximum.
 
 ## Welke gegevens moeten erop?
 
-Volgens de Belastingdienst moet je deze gegevens altijd op een factuur zetten, ook op een voorschotfactuur:
+Deze gegevens moet je altijd op een factuur zetten, ook op een voorschotfactuur:
 
 - je volledige naam en die van je klant;
 - je volledige adres en dat van je klant (alleen een postbus is niet genoeg);
@@ -62,11 +62,11 @@ Zet er duidelijk bij dat het om een voorschot gaat en voor welke opdracht. Bijvo
 
 Gebruik gewoon het volgende nummer uit je factuurreeks.
 
-Gebruik je de kleineondernemersregeling (KOR)? Dan zet je volgens KVK geen btw op je factuur, maar vermeld je dat je de KOR gebruikt.
+Gebruik je de kleineondernemersregeling (KOR)? Dan zet je geen btw op je factuur, maar vermeld je dat je de KOR gebruikt.
 
 ## Btw op een voorschot: wanneer verschuldigd?
 
-Hier gaat het vaak mis. Volgens de Belastingdienst breng je op een voorschotnota ook btw in rekening, en zet je het btw-bedrag op de factuur. Wanneer je die btw aangeeft, hangt ervan af wat je hebt afgesproken.
+Hier gaat het vaak mis. Op een voorschotnota breng je ook btw in rekening, en zet je het btw-bedrag op de factuur. Wanneer je die btw aangeeft, hangt ervan af wat je hebt afgesproken.
 
 **Moet je klant vooruitbetalen?** Is het voorschot afgesproken, dan stuur je de factuur voordat je klant het bedrag moet betalen. De btw geef je aan in het aangiftetijdvak waarin de factuurdatum valt. Dat is dus ook zo als je klant pas later betaalt.
 
@@ -76,7 +76,7 @@ Je geeft de btw dus aan in het aangiftetijdvak van het voorschot, en niet pas al
 
 ## De eindfactuur: voorschot verrekenen
 
-Is het werk klaar, dan stuur je de eindfactuur. Volgens de Belastingdienst breng je daarop het restant in rekening dat je klant nog moet betalen, met de btw die nog over is. Over het voorschot heb je al btw berekend, dus die reken je niet nog een keer.
+Is het werk klaar, dan stuur je de eindfactuur. Daarop breng je het restant in rekening dat je klant nog moet betalen, met de btw die nog over is. Over het voorschot heb je al btw berekend, dus die reken je niet nog een keer.
 
 Een rekenvoorbeeld (onze eigen rekensom, met 21% btw):
 
@@ -88,7 +88,7 @@ Een rekenvoorbeeld (onze eigen rekensom, met 21% btw):
 
 Zet op de eindfactuur het totaal van de opdracht, het voorschot dat al gefactureerd is (met het nummer van de voorschotfactuur) en het restant. Zo kan je klant het nakijken.
 
-Ook voor de eindfactuur geldt een termijn. Volgens de Belastingdienst verstuur je de factuur uiterlijk op de 15e dag van de maand die volgt op de maand waarin je hebt geleverd. Rond je het werk op 20 oktober af, dan stuur je de eindfactuur dus uiterlijk op 15 november.
+Ook voor de eindfactuur geldt een termijn. Je verstuurt de factuur uiterlijk op de 15e dag van de maand die volgt op de maand waarin je hebt geleverd. Rond je het werk op 20 oktober af, dan stuur je de eindfactuur dus uiterlijk op 15 november.
 
 ## Voorschotfactuur maken in je boekhoudprogramma
 

@@ -13,7 +13,7 @@ export const REDACTIE = {
     sterk: 'Alle functies (bankkoppeling, btw-aangifte, offertes, uren) zitten in elk pakket.',
     zwak: 'Het ZZP-pakket heeft een grens van 240 boekingen per jaar; elke mutatie (verkoop, inkoop, bank) telt.',
     knelt: 'ZZP: max. 240 boekingen per jaar',
-    wel: ['Je hebt weinig boekingen en wilt een laag vast bedrag.', 'Je start net: starters krijgen volgens de prijspagina 15 maanden gratis.', 'Je wilt offertes en uren in hetzelfde pakket.'],
+    wel: ['Je hebt weinig boekingen en wilt een laag vast bedrag.', 'Je start net: starters krijgen 15 maanden gratis.', 'Je wilt offertes en uren in hetzelfde pakket.'],
     niet: ['Je hebt meer dan 240 boekingen per jaar en wilt factureren: dan wordt het Standaard + Factureren (€ 24,00).', 'Je hebt een vof of bv: of die wordt ondersteund, staat niet op de prijspagina.'],
   },
   moneybird: {
@@ -41,7 +41,7 @@ export const REDACTIE = {
     sterk: 'Gratis PSD2-bankkoppeling voor al je bankrekeningen, in elk pakket.',
     zwak: 'Elk pakket heeft een omzetgrens; Basis is tot € 20.000 omzet per jaar.',
     knelt: 'Basis: max. 20 banktransacties per maand en tot € 20.000 omzet per jaar',
-    wel: ['Je hebt een kleine omzet en weinig banktransacties (Basis).', 'Je wilt uren registreren en offertes maken; die functies staan op de site.', 'Je start net: starters krijgen volgens de site 15 maanden gratis.'],
+    wel: ['Je hebt een kleine omzet en weinig banktransacties (Basis).', 'Je wilt uren registreren en offertes maken; die functies staan op de site.', 'Je start net: starters krijgen 15 maanden gratis.'],
     niet: ['Je omzet is hoger dan € 20.000 en je wilt weinig betalen: Pro kost na 3 maanden € 32,50.', 'Je wilt weten of de prijzen in- of exclusief btw zijn: niet vermeld op de prijspagina.'],
   },
   rompslomp: {

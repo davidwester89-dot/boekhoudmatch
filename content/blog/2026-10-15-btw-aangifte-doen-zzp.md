@@ -37,7 +37,7 @@ De Belastingdienst geeft per tijdvak één datum waarop aangifte en betaling bin
 
 Let op twee dingen:
 
-- **De betaling telt op de dag dat het geld bij de Belastingdienst is bijgeschreven.** Volgens de Belastingdienst moet je rekening houden met enkele dagen verwerkingstijd van je bank.
+- **De betaling telt op de dag dat het geld bij de Belastingdienst is bijgeschreven.** Houd rekening met enkele dagen verwerkingstijd van je bank.
 - **31 oktober 2026 valt op een zaterdag** en 31 januari 2027 op een zondag. Zorg dat je aangifte en betaling er ruim vóór het weekend zijn, bijvoorbeeld uiterlijk vrijdag 30 oktober.
 
 Werk je met boekhoudsoftware, dan kun je de aangifte insturen vanaf de 24e van de laatste maand van het tijdvak. Voor Q3 was dat 24 september; je kunt nu dus al versturen.

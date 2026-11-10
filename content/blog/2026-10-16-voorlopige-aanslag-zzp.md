@@ -45,7 +45,7 @@ Let ook op wetswijzigingen. Daalt een aftrekpost, zoals de zelfstandigenaftrek, 
 
 ## Hoe voorkom je belastingrente?
 
-Belastingrente is de rente die je betaalt als de Belastingdienst later geld van je krijgt. Je betaalt die volgens de Belastingdienst als:
+Belastingrente is de rente die je betaalt als de Belastingdienst later geld van je krijgt. Je betaalt die als:
 
 1. je aangifte op of na 1 mei binnenkomt, volgend op het jaar waarover je aangifte doet;
 2. de Belastingdienst bij de aanslag afwijkt van je aangifte, ook als je die vóór 1 mei indiende.

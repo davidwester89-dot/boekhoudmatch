@@ -97,7 +97,7 @@ Hier verdwijnen bij de meeste aanbieders de laatste limieten. Je krijgt vaak mee
 
 ## Zijn de kosten van een boekhoudprogramma aftrekbaar?
 
-Ja. Volgens de Belastingdienst mag je zakelijke kosten aftrekken van je opbrengsten. Dat zijn kosten die je maakt voor je onderneming. Een boekhoudprogramma voor je bedrijf valt daaronder.
+Ja. Zakelijke kosten mag je aftrekken van je opbrengsten. Dat zijn kosten die je maakt voor je onderneming. Een boekhoudprogramma voor je bedrijf valt daaronder.
 
 Twee dingen om te weten:
 

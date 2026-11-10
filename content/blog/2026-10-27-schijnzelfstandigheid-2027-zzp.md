@@ -30,13 +30,13 @@ Hier lees je wat er nu al geldt, wat er verandert en wat je zelf kunt doen.
 
 Tot 1 januari 2025 gold een handhavingsmoratorium. De Belastingdienst gaf toen vooral aanwijzingen. Sinds 2025 gelden weer de normale regels. Stelt de Belastingdienst schijnzelfstandigheid vast, dan kan hij direct correctieverplichtingen en naheffingsaanslagen loonheffingen opleggen.
 
-Die controle vindt plaats bij de opdrachtgever. Toch raakt het jou ook. Volgens de Belastingdienst heeft een correctie bij je opdrachtgever ook gevolgen voor jouw inkomstenbelasting en btw.
+Die controle vindt plaats bij de opdrachtgever. Toch raakt het jou ook. Een correctie bij je opdrachtgever heeft ook gevolgen voor jouw inkomstenbelasting en btw.
 
 Naheffen kan met terugwerkende kracht, maar in principe niet verder terug dan 1 januari 2025. Was er sprake van kwaadwillendheid, of is een eerdere aanwijzing van de Belastingdienst niet opgevolgd? Dan kan dat tot 5 jaar terug.
 
 ## Boete schijnzelfstandigheid 2026: vergrijpboetes kunnen al
 
-In 2025 legde de Belastingdienst nog geen boetes op voor schijnzelfstandigheid. Sinds 1 januari 2026 kunnen er wel weer vergrijpboetes komen. Dat zijn boetes bij opzet of grove schuld. Volgens het kabinet geldt dat voor zowel opdrachtgevers als werkenden.
+In 2025 legde de Belastingdienst nog geen boetes op voor schijnzelfstandigheid. Sinds 1 januari 2026 kunnen er wel weer vergrijpboetes komen. Dat zijn boetes bij opzet of grove schuld. Dat geldt voor zowel opdrachtgevers als werkenden.
 
 Verzuimboetes legt de Belastingdienst in 2026 nog niet op. Daarnaast begint de Belastingdienst in 2026 in principe met een bedrijfsbezoek: een gesprek met de opdrachtgever over hoe die zelfstandigen inhuurt. Bij concrete risicosignalen, zoals evidente schijnzelfstandigheid, kan hij ook direct een boekenonderzoek starten.
 
@@ -63,7 +63,7 @@ Werk je voor particulieren, dan geldt het rechtsvermoeden niet. Dat staat in de 
 
 ### Waarom staat er € 36 in de wet?
 
-In de wettekst staat € 36 per uur. Dat bedrag stijgt mee met het wettelijk minimumloon en is volgens Ondernemersplein sinds 1 januari 2026 € 38. Het precieze bedrag voor de start op 31 december 2026 legt de minister volgens de wet vast in een aparte regeling.
+In de wettekst staat € 36 per uur. Dat bedrag stijgt mee met het wettelijk minimumloon en is sinds 1 januari 2026 € 38. Het precieze bedrag voor de start op 31 december 2026 legt de minister volgens de wet vast in een aparte regeling.
 
 ### 38 euro per uur als zzp'er: ben je daarboven veilig?
 

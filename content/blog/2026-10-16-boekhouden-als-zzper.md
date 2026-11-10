@@ -18,7 +18,7 @@ Als zzp'er moet je een administratie bijhouden waarmee je je belastingaangiften 
 
 ## 1. Houd je inkomsten en uitgaven bij
 
-Volgens de Belastingdienst hoort alles wat je over je bedrijf vastlegt bij je administratie, op papier of digitaal. Voor een zzp'er gaat het vooral om:
+Alles wat je over je bedrijf vastlegt, hoort bij je administratie, op papier of digitaal. Voor een zzp'er gaat het vooral om:
 
 - ontvangen facturen en kopieën van de facturen die je verstuurt
 - kassabonnen en je in- en verkoopboek

@@ -18,7 +18,7 @@ Werk je samen met één of meer vennoten in een vof, dan heb je één administra
 
 ## Welke aanbieders noemen de vof?
 
-Op de prijspagina's noemen maar twee van de {{n:aanbieders}} aanbieders die we vergelijken de vof expliciet: Moneybird (alle pakketten) en Jortt (MKB en Plus). Jortt ZZP is volgens Jortt alleen voor een eenmanszaak.
+Op de prijspagina's noemen maar twee van de {{n:aanbieders}} aanbieders die we vergelijken de vof expliciet: Moneybird (alle pakketten) en Jortt (MKB en Plus). Jortt ZZP is alleen voor een eenmanszaak.
 
 Bij de andere acht staat de rechtsvorm niet op de prijspagina. Dat betekent niet dat een vof er niet kan; het betekent dat wij het niet kunnen controleren. Vraag het in dat geval na bij de aanbieder, of probeer het in de proefperiode.
 
