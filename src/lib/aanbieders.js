@@ -72,6 +72,7 @@ export const REDACTIE = {
   },
   informer: {
     slug: 'informer', kort: 'Informer', logo: 'informer', proef: 30,
+    bijgewerkt: '2026-11-14',
     sterk: 'ZZP Plus heeft onbeperkt banktransacties.',
     zwak: 'Je eigen bank automatisch koppelen kost € 1 per maand per rekening.',
     knelt: 'ZZP Basis: max. 30 bankbetalingen per maand',
@@ -80,6 +81,7 @@ export const REDACTIE = {
   },
   exact: {
     slug: 'exact', kort: 'Exact', logo: 'exact', proef: 30,
+    bijgewerkt: '2026-11-14',
     sterk: 'Reeleezee Slim Boekhouden: btw-aangifte direct indienen en onbeperkt facturen.',
     zwak: 'Offertes en urenregistratie staan niet bij deze boekhoudpakketten vermeld.',
     knelt: 'Slim Boekhouden Start: max. 10 facturen en 10 boekingen per maand',

@@ -134,6 +134,6 @@ ${faqHtml(faq)}
 export default {
   path, title: 'Boekhoudprogramma kiezen als zzp\'er | BoekhoudMatch', og: 'match', ogTitle: 'Welk boekhoudprogramma past bij jou?',
   description: `Welk boekhoudprogramma past bij jouw zzp-bedrijf? 8 vragen, ${PAKKETTEN.length} aanbieders, actuele prijzen en eerlijk uitgelegd waarom. Gratis, zonder account.`,
-  crumb: 'Boekhoudprogramma kiezen', body, scripts: ['/js/kiezen.js', '/js/video.js'], updated: '2026-11-12', stamp: { updated: '2026-11-12' },
-  schema: [{ ...webApp({ name: 'Boekhoudprogramma-match', url: SITE.domain + path, description: 'Vind het boekhoudprogramma dat bij je onderneming past.' }), dateModified: '2026-11-12' }, faqSchema(faq), videoSchema],
+  crumb: 'Boekhoudprogramma kiezen', body, scripts: ['/js/kiezen.js', '/js/video.js'], updated: '2026-11-14', stamp: { updated: '2026-11-14' },
+  schema: [{ ...webApp({ name: 'Boekhoudprogramma-match', url: SITE.domain + path, description: 'Vind het boekhoudprogramma dat bij je onderneming past.' }), dateModified: '2026-11-14' }, faqSchema(faq), videoSchema],
 };
