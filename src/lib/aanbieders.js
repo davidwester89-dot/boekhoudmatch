@@ -19,7 +19,7 @@ export const REDACTIE = {
   moneybird: {
     slug: 'moneybird', kort: 'Moneybird', logo: 'moneybird', proef: 60,
     // Vraag uit Search Console ('moneybird niet meer gratis'). Bron: moneybird.nl/prijzen, gecontroleerd 19-10-2026. {{p:pakket}} = maandprijs, {{pj:pakket}} = prijs p/m bij jaarbetaling (uit pakketten.js).
-    // Title en meta staan in de werkboom sinds 7-11. Dave gaf die dag eerst een freeze-uitzondering (f876c04) en trok die daarna in. De uitzondering geldt niet. bijgewerkt 2026-11-08 is de kandidaat-publicatiedag; vrijgave is nog pending. Prijzen en checked niet ververst.
+
     bijgewerkt: '2026-11-08',
     faq: [['Is Moneybird nog gratis?', 'Nee, Moneybird heeft geen gratis pakket. Het kleinste pakket is Compact: {{p:compact}} per maand, of {{pj:compact}} per maand bij jaarbetaling. Wel kun je Moneybird 60 dagen onbeperkt proberen en daarna een betaald pakket kiezen.']],
     sterk: 'Btw-aangifte direct indienen vanaf Start; eenmanszaak, vof en bv worden genoemd.',
@@ -62,7 +62,7 @@ export const REDACTIE = {
   },
   snelstart: {
     slug: 'snelstart', kort: 'SnelStart', logo: 'snelstart', proef: 30,
-    // Alleen een link naar de bankgids. bijgewerkt 2026-11-08 is de kandidaat-publicatiedag; vrijgave is nog pending. De freeze-uitzondering van 7-11 is ingetrokken. Prijzen en checked niet ververst.
+
     bijgewerkt: '2026-11-08',
     sterk: 'inOrde en inStap zijn gemaakt voor samenwerking met je eigen boekhouder.',
     zwak: 'Urenregistratie staat niet op de pakkettenpagina.',

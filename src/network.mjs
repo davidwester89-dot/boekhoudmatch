@@ -8,7 +8,7 @@ export const NETWORK = [
   { naam: 'ThuisaccuMatch', logo: 'Thuisaccu<b>Match</b>.nl', url: 'https://thuisaccumatch.nl/', wat: 'Thuisaccu kiezen' },
   { naam: 'KassaMatch', logo: 'Kassa<b>Match</b>.nl', url: 'https://kassamatch.nl/', wat: 'Kassasysteem kiezen' },
 ];
-// Briefing Dave (10-10-2026, P1): geen energie-promotie (thuisbatterij, salderen, verduurzaming) in de BM-footer.
+
 const UITSLUITEN = {
   'boekhoudmatch.nl': ['verduurzaammatch.nl', 'warmtepompenmatch.nl', 'thuisaccumatch.nl'],
 };
