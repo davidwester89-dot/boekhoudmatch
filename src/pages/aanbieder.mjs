@@ -82,7 +82,7 @@ ${a.id === 'moneybird' ? `${faqHtml}\n${naGratis}\n` : ''}
 
 <h2>Pakketten en prijzen</h2>
 ${pakketTabel(a)}${naTabel}
-<details><summary>Goed om te weten</summary><p>${esc(a.noot)}</p></details>
+<details><summary>Goed om te weten</summary><p>${esc(a.noot)}${r.nootLink ? ` ${r.nootLink}` : ''}</p></details>
 ${a.id === 'moneybird' ? '' : [verdieping, faqHtml].filter(Boolean).join('\n')}
 ${t ? praktijkSectie(a, r, t) : ''}
 

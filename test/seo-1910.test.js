@@ -64,8 +64,9 @@ test('SEO 7-11: Moneybird zegt geen gratis pakket; SnelStart linkt naar de bankg
   assert.match(mb.description, /Compact kost € 4,00 per maand, of € 3,00 bij jaarbetaling; btw niet vermeld/);
   assert.doesNotMatch(mb.description, /excl\. btw|incl\. btw/);
   assert.match(mb.description, /Gecontroleerd op 10 oktober 2026/);
-  assert.equal(mb.updated, '2026-11-08');
-  assert.equal(mb.schema.find((s) => s['@type'] === 'SoftwareApplication').dateModified, '2026-11-08');
+  assert.equal(mb.updated, '2026-11-13');
+  assert.equal(mb.schema.find((s) => s['@type'] === 'SoftwareApplication').dateModified, '2026-11-13');
+  assert.match(mb.body, /href="\/bankkoppeling-boekhoudprogramma\/">bankkoppeling in je boekhoudprogramma<\/a>/);
   assert.equal(mb.stamp.checked, '2026-10-10');
   assert.match(mb.body, /<h2>Is Moneybird nog gratis\?<\/h2>[\s\S]*<h2>In het kort<\/h2>/);
   assert.equal((mb.body.match(/<h2>Is Moneybird nog gratis\?<\/h2>/g) || []).length, 1);

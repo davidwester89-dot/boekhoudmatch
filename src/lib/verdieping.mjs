@@ -2,6 +2,11 @@
 // Apart van aanbieders.js, want dat bestand gaat ook mee naar de browser (js/lib, voor de match); .mjs blijft server-side.
 // Alleen feiten die letterlijk op de gelinkte bronpagina's van de aanbieder staan. Prijzen via placeholders uit pakketten.js (zie aanbieder.mjs).
 export const VERDIEPING = {
+  moneybird: {
+    // Interne link naar de bankkoppelingsgids in 'Goed om te weten' (alinea over bank koppelen). Bodywijziging, L7-datum = pushdatum 2026-11-13.
+    bijgewerkt: '2026-11-13',
+    nootLink: 'Hoe je de automatische bankkoppeling in Moneybird instelt en wat die per pakket kost, lees je in <a href="/bankkoppeling-boekhoudprogramma/">bankkoppeling in je boekhoudprogramma</a>.',
+  },
   jortt: {
     // Deep-dive /jortt/ (zoekvraag 'jortt kosten'). Alles uit jortt.nl/prijs/, de abonnementen-FAQ, de prijswijziging-FAQ en jortt.nl/boekhouder/, gecontroleerd 29-10-2026, prijzen herberekend 10-11-2026. Welkomstactie/loonstroken-gratis/HR-bèta weggelaten: geen kalender-einddatum op de bron (L4, SC B3).
     // {{p:pakket}} = maandprijs, {{pj:pakket}} = prijs p/m bij jaarbetaling, {{pjj:pakket}} = 12 × prijs bij jaarbetaling, {{pmj:pakket}} = 12 × maandprijs (onze rekensom). Alles uit pakketten.js.
