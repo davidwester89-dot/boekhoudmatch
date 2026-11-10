@@ -3,7 +3,7 @@ title: Btw-aangifte doen als zzp'er: stappenplan en deadline Q3
 seo_title: Btw-aangifte doen als zzp'er: stappenplan Q3 2026
 description: Zo doe je als zzp'er je btw-aangifte over Q3 2026: uiterlijk 31 oktober binnen, welke rubrieken je invult, hoe je betaalt en wat je doet bij een fout.
 date: 2026-10-15
-updated: 2026-10-15
+updated: 2026-11-18
 checked: 2026-10-15
 image: btw-aangifte-doen-zzp
 image_alt: Stappenplan btw-aangifte doen als zzp'er: omzet optellen, voorbelasting optellen, rubrieken 1a en 5b invullen, versturen en betalen vóór 31 oktober 2026
@@ -37,7 +37,7 @@ De Belastingdienst geeft per tijdvak één datum waarop aangifte en betaling bin
 
 Let op twee dingen:
 
-- **De betaling telt op de dag dat het geld bij de Belastingdienst is bijgeschreven.** Volgens de Belastingdienst moet je rekening houden met enkele dagen verwerkingstijd van je bank.
+- **De betaling telt op de dag dat het geld bij de Belastingdienst is bijgeschreven.** De Belastingdienst vraagt rekening te houden met enkele dagen verwerkingstijd van je bank.
 - **31 oktober 2026 valt op een zaterdag** en 31 januari 2027 op een zondag. Zorg dat je aangifte en betaling er ruim vóór het weekend zijn, bijvoorbeeld uiterlijk vrijdag 30 oktober.
 
 Werk je met boekhoudsoftware, dan kun je de aangifte insturen vanaf de 24e van de laatste maand van het tijdvak. Voor Q3 was dat 24 september; je kunt nu dus al versturen.

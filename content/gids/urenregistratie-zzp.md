@@ -4,7 +4,7 @@ seo_title: Urenregistratie zzp en het urencriterium | BoekhoudMatch
 description: Moet je als zzp'er je uren bijhouden? Het urencriterium van 1.225 uur, wat meetelt en welke boekhoudprogramma's urenregistratie noemen. Met bron en datum.
 crumb: Urenregistratie zzp
 published: 2026-10-10
-updated: 2026-11-12
+updated: 2026-11-18
 vendors: rompslomp, moneymonk, eboekhouden, jortt
 related:
 - Uurtarief berekenen | /zzp-uurtarief/
@@ -22,7 +22,7 @@ Voor onder meer de zelfstandigenaftrek en de startersaftrek moet je minimaal 1.2
 
 - **Alle uren tellen mee**, niet alleen de uren die je factureert. Offertes maken, je administratie bijhouden en aan je zakelijke website werken tellen ook.
 - **Start je in de loop van het jaar**, dan moet je toch 1.225 uur halen. Je mag het aantal niet omrekenen naar de maanden dat je ondernemer bent.
-- **Je moet het aannemelijk maken.** Dat kan volgens de Belastingdienst bijvoorbeeld met je agenda, offertes, urenbriefjes en facturen.
+- **Je moet het aannemelijk maken.** De Belastingdienst noemt bijvoorbeeld je agenda, offertes, urenbriefjes en facturen als bewijs.
 
 Uren die je bijhoudt terwijl je werkt, zijn het sterkste bewijs.
 

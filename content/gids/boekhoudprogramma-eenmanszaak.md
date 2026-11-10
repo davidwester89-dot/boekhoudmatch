@@ -4,7 +4,7 @@ seo_title: Boekhoudprogramma eenmanszaak 2026 | BoekhoudMatch
 description: Welk boekhoudprogramma past bij je eenmanszaak? Alle pakketten voor een eenmanszaak met prijs, limiet en bron, en waar je op let bij btw, bank en IB.
 crumb: Boekhoudprogramma eenmanszaak
 published: 2026-10-10
-updated: 2026-11-12
+updated: 2026-11-18
 vendors: eboekhouden, moneybird, jortt, moneymonk
 related:
 - Beste boekhoudprogramma voor zzp'ers | /beste-boekhoudprogramma-zzp/
@@ -54,7 +54,7 @@ Dat scheelt overtypen. Direct indienen kan bij:
 
 - Moneybird, vanaf Start ({{p:moneybird/start}});
 - Rompslomp, vanaf Puur Factuur ({{p:rompslomp/puur}});
-- MoneyMonk, vanuit de software (volgens de functiepagina; niet per pakket vermeld);
+- MoneyMonk, vanuit de software (niet per pakket vermeld);
 - Silvasoft, met 1 klik.
 
 Bij e-Boekhouden en Jortt zit de btw-aangifte erin, maar de prijspagina zegt niet of je rechtstreeks indient. Wij schrijven dan “manier van indienen niet vermeld”.

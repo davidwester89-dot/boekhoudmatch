@@ -3,7 +3,8 @@ title: KOR en boekhoudsoftware: wat heb je nodig?
 seo_title: KOR en boekhoudprogramma: wat heb je nodig? | BoekhoudMatch
 description: Gebruik je de kleineondernemersregeling? Wat je dan nog moet bijhouden, welke functies je niet nodig hebt en wat de match kiest zonder btw-aangifte.
 crumb: KOR en boekhoudsoftware
-updated: 2026-10-10
+published: 2026-10-10
+updated: 2026-11-18
 vendors: moneymonk, rompslomp, tellow, eboekhouden
 related:
 - Gratis boekhoudprogramma | /gratis-boekhoudprogramma/
@@ -17,7 +18,7 @@ Met de kleineondernemersregeling (KOR) doe je geen btw-aangifte. Dan valt een gr
 
 ## Wat is de KOR?
 
-Volgens de Belastingdienst kun je meedoen aan de KOR als je onderneming in Nederland is gevestigd en je omzet niet meer is dan € 20.000 per kalenderjaar. De KOR is een btw-vrijstelling. Als je meedoet:
+De Belastingdienst laat je meedoen aan de KOR als je onderneming in Nederland is gevestigd en je omzet niet meer is dan € 20.000 per kalenderjaar. De KOR is een btw-vrijstelling. Als je meedoet:
 
 - bereken je geen btw aan je klanten;
 - doe je geen btw-aangifte;

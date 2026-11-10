@@ -3,7 +3,7 @@ title: Zakelijke rekening zzp: verplicht of niet?
 seo_title: Zakelijke rekening zzp: verplicht of niet?
 description: Is een zakelijke rekening verplicht als zzp'er? Per rechtsvorm uitgelegd volgens KVK, plus wat je nodig hebt om er een te openen.
 date: 2026-10-16
-updated: 2026-10-16
+updated: 2026-11-18
 checked: 2026-10-16
 image: zakelijke-rekening-zzp
 image_alt: Schema zakelijke rekening per rechtsvorm: bij een eenmanszaak of vof meestal niet verplicht maar handig, bij een bv of nv in de praktijk wel nodig
@@ -23,15 +23,15 @@ Start je als zzp'er, dan komt de vraag snel: moet je een aparte zakelijke rekeni
 
 ## Eenmanszaak of vof: meestal niet verplicht
 
-De meeste zzp'ers hebben een eenmanszaak. Volgens KVK is een zakelijke rekening dan meestal niet verplicht. Dat geldt ook voor een vof, maatschap of cv. Je mag in principe je privérekening gebruiken.
+De meeste zzp'ers hebben een eenmanszaak. KVK noemt een zakelijke rekening dan meestal niet verplicht. Dat geldt ook voor een vof, maatschap of cv. Je mag in principe je privérekening gebruiken.
 
 Er zit wel een maar aan. KVK wijst erop dat in de algemene voorwaarden van de meeste banken staat dat je een privérekening niet zakelijk mag gebruiken. Kijk dus eerst in de voorwaarden van je eigen bank voordat je facturen op je privérekening laat betalen.
 
-Nog een praktisch punt: gebruik je een betaalplatform zoals Mollie, PayPal, Stripe of Klarna, of verkoop je via Amazon of Bol? Volgens KVK vragen die om een zakelijke betaalrekening.
+Nog een praktisch punt: gebruik je een betaalplatform zoals Mollie, PayPal, Stripe of Klarna, of verkoop je via Amazon of Bol? KVK wijst erop dat die om een zakelijke betaalrekening vragen.
 
 ## Bv of nv: in de praktijk wel nodig
 
-Een bv is een eigen rechtspersoon. Volgens KVK heb je daarom in de praktijk een zakelijke rekening nodig. Je regelt de geldzaken van de bv met een zakelijke rekening op naam van de bv, gescheiden van je privégeld.
+Een bv is een eigen rechtspersoon. KVK noemt daarom in de praktijk een zakelijke rekening nodig. Je regelt de geldzaken van de bv met een zakelijke rekening op naam van de bv, gescheiden van je privégeld.
 
 Overweeg je de stap naar een bv? Dan verandert ook je boekhouding: je krijgt te maken met een jaarrekening en vennootschapsbelasting. Lees in [boekhoudprogramma voor je bv](/boekhoudprogramma-bv/) waar je software dan op moet letten.
 
@@ -41,7 +41,7 @@ Ook als het niet hoeft, kiezen veel ondernemers voor een aparte rekening. KVK no
 
 Dat overzicht merk je vooral bij je boekhouding. Staan zakelijke en privébetalingen door elkaar, dan zoek je elk kwartaal uit welke betaling bij je bedrijf hoort. Met een aparte rekening is elke regel op je afschrift zakelijk. Dat scheelt werk bij je btw-aangifte en bij je aangifte inkomstenbelasting.
 
-Je kunt ook later overstappen. Volgens KVK mag je met een eenmanszaak beginnen met je privérekening en alsnog een zakelijke rekening openen als je het overzicht kwijtraakt.
+Je kunt ook later overstappen. KVK beschrijft dat je met een eenmanszaak mag beginnen met je privérekening en alsnog een zakelijke rekening openen als je het overzicht kwijtraakt.
 
 ## Zakelijke rekening en je boekhoudprogramma
 
@@ -56,13 +56,13 @@ Welke het beste past, lees je in [bankkoppeling in je boekhoudprogramma: wel of 
 
 ## Wat heb je nodig om een zakelijke rekening te openen?
 
-Je hebt meestal eerst een KVK-nummer nodig, dus schrijf je bedrijf in voordat je een rekening aanvraagt. Een bank vraagt volgens KVK vaak om:
+Je hebt meestal eerst een KVK-nummer nodig, dus schrijf je bedrijf in voordat je een rekening aanvraagt. KVK noemt dat een bank vaak vraagt om:
 
 1. Een geldig identiteitsbewijs.
 2. Je KVK-nummer.
 3. Een overzicht van de landen waarmee je zakendoet, als je de rekening ook voor buitenlandse betalingen gebruikt.
 
-Bij een bv of nv vraagt de bank daarnaast onder meer de statuten, het aandeelhoudersregister en de bevestigingsbrief van KVK met de UBO-gegevens. Bij een vof vraagt de bank volgens Business.gov.nl ook een kopie van het vennootschapscontract en de identiteit van alle vennoten.
+Bij een bv of nv vraagt de bank daarnaast onder meer de statuten, het aandeelhoudersregister en de bevestigingsbrief van KVK met de UBO-gegevens. Business.gov.nl noemt voor een vof ook een kopie van het vennootschapscontract en de identiteit van alle vennoten die de bank vraagt.
 
 Geef je identiteitsbewijs nooit zomaar af. KVK raadt aan een veilige kopie te maken.
 

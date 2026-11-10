@@ -3,7 +3,7 @@ title: Boekhouden als zzp'er: zo doe je het
 seo_title: Boekhouden als zzp'er: zo doe je het in 5 stappen
 description: Hoe moet je boekhouden als zzp'er? In 5 stappen: wat je bijhoudt, btw-aangifte, bewaarplicht, zakelijke rekening en een passend boekhoudprogramma.
 date: 2026-10-16
-updated: 2026-10-16
+updated: 2026-11-18
 checked: 2026-10-16
 tools: /boekhoudprogramma-kiezen/, /boekhoudprogramma-vergelijken/
 sources:
@@ -18,7 +18,7 @@ Als zzp'er moet je een administratie bijhouden waarmee je je belastingaangiften 
 
 ## 1. Houd je inkomsten en uitgaven bij
 
-Volgens de Belastingdienst hoort alles wat je over je bedrijf vastlegt bij je administratie, op papier of digitaal. Voor een zzp'er gaat het vooral om:
+De Belastingdienst rekent alles wat je over je bedrijf vastlegt tot je administratie, op papier of digitaal. Voor een zzp'er gaat het vooral om:
 
 - ontvangen facturen en kopieën van de facturen die je verstuurt
 - kassabonnen en je in- en verkoopboek

@@ -1,3 +1,4 @@
+import { revisieDatum } from './nuchter-datums-helper.mjs';
 // Jortt ZZP 250 boekingen = richtlijn (vlag boekingenRichtlijn).
 // L4 (SC B3): Jortt.actie = null; welkomstactie/loonstroken-gratis/HR-bèta hebben op jortt.nl/prijs/ geen kalender-einddatum (nagelezen 10-11-2026).
 // Alleen teksten/vlag; de match (rangorde, scores, gekozen pakketten, prijzen) blijft gelijk op de 6480 combinaties zonder extra's.
@@ -74,9 +75,9 @@ test('B3 extra gidsen: /boekhoudprogramma-starters/ en /gratis-boekhoudprogramma
     const p = pages.find((x) => x.path === path);
     const art = p.schema.find((s) => s['@type'] === 'Article');
     assert.equal(art.datePublished, '2026-10-10', path);
-    assert.equal(art.dateModified, '2026-11-12', path);
-    assert.equal(p.updated, '2026-11-12', path);
-    assert.equal(p.stamp.updated, '2026-11-12', path);
+    assert.equal(art.dateModified, revisieDatum(path, '2026-11-12'), path);
+    assert.equal(p.updated, revisieDatum(path, '2026-11-12'), path);
+    assert.equal(p.stamp.updated, revisieDatum(path, '2026-11-12'), path);
   }
 });
 
@@ -92,9 +93,9 @@ test('B1: bankkoppeling, urenregistratie en beste-zzp krijgen pushdatum 12-11; d
     const p = pages.find((x) => x.path === path);
     const art = p.schema.find((s) => s['@type'] === 'Article');
     assert.equal(art.datePublished, published, path);
-    assert.equal(art.dateModified, '2026-11-12', path);
-    assert.equal(p.updated, '2026-11-12', path);
-    assert.equal(p.stamp.updated, '2026-11-12', path);
+    assert.equal(art.dateModified, revisieDatum(path, '2026-11-12'), path);
+    assert.equal(p.updated, revisieDatum(path, '2026-11-12'), path);
+    assert.equal(p.stamp.updated, revisieDatum(path, '2026-11-12'), path);
   }
   const beste = pages.find((x) => x.path === '/beste-boekhoudprogramma-zzp/');
   assert.match(beste.body, /Eenmanszaak, tot 25 facturen en 50 uitgaven per maand, met offertes, btw-aangifte, bankkoppeling en hulp bij de aangifte, budget tot € 50\./);

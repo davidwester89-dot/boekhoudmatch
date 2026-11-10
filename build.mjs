@@ -1,3 +1,4 @@
+import { nuchterDatum } from './src/nuchter-datums.mjs';
 import { mkdirSync, writeFileSync, readFileSync, cpSync, rmSync, readdirSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { layout, SITE, RELATED } from './src/layout.mjs';
@@ -29,7 +30,7 @@ const ogKey = (p) => (existsSync(`src/assets/og/blog-${p.slug}.png`) ? `blog-${p
 const home = { ...S.home, body: S.home.body.replace('{{latest}}', latestHtml(posts)) };
 const gidsen = gidsPages();
 const pages = [home, kiezen, vergelijken, ...aanbiederPages, ...(gidsen.length ? [gidsHub(gidsen)] : []), ...gidsen, zzpnetto, uurtarief, S.btw, S.offerte, blogIndex(posts), ...posts.map((p) => postPage(p, posts, ogKey(p))),
-  S.bronnen, S.over, S.privacy, S.disclaimer, S.notfound];
+  S.bronnen, S.over, S.privacy, S.disclaimer, S.notfound].map(nuchterDatum);
 
 for (const p of pages) {
   const file = p.path.endsWith('.html') ? join(OUT, p.path) : join(OUT, p.path, 'index.html');

@@ -4,7 +4,7 @@ seo_title: Boekhoudprogramma starters 2026: kortingen en tips
 description: Net begonnen als zzp'er? Welk boekhoudprogramma past, welke starterskortingen er zijn en wat je vanaf dag één bijhoudt. Met prijs, bron en datum.
 crumb: Boekhoudprogramma starters
 published: 2026-10-10
-updated: 2026-11-12
+updated: 2026-11-18
 vendors: eboekhouden, moneymonk, informer, rompslomp
 related:
 - Gratis boekhoudprogramma | /gratis-boekhoudprogramma/
@@ -32,7 +32,7 @@ Verwacht je een omzet onder de € 20.000 per jaar, kijk dan ook naar de kleineo
 Deze kortingen staan op de sites van de aanbieders. Let op de voorwaarden.
 
 - **e-Boekhouden**: starters 15 maanden gratis. Daarna ZZP voor {{p:eboekhouden/zzp}} per maand, met een grens van 240 boekingen per jaar.
-- **MoneyMonk**: onlangs ingeschreven bij de KVK? Volgens de site 15 maanden gratis. Daarna Basis ({{p:moneymonk/basis}}, tot € 20.000 omzet en 20 banktransacties per maand) of hoger.
+- **MoneyMonk**: MoneyMonk geeft je 15 maanden gratis als je onlangs bent ingeschreven bij de KVK. Daarna Basis ({{p:moneymonk/basis}}, tot € 20.000 omzet en 20 banktransacties per maand) of hoger.
 - **Informer**: KVK-inschrijving maximaal 6 maanden oud? Dan 12 maanden € 15 per maand korting. ZZP Basis kost normaal {{p:informer/zzp-basis}}.
 
 Een korting van 15 maanden is veel waard. Maar reken ook uit wat het pakket daarna kost bij jouw volume. Een pakket dat na de korting te klein is, moet je alsnog upgraden of verlaten.
