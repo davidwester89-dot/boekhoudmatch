@@ -3,7 +3,7 @@ title: Schijnzelfstandigheid zzp 2026: boetes, de € 38-grens en wat er in 2027
 seo_title: Schijnzelfstandigheid zzp 2026: boetes en de € 38-grens
 description: Schijnzelfstandigheid als zzp'er: welke boetes nu al kunnen, wat er op 1 januari 2027 verandert en wat het rechtsvermoeden onder € 38 per uur betekent.
 date: 2026-10-27
-updated: 2026-10-27
+updated: 2026-11-13
 checked: 2026-10-27
 image: schijnzelfstandigheid-zzp-2026
 image_alt: Tijdlijn schijnzelfstandigheid: naheffen vanaf 1 januari 2025, vergrijpboetes vanaf 2026, rechtsvermoeden op 31 december 2026, verzuimboetes vanaf 2027
@@ -18,6 +18,7 @@ sources:
 - Kamerstuk 36783, nr. 13: Brief van de minister van Werk en Participatie | https://zoek.officielebekendmakingen.nl/kst-36783-13.html
 - Ondernemersplein: Laag uurtarief van zzp'er kan leiden tot arbeidsovereenkomst | https://ondernemersplein.overheid.nl/wetswijzigingen/laag-uurtarief-van-zzper-kan-leiden-tot-arbeidsovereenkomst/
 - Internetconsultatie: Zelfstandigenwet | https://www.internetconsultatie.nl/verduidelijkingzelfstandigenwet/b1
+- Internetconsultatie: Concept memorie van toelichting Zelfstandigenwet, § 11.1 Inwerkingtreding (pdf) | https://www.internetconsultatie.nl/verduidelijkingzelfstandigenwet/document/16199
 - Belastingdienst: Wanneer is sprake van loondienst? | https://www.belastingdienst.nl/wps/wcm/connect/nl/arbeidsrelaties/content/wanneer-is-sprake-van-loondienst
 ---
 Schijnzelfstandigheid is in 2026 voor zzp'ers geen ver-van-je-bed-show meer. Je werkt als zelfstandige, maar in de praktijk lijkt het op loondienst. De Belastingdienst handhaaft daar sinds 2025 weer op, en de regels worden in stappen strenger. Op 1 januari 2027 vervalt het laatste stukje 'zachte landing'. En op 31 december 2026 gaat een nieuwe regel in voor zzp'ers met een uurtarief onder € 38.
@@ -73,7 +74,7 @@ Nee. De € 38 is een grens voor het rechtsvermoeden, geen vrijbrief. Ook bij ee
 
 De wet heette eerst 'Verduidelijking beoordeling arbeidsrelaties en rechtsvermoeden' (VBAR). Het deel dat moest verduidelijken wanneer je werknemer bent, is in maart 2026 geschrapt. Alleen het rechtsvermoeden bleef over.
 
-In plaats daarvan werkt het kabinet aan een **Zelfstandigenwet**. Dit is nog een voorstel. Het concept staat tot en met 29 oktober 2026 in internetconsultatie, en het kabinet mikt op januari 2028. In het concept staan twee toetsen. De ene kijkt naar jou als ondernemer, bijvoorbeeld een KVK-inschrijving, een btw-nummer, een aparte zakelijke rekening en minstens 3 opdrachtgevers in het lopende en het vorige jaar samen. De andere kijkt naar je vrijheid binnen een opdracht. De criteria kunnen nog veranderen.
+In plaats daarvan werkt het kabinet aan een **Zelfstandigenwet**. Dit is nog een voorstel. Het concept stond tot en met 29 oktober 2026 in internetconsultatie; die is gesloten. Het kabinet mikt op 1 januari 2028, als de uitvoering dat toelaat. In het concept staan twee toetsen. De ene kijkt naar jou als ondernemer, bijvoorbeeld een KVK-inschrijving, een btw-nummer, een aparte zakelijke rekening en minstens 3 opdrachtgevers in het lopende en het vorige jaar samen. De andere kijkt naar je vrijheid binnen een opdracht. De criteria kunnen nog veranderen.
 
 Ook fiscaal verandert er volgend jaar het nodige. Dat lees je in [Belastingplan 2027 voor zzp'ers](/blog/belastingplan-2027-zzp/).
 
