@@ -3,7 +3,7 @@ title: Bewaarplicht administratie als zzp'er: wat bewaar je en hoe lang?
 seo_title: Bewaarplicht administratie zzp: wat en hoe lang bewaren?
 description: Hoe lang moet je als zzp'er je administratie bewaren? Wat valt onder de bewaarplicht van 7 of 10 jaar, mag je bonnen scannen en wat als je stopt?
 date: 2026-10-10
-updated: 2026-10-10
+updated: 2026-11-18
 checked: 2026-10-10
 image: bewaarplicht-administratie-zzp
 image_alt: Infographic bewaarplicht administratie zzp: basisgegevens en overige stukken 7 jaar bewaren, gegevens over onroerende zaken en One Stop Shop 10 jaar
@@ -33,7 +33,7 @@ De Belastingdienst wil je aangiften kunnen controleren. Je btw-aangifte en je aa
 
 Is je administratie niet volledig, of heb je die niet lang genoeg bewaard? Dan kan de Belastingdienst zelf je omzet en winst vaststellen en de belasting berekenen. Ben je het daar niet mee eens, dan moet jij bewijzen dat die berekening niet klopt. Dat heet **omkering van de bewijslast**.
 
-Volgens de Belastingdienst heb je een goede administratie ook nodig om gebruik te maken van regelingen zoals de kleineondernemersregeling of de investeringsaftrek.
+Een goede administratie heb je ook nodig om gebruik te maken van regelingen zoals de kleineondernemersregeling of de investeringsaftrek.
 
 ## Wat hoort er bij je administratie?
 
@@ -69,7 +69,7 @@ Een urenadministratie is niet verplicht. Maar wil je de zelfstandigenaftrek of s
 
 De **10 jaar voor One Stop Shop** geldt als je goederen of diensten verkoopt aan klanten in andere EU-landen die geen btw-aangifte doen, en je daarvoor het eenloketsysteem gebruikt. Voor de meeste zzp'ers met alleen Nederlandse klanten is 7 jaar de termijn die telt.
 
-Wil je bepaalde stukken korter bewaren? Dat kan alleen voor de andere gegevens, niet voor de basisgegevens, en alleen na een afspraak met je belastingkantoor. Zo'n afspraak geldt bovendien alleen voor de Belastingdienst. Volgens Ondernemersplein kan voor andere overheden de wettelijke termijn van 7 jaar blijven gelden.
+Wil je bepaalde stukken korter bewaren? Dat kan alleen voor de andere gegevens, niet voor de basisgegevens, en alleen na een afspraak met je belastingkantoor. Zo'n afspraak geldt bovendien alleen voor de Belastingdienst. Voor andere overheden kan de wettelijke termijn van 7 jaar blijven gelden.
 
 ### Wanneer begint de termijn?
 
@@ -79,7 +79,7 @@ De bewaartermijn begint pas als een gegeven niet meer actueel is. De Belastingdi
 
 Je bewaart gegevens **in de vorm waarin je ze hebt gekregen of verstuurd**. Een factuur die je als pdf ontvangt, bewaar je dus digitaal. Afdrukken en het bestand weggooien is niet de bedoeling. Dat mag alleen als je een kleine administratie hebt die binnen een redelijke termijn te controleren is.
 
-Bewaar je digitaal, dan moet de Belastingdienst je bestanden bij een controle kunnen gebruiken. De bewaarplicht geldt volgens Ondernemersplein ook voor de programma's waarmee je die bestanden opent.
+Bewaar je digitaal, dan moet de Belastingdienst je bestanden bij een controle kunnen gebruiken. De bewaarplicht geldt ook voor de programma's waarmee je die bestanden opent.
 
 ### Mag je bonnetjes scannen?
 
@@ -91,7 +91,7 @@ Ja. Je mag facturen en bonnetjes scannen en digitaal bewaren, als de scan een ju
 
 **Stap je over naar een ander boekhoudprogramma?** Werk je met een online pakket, dan staat je administratie bij die aanbieder. Zorg dat je je gegevens exporteert vóór je opzegt, inclusief de facturen in de vorm waarin je ze verstuurde of ontving. Een stappenplan staat in onze gids [overstappen naar een ander boekhoudprogramma](/overstappen-boekhoudprogramma/).
 
-**Bewaar niet te lang.** In je administratie staan persoonsgegevens, bijvoorbeeld van klanten op facturen. Volgens Ondernemersplein heb je een goede reden nodig om die langer te bewaren dan de verplichte 7 of 10 jaar. Heb je ze niet meer nodig, dan gooi je ze weg of maak je ze anoniem.
+**Bewaar niet te lang.** In je administratie staan persoonsgegevens, bijvoorbeeld van klanten op facturen. Je hebt een goede reden nodig om die langer te bewaren dan de verplichte 7 of 10 jaar. Heb je ze niet meer nodig, dan gooi je ze weg of maak je ze anoniem.
 
 ## Zo houd je het overzichtelijk
 

@@ -4,7 +4,7 @@ seo_title: Bankkoppeling boekhoudprogramma: per pakket | BoekhoudMatch
 description: Automatische bankkoppeling of zelf importeren? SnelStart koppelt de Rabobank in elk pakket, Moneybird vanaf Groei. Per aanbieder wat het extra kost.
 crumb: Bankkoppeling
 published: 2026-10-23
-updated: 2026-11-12
+updated: 2026-11-18
 vendors: moneybird, informer, silvasoft, moneymonk, rompslomp
 sources:
 - SnelStart Kennisplein: een bankkoppeling maken | https://kennisplein.snelstart.nl/klanten/s/article/de-nieuwe-generatie-bankkoppeling-via-psd2
@@ -31,7 +31,7 @@ Een koppeling scheelt je per maand een paar handelingen. Het verwerken zelf, dus
 
 - **e-Boekhouden**: bankkoppeling in elk pakket, ook ZZP ({{p:eboekhouden/zzp}}).
 - **Exact**: in alle drie de pakketten die we vergelijken. Online Boekhouden Essentials noemt 1 bankkoppeling.
-- **Informer**: automatische koppeling met je eigen bank kost € 1 per maand per rekening. Met de eigen Informer Money-rekening zijn er volgens Informer geen vaste kosten.
+- **Informer**: automatische koppeling met je eigen bank kost € 1 per maand per rekening. De eigen Informer Money-rekening heeft geen vaste kosten.
 - **Jortt**: in ZZP ({{p:jortt/zzp}}) 1 bankkoppeling; MKB en Plus ook met koppeling. Starter: importeren.
 - **[Moneybird](/moneybird/)**: je externe bank koppelen kan vanaf Groei ({{p:moneybird/groei}}). Bij Compact en Start importeer je zelf, of gebruik je de Moneybird Betaalrekening (eerste 12 maanden gratis, daarna € 7 per maand).
 - **[MoneyMonk](/moneymonk/)**: een gratis PSD2-bankkoppeling voor al je bankrekeningen, in elk pakket.

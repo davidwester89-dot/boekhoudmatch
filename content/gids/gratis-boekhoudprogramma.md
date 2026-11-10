@@ -4,7 +4,7 @@ seo_title: Gratis boekhoudprogramma zzp 2026 (en de grenzen)
 description: Welke boekhoudprogramma's zijn gratis, en wat zijn de grenzen? Gratis pakketten, starterskortingen en proefperiodes op een rij, met bron en datum.
 crumb: Gratis boekhoudprogramma
 published: 2026-10-10
-updated: 2026-11-12
+updated: 2026-11-18
 vendors: tellow, rompslomp, jortt, eboekhouden, moneymonk
 related:
 - Boekhoudprogramma voor starters | /boekhoudprogramma-starters/
@@ -35,15 +35,15 @@ Voor wie heel weinig facturen stuurt, kan een gratis pakket genoeg zijn. Voor ee
 
 Een paar aanbieders geven nieuwe ondernemers een lange gratis periode. Daarna betaal je het gewone tarief.
 
-- **e-Boekhouden**: starters 15 maanden gratis. Anderen krijgen volgens de prijspagina 12 maanden 50% korting (na 14 dagen proef, nieuwe klanten). Daarna kost ZZP {{p:eboekhouden/zzp}}.
-- **MoneyMonk**: starters die onlangs bij de KVK zijn ingeschreven, krijgen volgens de site 15 maanden gratis. Daarna kost Basis {{p:moneymonk/basis}}.
+- **e-Boekhouden**: starters 15 maanden gratis. Anderen krijgen 12 maanden 50% korting (na 14 dagen proef, nieuwe klanten). Daarna kost ZZP {{p:eboekhouden/zzp}}.
+- **MoneyMonk**: starters die onlangs bij de KVK zijn ingeschreven, krijgen 15 maanden gratis. Daarna kost Basis {{p:moneymonk/basis}}.
 - **Informer**: starters met een KVK-inschrijving van maximaal 6 maanden oud krijgen 12 maanden € 15 per maand korting. ZZP Basis kost normaal {{p:informer/zzp-basis}}.
 
 Een starterskorting is geen reden om een pakket te kiezen dat niet past. Kijk eerst of de grenzen kloppen voor jouw volume over een jaar, niet alleen nu.
 
 ## 3. Proefperiodes
 
-Bijna elke aanbieder laat je eerst proberen. De duur volgens de sites:
+Bijna elke aanbieder laat je eerst proberen. De proefperiodes:
 
 - Moneybird: 60 dagen (je gebruikt dan pakket Compleet).
 - SnelStart, Informer, Exact, Silvasoft en MoneyMonk: 30 dagen.
@@ -65,7 +65,7 @@ Gebruik je de kleineondernemersregeling (omzet tot € 20.000 per kalenderjaar),
 
 ## Wanneer is een betaald pakket goedkoper?
 
-Als je tijd iets waard is. Een pakket van zo'n € 9 tot € 15 per maand dient je btw-aangifte vaak direct in en koppelt je bank. Het goedkoopste pakket waarmee je 5 facturen en 5 uitgaven per maand kwijt kunt en btw-aangifte doet, is volgens onze regel Rompslomp Puur Factuur ({{p:rompslomp/puur}}). Kijk in de [vergelijking](/boekhoudprogramma-vergelijken/) wat er nog meer past.
+Als je tijd iets waard is. Een pakket van zo'n € 9 tot € 15 per maand dient je btw-aangifte vaak direct in en koppelt je bank. Het goedkoopste pakket waarmee je 5 facturen en 5 uitgaven per maand kwijt kunt en btw-aangifte doet, is in onze vergelijking Rompslomp Puur Factuur ({{p:rompslomp/puur}}). Kijk in de [vergelijking](/boekhoudprogramma-vergelijken/) wat er nog meer past.
 
 ## Alleen facturen maken?
 

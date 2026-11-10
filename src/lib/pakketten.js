@@ -21,7 +21,7 @@ export const PAKKETTEN = [
     btwPrijzen: null, // prijspagina vermeldt niet of prijzen excl. of incl. btw zijn
     rechtsvormen: null, eigenRekening: false, partner: 'Awin',
     actie: 'Starters: 15 maanden gratis. Anderen: 12 maanden 50% korting (na 14 dagen proef, nieuwe klanten).',
-    noot: 'Alle functies (bankkoppeling, btw-aangifte, offertes, uren) zitten volgens de prijspagina in elk pakket. Een boeking = elke mutatie (verkoop, inkoop, bank).',
+    noot: 'Bij e-Boekhouden zitten alle functies (bankkoppeling, btw-aangifte, offertes, uren) in elk pakket. Een boeking = elke mutatie (verkoop, inkoop, bank).',
     webshopkoppelingen: { gecontroleerd: '2026-10-16', shopify: 'ja', woocommerce: 'ja', lightspeed: 'ja', bol: 'ja', mollie: 'ja',
       bronnen: [{ url: 'https://www.e-boekhouden.nl/koppelingen/webshops', titel: 'e-Boekhouden.nl – Koppelingen webshops' }, { url: 'https://www.e-boekhouden.nl/koppelingen/payment-service-providers', titel: 'e-Boekhouden.nl – Koppelingen payment service providers' }] },
     plannen: [
@@ -51,7 +51,7 @@ export const PAKKETTEN = [
     btwPrijzen: 'excl', rechtsvormen: null, eigenRekening: false, partner: 'Daisycon',
     actie: null,
     noot: 'Jortt ZZP: alleen eenmanszaak, tot 250 boekingen per maand, 1 bankkoppeling, gecontroleerde aangifte inkomstenbelasting. Jortt Starter heeft bewust geen boekhouding.',
-    webshopkoppelingen: { gecontroleerd: '2026-10-16', shopify: 'ja', woocommerce: 'ja', lightspeed: 'ja', bol: 'ja', mollie: 'ja', noot: 'Deels via Webwinkelfacturen.nl (kosten apart). Webshop-orders verwerken vraagt volgens Jortt een MKB- of Plus-abonnement.',
+    webshopkoppelingen: { gecontroleerd: '2026-10-16', shopify: 'ja', woocommerce: 'ja', lightspeed: 'ja', bol: 'ja', mollie: 'ja', noot: 'Deels via Webwinkelfacturen.nl (kosten apart). Webshop-orders verwerken vraagt bij Jortt een MKB- of Plus-abonnement.',
       bronnen: [{ url: 'https://www.jortt.nl/boekhouding-webshop/', titel: 'Jortt – Boekhouding voor je webshop' }, { url: 'https://www.jortt.nl/koppelingen/', titel: 'Jortt – Koppelingen' }, { url: 'https://www.jortt.nl/uitleg/administratie/administratie-voor-webshop-zonder-mollie-met-koppeling/', titel: 'Jortt – Webshop zonder Mollie met koppeling' }] },
     plannen: [
       { id: 'starter', naam: 'Starter', prijs: 0, boekhouding: false, facturen: INF, btwAangifte: false, bank: 'import', offertes: true, uren: true, ib: false },

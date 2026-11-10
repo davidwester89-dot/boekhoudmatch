@@ -3,7 +3,8 @@ title: Boekhoudprogramma voor een vof (2026)
 seo_title: Boekhoudprogramma vof 2026: wat past? | BoekhoudMatch
 description: Een boekhoudprogramma voor je vof? Welke aanbieders de vof noemen, wat het kost en waar je op let met twee of meer vennoten. Met prijs, bron en datum.
 crumb: Boekhoudprogramma vof
-updated: 2026-10-10
+published: 2026-10-10
+updated: 2026-11-18
 vendors: moneybird, jortt
 related:
 - Boekhoudprogramma voor een bv | /boekhoudprogramma-bv/
@@ -18,7 +19,7 @@ Werk je samen met één of meer vennoten in een vof, dan heb je één administra
 
 ## Welke aanbieders noemen de vof?
 
-Op de prijspagina's noemen maar twee van de {{n:aanbieders}} aanbieders die we vergelijken de vof expliciet: Moneybird (alle pakketten) en Jortt (MKB en Plus). Jortt ZZP is volgens Jortt alleen voor een eenmanszaak.
+Op de prijspagina's noemen maar twee van de {{n:aanbieders}} aanbieders die we vergelijken de vof expliciet: Moneybird (alle pakketten) en Jortt (MKB en Plus). Jortt ZZP is alleen voor een eenmanszaak.
 
 Bij de andere acht staat de rechtsvorm niet op de prijspagina. Dat betekent niet dat een vof er niet kan; het betekent dat wij het niet kunnen controleren. Vraag het in dat geval na bij de aanbieder, of probeer het in de proefperiode.
 

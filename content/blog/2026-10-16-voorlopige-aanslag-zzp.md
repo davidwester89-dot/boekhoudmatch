@@ -3,7 +3,7 @@ title: Voorlopige aanslag als zzp'er: zo voorkom je een naheffing
 seo_title: Voorlopige aanslag zzp: aanvragen, wijzigen en rente
 description: Hoe werkt de voorlopige aanslag voor zzp'ers? Wanneer je hem aanvraagt of wijzigt, hoe je belastingrente voorkomt en wat je nu al kunt doen.
 date: 2026-10-16
-updated: 2026-10-16
+updated: 2026-11-18
 checked: 2026-10-16
 image: voorlopige-aanslag-zzp
 image_alt: Tijdlijn voorlopige aanslag voor zzp'ers: formulier vanaf december, aangifte vóór 1 mei, belastingrente vanaf 1 juli
@@ -45,7 +45,7 @@ Let ook op wetswijzigingen. Daalt een aftrekpost, zoals de zelfstandigenaftrek, 
 
 ## Hoe voorkom je belastingrente?
 
-Belastingrente is de rente die je betaalt als de Belastingdienst later geld van je krijgt. Je betaalt die volgens de Belastingdienst als:
+Belastingrente is de rente die je betaalt als de Belastingdienst later geld van je krijgt. Je betaalt die als:
 
 1. je aangifte op of na 1 mei binnenkomt, volgend op het jaar waarover je aangifte doet;
 2. de Belastingdienst bij de aanslag afwijkt van je aangifte, ook als je die vóór 1 mei indiende.
