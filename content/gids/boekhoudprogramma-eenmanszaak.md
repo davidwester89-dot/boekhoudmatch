@@ -3,7 +3,8 @@ title: Boekhoudprogramma voor een eenmanszaak (2026)
 seo_title: Boekhoudprogramma eenmanszaak 2026 | BoekhoudMatch
 description: Welk boekhoudprogramma past bij je eenmanszaak? Alle pakketten voor een eenmanszaak met prijs, limiet en bron, en waar je op let bij btw, bank en IB.
 crumb: Boekhoudprogramma eenmanszaak
-updated: 2026-10-10
+published: 2026-10-10
+updated: 2026-11-12
 vendors: eboekhouden, moneybird, jortt, moneymonk
 related:
 - Beste boekhoudprogramma voor zzp'ers | /beste-boekhoudprogramma-zzp/
@@ -44,7 +45,7 @@ Dit is per aanbieder het goedkoopste pakket. Alle pakketten staan in de [vergeli
 Dit bepaalt welk pakket je nodig hebt. Met twee facturen en een handvol bonnen per maand red je het met een klein pakket. Stuur je twintig facturen en heb je vijftig bonnen, dan vallen de goedkoopste pakketten af. Bijvoorbeeld:
 
 - e-Boekhouden ZZP ({{p:eboekhouden/zzp}}): maximaal 240 boekingen per jaar, en elke verkoop, inkoop en banktransactie telt mee.
-- Jortt ZZP ({{p:jortt/zzp}}): maximaal 250 boekingen per maand, alleen voor een eenmanszaak.
+- Jortt ZZP ({{p:jortt/zzp}}): bedoeld voor tot 250 boekingen per maand (richtlijn), alleen voor een eenmanszaak.
 - MoneyMonk Basis ({{p:moneymonk/basis}}): 20 banktransacties per maand en een omzet tot € 20.000 per jaar.
 
 ### Wil je je btw-aangifte direct indienen?

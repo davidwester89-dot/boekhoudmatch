@@ -4,7 +4,7 @@ seo_title: Bankkoppeling boekhoudprogramma: per pakket | BoekhoudMatch
 description: Automatische bankkoppeling of zelf importeren? SnelStart koppelt de Rabobank in elk pakket, Moneybird vanaf Groei. Per aanbieder wat het extra kost.
 crumb: Bankkoppeling
 published: 2026-10-23
-updated: 2026-11-08
+updated: 2026-11-12
 vendors: moneybird, informer, silvasoft, moneymonk, rompslomp
 sources:
 - SnelStart Kennisplein: een bankkoppeling maken | https://kennisplein.snelstart.nl/klanten/s/article/de-nieuwe-generatie-bankkoppeling-via-psd2

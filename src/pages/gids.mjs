@@ -128,8 +128,9 @@ const GROEP = (slug) => (/-vs-/.test(slug) ? 'Twee aanbieders naast elkaar' : /^
 export function gidsHub(gidsen) {
   const groepen = ['Kiezen voor jouw situatie', 'Twee aanbieders naast elkaar', 'Uitleg bij het kiezen'];
   const lijst = (g) => gidsen.filter((p) => GROEP(p.path.slice(1, -1)) === g).map((p) => `<li><a href="${p.path}"><strong>${esc(p.ogTitle)}</strong></a></li>`).join('');
-  // Sitemap-lastmod, zichtbare datum en dateModified: dezelfde nieuwste gids-updated. Niet CHECKED en niet een vaste dag.
-  const laatste = gidsen.map((p) => p.updated).filter(Boolean).sort().at(-1) || CHECKED;
+  // Hubdatum is de eigen laatste bodywijziging, niet de nieuwste kind-updated (Jortt v2: niet optillen met 12-11-gidsen).
+  const GIDSEN_HUB_UPDATED = '2026-11-08';
+  const laatste = GIDSEN_HUB_UPDATED;
   return {
     path: '/gidsen/', title: 'Gidsen over boekhoudprogramma\'s voor zzp | BoekhoudMatch', description: `Gidsen bij het kiezen van een boekhoudprogramma: per rechtsvorm, gratis, starters, btw, bank, KOR en uren. Prijzen gecontroleerd op ${fmtDate(CHECKED)}.`, crumb: 'Gidsen', og: 'vergelijken', updated: laatste, stamp: { updated: laatste },
     body: `<section class="article"><h1>Gidsen: boekhoudprogramma kiezen</h1>

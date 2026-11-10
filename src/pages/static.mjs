@@ -25,7 +25,7 @@ const e2 = (x) => '€ ' + x.toFixed(2).replace('.', ',');
 export const VOORBEELDEN = [
   { id: 'starter', titel: 'Starter', wie: 'Eenmanszaak, tot 2 facturen en 5 bonnen per maand, budget tot € 10.', a: { rechtsvorm: 'eenmanszaak', facturen: 2, uitgaven: 5, btw: 'plichtig', bank: 'maakt-niet-uit', ib: 'zelf', extra: [], budget: 10 } },
   { id: 'uren', titel: 'Dienstverlener met uren', wie: 'Eenmanszaak, tot 5 facturen per maand, met bankkoppeling, uren en offertes, budget tot € 20.', a: { rechtsvorm: 'eenmanszaak', facturen: 5, uitgaven: 10, btw: 'plichtig', bank: 'auto', ib: 'zelf', extra: ['uren', 'offertes'], budget: 20 } },
-  { id: 'groei', titel: 'Groeiende eenmanszaak', wie: 'Eenmanszaak, tot 25 facturen per maand, met bankkoppeling en hulp bij de aangifte, budget tot € 50.', a: { rechtsvorm: 'eenmanszaak', facturen: 25, uitgaven: 50, btw: 'plichtig', bank: 'auto', ib: 'hulp', extra: ['offertes'], budget: 50 } },
+  { id: 'groei', titel: 'Groeiende eenmanszaak', wie: 'Eenmanszaak, tot 25 facturen en 50 uitgaven per maand, met offertes, btw-aangifte, bankkoppeling en hulp bij de aangifte, budget tot € 50.', a: { rechtsvorm: 'eenmanszaak', facturen: 25, uitgaven: 50, btw: 'plichtig', bank: 'auto', ib: 'hulp', extra: ['offertes'], budget: 50 } },
 ];
 export const matchUrl = (a) => '/boekhoudprogramma-kiezen/?' + new URLSearchParams({ rechtsvorm: a.rechtsvorm, facturen: a.facturen, uitgaven: a.uitgaven, btw: a.btw, bank: a.bank, offertes: a.extra.includes('offertes') ? '1' : '0', uren: a.extra.includes('uren') ? '1' : '0', ib: a.ib, budget: a.budget === Infinity ? 'geen' : String(a.budget) }).toString();
 function voorbeeld(v) {

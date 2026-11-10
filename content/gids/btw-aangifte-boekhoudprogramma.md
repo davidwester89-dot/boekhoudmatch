@@ -3,7 +3,8 @@ title: Btw-aangifte vanuit je boekhoudprogramma
 seo_title: Btw-aangifte vanuit je boekhoudprogramma | BoekhoudMatch
 description: Welke boekhoudprogramma's dienen je btw-aangifte direct in, en bij welke typ je zelf over? De deadlines van 2026 en per aanbieder wat de prijspagina zegt.
 crumb: Btw-aangifte
-updated: 2026-10-10
+published: 2026-10-10
+updated: 2026-11-12
 vendors: moneybird, rompslomp, tellow, silvasoft, moneymonk
 related:
 - Btw berekenen | /btw-berekenen/
@@ -56,7 +57,7 @@ Dit is per aanbieder het goedkoopste pakket dat direct indienen noemt. Een paar 
 - **Silvasoft** noemt btw-aangifte met 1 klik naar de Belastingdienst, in elk pakket.
 - **Exact** noemt direct indienen bij Reeleezee Slim Boekhouden ({{p:exact/slim}}); bij de andere twee Exact-pakketten staat de manier niet vermeld.
 
-Bij e-Boekhouden, Jortt, Informer en SnelStart (inKaart en hoger) zit de btw-aangifte erin, maar staat de manier van indienen niet op de prijspagina. Bij de SnelStart-pakketten inOrde en inStap doet je boekhouder de aangifte.
+Bij e-Boekhouden, Jortt, Informer en [SnelStart](/snelstart/) (inKaart en hoger) zit de btw-aangifte erin, maar staat de manier van indienen niet op de prijspagina. Bij de SnelStart-pakketten inOrde en inStap doet je boekhouder de aangifte.
 
 ## Is direct indienen het geld waard?
 

@@ -3,7 +3,7 @@ title: Beste boekhoudprogramma voor zzp'ers in 2026
 seo_title: Beste boekhoudprogramma zzp 2026: top per situatie
 description: Welk boekhoudprogramma is het beste voor jou als zzp'er? Per situatie het goedkoopste passende pakket, met prijs en limiet. Bijgewerkt okt. 2026.
 crumb: Beste boekhoudprogramma zzp
-updated: 2026-10-19
+updated: 2026-11-12
 published: 2026-10-10
 update: Alle prijzen opnieuw gecontroleerd en MoneyMonk toegevoegd. Rompslomp rekent per 1 november 2026 met nieuwe tarieven; die gebruiken we al.
 vendors: rompslomp, jortt, tellow, moneymonk

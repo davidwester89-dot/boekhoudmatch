@@ -16,18 +16,35 @@ export const PARTNERLINKS = {
   eboekhouden: { url: EBOEKHOUDEN_AWIN, netwerk: 'Awin' },
 };
 
-/** Uitgaande link naar een aanbieder: partnerlink als die er is, anders de eigen site. */
+// SnelStart: geen goedgekeurde betaalde partnerroute (besluit 10-11-2026). Geen CTA, geen sponsored/ref; gewone bronlink.
+export const NEUTRALE_BRONNEN = {
+  snelstart: { href: 'https://www.snelstart.nl', naam: 'SnelStart' },
+};
+
+/** Uitgaande link naar een aanbieder: partnerlink als die er is, anders de eigen site. SnelStart: neutrale bronlink. */
 export function uitgaand(aanbieder, partnerlinks = PARTNERLINKS) {
   const pl = partnerlinks[aanbieder.id];
   const partner = !!(pl && /^https:\/\//.test(pl.url));
-  return { href: partner ? pl.url : aanbieder.site, partner, rel: partner ? 'nofollow sponsored noopener' : 'nofollow noopener' };
+  const bron = !partner && !!NEUTRALE_BRONNEN[aanbieder.id];
+  const href = partner ? pl.url : bron ? NEUTRALE_BRONNEN[aanbieder.id].href : aanbieder.site;
+  const rel = partner ? 'nofollow sponsored noopener' : bron ? 'noopener' : 'nofollow noopener';
+  return { href, partner, rel, bron };
 }
 
-/** CTA-tekst voor een pakket: de proefperiode (volgens de aanbieder) staat in de knop zelf, zodat er geen regel onder hoeft. */
-export function ctaTekst(kort, { proef, prijs }) {
+/** CTA-tekst voor een pakket: de proefperiode (volgens de aanbieder) staat in de knop zelf, zodat er geen regel onder hoeft.
+ *  SnelStart: 'Bron: SnelStart'. Jortt (betaalde route): 'Bekijk Jortt' (proefmetadata niet als promo renderen, SC B3 punt 6). */
+export function ctaTekst(kort, { proef, prijs, id } = {}) {
+  if (id && NEUTRALE_BRONNEN[id]) return { gratis: false, tekst: `Bron: ${NEUTRALE_BRONNEN[id].naam}`, bron: true };
+  if (id === 'jortt') return { gratis: false, tekst: 'Bekijk Jortt' };
   const dagen = Number(proef) > 0 ? Number(proef) : 0;
   const gratis = dagen > 0 || prijs === 0;
   return { gratis, tekst: dagen ? `${dagen} dagen gratis proberen bij ${kort}` : prijs === 0 ? `Gratis beginnen bij ${kort}` : `Bekijk ${kort}` };
+}
+
+/** Gewone bronlink zonder knopstyling, sponsored of target (vorm vastgelegd 10-11-2026). */
+export function bronLinkHtml(id) {
+  const b = NEUTRALE_BRONNEN[id];
+  return b ? `<a href="${b.href}" rel="noopener">Bron: ${b.naam}</a>` : '';
 }
 
 // Partnerzin: geen label per knop, maar precies één korte zin direct na elk blok waarin een partnerlink staat

@@ -3,7 +3,7 @@ title: Wat kost een boekhoudprogramma in 2026?
 seo_title: Wat kost een boekhoudprogramma? Prijzen en limieten 2026
 description: Wat kost een boekhoudprogramma per maand? Prijzen per pakket, waar gratis en goedkope abonnementen stoppen en wanneer betalen loont. Vergelijk direct.
 date: 2026-10-17
-updated: 2026-10-17
+updated: 2026-11-12
 checked: 2026-10-17
 image: wat-kost-een-boekhoudprogramma
 image_alt: Prijsladder boekhoudprogramma per maand: gratis met strenge limieten, tot € 10 met limieten op facturen of transacties, € 10 tot € 25 voor de meeste zzp'ers en vanaf € 25 meer gebruikers en rekeningen
@@ -57,7 +57,7 @@ Dit zijn de reguliere prijzen per maand bij maandbetaling, zoals de aanbieders z
 | Silvasoft | Boekhouden € 13,95 (zonder facturen) | Boekhouden + Facturatie € 22,90 |
 | MoneyMonk | Basis € 9,00 (20 transacties) | Ultra € 37,50 |
 
-Rompslomp rekent met de tarieven die per 1 november 2026 gelden. Bij SnelStart zijn inOrde en inStap goedkoper, maar die zijn bedoeld voor samenwerking met een boekhouder (inOrde krijg je alleen via een boekhouder).
+Rompslomp rekent met de tarieven die per 1 november 2026 gelden. Bij [SnelStart](/snelstart/) zijn inOrde en inStap goedkoper, maar die zijn bedoeld voor samenwerking met een boekhouder (inOrde krijg je alleen via een boekhouder).
 
 Alle pakketten naast elkaar, met functies per abonnement, zie je op [boekhoudprogramma's vergelijken](/boekhoudprogramma-vergelijken/).
 

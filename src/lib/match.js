@@ -45,7 +45,9 @@ export function beoordeel(aanbieder, plan, a) {
   if (plan.facturen !== undefined && v.facturen > plan.facturen) nee.push(plan.facturen === 0 ? 'Geen verkoopfacturen in dit pakket.' : `Max. ${plan.facturen} facturen per maand.`);
   if (plan.uitgaven !== undefined && v.uitgaven > plan.uitgaven) nee.push(`Max. ${plan.uitgaven} uitgaven/boekingen per maand.`);
   if (plan.transacties !== undefined && v.transacties > plan.transacties) nee.push(`Max. ${plan.transacties} banktransacties per maand (jij: ca. ${v.transacties}).`);
-  if (plan.boekingenMaand !== undefined && v.boekingenMaand > plan.boekingenMaand) nee.push(`Max. ${plan.boekingenMaand} boekingen per maand (jij: ca. ${v.boekingenMaand}).`);
+  if (plan.boekingenMaand !== undefined && v.boekingenMaand > plan.boekingenMaand) nee.push(plan.boekingenRichtlijn
+    ? `${aanbieder.naam} adviseert tot ${plan.boekingenMaand} boekingen per maand (richtlijn); jij: ca. ${v.boekingenMaand}.${aanbieder.id === 'jortt' ? ' Jortt MKB past dan beter.' : ''}`
+    : `Max. ${plan.boekingenMaand} boekingen per maand (jij: ca. ${v.boekingenMaand}).`);
   if (plan.boekingenJaar !== undefined && v.boekingenJaar > plan.boekingenJaar) nee.push(`Max. ${plan.boekingenJaar} boekingen per jaar (jij: ca. ${v.boekingenJaar}).`);
 
   if (plan.omzetMax) let_op.push(`Pakket is voor een omzet tot € ${plan.omzetMax.toLocaleString('nl-NL')} per jaar.`);

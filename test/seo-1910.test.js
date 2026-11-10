@@ -75,16 +75,16 @@ test('SEO 7-11: Moneybird zegt geen gratis pakket; SnelStart linkt naar de bankg
   assert.doesNotMatch(faq.mainEntity[0].acceptedAnswer.text, /<[a-z]/);
 
   const ss = aanbiederPages.find((x) => x.path === '/snelstart/');
-  assert.equal(ss.title, 'SnelStart prijzen 2026: kosten per pakket | BoekhoudMatch');
+  assert.equal(ss.title, 'SnelStart kosten 2026: prijs per maand | BoekhoudMatch');
   assert.equal((ss.body.match(/href="\/bankkoppeling-boekhoudprogramma\/">bankkoppeling per pakket<\/a>/g) || []).length, 1);
-  assert.doesNotMatch(ss.title + ss.description, /Wat kost SnelStart/);
-  assert.equal(ss.updated, '2026-11-08');
-  assert.equal(ss.schema.find((s) => s['@type'] === 'SoftwareApplication').dateModified, '2026-11-08');
+  assert.match(ss.title + ss.description, /Wat kost SnelStart/);
+  assert.equal(ss.updated, '2026-11-12');
+  assert.equal(ss.schema.find((s) => s['@type'] === 'SoftwareApplication').dateModified, '2026-11-12');
   assert.equal(ss.stamp.checked, checked(PAKKETTEN.find((a) => a.id === 'snelstart')));
 
-  for (const slug of ['jortt', 'silvasoft', 'rompslomp', 'tellow', 'exact', 'informer']) {
+  for (const slug of ['silvasoft', 'rompslomp', 'tellow', 'exact', 'informer']) {
     const p = aanbiederPages.find((x) => x.path === `/${slug}/`);
-    const kort = { jortt: 'Jortt', silvasoft: 'Silvasoft', rompslomp: 'Rompslomp', tellow: 'Tellow', exact: 'Exact', informer: 'Informer' }[slug];
+    const kort = { silvasoft: 'Silvasoft', rompslomp: 'Rompslomp', tellow: 'Tellow', exact: 'Exact', informer: 'Informer' }[slug];
     assert.equal(p.title, `${kort} prijzen 2026: kosten per pakket | BoekhoudMatch`);
     assert.doesNotMatch(p.body, /bankkoppeling per pakket/);
     assert.doesNotMatch(p.body, /niet meer gratis/);
@@ -100,9 +100,9 @@ test('SEO 7-11: bankgids en Rompslomp vs Tellow, prijzen uit de bestaande data',
   assert.match(bank.body, /<h2 id="snelstart-koppelen-met-de-rabobank">/);
   assert.match(bank.body, /<h2 id="moneybird-automatische-bankkoppeling-instellen">/);
   assert.equal(bank.schema.find((s) => s['@type'] === 'Article').datePublished, '2026-10-23');
-  assert.equal(bank.schema.find((s) => s['@type'] === 'Article').dateModified, '2026-11-08');
-  assert.equal(bank.updated, '2026-11-08');
-  assert.equal(bank.stamp.updated, '2026-11-08');
+  assert.equal(bank.schema.find((s) => s['@type'] === 'Article').dateModified, '2026-11-12');
+  assert.equal(bank.updated, '2026-11-12');
+  assert.equal(bank.stamp.updated, '2026-11-12');
 
   const vs = pages.find((p) => p.path === '/rompslomp-vs-tellow/');
   assert.equal(vs.title, 'Rompslomp vs Tellow: tarieven 2026 | BoekhoudMatch');
@@ -142,8 +142,9 @@ test('SEO-herstel: datePublished blijft de vastgelegde historische datum', () =>
     const article = page.schema.find((s) => s['@type'] === 'Article');
     assert.equal(article.datePublished, datum, slug);
     assert.match(readFileSync(file, 'utf8'), new RegExp(`^published: ${datum}$`, 'm'));
-    assert.equal(article.dateModified, '2026-11-08');
-    assert.equal(page.updated, '2026-11-08');
+    const gewijzigd = { 'bankkoppeling-boekhoudprogramma': '2026-11-12', 'rompslomp-vs-tellow': '2026-11-08' }[slug];
+    assert.equal(article.dateModified, gewijzigd, slug);
+    assert.equal(page.updated, gewijzigd, slug);
   }
   assert.match(readFileSync('src/pages/gids.mjs', 'utf8'), /datePublished: meta\.published \|\| meta\.updated/);
 });
@@ -186,14 +187,14 @@ test('SEO-herstel: publicatiedatumtest heeft geen main-ref nodig in een detached
   assert.equal(child.status, 0, `${child.stdout}\n${child.stderr}`);
 });
 
-test('SEO-herstel: /gidsen/ lastmod, zichtbare datum en dateModified zijn de nieuwste gids', () => {
+test('SEO-herstel: /gidsen/ lastmod, zichtbare datum en dateModified blijven de eigen hubdatum (niet de nieuwste gids)', () => {
   const gidsen = gidsPages();
   const hub = gidsHub(gidsen);
-  const laatste = gidsen.map((p) => p.updated).filter(Boolean).sort().at(-1);
-  assert.equal(hub.updated, laatste);
-  assert.equal(hub.stamp.updated, laatste);
-  assert.equal(hub.schema.find((s) => s['@type'] === 'CollectionPage').dateModified, laatste);
-  assert.equal(laatste, '2026-11-08');
+  const nieuwsteKind = gidsen.map((p) => p.updated).filter(Boolean).sort().at(-1);
+  assert.equal(nieuwsteKind, '2026-11-12');
+  assert.equal(hub.updated, '2026-11-08');
+  assert.equal(hub.stamp.updated, '2026-11-08');
+  assert.equal(hub.schema.find((s) => s['@type'] === 'CollectionPage').dateModified, '2026-11-08');
 });
 
 test('Geen layoutverschuiving: cookiemelding fixed zonder body-padding; skiplink 48px; match-intro max. 1 regel', () => {

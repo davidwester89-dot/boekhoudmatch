@@ -62,7 +62,7 @@ ${posts.map((x) => `<a class="card" href="${x.path}"><time datetime="${x.date}">
   return {
     path: '/blog/', title: 'Blog voor zzp\'ers: boekhouding en belasting | BoekhoudMatch', ogTitle: 'Blog: boekhouding en belasting voor zzp\'ers',
     description: 'Actuele artikelen over boekhouding, btw en belasting voor zzp\'ers: wat verandert er en wat betekent het voor jou? Met officiële bronnen.',
-    crumb: 'Blog', og: 'blog', body, updated: posts[0]?.updated, stamp: { updated: posts.map((x) => x.updated).sort().at(-1) },
+    crumb: 'Blog', og: 'blog', body, updated: posts[0]?.updated, stamp: { updated: posts[0]?.updated },
     schema: [{ '@context': 'https://schema.org', '@type': 'Blog', name: 'BoekhoudMatch blog', url: SITE.domain + '/blog/', inLanguage: 'nl-NL', publisher: ORG,
       blogPost: posts.map((x) => ({ '@type': 'BlogPosting', headline: x.title, url: SITE.domain + x.path, datePublished: x.date, dateModified: x.updated })) }],
   };

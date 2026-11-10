@@ -3,7 +3,8 @@ title: Jortt vs MoneyMonk: prijzen en verschillen (2026)
 seo_title: Jortt vs MoneyMonk 2026: prijs en limiet | BoekhoudMatch
 description: Jortt of MoneyMonk? Prijzen, limieten, btw-aangifte, bankkoppeling en hulp bij de IB-aangifte naast elkaar, met de uitkomst van de match. Met bron.
 crumb: Jortt vs MoneyMonk
-updated: 2026-10-10
+published: 2026-10-10
+updated: 2026-11-12
 vendors: jortt, moneymonk
 related:
 - Jortt: prijzen en pakketten | /jortt/
@@ -16,7 +17,7 @@ Jortt en MoneyMonk richten zich allebei op zzp'ers met een eenmanszaak, en alleb
 
 ## Prijs en limiet
 
-**Jortt** heeft een gratis Starter, maar dat is bewust geen boekhouding: je maakt er facturen en offertes mee en houdt uren bij. De boekhouding begint bij ZZP ({{p:jortt/zzp}}). Dat pakket is alleen voor een eenmanszaak, met maximaal 250 boekingen per maand en 1 bankkoppeling. MKB ({{p:jortt/mkb}}) en Plus ({{p:jortt/plus}}) hebben geen boekingsgrens en noemen ook vof en bv. Jortt heeft de prijzen per 9 september 2026 verhoogd. Bij jaarbetaling kost ZZP € 19,95 per maand, MKB € 27,95 en Plus € 37,95.
+**Jortt** heeft een gratis Starter, maar dat is bewust geen boekhouding: je maakt er facturen en offertes mee en houdt uren bij. De boekhouding begint bij ZZP ({{p:jortt/zzp}}). Dat pakket is alleen voor een eenmanszaak, bedoeld voor tot 250 boekingen per maand (volgens Jortt een richtlijn, geen harde grens) en 1 bankkoppeling. MKB ({{p:jortt/mkb}}) en Plus ({{p:jortt/plus}}) hebben geen boekingsgrens en noemen ook vof en bv. Jortt heeft de prijzen per 9 september 2026 verhoogd. Bij jaarbetaling kost ZZP € 19,95 per maand, MKB € 27,95 en Plus € 37,95.
 
 **MoneyMonk** heeft drie pakketten met een grens op banktransacties per maand en omzet per jaar. Basis ({{p:moneymonk/basis}}) gaat tot 20 banktransacties per maand en een omzet tot € 20.000 per jaar. Pro ({{p:moneymonk/pro}}) tot 50 transacties en € 100.000 omzet. Ultra ({{p:moneymonk/ultra}}) heeft geen transactiegrens.
 
@@ -49,7 +50,6 @@ Jortt ZZP is alleen voor een eenmanszaak; MKB en Plus noemen ook vof en bv. Mone
 
 ## Acties
 
-- Jortt: 30 dagen gratis, daarna 3 maanden € 9,95 per maand.
 - MoneyMonk: 30 dagen gratis proberen; starters die onlangs bij de KVK zijn ingeschreven, krijgen volgens de site 15 maanden gratis; Pro de eerste 3 maanden € 15 per maand.
 
 Acties tellen in de match niet mee. Na de actie betaal je het gewone tarief, en daar rekenen wij mee.

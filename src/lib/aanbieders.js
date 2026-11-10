@@ -32,7 +32,7 @@ export const REDACTIE = {
     slug: 'jortt', kort: 'Jortt', logo: 'jortt', proef: 30,
     sterk: 'Gecontroleerde aangifte inkomstenbelasting in ZZP, MKB en Plus.',
     zwak: 'ZZP is alleen voor een eenmanszaak; Starter heeft geen boekhouding.',
-    knelt: 'ZZP: max. 250 boekingen per maand, alleen eenmanszaak',
+    knelt: 'ZZP: tot 250 boekingen per maand (richtlijn), alleen eenmanszaak',
     wel: ['Je wilt hulp of controle bij je aangifte inkomstenbelasting.', 'Je hebt een eenmanszaak (ZZP), of een vof of bv (MKB en Plus).'],
     niet: ['Je zoekt een gratis pakket mét boekhouding: Starter is alleen factureren.', 'Je zoekt de laagste maandprijs voor een klein volume.'],
   },

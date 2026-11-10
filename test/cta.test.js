@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { PAKKETTEN } from '../src/lib/pakketten.js';
 import { REDACTIE } from '../src/lib/aanbieders.js';
-import { PARTNERLINKS, uitgaand, ctaTekst } from '../src/lib/partnerlinks.js';
+import { PARTNERLINKS, uitgaand, ctaTekst, bronLinkHtml, NEUTRALE_BRONNEN } from '../src/lib/partnerlinks.js';
 
 test('partnerlinks: alleen bestaande aanbieders en https', () => {
   for (const [id, pl] of Object.entries(PARTNERLINKS)) {
@@ -13,7 +13,7 @@ test('partnerlinks: alleen bestaande aanbieders en https', () => {
 });
 test('uitgaand: zonder partnerlink de eigen site, nofollow noopener, geen label', () => {
   const a = PAKKETTEN[0];
-  assert.deepEqual(uitgaand(a, {}), { href: a.site, partner: false, rel: 'nofollow noopener' });
+  assert.deepEqual(uitgaand(a, {}), { href: a.site, partner: false, rel: 'nofollow noopener', bron: false });
 });
 test('uitgaand: met partnerlink sponsored + label', () => {
   const a = PAKKETTEN[0];
@@ -26,6 +26,14 @@ test('ctaTekst: proefperiode of gratis pakket in de knop, anders Bekijk', () => 
   assert.equal(ctaTekst('Tellow', { proef: null, prijs: 0 }).tekst, 'Gratis beginnen bij Tellow');
   assert.equal(ctaTekst('Tellow', { proef: null, prijs: 12.99 }).tekst, 'Bekijk Tellow');
   assert.equal(ctaTekst('Rompslomp', { proef: null, prijs: 8.95 }).tekst, 'Bekijk Rompslomp');
+  // Jortt: betaalde route, geen actietekst in de knop (SC B3 punt 6).
+  assert.equal(ctaTekst('Jortt', { proef: 30, prijs: 0, id: 'jortt' }).tekst, 'Bekijk Jortt');
+  assert.equal(ctaTekst('Jortt', { proef: 30, prijs: 0, id: 'jortt' }).gratis, false);
+  // SnelStart: neutrale bronlink, geen trial-CTA.
+  assert.equal(ctaTekst('SnelStart', { proef: 30, prijs: 15.50, id: 'snelstart' }).tekst, 'Bron: SnelStart');
+  assert.equal(ctaTekst('SnelStart', { proef: 30, prijs: 15.50, id: 'snelstart' }).bron, true);
+  assert.equal(bronLinkHtml('snelstart'), '<a href="https://www.snelstart.nl" rel="noopener">Bron: SnelStart</a>');
+  assert.equal(NEUTRALE_BRONNEN.snelstart.href, 'https://www.snelstart.nl');
 });
 test('match en volgorde lezen partnerlinks nooit', () => {
   for (const f of ['src/lib/match.js', 'src/lib/situaties.mjs']) assert.doesNotMatch(readFileSync(f, 'utf8'), /partnerlinks|PARTNERLINKS/);

@@ -25,7 +25,13 @@ const host = (url) => url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/.*$/, '
 
 // Uitgaande knop naar de aanbieder (nieuw tabblad). Partnerlink alleen als die in partnerlinks.js staat; geen zichtbaar label.
 function knop(a, r, pos, cls) {
-  const red = REDACTIE[a.id], u = uitgaand(a), c = ctaTekst(red.kort, { proef: red.proef, prijs: r.prijs });
+  const red = REDACTIE[a.id], u = uitgaand(a), c = ctaTekst(red.kort, { proef: red.proef, prijs: r.prijs, id: a.id });
+  if (u.bron) {
+    const l = el('a');
+    l.href = u.href; l.rel = u.rel;
+    l.textContent = c.tekst;
+    return { l, u, c, red };
+  }
   const l = el('a', cls);
   l.href = u.href; l.target = '_blank'; l.rel = u.rel;
   l.dataset.vendor = a.naam; l.dataset.pos = String(pos); l.dataset.cta = c.gratis ? 'trial' : 'visit';

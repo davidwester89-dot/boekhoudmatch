@@ -1,0 +1,17 @@
+{
+  "parent": "9ede387075fb46291614441dcfc907c6c44e3871",
+  "inputs": 25920,
+  "summary": {
+    "orderChanged": 3792,
+    "top3PastChanged": 3522,
+    "planOrPriceChanged": 0,
+    "anyChanged": 3792,
+    "orderChangedNoExtras": 0
+  },
+  "shiftsSha256": "9b8c85901a17d57642cd444ec7f5b56d81c85a8c8e8a0157e6742957defa4ef1",
+  "groei": {
+    "a": {"rechtsvorm":"eenmanszaak","facturen":25,"uitgaven":50,"btw":"plichtig","bank":"auto","ib":"hulp","budget":50,"extra":["offertes"]},
+    "voorTop3past": ["jortt/zzp","snelstart/instap","tellow/plus"],
+    "naTop3past": ["snelstart/instap","jortt/zzp","tellow/plus"]
+  }
+}

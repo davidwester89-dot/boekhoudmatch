@@ -11,7 +11,8 @@ const DEF = { aanbieder: '', rechtsvorm: 'eenmanszaak', facturen: '5', uitgaven:
 const byId = Object.fromEntries(PAKKETTEN.map((a) => [a.id, a]));
 const passend0 = match(PAKKETTEN, DEF).filter((r) => r.past);
 function knopHtml(r, pos, cls) {
-  const a = byId[r.aanbieder], red = REDACTIE[a.id], u = uitgaand(a), c = ctaTekst(red.kort, { proef: red.proef, prijs: r.prijs });
+  const a = byId[r.aanbieder], red = REDACTIE[a.id], u = uitgaand(a), c = ctaTekst(red.kort, { proef: red.proef, prijs: r.prijs, id: a.id });
+  if (u.bron) return { html: `<a href="${esc(u.href)}" rel="${u.rel}">${esc(c.tekst)}</a>`, a, red, u, c };
   return { html: `<a class="${cls}" href="${esc(u.href)}" target="_blank" rel="${u.rel}" data-vendor="${esc(a.naam)}" data-pos="${pos}" data-cta="${c.gratis ? 'trial' : 'visit'}">${esc(pos === 1 ? c.tekst : `Bekijk ${red.kort}`)}<span aria-hidden="true"> ↗</span><span class="sr-only"> (opent in een nieuw tabblad)</span></a>`, a, red, u, c };
 }
 const pagina = (a, pos, t) => `<a class="vlink" href="${vendorHref(a.id)}" data-vendor="${esc(a.naam)}" data-pos="${pos}" data-cta="vendor_page">${esc(t)}</a>`;
@@ -133,6 +134,6 @@ ${faqHtml(faq)}
 export default {
   path, title: 'Boekhoudprogramma kiezen als zzp\'er | BoekhoudMatch', og: 'match', ogTitle: 'Welk boekhoudprogramma past bij jou?',
   description: `Welk boekhoudprogramma past bij jouw zzp-bedrijf? 8 vragen, ${PAKKETTEN.length} aanbieders, actuele prijzen en eerlijk uitgelegd waarom. Gratis, zonder account.`,
-  crumb: 'Boekhoudprogramma kiezen', body, scripts: ['/js/kiezen.js', '/js/video.js'], updated: '2026-11-05',
-  schema: [webApp({ name: 'Boekhoudprogramma-match', url: SITE.domain + path, description: 'Vind het boekhoudprogramma dat bij je onderneming past.' }), faqSchema(faq), videoSchema],
+  crumb: 'Boekhoudprogramma kiezen', body, scripts: ['/js/kiezen.js', '/js/video.js'], updated: '2026-11-12', stamp: { updated: '2026-11-12' },
+  schema: [{ ...webApp({ name: 'Boekhoudprogramma-match', url: SITE.domain + path, description: 'Vind het boekhoudprogramma dat bij je onderneming past.' }), dateModified: '2026-11-12' }, faqSchema(faq), videoSchema],
 };

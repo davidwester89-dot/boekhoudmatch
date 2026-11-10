@@ -3,7 +3,8 @@ title: Gratis boekhoudprogramma: wat krijg je wel en niet? (2026)
 seo_title: Gratis boekhoudprogramma zzp 2026 (en de grenzen)
 description: Welke boekhoudprogramma's zijn gratis, en wat zijn de grenzen? Gratis pakketten, starterskortingen en proefperiodes op een rij, met bron en datum.
 crumb: Gratis boekhoudprogramma
-updated: 2026-10-10
+published: 2026-10-10
+updated: 2026-11-12
 vendors: tellow, rompslomp, jortt, eboekhouden, moneymonk
 related:
 - Boekhoudprogramma voor starters | /boekhoudprogramma-starters/
@@ -45,7 +46,6 @@ Een starterskorting is geen reden om een pakket te kiezen dat niet past. Kijk ee
 Bijna elke aanbieder laat je eerst proberen. De duur volgens de sites:
 
 - Moneybird: 60 dagen (je gebruikt dan pakket Compleet).
-- Jortt: 30 dagen, daarna 3 maanden € 9,95 per maand.
 - SnelStart, Informer, Exact, Silvasoft en MoneyMonk: 30 dagen.
 - e-Boekhouden: 14 dagen.
 - Tellow: 14 dagen niet-goed-geld-teruggarantie op betaalde pakketten.

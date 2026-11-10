@@ -3,7 +3,7 @@ title: Goedkoopste boekhoudprogramma voor zzp'ers (2026)
 seo_title: Goedkoopste boekhoudprogramma zzp 2026 | BoekhoudMatch
 description: Wat is het goedkoopste boekhoudprogramma? Het goedkoopste pakket van 10 aanbieders op prijs, met de limieten erbij. Prijzen van de aanbieders zelf.
 crumb: Goedkoopste boekhoudprogramma
-updated: 2026-10-16
+updated: 2026-11-12
 published: 2026-10-16
 vendors: moneybird, rompslomp, moneymonk, snelstart, eboekhouden, tellow, silvasoft, informer, exact, jortt
 related:
@@ -20,13 +20,13 @@ Van laag naar hoog, per maand bij maandbetaling:
 1. Moneybird Compact: {{p:moneybird/compact}}. Max. 1 factuur en 5 banktransacties per maand; alleen een btw-overzicht.
 2. Rompslomp Puur Factuur: {{p:rompslomp/puur}}. Max. 8 facturen en 5 uitgaven per maand.
 3. MoneyMonk Basis: {{p:moneymonk/basis}}. Max. 20 banktransacties per maand, omzet tot € 20.000 per jaar.
-4. SnelStart inOrde: {{p:snelstart/inorde}}. Geen facturen; bedoeld voor samenwerking met een boekhouder.
+4. [SnelStart](/snelstart/) inOrde: {{p:snelstart/inorde}}. Geen facturen; bedoeld voor samenwerking met een boekhouder.
 5. e-Boekhouden ZZP: {{p:eboekhouden/zzp}}. Max. 240 boekingen per jaar.
 6. Tellow Basis: {{p:tellow/basis}}.
 7. Silvasoft Boekhouden: {{p:silvasoft/boekhouden}}. Zonder facturatie.
 8. Informer ZZP Basis: {{p:informer/zzp-basis}}. Max. 30 banktransacties per maand.
 9. Exact Reeleezee Slim Boekhouden Start: {{p:exact/slim-start}}. Max. 10 facturen en 10 uitgaven per maand.
-10. Jortt ZZP: {{p:jortt/zzp}}. Max. 250 boekingen per maand.
+10. Jortt ZZP: {{p:jortt/zzp}}. Tot 250 boekingen per maand (richtlijn).
 
 Let op: Moneybird, MoneyMonk en e-Boekhouden vermelden niet of hun prijzen inclusief of exclusief btw zijn. De andere aanbieders noemen prijzen exclusief btw. Voor Rompslomp gebruiken we de tarieven die vanaf 1 november 2026 gelden.
 

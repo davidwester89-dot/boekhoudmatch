@@ -14,7 +14,7 @@ export const bankL = (p, a) => (p.bank === 'auto' ? 'Automatisch' : p.bank === '
 export const rvL = (p, a) => { const rv = p.rechtsvormen ?? a.rechtsvormen; return rv ? rv.join(', ') : UNK; };
 export const limieten = (p) => [
   p.facturen !== undefined ? lim(p.facturen, 'facturen/mnd') : '', p.perFactuur ? `${e2(p.perFactuur)} per factuur` : '',
-  lim(p.uitgaven, 'uitgaven/mnd'), lim(p.transacties, 'banktransacties/mnd'), lim(p.boekingenMaand, 'boekingen/mnd'), lim(p.boekingenJaar, 'boekingen/jaar'),
+  lim(p.uitgaven, 'uitgaven/mnd'), lim(p.transacties, 'banktransacties/mnd'), (p.boekingenRichtlijn && Number.isFinite(p.boekingenMaand) ? `tot ${p.boekingenMaand} boekingen/mnd (richtlijn)` : lim(p.boekingenMaand, 'boekingen/mnd')), lim(p.boekingenJaar, 'boekingen/jaar'),
   p.omzetMax ? `omzet tot € ${p.omzetMax.toLocaleString('nl-NL')}/jaar` : '',
   p.boekhouding === false ? '<strong>geen boekhouding</strong>' : '', p.viaBoekhouder ? 'voor samenwerking met boekhouder' : '',
 ].filter(Boolean).filter((s) => !s.startsWith('onbeperkt') || s.includes('facturen')).join('<br>') || 'geen limiet vermeld';

@@ -3,14 +3,17 @@ import { existsSync } from 'node:fs';
 import { SITE, esc, fmtDate, faqSchema, matchCta } from '../layout.mjs';
 import { PAKKETTEN } from '../lib/pakketten.js';
 import { REDACTIE } from '../lib/aanbieders.js';
-import { uitgaand, ctaTekst } from '../lib/partnerlinks.js';
+import { VERDIEPING } from '../lib/verdieping.mjs';
+import { uitgaand, ctaTekst, bronLinkHtml } from '../lib/partnerlinks.js';
 import { praktijktest } from '../lib/praktijktests.js';
 import { e2, checked, vanaf, bronLinks, pakketTabel, logo, softwareSchema, btwNoot, N_AANB, UNK } from '../lib/weergave.mjs';
 import { vsVoor } from '../lib/vsgidsen.mjs';
 
 // Uitgaande knop naar de aanbieder: partnerlink alleen als die is goedgekeurd, anders gewone link.
 function uitCta(a, r) {
-  const u = uitgaand(a), c = ctaTekst(r.kort, { proef: r.proef, prijs: Math.min(...a.plannen.map((p) => p.prijs)) });
+  const u = uitgaand(a);
+  if (u.bron) return `<div class="card vendor-out">${bronLinkHtml(a.id)}</div>`;
+  const c = ctaTekst(r.kort, { proef: r.proef, prijs: Math.min(...a.plannen.map((p) => p.prijs)), id: a.id });
   return `<div class="card vendor-out"><a class="btn" href="${esc(u.href)}" target="_blank" rel="${u.rel}" data-vendor="${esc(a.naam)}" data-pos="aanbiederpagina" data-cta="${c.gratis ? 'trial' : 'visit'}">${esc(c.tekst)}<span aria-hidden="true"> ↗</span><span class="sr-only"> (opent in een nieuw tabblad)</span></a></div>`;
 }
 // Praktijktest-sectie (alleen als er een test is). Feiten uit praktijktests.js, geen scores.
@@ -45,11 +48,24 @@ function praktijkSectie(a, r, t) {
 const ul = (l) => `<ul>${l.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>`;
 
 export const aanbiederPages = PAKKETTEN.map((a) => {
-  const r = REDACTIE[a.id], v = vanaf(a), t = praktijktest(a.id), c = checked(a), mod = [c, t && t.datum, r.bijgewerkt].filter(Boolean).sort().at(-1), path = `/${r.slug}/`;
+  const r = { ...REDACTIE[a.id], ...(VERDIEPING[a.id] || {}) }, v = vanaf(a), t = praktijktest(a.id), c = checked(a), mod = [c, t && t.datum, r.bijgewerkt].filter(Boolean).sort().at(-1), path = `/${r.slug}/`;
   const prijzen = a.plannen.map((p) => p.prijs).filter((x) => x > 0);
   const pl = (id) => { const x = a.plannen.find((q) => q.id === id); if (!x) throw new Error(`Onbekend pakket ${a.id}/${id}`); return x; };
-  const faq = (r.faq || []).map(([q, x]) => [q, x.replace(/\{\{p:([a-z-]+)\}\}/g, (_, id) => e2(pl(id).prijs)).replace(/\{\{pj:([a-z-]+)\}\}/g, (_, id) => e2(pl(id).prijsJaar))]);
-  const faqHtml = faq.map(([q, ans]) => `<h2>${esc(q)}</h2>\n<p>${ans}</p>`).join('\n');
+  // Placeholders met prijzen uit pakketten.js: p = per maand, pj = p/m bij jaarbetaling, pjj = 12 × pj, pmj = 12 × p (onze rekensom), verschil = pmj − pjj. Op de cent (L3).
+  const c2 = (x) => Math.round(x * 100) / 100;
+  const vul = (x) => x
+    .replace(/\{\{p:([a-z-]+)\}\}/g, (_, id) => e2(pl(id).prijs))
+    .replace(/\{\{pj:([a-z-]+)\}\}/g, (_, id) => e2(pl(id).prijsJaar))
+    .replace(/\{\{pjj:([a-z-]+)\}\}/g, (_, id) => e2(c2(12 * (pl(id).prijsJaar ?? pl(id).prijs))))
+    .replace(/\{\{pmj:([a-z-]+)\}\}/g, (_, id) => e2(c2(12 * pl(id).prijs)))
+    .replace(/\{\{verschil:([a-z-]+)\}\}/g, (_, id) => e2(c2(12 * pl(id).prijs - 12 * pl(id).prijsJaar)));
+  const faq = (r.faq || []).map(([q, x]) => [q, vul(x)]);
+  // Eén vraag: als eigen H2 (zoals Moneybird). Meer vragen: onder "Veelgestelde vragen over <aanbieder>" met H3's.
+  const faqHtml = faq.length > 1
+    ? `<h2>Veelgestelde vragen over ${esc(r.kort)}</h2>\n${faq.map(([q, ans]) => `<h3>${esc(q)}</h3>\n<p>${ans}</p>`).join('\n')}`
+    : faq.map(([q, ans]) => `<h2>${esc(q)}</h2>\n<p>${ans}</p>`).join('\n');
+  const verdieping = (r.verdieping || []).map(([kop, html]) => `<h2>${esc(kop)}</h2>\n${vul(html).replace(/€ (?=\d)/g, '€&nbsp;')}`).join('\n');
+  const bronnen = [...a.bronnen, ...(r.bronnen || [])];
   // Alleen deze twee pagina's. Bedragen komen uit pakketten.js. Geen partnerlink en geen andere aanbieder.
   const naGratis = a.id === 'moneybird' ? `<p>Zoek je een pakket zonder maandprijs, zie <a href="/gratis-boekhoudprogramma/">gratis boekhoudprogramma</a>. Je externe bank koppelen kan vanaf Groei (${e2(pl('groei').prijs)} per maand; ${btwNoot(a)}). De stappen staan bij <a href="/bankkoppeling-boekhoudprogramma/">bankkoppeling per pakket</a>.</p>` : '';
   const naTabel = a.id === 'snelstart' ? `\n<p>Elk SnelStart-pakket in deze lijst heeft een bankkoppeling. De stappen voor de Rabobank staan bij <a href="/bankkoppeling-boekhoudprogramma/">bankkoppeling per pakket</a>.</p>` : '';
@@ -67,7 +83,7 @@ ${a.id === 'moneybird' ? `${faqHtml}\n${naGratis}\n` : ''}
 <h2>Pakketten en prijzen</h2>
 ${pakketTabel(a)}${naTabel}
 <details><summary>Goed om te weten</summary><p>${esc(a.noot)}</p></details>
-${a.id === 'moneybird' ? '' : faqHtml}
+${a.id === 'moneybird' ? '' : [verdieping, faqHtml].filter(Boolean).join('\n')}
 ${t ? praktijkSectie(a, r, t) : ''}
 
 <div class="grid cards two">
@@ -77,18 +93,18 @@ ${t ? praktijkSectie(a, r, t) : ''}
 ${uitCta(a, r)}
 
 <h2 id="bronnen">Bronnen</h2>
-<ul class="sources">${a.bronnen.map((b) => `<li><a href="${b.url}" rel="noopener" data-vendor="${esc(a.naam)}">${esc(b.titel)}</a></li>`).join('')}</ul>
-${vsVoor(r.slug).map((g) => `<p>Twijfel je tussen ${esc(r.kort)} en ${esc(g.ander)}? Lees <a href="${g.path}">${esc(g.kort)}</a>.</p>`).join('')}
+<ul class="sources">${bronnen.map((b) => `<li><a href="${b.url}" rel="noopener" data-vendor="${esc(a.naam)}">${esc(b.titel)}</a></li>`).join('')}</ul>
+${vsVoor(r.slug).map((g) => `<p>Twijfel je tussen ${esc(r.kort)} en ${esc(g.ander)}? Lees <a href="${g.path}">${esc(g.kort)}</a>.</p>`).join('\n')}
 <p>${vsVoor(r.slug).length ? 'Nog twijfels?' : `Twijfel je tussen ${esc(r.kort)} en een ander pakket?`} <a href="/boekhoudprogramma-kiezen/">Doe de match</a> of bekijk de <a href="/boekhoudprogramma-vergelijken/">vergelijking</a>.</p>
 ${matchCta('bottom', { tekst: `Twijfel je over ${r.kort}? Doe de match` })}
 {{related}}`;
   const titelStandaard = `${r.kort} prijzen 2026: kosten per pakket | BoekhoudMatch`; // max. 60 tekens, anders korter
-  const titel = a.id === 'moneybird' ? 'Is Moneybird nog gratis? Geen gratis pakket | BoekhoudMatch' : titelStandaard;
+  const titel = a.id === 'moneybird' ? 'Is Moneybird nog gratis? Geen gratis pakket | BoekhoudMatch' : (r.title || titelStandaard);
   const description = a.id === 'moneybird'
     ? `Nee, Moneybird heeft geen gratis pakket. Compact kost ${e2(pl('compact').prijs)} per maand, of ${e2(pl('compact').prijsJaar)} bij jaarbetaling; ${btwNoot(a)}. Gecontroleerd op ${fmtDate(c)}.`
-    : `${r.kort}: ${a.plannen.length} pakketten, ${v.prijs === 0 ? 'ook een gratis pakket' : `vanaf ${e2(v.prijs)} p/m`}. Prijs, limieten, btw-aangifte en bankkoppeling per pakket, gecontroleerd op ${fmtDate(c)}.`;
+    : (r.description ? vul(r.description) : `${r.kort}: ${a.plannen.length} pakketten, ${v.prijs === 0 ? 'ook een gratis pakket' : `vanaf ${e2(v.prijs)} p/m`}. Prijs, limieten, btw-aangifte en bankkoppeling per pakket, gecontroleerd op ${fmtDate(c)}.`);
   return {
-    path, title: a.id === 'moneybird' || titel.length <= 60 ? titel : `${r.kort} prijzen 2026 | BoekhoudMatch`, ogTitle: `${a.naam}: prijzen en pakketten`, og: existsSync(`src/assets/og/vendor-${r.slug}.png`) ? `vendor-${r.slug}` : 'vergelijken',
+    path, title: a.id === 'moneybird' || titel.length <= 60 ? titel : `${r.kort} prijzen 2026 | BoekhoudMatch`, ogTitle: a.id === 'moneybird' ? `${a.naam}: prijzen en pakketten` : (r.title || `${a.naam}: prijzen en pakketten`), og: existsSync(`src/assets/og/vendor-${r.slug}.png`) ? `vendor-${r.slug}` : 'vergelijken',
     description,
     crumb: r.kort, parents: [['/boekhoudprogramma-vergelijken/', 'Vergelijken']], navPath: '/boekhoudprogramma-vergelijken/', updated: mod, stamp: { checked: c, updated: mod },
     body, schema: [{ ...softwareSchema(a, SITE.domain + path), dateModified: mod }, ...(faq.length ? [faqSchema(faq)] : [])],
