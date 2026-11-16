@@ -13,6 +13,7 @@ export const STIJL_PADEN = new Set([
   "/boekhoudprogramma-kiezen/",
   "/boekhoudprogramma-starters/",
   "/boekhoudprogramma-vof/",
+  "/bronnen/",
   "/btw-aangifte-boekhoudprogramma/",
   "/e-boekhouden/",
   "/exact/",

@@ -181,7 +181,7 @@ export const bronnen = {
   path: '/bronnen/',
   title: 'Bronnen en cijfers 2026 | BoekhoudMatch',
   description: 'Alle bedragen en prijzen die onze tools gebruiken, met officiële bron en controledatum: inkomstenbelasting 2026, zelfstandigenaftrek, Zvw en btw.',
-  crumb: 'Bronnen en cijfers', updated: '2026-10-19',
+  crumb: 'Bronnen en cijfers', updated: '2026-11-19',
   stamp: { checked: [CHECKED, ...PAKKETTEN.map((a) => a.gecontroleerd || PCHECKED)].sort()[0] },
   body: `
 <h1>Bronnen en cijfers</h1>
@@ -213,7 +213,7 @@ ${sourceList(['minimumloon_2026'], SOURCES)}
 <p>Voor de gids <a href="/bankkoppeling-boekhoudprogramma/">bankkoppeling in je boekhoudprogramma</a>.</p>
 <ul class="sources"><li><a href="https://kennisplein.snelstart.nl/klanten/s/article/de-nieuwe-generatie-bankkoppeling-via-psd2" rel="noopener">SnelStart Kennisplein – Een bankkoppeling maken</a></li><li><a href="https://kennisplein.snelstart.nl/klanten/s/article/een-uitgebreide-bankkoppeling-maken" rel="noopener">SnelStart Kennisplein – Een standaard of een uitgebreide bankkoppeling</a></li><li><a href="https://helpcenter.moneybird.nl/nl/articles/208068-bankkoppeling-via-ponto" rel="noopener">Moneybird Kennisbank – Bankkoppeling via Ponto</a></li><li><a href="https://helpcenter.moneybird.nl/nl/articles/208119-bankkoppeling-rabobank" rel="noopener">Moneybird Kennisbank – Bankkoppeling Rabobank</a></li></ul>
 <h2>Wijzigingen</h2>
-<ul><li>19 oktober 2026: minimumloon 2026 (Rijksoverheid) en bankkoppelingen per bank (SnelStart, Moneybird) als bron toegevoegd.</li><li>11 oktober 2026: Informer MKB Basis aangepast naar € 34 p/m, zoals op informer.nl/prijzen staat.</li><li>10 oktober 2026: de energietools (einde salderen en thuisbatterij) en hun bronnen verwijderd; ze vielen buiten het zzp-thema.</li><li>10 oktober 2026: MoneyMonk toegevoegd (prijzen van moneymonk.nl). Alle prijzen opnieuw gecontroleerd; geen wijzigingen.</li><li>10 oktober 2026: Silvasoft toegevoegd als 9e aanbieder (prijzen en functies van silvasoft.nl).</li><li>9 oktober 2026: nieuw design en blog.</li><li>8 oktober 2026: eerste versie. Rompslomp: tarieven per 1 november 2026.</li></ul>`,
+<ul><li>19 november 2026: Silvasoft-bronnen voor de proefperiode toegevoegd (home en gratis uitproberen).</li><li>19 oktober 2026: minimumloon 2026 (Rijksoverheid) en bankkoppelingen per bank (SnelStart, Moneybird) als bron toegevoegd.</li><li>11 oktober 2026: Informer MKB Basis aangepast naar € 34 p/m, zoals op informer.nl/prijzen staat.</li><li>10 oktober 2026: de energietools (einde salderen en thuisbatterij) en hun bronnen verwijderd; ze vielen buiten het zzp-thema.</li><li>10 oktober 2026: MoneyMonk toegevoegd (prijzen van moneymonk.nl). Alle prijzen opnieuw gecontroleerd; geen wijzigingen.</li><li>10 oktober 2026: Silvasoft toegevoegd als 9e aanbieder (prijzen en functies van silvasoft.nl).</li><li>9 oktober 2026: nieuw design en blog.</li><li>8 oktober 2026: eerste versie. Rompslomp: tarieven per 1 november 2026.</li></ul>`,
 };
 
 // Datum van de laatste inhoudelijke wijziging van /over/ (los van SITE.updated): lastmod in de sitemap.
