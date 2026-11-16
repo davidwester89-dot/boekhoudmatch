@@ -15,7 +15,7 @@ const CTA_RE = /30 dagen gratis proberen bij SnelStart/;
 const CTA_ATTR_RE = /data-cta="(?:trial|visit)"[^>]*>[^<]*SnelStart|class="btn"[^>]*snelstart\.nl|snelstart\.nl"[^>]*class="btn/i;
 
 test('SnelStart: neutrale bronlink, geen partner/CTA/sponsored/ref/utm', () => {
-  assert.deepEqual(Object.keys(NEUTRALE_BRONNEN), ['snelstart']);
+  assert.ok(Object.keys(NEUTRALE_BRONNEN).includes('snelstart'));
   assert.equal(NEUTRALE_BRONNEN.snelstart.href, 'https://www.snelstart.nl');
   assert.equal(bronLinkHtml('snelstart'), BRON);
   assert.equal(PARTNERLINKS.snelstart, undefined);

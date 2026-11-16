@@ -7,36 +7,27 @@
     "snelstart": "bronlink",
     "tellow": "onbetaalde-cta",
     "rompslomp": "onbetaalde-cta",
-    "informer": "onbetaalde-cta",
-    "exact": "onbetaalde-cta",
+    "informer": "bronlink",
+    "exact": "bronlink",
     "silvasoft": "onbetaalde-cta",
     "moneymonk": "onbetaalde-cta"
   },
-  "profilesWithUnpaidCtaInTop3": 25260,
+  "profilesWithUnpaidCtaInTop3": 23036,
   "snelstartUnpaidCtaInTop3": 0,
   "byBrand": {
     "tellow": 20493,
     "moneymonk": 5022,
     "rompslomp": 2444,
-    "informer": 5008,
-    "silvasoft": 564,
-    "exact": 24
+    "silvasoft": 564
   },
   "byCombo": {
     "moneymonk+tellow": 2645,
-    "moneymonk+rompslomp": 878,
+    "moneymonk+rompslomp": 1430,
     "moneymonk": 607,
     "moneymonk+rompslomp+tellow": 340,
-    "tellow": 15020,
-    "rompslomp+tellow": 24,
-    "informer+moneymonk+rompslomp": 552,
-    "informer+tellow": 1756,
-    "informer": 2224,
-    "informer+silvasoft+tellow": 36,
-    "silvasoft+tellow": 528,
-    "informer+rompslomp": 272,
-    "informer+rompslomp+tellow": 144,
-    "exact+informer+rompslomp": 24,
-    "rompslomp": 210
+    "tellow": 16776,
+    "rompslomp+tellow": 168,
+    "silvasoft+tellow": 564,
+    "rompslomp": 506
   }
 }

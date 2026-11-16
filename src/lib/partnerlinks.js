@@ -16,12 +16,14 @@ export const PARTNERLINKS = {
   eboekhouden: { url: EBOEKHOUDEN_AWIN, netwerk: 'Awin' },
 };
 
-// SnelStart: geen goedgekeurde betaalde partnerroute (besluit 10-11-2026). Geen CTA, geen sponsored/ref; gewone bronlink.
+// SnelStart (sinds Jortt v3), Informer en Exact: geen goedgekeurde betaalde partnerroute (besluit 10-11-2026). Geen CTA, geen sponsored/ref; gewone bronlink.
 export const NEUTRALE_BRONNEN = {
   snelstart: { href: 'https://www.snelstart.nl', naam: 'SnelStart' },
+  informer: { href: 'https://www.informer.nl', naam: 'Informer' },
+  exact: { href: 'https://www.exact.com/nl', naam: 'Exact' },
 };
 
-/** Uitgaande link naar een aanbieder: partnerlink als die er is, anders de eigen site. SnelStart: neutrale bronlink. */
+/** Uitgaande link naar een aanbieder: partnerlink als die er is, anders de eigen site. SnelStart/Informer/Exact: neutrale bronlink. */
 export function uitgaand(aanbieder, partnerlinks = PARTNERLINKS) {
   const pl = partnerlinks[aanbieder.id];
   const partner = !!(pl && /^https:\/\//.test(pl.url));
@@ -32,7 +34,7 @@ export function uitgaand(aanbieder, partnerlinks = PARTNERLINKS) {
 }
 
 /** CTA-tekst voor een pakket: de proefperiode (volgens de aanbieder) staat in de knop zelf, zodat er geen regel onder hoeft.
- *  SnelStart: 'Bron: SnelStart'. Jortt (betaalde route): 'Bekijk Jortt' (proefmetadata niet als promo renderen, SC B3 punt 6). */
+ *  SnelStart/Informer/Exact: 'Bron: <merk>'. Jortt (betaalde route): 'Bekijk Jortt' (proefmetadata niet als promo renderen, SC B3 punt 6). */
 export function ctaTekst(kort, { proef, prijs, id } = {}) {
   if (id && NEUTRALE_BRONNEN[id]) return { gratis: false, tekst: `Bron: ${NEUTRALE_BRONNEN[id].naam}`, bron: true };
   if (id === 'jortt') return { gratis: false, tekst: 'Bekijk Jortt' };
