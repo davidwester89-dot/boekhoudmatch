@@ -39,7 +39,7 @@ Moneybird noemt eenmanszaak, vof en bv. e-Boekhouden noemt op de prijspagina gee
 
 ## Prijs per jaar en acties
 
-Moneybird geeft korting bij jaarbetaling: per maand € 3 (Compact), € 15 (Start), € 29 (Groei) en € 41 (Compleet). e-Boekhouden noemt op de prijspagina geen aparte jaarprijs. Wij vergelijken altijd de maandprijs bij maandbetaling.
+Bij jaarbetaling is de prijs per maand € 3 (Compact), € 15 (Start), € 29 (Groei) en € 41 (Compleet). e-Boekhouden noemt op de prijspagina geen aparte jaarprijs. Wij vergelijken altijd de maandprijs bij maandbetaling.
 
 Proberen: Moneybird 60 dagen (je gebruikt dan Compleet), e-Boekhouden 14 dagen. e-Boekhouden geeft starters 15 maanden gratis en anderen 12 maanden 50% korting. Acties tellen in de match niet mee.
 

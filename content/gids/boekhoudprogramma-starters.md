@@ -33,7 +33,7 @@ Deze kortingen staan op de sites van de aanbieders. Let op de voorwaarden.
 
 - **e-Boekhouden**: starters 15 maanden gratis. Daarna ZZP voor {{p:eboekhouden/zzp}} per maand, met een grens van 240 boekingen per jaar.
 - **MoneyMonk**: MoneyMonk geeft je 15 maanden gratis als je onlangs bent ingeschreven bij de KVK. Daarna Basis ({{p:moneymonk/basis}}, tot € 20.000 omzet en 20 banktransacties per maand) of hoger.
-- **Informer**: KVK-inschrijving maximaal 6 maanden oud? Dan 12 maanden € 15 per maand korting. ZZP Basis kost normaal {{p:informer/zzp-basis}}.
+- **Informer**: KVK-inschrijving maximaal 6 maanden oud? Dan 12 maanden gratis. ZZP Basis kost daarna {{p:informer/zzp-basis}} per maand.
 
 Een korting van 15 maanden is veel waard. Maar reken ook uit wat het pakket daarna kost bij jouw volume. Een pakket dat na de korting te klein is, moet je alsnog upgraden of verlaten.
 
@@ -51,7 +51,7 @@ Een rekenvoorbeeld met de gewone maandprijzen van {{datum}} en de starterskortin
 
 - **e-Boekhouden ZZP**: 15 maanden gratis, daarna 9 maanden × {{p:eboekhouden/zzp}} = € 89,55.
 - **MoneyMonk Basis**: 15 maanden gratis, daarna 9 maanden × {{p:moneymonk/basis}} = € 81,00.
-- **Informer ZZP Basis**: 12 maanden € 15 korting op {{p:informer/zzp-basis}}, daarna 12 maanden × € 15 = € 180,00. Een koppeling met je eigen bank kost € 1 per maand extra.
+- **Informer ZZP Basis**: 12 maanden gratis, daarna 12 maanden × {{p:informer/zzp-basis}} = € 180,00. Een koppeling met je eigen bank kost € 1 per maand extra.
 - **Rompslomp Puur Factuur**, zonder starterskorting: 24 × {{p:rompslomp/puur}} = € 214,80.
 
 Dit is geen advies om op de laagste som te kiezen. De pakketten hebben verschillende grenzen: e-Boekhouden ZZP 240 boekingen per jaar, MoneyMonk Basis 20 banktransacties per maand en € 20.000 omzet, Informer ZZP Basis 30 transacties per maand, Rompslomp Puur Factuur 8 facturen en 5 uitgaven per maand. Groei je in je tweede jaar, dan verandert de som.

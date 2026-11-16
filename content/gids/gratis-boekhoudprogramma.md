@@ -35,9 +35,9 @@ Voor wie heel weinig facturen stuurt, kan een gratis pakket genoeg zijn. Voor ee
 
 Een paar aanbieders geven nieuwe ondernemers een lange gratis periode. Daarna betaal je het gewone tarief.
 
-- **e-Boekhouden**: starters 15 maanden gratis. e-Boekhouden geeft anderen 12 maanden 50% korting (na 14 dagen proef, nieuwe klanten). Daarna kost ZZP {{p:eboekhouden/zzp}}.
+- **e-Boekhouden**: starters 15 maanden gratis. Nieuwe klanten kunnen 14 dagen proberen. ZZP kost {{p:eboekhouden/zzp}} per maand.
 - **MoneyMonk**: MoneyMonk geeft starters die onlangs bij de KVK zijn ingeschreven 15 maanden gratis. Daarna kost Basis {{p:moneymonk/basis}}.
-- **Informer**: starters met een KVK-inschrijving van maximaal 6 maanden oud krijgen 12 maanden € 15 per maand korting. ZZP Basis kost normaal {{p:informer/zzp-basis}}.
+- **Informer**: starters met een KVK-inschrijving van maximaal 6 maanden oud krijgen 12 maanden gratis. ZZP Basis kost daarna {{p:informer/zzp-basis}} per maand.
 
 Een starterskorting is geen reden om een pakket te kiezen dat niet past. Kijk eerst of de grenzen kloppen voor jouw volume over een jaar, niet alleen nu.
 

@@ -79,7 +79,7 @@ test('Inbound links naar /snelstart/ in 3 bestaande pagina\'s', () => {
 test('SnelStart pakketten.js (MM 30-10): inStap offertes, actie, controledatum', () => {
   assert.equal(pl('inorde').offertes, false);
   for (const id of ['instap', 'inkaart', 'inbalans', 'inzicht']) assert.equal(pl(id).offertes, true, id);
-  assert.equal(ss.actie, '30 dagen gratis proberen.'); // live snelstart.nl/pakketten 10-11-2026: '30 dagen gratis'
+  assert.equal(ss.actie, null); // staande 30-dagenproef staat in proef/CTA, niet in actie (L4-C; geen kalender-einddatum op snelstart.nl/pakketten)
   // Prijzen niet opnieuw volledig gecontroleerd; alleen instap.offertes en proefduur live nagelezen 10-11-2026. checked blijft CHECKED (2026-10-10).
   assert.equal(ss.gecontroleerd, undefined);
   assert.equal(p.stamp.checked, '2026-10-10');

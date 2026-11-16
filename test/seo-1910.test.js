@@ -13,6 +13,7 @@ import kiezen from '../src/pages/kiezen.mjs';
 import { home } from '../src/pages/static.mjs';
 import { PAKKETTEN } from '../src/lib/pakketten.js';
 import { checked } from '../src/lib/weergave.mjs';
+import { revisieDatum } from './nuchter-datums-helper.mjs';
 
 test('Moneybird: H2 "Is Moneybird nog gratis?" met FAQPage-schema en prijzen uit de data', () => {
   const p = aanbiederPages.find((x) => x.path === '/moneybird/');
@@ -123,9 +124,9 @@ test('SEO 7-11: bankgids en Rompslomp vs Tellow, prijzen uit de bestaande data',
   assert.equal(h2[0], 'Rompslomp en Tellow tarieven 2026: wat krijg je voor je geld?');
   assert.equal(h2[1], 'Gratis: Starter tegen Gratis');
   assert.equal(vs.schema.find((s) => s['@type'] === 'Article').datePublished, '2026-10-26');
-  assert.equal(vs.schema.find((s) => s['@type'] === 'Article').dateModified, '2026-11-08');
-  assert.equal(vs.updated, '2026-11-08');
-  assert.equal(vs.stamp.updated, '2026-11-08');
+  assert.equal(vs.schema.find((s) => s['@type'] === 'Article').dateModified, revisieDatum('/rompslomp-vs-tellow/', '2026-11-08'));
+  assert.equal(vs.updated, revisieDatum('/rompslomp-vs-tellow/', '2026-11-08'));
+  assert.equal(vs.stamp.updated, revisieDatum('/rompslomp-vs-tellow/', '2026-11-08'));
   assert.equal(vs.stamp.checked, '2026-10-26');
 });
 
@@ -143,7 +144,7 @@ test('SEO-herstel: datePublished blijft de vastgelegde historische datum', () =>
     const article = page.schema.find((s) => s['@type'] === 'Article');
     assert.equal(article.datePublished, datum, slug);
     assert.match(readFileSync(file, 'utf8'), new RegExp(`^published: ${datum}$`, 'm'));
-    const gewijzigd = { 'bankkoppeling-boekhoudprogramma': '2026-11-19', 'rompslomp-vs-tellow': '2026-11-08' }[slug];
+    const gewijzigd = { 'bankkoppeling-boekhoudprogramma': '2026-11-19', 'rompslomp-vs-tellow': revisieDatum('/rompslomp-vs-tellow/', '2026-11-08') }[slug];
     assert.equal(article.dateModified, gewijzigd, slug);
     assert.equal(page.updated, gewijzigd, slug);
   }

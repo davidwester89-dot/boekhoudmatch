@@ -76,7 +76,7 @@ export const REDACTIE = {
     sterk: 'ZZP Plus heeft onbeperkt banktransacties.',
     zwak: 'Je eigen bank automatisch koppelen kost € 1 per maand per rekening.',
     knelt: 'ZZP Basis: max. 30 bankbetalingen per maand',
-    wel: ['Je wilt offertes en uren in je pakket.', 'Je hebt meer dan 30 bankbetalingen per maand (ZZP Plus).'],
+    wel: ['Je wilt offertes en uren in je pakket.', 'Je hebt meer dan 30 bankbetalingen per maand (ZZP Plus).', 'Je start net: Informer geeft starters 12 maanden gratis (KVK-inschrijving maximaal 6 maanden oud).'],
     niet: ['Je hebt een bv en wilt weten of ZZP-pakketten passen: rechtsvormen niet vermeld.', 'Je wilt hulp bij je IB-aangifte: niet in de pakketten genoemd.'],
   },
   exact: {
