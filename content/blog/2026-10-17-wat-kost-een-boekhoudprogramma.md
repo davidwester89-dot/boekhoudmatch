@@ -3,7 +3,7 @@ title: Wat kost een boekhoudprogramma in 2026?
 seo_title: Wat kost een boekhoudprogramma? Prijzen en limieten 2026
 description: Wat kost een boekhoudprogramma per maand? Prijzen per pakket, waar gratis en goedkope abonnementen stoppen en wanneer betalen loont. Vergelijk direct.
 date: 2026-10-17
-updated: 2026-11-19
+updated: 2026-11-20
 checked: 2026-10-17
 image: wat-kost-een-boekhoudprogramma
 image_alt: Prijsladder boekhoudprogramma per maand: gratis met strenge limieten, tot € 10 met limieten op facturen of transacties, € 10 tot € 25 voor de meeste zzp'ers en vanaf € 25 meer gebruikers en rekeningen
@@ -93,7 +93,7 @@ Zoek je een goedkoop boekhoudprogramma als zzp'er? Lees dan ook [goedkoopste boe
 
 ### Vanaf € 25: meer gebruikers en rekeningen
 
-Hier verdwijnen bij de meeste aanbieders de laatste limieten. Je krijgt vaak meer gebruikers en meer gekoppelde bankrekeningen. Dat is vooral nuttig bij veel bankbetalingen, bijvoorbeeld met een webshop, of als je met meer mensen in de administratie werkt.
+Hier verdwijnen bij de meeste aanbieders de laatste limieten. Je krijgt vaak meer gebruikers en meer gekoppelde bankrekeningen. Dat is vooral nuttig bij veel bankbetalingen, bijvoorbeeld met een webshop, of als je met meer mensen in de administratie werkt. Waar je bij een webshop op let bij koppelingen, btw en OSS, lees je in [boekhoudprogramma webshop](/blog/boekhoudprogramma-webshop/).
 
 ## Zijn de kosten van een boekhoudprogramma aftrekbaar?
 

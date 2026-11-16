@@ -33,4 +33,6 @@ export const STIJL_PADEN = new Set([
   "/urenregistratie-zzp/",
   "/voorschotfactuur-maken/"
 ]);
-export const revisieDatum = (pad, vorige) => STIJL_PADEN.has(pad) ? '2026-11-19' : vorige;
+// 20-11 (inlink naar /blog/boekhoudprogramma-webshop/): alleen de post met eigen bodywijziging.
+export const WEBSHOP_INLINK_PADEN = new Set(['/blog/wat-kost-een-boekhoudprogramma/']);
+export const revisieDatum = (pad, vorige) => WEBSHOP_INLINK_PADEN.has(pad) ? '2026-11-20' : STIJL_PADEN.has(pad) ? '2026-11-19' : vorige;
