@@ -10,6 +10,7 @@ export const STIJL_PADEN = new Set([
   "/blog/wat-kost-een-boekhoudprogramma/",
   "/blog/zakelijke-rekening-zzp/",
   "/boekhoudprogramma-eenmanszaak/",
+  "/boekhoudprogramma-kiezen/",
   "/boekhoudprogramma-starters/",
   "/boekhoudprogramma-vof/",
   "/btw-aangifte-boekhoudprogramma/",

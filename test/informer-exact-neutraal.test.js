@@ -87,5 +87,5 @@ test('andere aanbiederpagina\'s: CTA-knop ongewijzigd (geen Bron:-vervanging)', 
   assert.doesNotMatch(kiezen.body, /Bron: Exact|Bekijk Exact|proberen bij Exact/);
   assert.match(kiezen.body, /30 dagen gratis proberen bij MoneyMonk/);
   assert.match(kiezen.body, /Bekijk Rompslomp/);
-  assert.equal(kiezen.updated, '2026-11-18');
+  assert.equal(kiezen.updated, '2026-11-19');
 });
