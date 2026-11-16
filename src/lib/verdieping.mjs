@@ -42,7 +42,7 @@ export const VERDIEPING = {
 <tr><th scope="row">Jaarrekening</th><td>Nee</td><td>Norm 4410</td><td colspan="2">Norm 4410 en KvK-jaarrekening</td></tr>
 <tr><th scope="row">Automatisch geboekt door de Boekhoudbot</th><td>Nee</td><td>Tot 90% (10 eigen regels)</td><td>Tot 95% (25 eigen regels)</td><td>Tot 99% (250 eigen regels)</td></tr>
 </tbody></table></div>
-<p>Jortt maakt in de betaalde pakketten het rapport waarmee je zelf je aangifte inkomstenbelasting (of bij MKB en Plus vennootschapsbelasting) doet. De 250 boekingen bij ZZP zijn volgens Jortt een richtlijn en geen harde grens; heb je er structureel meer, dan past MKB beter.</p>
+<p>Jortt maakt in de betaalde pakketten het rapport waarmee je zelf je aangifte inkomstenbelasting (of bij MKB en Plus vennootschapsbelasting) doet. Jortt hanteert de 250 boekingen bij ZZP als richtlijn en niet als harde grens; heb je er structureel meer, dan past MKB beter.</p>
 <p>Meer over de bankkoppeling per pakket lees je in <a href="/bankkoppeling-boekhoudprogramma/">bankkoppeling in je boekhoudprogramma</a>. Twijfel je welk pakket past? <a href="/boekhoudprogramma-kiezen/">Doe de match</a>.</p>`],
       ['Extra kosten naast je abonnement', `<ul>
 <li><strong>Loonstroken:</strong> € 9,50 per loonstrook per werknemer per maand, in Starter, MKB en Plus (niet in ZZP).</li>
