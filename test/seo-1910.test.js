@@ -102,9 +102,9 @@ test('SEO 7-11: bankgids en Rompslomp vs Tellow, prijzen uit de bestaande data',
   assert.match(bank.body, /<h2 id="snelstart-koppelen-met-de-rabobank">/);
   assert.match(bank.body, /<h2 id="moneybird-automatische-bankkoppeling-instellen">/);
   assert.equal(bank.schema.find((s) => s['@type'] === 'Article').datePublished, '2026-10-23');
-  assert.equal(bank.schema.find((s) => s['@type'] === 'Article').dateModified, '2026-11-19');
-  assert.equal(bank.updated, '2026-11-19');
-  assert.equal(bank.stamp.updated, '2026-11-19');
+  assert.equal(bank.schema.find((s) => s['@type'] === 'Article').dateModified, revisieDatum('/bankkoppeling-boekhoudprogramma/', '2026-11-19'));
+  assert.equal(bank.updated, revisieDatum('/bankkoppeling-boekhoudprogramma/', '2026-11-19'));
+  assert.equal(bank.stamp.updated, revisieDatum('/bankkoppeling-boekhoudprogramma/', '2026-11-19'));
 
   const vs = pages.find((p) => p.path === '/rompslomp-vs-tellow/');
   assert.equal(vs.title, 'Rompslomp vs Tellow: tarieven 2026 | BoekhoudMatch');
@@ -144,7 +144,7 @@ test('SEO-herstel: datePublished blijft de vastgelegde historische datum', () =>
     const article = page.schema.find((s) => s['@type'] === 'Article');
     assert.equal(article.datePublished, datum, slug);
     assert.match(readFileSync(file, 'utf8'), new RegExp(`^published: ${datum}$`, 'm'));
-    const gewijzigd = { 'bankkoppeling-boekhoudprogramma': '2026-11-19', 'rompslomp-vs-tellow': revisieDatum('/rompslomp-vs-tellow/', '2026-11-08') }[slug];
+    const gewijzigd = { 'bankkoppeling-boekhoudprogramma': revisieDatum('/bankkoppeling-boekhoudprogramma/', '2026-11-19'), 'rompslomp-vs-tellow': revisieDatum('/rompslomp-vs-tellow/', '2026-11-08') }[slug];
     assert.equal(article.dateModified, gewijzigd, slug);
     assert.equal(page.updated, gewijzigd, slug);
   }
@@ -193,7 +193,7 @@ test('SEO-herstel: /gidsen/ lastmod, zichtbare datum en dateModified blijven de 
   const gidsen = gidsPages();
   const hub = gidsHub(gidsen);
   const nieuwsteKind = gidsen.map((p) => p.updated).filter(Boolean).sort().at(-1);
-  assert.equal(nieuwsteKind, '2026-11-19');
+  assert.equal(nieuwsteKind, '2026-11-23'); // techronde 19-11: urenregistratie + bankkoppeling (push 23-11); hub blijft eigen datum
   assert.equal(hub.updated, '2026-11-08');
   assert.equal(hub.stamp.updated, '2026-11-08');
   assert.equal(hub.schema.find((s) => s['@type'] === 'CollectionPage').dateModified, '2026-11-08');

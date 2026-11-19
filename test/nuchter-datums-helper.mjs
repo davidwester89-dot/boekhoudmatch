@@ -35,4 +35,6 @@ export const STIJL_PADEN = new Set([
 ]);
 // 20-11 (inlink naar /blog/boekhoudprogramma-webshop/): alleen de post met eigen bodywijziging.
 export const WEBSHOP_INLINK_PADEN = new Set(['/blog/wat-kost-een-boekhoudprogramma/']);
-export const revisieDatum = (pad, vorige) => WEBSHOP_INLINK_PADEN.has(pad) ? '2026-11-20' : STIJL_PADEN.has(pad) ? '2026-11-19' : vorige;
+// 23-11 (techronde 19-11): inlinks in bestaande zinnen op twee gidspagina's (eigen bodywijziging).
+export const TECH1911_PADEN = new Set(['/urenregistratie-zzp/', '/bankkoppeling-boekhoudprogramma/']);
+export const revisieDatum = (pad, vorige) => TECH1911_PADEN.has(pad) ? '2026-11-23' : WEBSHOP_INLINK_PADEN.has(pad) ? '2026-11-20' : STIJL_PADEN.has(pad) ? '2026-11-19' : vorige;

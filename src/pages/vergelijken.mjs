@@ -51,8 +51,8 @@ const goedkoopst = sit.find((s) => s.id === 'instap');
 // Echte controledatums uit de data (pakketten.js: CHECKED of per aanbieder `gecontroleerd`); geen latere datum claimen dan er echt gecontroleerd is.
 const CDATA = PAKKETTEN.map((a) => [checked(a), a.naam]).sort((x, y) => x[0].localeCompare(y[0]));
 const C_OUD = CDATA[0][0], C_NIEUW = CDATA.at(-1)[0];
-// Laatste tekstwijziging van deze pagina (FAQ partnerlinks 5-11-2026). Sitemapdatum = de nieuwste van tekst en prijscontrole.
-export const TEKST_UPDATED = '2026-11-12';
+// Laatste tekstwijziging van deze pagina (FAQ 'periodiek' i.p.v. 'Elke maand', techronde 19-11, push 23-11). Sitemapdatum = de nieuwste van tekst en prijscontrole.
+export const TEKST_UPDATED = '2026-11-23';
 const C_LATER = CDATA.filter(([d]) => d === C_NIEUW).map(([, n]) => n);
 const controleTekst = C_OUD === C_NIEUW ? `De laatste controle was op ${fmtDate(C_NIEUW)}.` : `Alle prijzen zijn gecontroleerd op ${fmtDate(C_OUD)}; die van ${C_LATER.join(' en ')} opnieuw op ${fmtDate(C_NIEUW)}.`;
 const faq = [

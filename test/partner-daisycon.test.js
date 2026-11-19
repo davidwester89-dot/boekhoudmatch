@@ -72,13 +72,13 @@ test('over: eigen datum (OVER_UPDATED) voor lastmod; SITE.updated ongewijzigd', 
   assert.equal(SITE.updated, '2026-10-10');
 });
 
-test('kiezen 2026-11-19 (Informer-bronlink in standaarduitslag); vergelijken 2026-11-12 (Jortt-richtlijn in tabel); privacy ongewijzigd', async () => {
+test('kiezen 2026-11-19 (Informer-bronlink in standaarduitslag); vergelijken 2026-11-23 (FAQ periodiek, techronde 19-11); privacy ongewijzigd', async () => {
   const kiezen = (await import('../src/pages/kiezen.mjs')).default;
   const vergelijken = (await import('../src/pages/vergelijken.mjs')).default;
   assert.equal(kiezen.updated, '2026-11-19');
   assert.equal(kiezen.stamp.updated, '2026-11-19');
   assert.equal(kiezen.schema.find((s) => s['@type'] === 'WebApplication').dateModified, '2026-11-19');
-  assert.equal(vergelijken.updated, '2026-11-12');
+  assert.equal(vergelijken.updated, '2026-11-23'); // FAQ-tekst 'periodiek' (techronde 19-11, push 23-11)
   const kSrc = readFileSync('src/pages/kiezen.mjs', 'utf8');
   const vSrc = readFileSync('src/pages/vergelijken.mjs', 'utf8');
   assert.match(kSrc, /affiliatenetwerk Daisycon of Awin/);
