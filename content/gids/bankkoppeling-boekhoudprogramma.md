@@ -21,7 +21,7 @@ Met een automatische bankkoppeling komen je zakelijke banktransacties vanzelf in
 
 ## Bankkoppeling of importeren: wat is het verschil?
 
-Bij een bankkoppeling geef je je boekhoudprogramma toestemming om de transacties van je zakelijke rekening op te halen. Dat loopt meestal via PSD2, de Europese regels voor toegang tot je betaalrekening. Daarna verschijnen betalingen vanzelf in je boekhouding, en koppel je ze aan een factuur of bon.
+Bij een bankkoppeling geef je je boekhoudprogramma toestemming om de transacties van je [zakelijke rekening](/blog/zakelijke-rekening-zzp/) op te halen. Dat loopt meestal via PSD2, de Europese regels voor toegang tot je betaalrekening. Daarna verschijnen betalingen vanzelf in je boekhouding, en koppel je ze aan een factuur of bon.
 
 Bij importeren download je zelf een bankbestand, meestal MT940 of CAMT.053, en lees je dat in. Die bestanden heb je soms ook mét koppeling nodig: Moneybird haalt via Ponto hooguit zes maanden terug op, bij de Rabobank niets. Oudere transacties upload je als bestand.
 

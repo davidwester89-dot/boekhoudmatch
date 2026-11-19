@@ -39,7 +39,7 @@ Bewaar je urenregistratie bij je administratie. De basisregel is zeven jaar bewa
 
 ## Urenregistratie in je boekhoudprogramma
 
-Staan je uren in je boekhoudprogramma, dan zet je ze vaak direct op een factuur. Deze pakketten noemen urenregistratie:
+Staan je uren in je boekhoudprogramma, dan zet je ze vaak direct op een factuur; een eerder gestuurde [voorschotfactuur](/voorschotfactuur-maken/) verreken je dan op die eindfactuur. Deze pakketten noemen urenregistratie:
 
 {{blok:tabel uren}}
 
