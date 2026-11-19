@@ -46,6 +46,8 @@ export const home = {
   description: `Welk boekhoudprogramma past bij jouw zzp-bedrijf? 8 vragen, ${N_PAK} pakketten van ${N_AANB} aanbieders, met prijs, limiet en bron. Gratis, zonder account.`,
   og: 'home',
   updated: '2026-11-23',
+  stamp: { updated: '2026-11-23' },
+  schema: [{ '@context': 'https://schema.org', '@type': 'WebPage', name: 'Boekhoudprogramma zzp: welk pakket past?', url: SITE.domain + '/', dateModified: '2026-11-23', inLanguage: 'nl-NL' }],
   body: `
 <section class="hero sec">
 <div class="hero-txt">
@@ -159,6 +161,7 @@ export const offerte = {
   ogTitle: 'Gratis offerte en factuur maken',
   description: 'Maak gratis een offerte of factuur met alle verplichte gegevens, ook voor KOR en btw verlegd. Zonder account: alles blijft in je eigen browser.',
   crumb: 'Offerte en factuur maken', og: 'factuur', updated: '2026-11-23',
+  stamp: { updated: '2026-11-23' },
   body: `
 <h1>Gratis offerte en factuur maken</h1>
 <p class="lead">Maak een nette offerte of factuur met alle verplichte gegevens; die gelden ook voor een <a href="/voorschotfactuur-maken/">voorschotfactuur</a>. Zonder account, en je gegevens blijven op je eigen apparaat.</p>
@@ -174,7 +177,7 @@ ${more('Waar worden mijn gegevens bewaard?', '<p>Alleen in je eigen browser, zod
 ${volgendeStap([['Gratis boekhoudprogramma: wat krijg je wel en niet?', '/gratis-boekhoudprogramma/'], ['Boekhoudprogramma voor starters', '/boekhoudprogramma-starters/']])}
 ${slot('boekhoudsoftware', 'partnerlink boekhoudprogramma.')}
 {{related}}`,
-  schema: [webApp({ name: 'Offerte en factuur maken', url: SITE.domain + '/offerte-factuur-maken/', description: 'Gratis offertes en facturen maken in je browser, zonder account.' })],
+  schema: [Object.assign(webApp({ name: 'Offerte en factuur maken', url: SITE.domain + '/offerte-factuur-maken/', description: 'Gratis offertes en facturen maken in je browser, zonder account.' }), { dateModified: '2026-11-23' })],
 };
 
 export const bronnen = {
