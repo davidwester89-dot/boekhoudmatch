@@ -45,7 +45,7 @@ export const home = {
   ogTitle: 'BoekhoudMatch: welk boekhoudprogramma past bij jouw zzp-bedrijf?',
   description: `Welk boekhoudprogramma past bij jouw zzp-bedrijf? 8 vragen, ${N_PAK} pakketten van ${N_AANB} aanbieders, met prijs, limiet en bron. Gratis, zonder account.`,
   og: 'home',
-  updated: '2026-10-19',
+  updated: '2026-11-23',
   body: `
 <section class="hero sec">
 <div class="hero-txt">
@@ -95,7 +95,7 @@ ${situaties().filter((x) => x.top).map((x) => `<li><span class="sit-logo">${logo
 <h2>Zo vergelijken we</h2>
 <ol class="steps">
 <li><strong>Prijs van de aanbieder zelf.</strong> We halen elke prijs van de prijspagina van de aanbieder en linken naar die bron.</li>
-<li><strong>Elke maand gecontroleerd.</strong> Bij elk pakket staat de datum van de laatste controle.</li>
+<li><strong>Periodiek gecontroleerd.</strong> Bij elk pakket staat de datum van de laatste controle.</li>
 <li><strong>Partnerlinks veranderen niets.</strong> Eerst wat past, dan je budget, dan de prijs. Commissie telt nooit mee.</li>
 </ol>
 <p class="author">Door <a href="/over/">Redactie BoekhoudMatch</a> · <a href="/boekhoudprogramma-kiezen/#methode">Hoe de match werkt</a></p>
@@ -158,10 +158,10 @@ export const offerte = {
   title: 'Gratis factuur en offerte maken als zzp\'er | BoekhoudMatch',
   ogTitle: 'Gratis offerte en factuur maken',
   description: 'Maak gratis een offerte of factuur met alle verplichte gegevens, ook voor KOR en btw verlegd. Zonder account: alles blijft in je eigen browser.',
-  crumb: 'Offerte en factuur maken', og: 'factuur',
+  crumb: 'Offerte en factuur maken', og: 'factuur', updated: '2026-11-23',
   body: `
 <h1>Gratis offerte en factuur maken</h1>
-<p class="lead">Maak een nette offerte of factuur met alle verplichte gegevens. Zonder account, en je gegevens blijven op je eigen apparaat.</p>
+<p class="lead">Maak een nette offerte of factuur met alle verplichte gegevens; die gelden ook voor een <a href="/voorschotfactuur-maken/">voorschotfactuur</a>. Zonder account, en je gegevens blijven op je eigen apparaat.</p>
 <div class="actions"><a class="btn" href="/tools/offerteklaar.html" data-tool="factuur">Open de factuurtool</a></div>
 <h2>Wat de factuurtool doet</h2>
 <div class="grid cards">

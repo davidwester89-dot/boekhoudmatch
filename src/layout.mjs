@@ -161,7 +161,7 @@ export function more(summary, html) {
 // Wie erachter zit: het team van BoekhoudMatch (zie /over/). Auteur in JSON-LD = de organisatie.
 export const FOUNDER = {
   naam: 'het team van BoekhoudMatch',
-  zin: 'Ons team controleert elke maand de prijzen op de prijspagina\'s van de aanbieders.',
+  zin: 'Ons team controleert de prijzen periodiek op de prijspagina\'s van de aanbieders.',
   schema: { '@type': 'Organization', name: 'BoekhoudMatch', url: 'https://boekhoudmatch.nl/' },
 };
 // De methode, kort. Staat boven de vergelijking, op /over/ en bij de match.
